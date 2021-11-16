@@ -12,7 +12,7 @@ callables.
 
 ***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
 
-`index.js` - `node index.js`
+`index.js`
 
 ```javascript
 import Prompt from "@cloud-technology/cli-prompt";
