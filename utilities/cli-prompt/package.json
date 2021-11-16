@@ -1,0 +1,15 @@
+{
+    "name": "cli-prompt",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": { "start": "node Index.js", "example": "node examples/CLI-Form.js" },
+    "engines": { "node": "^16.x" },
+    "exports": [ "./index.js" ],
+    "type": "module",
+    "engineStrict": true,
+    "license": "BSD-3-Clause",
+    "author": "Jacob B. Sanders",
+    "description": "ESM CLI-Prompt Package",
+    "homepage": "https://github.com/cloud-hybrid/cli-prompt",
+    "repository": "git+https://github.com/cloud-hybrid/cli-prompt.git"
+}
