@@ -1,77 +1,25 @@
-# Environment Variables #
+# `@cloud-technology/cli-prompt` #
 
-## Configuration ##
+## Overview ##
 
-The `variables` key can be of three different types:
+`cli-prompt` is a zero dependency, node.js ESM-compliant *commandline prompt*.
 
-- `String`: *Path to Configuration File*
-- `Array<String>`: *Variable(s) that will Prompt for User Input during Configuration*
-- `Array<Object>`: *Default Key-Value Environment Variables*
+As an ESM module, when running via a compatible (16+) `node.js` runtime, package(s)
+benefit from running `await` via the global namespace for blocking cli-prompt
+callables.
 
-Where the latter two options can be mixed and matched arbitrarily.
+## Usage ##
 
-### Examples ###
+***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
 
-**User-Prompt Variables**:
+`index.js` - `node index.js`
 
-```json
-{
-    "type": "module",
-    "variables": [
-        "PRIVATE_TOKEN"
-    ]
-}
-```
+```javascript
+import Prompt from "@cloud-technology/cli-prompt";
 
-**All CRA Advanced Configuration Options w/Defaults**:
+const Query = await Prompt("First Name");
 
-```json
-{
-    "...": "...",
-    "variables": [
-        {
-            "PORT": "8443"
-        },
-        {
-            "HTTPS": "true"
-        },
-        {
-            "HOST": "localhost"
-        },
-        {
-            "FAST_REFRESH": "true"
-        },
-        {
-            "NODE_ENV": "development"
-        },
-        {
-            "SCROLL_TRACKING": "true"
-        },
-        {
-            "GENERATE_SOURCEMAP": "false"
-        },
-        {
-            "INLINE_RUNTIME_CHUNK": "true"
-        },
-        {
-            "ESLINT_NO_DEV_ERRORS": "false"
-        },
-        {
-            "DISABLE_ESLINT_PLUGIN": "true"
-        },
-        {
-            "DISABLE_NEW_JSX_TRANSFORM": "false"
-        },
-        {
-            "REACT_EDITOR": "/Applications/WebStorm.app"
-        },
-        {
-            "CHOKIDAR_USEPOLLING": "false"
-        },
-        {
-            "BROWSER": "google chrome"
-        }
-    ]
-}
+console.debug(Query);
 
+process.exit(0);
 ```
