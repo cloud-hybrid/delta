@@ -8,6 +8,20 @@ As an ESM module, when running via a compatible (16+) `node.js` runtime, package
 benefit from running `await` via the global namespace for blocking cli-prompt
 callables.
 
+## Setup ##
+
+```bash
+npm install --save @cloud-technology/cli-prompt
+```
+
+### Development ###
+
+*If installing only for development or POC-related purposes*
+
+```bash
+npm install --save-dev @cloud-technology/cli-prompt
+```
+
 ## Usage ##
 
 ***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
