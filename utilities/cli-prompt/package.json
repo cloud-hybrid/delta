@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/cli-prompt",
     "private": false,
-    "version": "0.0.3",
+    "version": "0.1.3",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
