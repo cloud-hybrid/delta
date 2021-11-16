@@ -1,8 +1,14 @@
 {
-    "name": "cli-prompt",
-    "version": "0.0.1",
+    "name": "@cloud-technology/cli-prompt",
+    "private": false,
+    "version": "0.0.3",
     "main": "index.js",
-    "scripts": { "start": "node Index.js", "example": "node examples/CLI-Form.js" },
+    "scripts": {
+        "start": "node index.js",
+        "package": "npm pack",
+        "upload": "npm publish --access public",
+        "example": "node examples/CLI-Form.js"
+    },
     "engines": { "node": "^16.x" },
     "exports": [ "./index.js" ],
     "type": "module",
