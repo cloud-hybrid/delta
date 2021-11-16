@@ -26,6 +26,9 @@ npm install --save-dev @cloud-technology/cli-prompt
 
 ***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
 
+- Please see the [`standalone` example](#https://github.com/cloud-hybrid/cli-prompt/tree/Development/examples/standalone)
+  for more details on usage.
+
 `index.js`
 
 ```javascript
