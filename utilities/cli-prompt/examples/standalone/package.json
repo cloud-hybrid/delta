@@ -1,0 +1,16 @@
+{
+  "name": "example-cli-prompt",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "...",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Public Domain",
+  "license": "ISC",
+  "dependencies": {
+    "@cloud-technology/cli-prompt": "^0.0.3"
+  }
+}
+
