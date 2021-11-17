@@ -1,5 +1,5 @@
 {
-    "name": "example-babel-app",
+    "name": "unit-testing-template",
     "version": "1.0.0",
     "description": "Babel example",
     "main": "lib/index.js",
