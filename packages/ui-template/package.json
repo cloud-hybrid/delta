@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/ui-template",
     "version": "0.1.2",
-    "private": true,
+    "private": false,
     "main": "./src/index.js",
     "repository": {
         "type": "git",
