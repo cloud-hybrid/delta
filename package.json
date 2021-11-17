@@ -52,6 +52,7 @@
         "pretest": "eslint packages",
         "clean": "lerna clean --yes",
         "postinstall": "lerna bootstrap --hoist",
+        "push": "lerna version patch",
         "login": "npm adduser",
         "start.ui-template": "cd packages/ui-template && npm run start",
         "reinstall": "lerna bootstrap --force-local",
