@@ -1,13 +1,9 @@
 {
     "name": "@cloud-technology/cli-prompt",
     "private": false,
-    "version": "0.1.5",
+    "version": "0.1.6",
     "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cloud-hybrid/delta.git",
-        "directory": "utilities/cli-prompt"
-    },
+    "repository": "git+https://github.com/cloud-hybrid/cli-prompt.git",
     "scripts": {
         "start": "node index.js",
         "package": "npm pack",
@@ -25,6 +21,5 @@
     "license": "BSD-3-Clause",
     "author": "Jacob B. Sanders",
     "description": "ESM CLI-Prompt Package",
-    "homepage": "https://github.com/cloud-hybrid/cli-prompt",
-    "repository": "git+https://github.com/cloud-hybrid/cli-prompt.git"
+    "homepage": "https://github.com/cloud-hybrid/cli-prompt"
 }
