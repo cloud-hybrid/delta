@@ -1,8 +1,10 @@
-import { Library } from "@cloud-technology/api-library";
+import * as Library from "./../library/index.js";
 
 Library.ORM.set("autoIndex", false);
 
-export const Schema = Library.ORM.Schema;
+export const ORM = Library.ORM;
+export const Schema = ORM.Schema;
+export const Types = ORM.Types;
 
 export const Model = Library.ORM.model;
 

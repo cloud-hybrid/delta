@@ -1,7 +1,6 @@
-import * as T from "node:wasi"
 /***
  *
- * @returns {boolean|}
+ * @returns {boolean}
  *
  * @constructor
  *

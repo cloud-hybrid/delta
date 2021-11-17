@@ -38,16 +38,20 @@ export const Type = {
 }
 
 /***
- * @type {import("mongoose").Schema<type>}
+ * @type {Schema<Type>}
  */
 
 const Definition = new Schema(Type);
 
 /***
- * @type {import("mongoose").Model<Definition>}
+ * @type {new Model<Definition>}
  */
 
 const Instance = Model( "User-Name", Definition, "User-Name", false);
+
+/***
+ * @type {new HydratedDocument<unknown, {}, {}>}
+ */
 
 export const Record = new Instance({
     First: "First-Name",

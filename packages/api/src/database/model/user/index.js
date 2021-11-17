@@ -30,16 +30,22 @@ export const Type = {
 }
 
 /***
- * @type {import("mongoose").Schema<type>}
+ * @type {Schema<Type>}
  */
 
 export const Definition = new Schema(Type);
 
 /***
- * @type {import("mongoose").Model<Definition>}
+ * @type {new Model<Definition>}
  */
 
 const Instance = Model("User", Definition, "User", false);
+
+/***
+ *
+ * @type {new HydratedDocument<unknown, {}, {}>}
+ *
+ */
 
 const Record = new Instance({ Name: Name.Record, Email: "schema@internal.io" });
 
