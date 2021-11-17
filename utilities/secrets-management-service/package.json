@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/secrets-management-service",
     "description": "...",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "private": false,
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.41.0",
