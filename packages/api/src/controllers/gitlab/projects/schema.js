@@ -3,9 +3,7 @@ import { Query } from "./api.js";
 import { default as flatten } from "./../../../utilities/flatten.js";
 
 /***
- *
  * @type {{Data: [{File: string, URL: string, Name: string}]}}
- *
  */
 
 export const Official = {

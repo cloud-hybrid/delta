@@ -1,4 +1,4 @@
-import { Library } from "@cloud-technology/api-library";
+import * as Library from "./../library/index.js";
 
 import { Generator } from "./../utilities/configuration.js";
 

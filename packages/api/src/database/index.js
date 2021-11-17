@@ -6,7 +6,20 @@ export const ORM = Library.ORM;
 export const Schema = ORM.Schema;
 export const Types = ORM.Types;
 
-export const Model = Library.ORM.model;
+/***
+ *
+ * @param name {String}
+ * @param schema {Schema}
+ * @param collection {String}
+ * @param skipInit {Boolean}
+ *
+ * @returns {Model}
+ *
+ * @constructor
+ *
+ */
+
+export const Model = (name, schema, collection, skipInit) => ORM.model(name, schema, collection, skipInit);
 
 await Library.ORM.connect("mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false", {
     dbName: "Nexus-Dashboard",

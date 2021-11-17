@@ -1,3 +1,8 @@
+/***
+ * @typedef Type
+ * @type {Schema<Type>}
+ */
+
 const Global = Object.create({
     initialize: true
 });
@@ -5,9 +10,12 @@ const Global = Object.create({
 import * as Name from "./name.js";
 
 import {
-    Schema,
-    Model
+    ORM, Schema
 } from "./../../index.js";
+
+/***
+ * @type {{Email: {lowercase: boolean, trim: boolean, unique: boolean, index: boolean, alias: string, type: StringConstructor, required: boolean}, Name: {lowercase: boolean, unique: boolean, alias: string, type: Schema<Type>, required: boolean}}}
+ */
 
 export const Type = {
     Email: {
@@ -30,26 +38,15 @@ export const Type = {
 }
 
 /***
- * @type {Schema<Type>}
+ * @type {Type}
  */
 
 export const Definition = new Schema(Type);
 
-/***
- * @type {new Model<Definition>}
- */
-
-const Instance = Model("User", Definition, "User", false);
-
-/***
- *
- * @type {new HydratedDocument<unknown, {}, {}>}
- *
- */
-
+const Instance = ORM.model("User", Definition, "User", false);
 const Record = new Instance({ Name: Name.Record, Email: "schema@internal.io" });
-
 const Initialize = (await Instance.collection.stats()).count === 0;
+
 (Global.initialize || Initialize) && await Record.save(async (error) => {
     if (error && (await Instance.collection.stats()).count === 0) {
         console.error("[Error]", error);

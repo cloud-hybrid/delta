@@ -1,0 +1,46 @@
+#!/bin/bash --norc
+
+# -*-  Coding: UTF-8  -*- #
+# -*-  System: Linux  -*- #
+# -*-  Usage:   *.*   -*- #
+
+[[ ${@} =~ "--debug" || ${@} =~ "--Debug" ]] && set -x
+
+export GWD="$(git rev-parse --show-toplevel)"
+
+declare VCS="gitlab.mycapstone.com"
+
+printf "%s" "${VCS} - Project-ID: " && declare ID="$(read _ID; printf "%s" "${_ID}")"
+
+printf "%s" "${VCS} - Username: " && declare USERNAME="$(read _USERNAME; printf "%s" "${_USERNAME}")"
+printf "%s" "${VCS} - Personal Access Token: " && declare TOKEN="$(read _TOKEN; printf "%s" "${_TOKEN}")"
+
+for STATE in "Production" "Editorial" "Staging" "QA" "Development"; do
+    declare URI="https://${USERNAME}:${TOKEN}@${VCS}/api/v4/projects/${ID}/terraform/state/${STATE}"
+
+    terraform init \
+        -backend-config="address=${URI}" \
+        -backend-config="lock_address=${URI}/lock" \
+        -backend-config="unlock_address=${URI}/lock" \
+        -backend-config="username=${USERNAME}" \
+        -backend-config="password=${TOKEN}" \
+        -backend-config="lock_method=POST" \
+        -backend-config="unlock_method=DELETE" \
+        -backend-config="retry_wait_min=5" 2>/dev/null || \
+    terraform init -migrate-state \
+        -backend-config="address=${URI}" \
+        -backend-config="lock_address=${URI}/lock" \
+        -backend-config="unlock_address=${URI}/lock" \
+        -backend-config="username=${USERNAME}" \
+        -backend-config="password=${TOKEN}" \
+        -backend-config="lock_method=POST" \
+        -backend-config="unlock_method=DELETE" \
+        -backend-config="retry_wait_min=5" || \
+    { \
+        printf "%s\n%s\n%s\n" "Terraform State Needs Reconfiguration." \
+            "Please Copy & Paste the Following URL to Terraform when Prompted: " \
+            "   - ${URI}" ;\
+        terraform init -reconfigure
+    }
+done
+

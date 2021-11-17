@@ -1,15 +1,3 @@
-import { Call } from "./../../../utilities/request.js";
-
-/***
- *
- * @param page
- * @param items
- * @returns {string}
- *
- * @constructor
- *
- */
-
 import * as User from "./../../../database/model/user/index.js";
 
 export const Schema = async () => {

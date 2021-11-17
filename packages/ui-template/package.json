@@ -54,7 +54,8 @@
         "sass": "1.38.2",
         "source-map-explorer": "^2.5.2",
         "styled-components": "^5.3.3",
-        "web-vitals": "^2.1.2"
+        "web-vitals": "^2.1.2",
+        "webpack-cli": "^4.9.1"
     },
     "lint-staged": {
         "*.js": "eslint --cache --fix",
