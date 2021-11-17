@@ -1,4 +1,4 @@
-import { NotificationsPanel } from "./../../carbon/ibm-cloud-cognitive/es/components/NotificationsPanel";
+import { NotificationsPanel } from "@carbon/ibm-cloud-cognitive";
 
 import "@carbon/ibm-cloud-cognitive/css/index-without-carbon.min.css";
 
@@ -6,7 +6,7 @@ import "./SCSS/Notification.scss";
 
 const Component = ({ State }) => {
     return (
-        <NotificationsPanel
+        <NotificationsPanel { ... NotificationsPanel.defaultProps }
             open={ State[0] }
             //            dismissAllLabel={ "Dismiss-All" }
             //            emptyStateLabel={ "Empty" }
@@ -88,6 +88,7 @@ const Component = ({ State }) => {
             } }
             doNotDisturbLabel={ "Do Not Disturb" }
             onDoNotDisturbChange={ () => {
+                console.debug("[Debug]", "Notifications", "Event: Do Not Disturb");
                 // setDoNotDisturb(!doNotDisturb);
             } }
             onSettingsClick={ () => {
@@ -96,7 +97,6 @@ const Component = ({ State }) => {
             onViewAllClick={ () => {
                 console.debug("[Debug]", "Notifications", "Event: View All");
             } }
-            doNotDisturbDefaultToggled={ false }
         />
     );
 };

@@ -1,6 +1,4 @@
-import "react-app-polyfill/stable";
-
-import "./Configuration";
+import "./settings/index.js";
 
 import ReactDOM from "react-dom";
 import React, { lazy as Import, Suspense } from "react";

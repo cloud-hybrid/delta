@@ -32,7 +32,6 @@ const Dashboard = {
 import { default as Home } from "./pages/Home";
 
 import "./Application.scss";
-
 const Application = () => {
     const location = useLocation();
     const Authorization = useState(null);

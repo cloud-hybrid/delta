@@ -10,4 +10,5 @@
     3. `verbose` (Setting the loglevel)
 4. `git add --all && git commit --message "Mono-Repository Setup"`
 5. `git clone https://github.com/cloud-hybrid/ui-template.git`
-6. `lerna import ui-template --dest packages`
+6. `git push --set-upstream origin Development`
+7. `lerna import ui-template --dest packages`

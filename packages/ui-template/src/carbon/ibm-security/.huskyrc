@@ -1,6 +1,0 @@
-{
-  hooks: {
-    commitmsg: 'commitlint -E HUSKY_GIT_PARAMS',
-    'pre-commit': 'run-s docs lint-staged',
-  }
-}

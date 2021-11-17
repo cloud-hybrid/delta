@@ -1,5 +1,3 @@
-import * as crypto from "crypto";
-
 import { Data as Names } from "./First-Names";
 import { Data as Surnames } from "./Last-Names";
 

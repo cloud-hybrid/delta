@@ -1,9 +1,6 @@
 import { settings } from "carbon-components";
-import * as Features from "@carbon/feature-flags";
-import { pkg } from "@carbon/ibm-cloud-cognitive";
 
-pkg.setAllComponents(true);
-pkg.setAllFeatures(true);
+import * as Features from "@carbon/feature-flags";
 
 settings.prefix = "cds";
 

@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import * as Styles from "./SCSS/Index.module.scss";
 
 import Icon from "../Icon";
-import { default as Loading } from "@carbon/ibm-security/es/components/Loading";
+import { Loading } from "@carbon/react";
 
 const defaultSize = "md";
 const SIZE = [ "lg", defaultSize, "sm" ];
