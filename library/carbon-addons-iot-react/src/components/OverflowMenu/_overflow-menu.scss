@@ -1,0 +1,11 @@
+@import '~carbon-components/scss/components/overflow-menu/overflow-menu';
+
+button.#{$prefix}--overflow-menu {
+  background: none;
+}
+
+.#{$prefix}--overflow-menu-options[data-floating-menu-direction] {
+  &:after {
+    width: $spacing-09;
+  }
+}

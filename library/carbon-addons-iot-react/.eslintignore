@@ -1,0 +1,10 @@
+node_modules/
+coverage/
+config/
+lib/
+es/
+umd/
+tmp/
+storybook-static/
+results/
+examples/
