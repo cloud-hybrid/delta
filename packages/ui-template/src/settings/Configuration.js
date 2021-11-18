@@ -11,7 +11,11 @@ Features.merge({
     "enable-v11-release": true
 });
 
-export default settings;
+export default {
+    ... settings, ... {
+        Prefix: "io"
+    }
+};
 
 export const Flags = Features.FeatureFlags;
 

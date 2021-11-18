@@ -11,6 +11,8 @@ import { default as Spinner } from "./components/Loader";
 
 import { Authorizer, JWT, Validate, Cancellation } from "./components/Authenticate";
 
+//import { default as $Button } from "./components/Button";
+
 const Login = Import(() => import("./pages/Login"));
 const GitHub = Import(() => import("./pages/GitHub"));
 const GitLab = Import(() => import("./pages/GitLab"));
@@ -32,6 +34,7 @@ const Dashboard = {
 import { default as Home } from "./pages/Home";
 
 import "./Application.scss";
+
 const Application = () => {
     const location = useLocation();
     const Authorization = useState(null);
@@ -64,6 +67,11 @@ const Application = () => {
                             <Breadcrumbs Title={ location.pathname }/>
                         </Column>
                     </Row>
+                    {/*<Row>*/ }
+                    {/*    <$Button loading={ true } recommended={ true } kind={ "ghost" }>*/ }
+                    {/*        <span>Hello</span>*/ }
+                    {/*    </$Button>*/ }
+                    {/*</Row>*/ }
                     <Suspense fallback={ null }>
                         <Spinner timeout={ 1000 } description={ "" }>
                             <Routes basename={ "/" }>

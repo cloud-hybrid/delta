@@ -2,24 +2,28 @@
 
 /* =============================================================================
 Package Style Sheet (SCSS)
-*/ //// =========================================================================
+*/
+//// =========================================================================
 
 @use "sass:map";
 
 /* --------------------
 Global Variable(s)
-*/// ------------------
+*/
+// ------------------
 
 $prefix: "cds" !default;
 $name:   "io" !default;
 
 /* ------------------------------------
 Design System Extension Enablement
-*/// ----------------------------------
+*/
+// ----------------------------------
 
 /* ---------------------
 Module(s) & Imports
-*/// -------------------
+*/
+// -------------------
 
 @use "@carbon/react";
 
@@ -38,7 +42,7 @@ Module(s) & Imports
 @use "@carbon/react/scss/theme" as *;
 
 @forward "@carbon/react/scss/breakpoint";
-@forward "@carbon/react/scss/colors";
+@forward "~@carbon/react/scss/colors";
 @forward "@carbon/react/scss/spacing";
 @forward "@carbon/react/scss/grid";
 @forward "@carbon/react/scss/type";
@@ -52,7 +56,8 @@ Module(s) & Imports
 
 /* -------------------------
 Document & Root Styling
-*/// -----------------------
+*/
+// -----------------------
 
 :root {
     @include theme($g100);
