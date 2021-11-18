@@ -67,9 +67,7 @@
         "profile": "lerna run build --profile",
         "info": "lerna info"
     },
-    "dependencies": {
-
-    },
+    "dependencies": {},
     "workspaces": [
         "library/*",
         "packages/*",
