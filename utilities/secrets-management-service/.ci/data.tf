@@ -13,7 +13,3 @@ data aws_secretsmanager_secret "github-credentials" {
 data aws_secretsmanager_secret_version "github-credentials-instance" {
   secret_id = data.aws_secretsmanager_secret.github-credentials.id
 }
-
-data "github_organization" "organization" {
-  name = jsondecode(data.aws_secretsmanager_secret_version.github-credentials-instance.secret_string)["Organization"]
-}
