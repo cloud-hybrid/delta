@@ -1,7 +1,7 @@
 # delta #
 
 <center>
-<div style="max-width: 500px;" align="center">
+<div style="max-width: 500px; max-height: 100px" align="center">
 
 ![DAG Graph](./documentation/Assets/DAG.png)
 
