@@ -103,6 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
+.aws-sam
+
 .idea
 .vscode
 .DS_Store

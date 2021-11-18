@@ -8,39 +8,56 @@
 
 export GWD="$(git rev-parse --show-toplevel)"
 
-declare VCS="gitlab.mycapstone.com"
+declare VCS="gitlab.cloudhybrid.io"
 
-printf "%s" "${VCS} - Project-ID: " && declare ID="$(read _ID; printf "%s" "${_ID}")"
+[[ -f ".Credentials" && -f ".ID" ]] && export VALIDATION="True"
+[[ -f ".Credentials" && -f ".ID" ]] || export VALIDATION="False"
 
-printf "%s" "${VCS} - Username: " && declare USERNAME="$(read _USERNAME; printf "%s" "${_USERNAME}")"
-printf "%s" "${VCS} - Personal Access Token: " && declare TOKEN="$(read _TOKEN; printf "%s" "${_TOKEN}")"
+[[ ${VALIDATION} == "False" ]] && printf "%s" "${VCS} - Project-ID: " && declare ID="$(read _ID; printf "%s" "${_ID}")"
+
+[[ ${VALIDATION} == "False" ]] && printf "%s" "${VCS} - Username: " && declare USERNAME="$(read _USERNAME; printf "%s" "${_USERNAME}")"
+[[ ${VALIDATION} == "False" ]] && printf "%s" "${VCS} - Personal Access Token: " && declare TOKEN="$(read _TOKEN; printf "%s" "${_TOKEN}")"
+
+[[ ${VALIDATION} == "False" ]] && ( echo "${ID}" > ".ID" && echo "${USERNAME}:${TOKEN}" > ".Credentials" )
+
+[[ ${VALIDATION} == "False" ]] && cat << "EOF" > ".gitignore"
+.ID
+.DS_Store
+.Credentials
+
+.archive
+.terraform
+
+Artifact
+EOF
 
 for STATE in "Production" "Editorial" "Staging" "QA" "Development"; do
-    declare URI="https://${USERNAME}:${TOKEN}@${VCS}/api/v4/projects/${ID}/terraform/state/${STATE}"
+    declare URI="https://$(cat .Credentials)@${VCS}/api/v4/projects/$(cat .ID)/terraform/state/${STATE}"
 
-    terraform init \
-        -backend-config="address=${URI}" \
-        -backend-config="lock_address=${URI}/lock" \
-        -backend-config="unlock_address=${URI}/lock" \
-        -backend-config="username=${USERNAME}" \
-        -backend-config="password=${TOKEN}" \
-        -backend-config="lock_method=POST" \
-        -backend-config="unlock_method=DELETE" \
-        -backend-config="retry_wait_min=5" 2>/dev/null || \
-    terraform init -migrate-state \
-        -backend-config="address=${URI}" \
-        -backend-config="lock_address=${URI}/lock" \
-        -backend-config="unlock_address=${URI}/lock" \
-        -backend-config="username=${USERNAME}" \
-        -backend-config="password=${TOKEN}" \
-        -backend-config="lock_method=POST" \
-        -backend-config="unlock_method=DELETE" \
-        -backend-config="retry_wait_min=5" || \
+    terraform init                                                              \
+        --backend-config "address=${URI}"                                       \
+        --backend-config "lock_address=${URI}/lock"                             \
+        --backend-config "unlock_address=${URI}/lock"                           \
+        --backend-config "username=${USERNAME}"                                 \
+        --backend-config "password=${TOKEN}"                                    \
+        --backend-config "lock_method=POST"                                     \
+        --backend-config "unlock_method=DELETE"                                 \
+        --backend-config "retry_wait_min=5" 2>/dev/null                         \
+    || terraform init --migrate-state                                           \
+        --backend-config "address=${URI}"                                       \
+        --backend-config "lock_address=${URI}/lock"                             \
+        --backend-config "unlock_address=${URI}/lock"                           \
+        --backend-config "username=${USERNAME}"                                 \
+        --backend-config "password=${TOKEN}"                                    \
+        --backend-config "lock_method=POST"                                     \
+        --backend-config "unlock_method=DELETE"                                 \
+        --backend-config "retry_wait_min=5" ||                                  \
     { \
-        printf "%s\n%s\n%s\n" "Terraform State Needs Reconfiguration." \
-            "Please Copy & Paste the Following URL to Terraform when Prompted: " \
-            "   - ${URI}" ;\
-        terraform init -reconfigure
+        printf "\n%s\n" "Terraform State Needs Reconfiguration" \ ;
+        printf "\n%s\n" "Please Copy & Paste the Following URL to Terraform when Prompted: " \ ;
+        printf "\n%s\n" "${URI}" \ ;
+            terraform init --reconfigure
     }
+
 done
 

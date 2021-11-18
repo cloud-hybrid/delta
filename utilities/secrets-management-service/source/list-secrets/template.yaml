@@ -4,77 +4,22 @@ Description: -<
     secrets-rotation-service
 
 Transform: [
-    "AWS::Serverless-2016-10-31"
+        "AWS::Serverless-2016-10-31"
 ]
 
-Globals: { Function: { Runtime: "nodejs14.x", Timeout: 30, Architectures: [ "x86_64" ] } }
+Globals: { Function: { Runtime: "nodejs14.x", Architectures: [ "x86_64" ], MemorySize: 128, Timeout: 30, Environment: { Variables: { AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1 } } } }
 
 Resources:
-    Logging:
-        Type: AWS::Logs::LogGroup
-        Properties:
-            LogGroupName: !Sub "${AWS::Stack}-Service-Level-Log-Group"
-            RetentionInDays: Integer
-
-    API:
-        Type: AWS::Serverless::Api
-        Properties:
-            AccessLogSetting:
-                LogGroupName:
-                    !Ref Logging
-                Format: |
-                    {
-                        "requestId": "$context.requestId",
-                        "extendedRequestId": "$context.extendedRequestId",
-                        "ip": "$context.identity.sourceIp",
-                        "caller": "$context.identity.caller",
-                        "user": "$context.identity.user",
-                        "requestTime": "$context.requestTime",
-                        "httpMethod": "$context.httpMethod",
-                        "resourcePath": "$context.resourcePath",
-                        "status": "$context.status",
-                        "protocol": "$context.protocol",
-                        "responseLength": "$context.responseLength"
-                    }
-            Auth: ApiAuth
-            BinaryMediaTypes: List
-            CacheClusterEnabled: Boolean
-            CacheClusterSize: String
-            CanarySetting: CanarySetting
-            Cors: String | CorsConfiguration
-            DefinitionBody: String
-            DefinitionUri: String | ApiDefinition
-            Description: String
-            Domain: DomainConfiguration
-            EndpointConfiguration: EndpointConfiguration
-            GatewayResponses: Map
-            MethodSettings: MethodSettings
-            MinimumCompressionSize: Integer
-            Mode: String
-            Models: Map
-            Name: String
-            OpenApiVersion: String
-            StageName: String
-            Tags: Map
-            TracingEnabled: Boolean
-            Variables: Map
-
-    Function: # --> List All Secrets
+    Function:
         Type: AWS::Serverless::Function
         Properties:
-            Handler: !Join [ "/", [ "src", *Handler ] ]
-            MemorySize: *Memory
+            Handler: !Join [ "/", [ "src", "index.handler" ] ]
             Events: { API: {
                 Type: "Api",
                 Properties: {
-                    Path: "/api/secrets",
+                    Path: "/api/list-secrets",
                     Method: "GET",
                 }
             } }
 
-            Description: "List All Secrets, Sanitized"
-
-Outputs:
-    Endpoint:
-        Description: "API Gateway URL"
-        Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+            Description: "..."

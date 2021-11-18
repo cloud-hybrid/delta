@@ -22,21 +22,23 @@ import * as Process from "process";
  *
  */
 
-export const Prompt = (query) => new Promise(async (resolve, reject) => {
-    let $;
+export const Prompt = (query) => {
+    return new Promise(async (resolve, reject) => {
+        let $;
 
-    const Interface = Input.createInterface({
-        input: Process.openStdin(),
-        output: Process.stdout
+        const Interface = Input.createInterface({
+            input: Process.openStdin(),
+            output: Process.stdout
+        });
+
+        const prompt = Utility.promisify(Interface.question).bind(Interface);
+
+        try {
+            $ = await prompt(query);
+        } catch (_) { reject(_) } finally { Interface.close() }
+
+        resolve($);
     });
-
-    const prompt = Utility.promisify(Interface.question).bind(Interface);
-
-    try {
-        $ = await prompt(query);
-    } catch (_) { reject(_) } finally { Interface.close() }
-
-    resolve($);
-});
+}
 
 export default Prompt;
