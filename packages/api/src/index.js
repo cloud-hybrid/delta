@@ -30,4 +30,4 @@ const Server = () => {
     });
 };
 
-export default Server;
+export { Server };

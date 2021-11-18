@@ -1,1 +1,1 @@
-import("./src/index.js").then((Server) => Server).
+import("./src/index.js").then(($) => $.Server());

@@ -27,6 +27,14 @@ await Library.ORM.connect("mongodb://localhost:27017/?readPreference=primary&app
     keepAlive: true,
     autoIndex: true,
     appName: process.env["Server"] || "Nexus-API"
-});
+}, ((error) => {
+    if ( error ) {
+        console.error("[Error]", "Fatal Error While Establishing Connection to Database", error);
+        console.error("[Error]", "Exiting ...");
+        process.exit(1);
+    } else {
+        console.debug("[Debug]", "Successfully Established Connection to Database");
+    }
+}));
 
 export default Library.ORM;
