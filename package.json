@@ -59,6 +59,7 @@
         "pretest": "eslint packages",
         "clean": "lerna clean --yes",
         "postinstall": "lerna bootstrap --hoist",
+        "commit": "git commit --all --file - ",
         "push": "lerna version patch",
         "login": "npm adduser",
         "api": "cd packages/api && npm run start",
