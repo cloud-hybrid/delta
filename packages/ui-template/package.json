@@ -9,7 +9,7 @@
         "directory": "packages/ui-template"
     },
     "scripts": {
-        "setup": "cross-env npm install --save-dev",
+        "setup": "npm install --save-dev",
         "sass": "sass --watch ./src --load-path ./node_modules/@carbon --load-path node_modules --load-path .",
         "clean-ts": "find . -type f -name \"*.d.ts\" -delete",
         "clean-css": "find . -type f -name \"*.css\" -delete && find . -type f -name \"*.css.map\" -delete",

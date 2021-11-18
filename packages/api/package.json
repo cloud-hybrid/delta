@@ -5,7 +5,8 @@
     "main": "src/index.js",
     "type": "module",
     "scripts": {
-        "start": "node src/index.js"
+        "start": "node src/index.js",
+        "setup": "npm install --save-dev"
     },
     "repository": {
         "type": "git",
@@ -20,7 +21,6 @@
         "mongoose": "^6.0.12",
         "octokit": "^1.7.0"
     },
-    "ci-cd": ".ci",
     "devDependencies": {
         "@octokit/openapi-types": "^11.2.0",
         "@octokit/types": "^6.34.0",

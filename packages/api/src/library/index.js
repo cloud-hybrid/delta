@@ -23,3 +23,14 @@ export const Database = mongodb;
 import mongoose from "mongoose";
 
 export const ORM = mongoose;
+
+export default {
+    API,
+    Application,
+    Router,
+    Compression,
+    Axios,
+    Octokit,
+    Database,
+    ORM
+}
