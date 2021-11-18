@@ -11,7 +11,12 @@ const Response = (body, status = 200, headers = {}) => {
             ... {
                 "Server": "X-Secrets-Service",
                 "Content-Type": "Application/JSON",
-                "X-Deployment-Version": process.env.npm_init_version
+                "X-Deployment-Version": process.env.npm_init_version,
+
+                // If Cookies or Basic Authentication, Set := true
+                "Access-Control-Allow-Credentials": false,
+                "Access-Control-Allow-Origin": "*"
+
             }, ... headers
         }
     }
