@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/scss-generator",
     "private": true,
-    "version": "10.13.0",
+    "version": "0.1.16",
     "main": "src/index.js",
     "type": "module",
     "license": "BSD-3-Clause",
