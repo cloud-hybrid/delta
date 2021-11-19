@@ -17,6 +17,15 @@ export default {
     }
 };
 
+/***
+ *
+ * @param feature {String}
+ * @returns {Boolean}
+ * @constructor
+ */
+
+export const Enabled = (feature) => Features.enabled(feature);
+
 export const Flags = Features.FeatureFlags;
 
 if ( process.env.NODE_ENV !== "production" ) console.debug({ Flags: Features.FeatureFlags });

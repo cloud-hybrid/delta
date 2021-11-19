@@ -1,10 +1,3 @@
-/**
- * Copyright IBM Corp. 2016, 2018
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import { useEffect, useRef } from "react";
 
 export function useEvent(element, eventName, callback) {
@@ -16,7 +9,7 @@ export function useEvent(element, eventName, callback) {
 
     useEffect(() => {
         function handler(event) {
-            if (savedCallback.current) {
+            if ( savedCallback.current ) {
                 savedCallback.current(event);
             }
         }
@@ -26,5 +19,5 @@ export function useEvent(element, eventName, callback) {
         return () => {
             element.removeEventListener(eventName, handler);
         };
-    }, [element, eventName]);
+    }, [ element, eventName ]);
 }

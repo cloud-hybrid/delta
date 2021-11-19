@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import * as Styles from "./SCSS/Index.module.scss";
 
+import { default as Button } from "./../../components/Button";
+
 import {
     Application,
     Globe,
@@ -10,7 +12,6 @@ import {
 } from "@carbon/icons-react/next";
 
 import {
-    Button,
     Column,
     Row,
     Grid,
@@ -120,7 +121,9 @@ const Component = () => (
                                         community-driven APIs and extends IBM’s open-source Design System
                                         to create a seamless, easy-to-use management experience.
                                     </p>
-                                    <Button>Learn more</Button>
+                                    <Button>
+                                        Learn more
+                                    </Button>
                                 </Column>
                                 <Column
                                     md={ 4 }
@@ -146,7 +149,8 @@ const Component = () => (
                                         Express Creativeness
                                     </h2>
                                     <p className={ Styles["home-paragraph"] }>
-                                        Catered for both the engineer or the artisan - users in need of a new platform will find Nexus a suitable replacement for their business & engineering requirements.
+                                        Catered for both the engineer or the artisan - users in need of a new platform will find Nexus a suitable replacement
+                                        for their business & engineering requirements.
                                     </p>
                                     <Button>Learn more</Button>
                                 </Column>

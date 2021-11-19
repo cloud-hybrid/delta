@@ -1,11 +1,4 @@
-/**
- * Copyright IBM Corp. 2016, 2018
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * `useDelayedState` mirrors `useState` but also allows you to add a delay to
@@ -18,7 +11,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * a previous call
  */
 export function useDelayedState(initialState) {
-    const [state, setState] = useState(initialState);
+    const [ state, setState ] = useState(initialState);
     const timeoutId = useRef(null);
     // We use `useCallback` to match the signature of React's `useState` which will
     // always return the same reference for the `setState` updater
@@ -26,7 +19,7 @@ export function useDelayedState(initialState) {
         clearTimeout(timeoutId.current);
         timeoutId.current = null;
 
-        if (delayMs === 0) {
+        if ( delayMs === 0 ) {
             setState(stateToSet);
             return;
         }
@@ -43,5 +36,5 @@ export function useDelayedState(initialState) {
         };
     }, []);
 
-    return [state, setStateWithDelay];
+    return [ state, setStateWithDelay ];
 }

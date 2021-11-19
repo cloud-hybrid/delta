@@ -1,14 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Button as $, Loading } from "carbon-components-react";
-import { ButtonKinds } from "carbon-components-react/es/prop-types/types";
+import { default as $ } from "./button.js";
+import { Loading } from "carbon-components-react";
+import { Kinds } from "./Kinds.js";
 
 import classnames from "classnames";
 
 import { default as settings } from "./../../settings/Configuration.js";
 
 const Properties = {
+    ... $.propTypes,
+
     /** Show loading spinner, only new prop */
     loading: PropTypes.bool,
 
@@ -19,11 +22,13 @@ const Properties = {
     children: PropTypes.node,
 
     /** click handler */
-    onClick: PropTypes.func, // eslint-disable-line react/require-default-props
-    className: PropTypes.string,
+    onClick: PropTypes.func,
 
-    /** primary, secondary, etc from carbon */
-    kind: PropTypes.oneOf([ ... ButtonKinds, "icon-selection" ]),
+    /***
+     * @type {["primary", "secondary", "danger", "ghost", "danger--primary", "danger--ghost", "danger--tertiary", "tertiary", "icon-selection"]}
+     */
+
+    kind: PropTypes.oneOf([ ... Kinds, "icon-selection" ]),
 
     /** display green border to denote a recommended button to select, to be used with kind: 'icon-selection' */
     recommended: PropTypes.bool,
@@ -67,16 +72,14 @@ const Button = React.forwardRef((props, ref) => {
             kind={ kind === "icon-selection" ? "ghost" : kind }
             hasIconOnly={ kind === "icon-selection" ? true : hasIconOnly }
             onClick={ onClick }
-            className={ classnames(className, [ settings.Prefix, "-btn" ].join(""), {
-                [
-                    [ settings.Prefix, "-btn-icon-selection" ].join("")
-                    ]: kind === "icon-selection", [
-                    [ settings.Prefix, "-btn-icon-selection-recommended" ].join("")
-                    ]: kind === "icon-selection" && !disabled && recommended,
-                [
-                    [ settings.Prefix, "-btn-icon-selection-selected" ]
-                    ]: kind === "icon-selection" && selected
-            }) }
+            className={ classnames(
+                className, {
+                    [
+                        [ settings.Prefix, "-btn-icon-selection" ].join("")]: kind === "icon-selection", [
+                        [ settings.Prefix, "-btn-icon-selection-recommended" ].join("")]: kind === "icon-selection"
+                    && !disabled && recommended, [[ settings.Prefix, "-btn-icon-selection-selected" ]]: kind === "icon-selection" && selected
+                }
+            ) }
 
             disabled={ disabled || (loading !== undefined && loading !== false) }
         >

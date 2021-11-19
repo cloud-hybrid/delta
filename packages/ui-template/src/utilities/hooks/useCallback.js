@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from "react";
 
 /**
  * Provide a stable reference for a callback that is passed as a prop to a
@@ -17,7 +17,7 @@ export function useSavedCallback(callback) {
     });
 
     return useCallback(() => {
-        if (savedCallback.current) {
+        if ( savedCallback.current ) {
             return savedCallback.current();
         }
     }, []);

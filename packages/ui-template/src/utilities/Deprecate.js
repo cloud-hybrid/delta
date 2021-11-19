@@ -1,5 +1,7 @@
 const emptyFunction = function () {};
 
+const __DEV__ = process.env.NODE_ENV !== "production";
+
 const warning = __DEV__
     ? function warning(condition, format, ... args) {
         if ( format === undefined ) {

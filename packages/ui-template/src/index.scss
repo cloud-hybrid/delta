@@ -63,8 +63,4 @@ Document & Root Styling
     @include theme($g100);
 
     background-color: #161616;
-
-    :focus:not(:focus-visible) {
-        outline: 0 none;
-    }
 }

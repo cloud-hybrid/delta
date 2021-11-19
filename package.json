@@ -71,7 +71,6 @@
         "info": "lerna info"
     },
     "workspaces": [
-        "library/*",
         "packages/*",
         "documentation/*",
         "utilities/*"
