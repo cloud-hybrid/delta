@@ -12,7 +12,7 @@ import toggleClass from "../../utilities/Toggle-Classname.js";
 
 import { Enabled } from "./../../settings/Configuration.js";
 
-export const ButtonKinds = [
+export const Enumeration = [
     "primary",
     "secondary",
     "danger",
@@ -133,8 +133,6 @@ const Button = React.forwardRef(function Button(
     }, []);
 
     const enabled = Enabled("enable-v11-release");
-
-    console.log("[Debug] Feature-Next-Release", enabled);
 
     const buttonClasses = classNames(className, {
         [`${ prefix }-button`]: true,
@@ -310,7 +308,7 @@ Button.propTypes = {
     /**
      * Specify the kind of Button you want to create
      */
-    kind: PropTypes.oneOf(ButtonKinds).isRequired,
+    kind: PropTypes.oneOf(Enumeration).isRequired,
 
     /**
      * Provide an optional function to be called when the button element

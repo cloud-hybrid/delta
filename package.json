@@ -62,7 +62,7 @@
         "setup": "lerna run setup &>/dev/null 2>&1",
         "pretest": "eslint packages",
         "clean": "lerna clean --yes",
-        "postinstall": "npm run bootstrap && npm run setup",
+        "postinstall": "npm run setup",
         "commit": "git commit --all --file - ",
         "push": "lerna version patch",
         "login": "npm adduser",

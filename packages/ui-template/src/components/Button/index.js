@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { default as $ } from "./button.js";
+import { default as $, Enumeration } from "./button.js";
 import { Loading } from "carbon-components-react";
-import { Kinds } from "./Kinds.js";
 
 import classnames from "classnames";
 
@@ -28,7 +27,7 @@ const Properties = {
      * @type {["primary", "secondary", "danger", "ghost", "danger--primary", "danger--ghost", "danger--tertiary", "tertiary", "icon-selection"]}
      */
 
-    kind: PropTypes.oneOf([ ... Kinds, "icon-selection" ]),
+    kind: PropTypes.oneOf([ ... Enumeration, "icon-selection" ]),
 
     /** display green border to denote a recommended button to select, to be used with kind: 'icon-selection' */
     recommended: PropTypes.bool,
