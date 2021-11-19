@@ -6,6 +6,8 @@ export const ORM = Library.ORM;
 export const Schema = ORM.Schema;
 export const Types = ORM.Types;
 
+export const Cryptography = Library.Cryptography;
+
 /***
  *
  * @param name {String}
@@ -33,7 +35,7 @@ await Library.ORM.connect("mongodb://localhost:27017/?readPreference=primary&app
         console.error("[Error]", "Exiting ...");
         process.exit(1);
     } else {
-        console.debug("[Debug]", "Successfully Established Connection to Database");
+        console.debug("[Debug]", "Established Connection to Database");
     }
 }));
 

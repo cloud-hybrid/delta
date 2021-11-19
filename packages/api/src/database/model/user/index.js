@@ -1,58 +1,190 @@
-/***
- * @typedef Type
- * @type {Schema<Type>}
+/*** User Model & Schema Definitions, and Initialization Unit-Tests
+ *
+ * Please note, most of the following module is composed of debug messages
+ *
+ * Mongo-DB Official User Authentication Walk-Through(s) (2018)
+ *  - https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
+ *  - https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-2
  */
 
 const Global = Object.create({
     initialize: true
 });
 
-import * as Name from "./name.js";
+import { default as Name } from "./name.js";
 
 import {
-    ORM, Schema
+    ORM
 } from "./../../index.js";
 
+/*** Model Definition ===================================================== - */
+
+import { default as Password } from "./utility/hash.js";
+import { default as Validator } from "./utility/comparator.js";
+
 /***
- * @type {{Email: {lowercase: boolean, trim: boolean, unique: boolean, index: boolean, alias: string, type: StringConstructor, required: boolean}, Name: {lowercase: boolean, unique: boolean, alias: string, type: Schema<Type>, required: boolean}}}
+ * Definition - Schema Instance that Defines a Model
+ *
+ * @type {ORM.Schema}
  */
 
-export const Type = {
+export const Model = new ORM.Schema({
+    /// _id: Schema.Types.ObjectId,
+
     Email: {
-        index: true,
+        name: "Email",
         alias: "email",
-        unique: true,
+        type: String,
         required: true,
+        index: true,
+        unique: true,
+        default: null,
         lowercase: true,
-        trim: true,
-        type: String
+        uppercase: false,
+        trim: true
+    },
+
+    Username: {
+        name: "Username",
+        alias: "username",
+        type: String,
+        required: true,
+        index: true,
+        unique: true,
+        default: null,
+        lowercase: false,
+        uppercase: false,
+        trim: true
+    },
+
+    Password: {
+        name: "Password",
+        alias: "password",
+        type: String,
+        required: true,
+        index: false,
+        unique: false,
+        default: null,
+        lowercase: false,
+        uppercase: false,
+        trim: true
+    },
+
+    Definition: {
+        name: "Definition-Date",
+        alias: "definition-date",
+        type: ORM.Schema.Types.Date,
+        required: true,
+        index: false,
+        unique: false,
+        default: Date.now(),
+        lowercase: false,
+        uppercase: false,
+        trim: false
     },
 
     Name: {
+        name: "Name",
         alias: "name",
-        unique: false,
-        required: true,
-        lowercase: false,
-        type: Name.default
+        type: ORM.Schema.Types.ObjectId,
+        required: false,
+        ref: "Name"
     }
-};
-
-/***
- * @type {Type}
- */
-
-export const Definition = new Schema(Type);
-
-const Instance = ORM.model("User", Definition, "User", false);
-const Record = new Instance({Name: Name.Record, Email: "schema@internal.io"});
-const Initialize = (await Instance.collection.stats()).count === 0;
-
-(Global.initialize || Initialize) && await Record.save(async (error) => {
-    if ( error && (await Instance.collection.stats()).count === 0 ) {
-        console.error("[Error]", error);
-    } else {
-        console.debug("[Debug]", "Successfully Established Database Record" + ":", "User");
+}, {
+    timestamps: {
+        createdAt: "Creation-Date",
+        updatedAt: "Modification-Date"
     }
 });
 
-export default Instance;
+/*** Middleware =========================================================== - */
+
+Password(Model);
+Validator(Model);
+
+/*** Schema =============================================================== - */
+
+export const Schema = ORM.model("User", Model, "User", false);
+
+/*** Initialization Unit-Tests ============================================ - */
+
+const Record = new Schema({Email: "administrator@internal.io", Username: "Administrator", Password: "Kn0wledge!"});
+
+const Initialize = (await Schema.collection.stats()).count === 0;
+
+const empty = (await Schema.collection.stats()).count === 0;
+(Global.initialize || Initialize) && await Record.save(async (error) => {
+    if ( error && empty ) {
+        const e = new Error("[Fatal] Validation Failure").stack.split("\n");
+        console.error([e[0], e[1].trim(), "\n"].join(" "));
+        throw error;
+    } else {
+        if ( empty ) {
+            try {
+                console.debug("[Debug]", "Instantiated Base User Record");
+
+                console.debug("[Debug]", "Validating Password Hashing Middleware ...");
+
+                // Test Valid Password
+                Record?.validatePassword("Kn0wledge!", function (error, match) {
+                    if ( error ) throw error;
+                    console.debug("[Debug] Password Hashing Truthy Assertion" + ":", match);
+                    console.debug("[Debug]", "Successfully Validated Truthy Password Comparator");
+                });
+
+                // Test Invalid Password
+                Record?.validatePassword("Kn0wledge!#$", function (error, match) {
+                    if ( error ) throw error;
+                    console.debug("[Debug] Password Hashing Falsy Assertion" + ":", match);
+                    console.debug("[Debug]", "Successfully Validated Falsy Password Comparator");
+                });
+
+                console.debug("[Debug]", "Updating Record Relationship(s) ...");
+
+                const $ = {Models: {}, Instances: {}};
+
+                console.debug("[Debug]", "Established In-Place Container for Model(s) & Instance(s)");
+
+                $.Models.Name = ORM.model("Name", Name, "Name", false);
+                console.debug("[Debug]", "Established (Name) Model");
+
+                $.Instances.Name = new $.Models.Name({
+                    User: Record.id,
+
+                    First: "First-Name",
+                    Middle: "Middle-Name",
+                    Last: "Last-Name"
+                });
+
+                console.debug("[Debug]", "Established (Name) Instance");
+
+                console.debug("[Debug]", "Saving (Name) Instance ...");
+
+                await $.Instances.Name.save();
+                console.debug("[Debug]", "Successfully Saved Instance (Name)");
+
+                console.debug("[Debug]", "Updating Parent Record ...");
+
+                await Record.updateOne({Name: $.Instances.Name});
+
+                console.debug("[Debug]", "Update has been Committed");
+                console.debug("[Debug]", "Writing Update(s) & Synchronizing Parent Record ...");
+
+                await Record.save();
+
+                console.debug("[Debug]", "Record & Update(s) Successfully Written to Database");
+            } catch ( error ) {
+                const e = new Error("[Fatal] Validation Failure").stack.split("\n");
+                console.error([e[0], e[1].trim(), "\n"].join(" "));
+
+                await Record.delete({_id: Record.id});
+
+                throw error;
+            }
+
+            console.debug("[Debug] User Model Successfully Initialized");
+        }
+    }
+});
+
+export default Model;
