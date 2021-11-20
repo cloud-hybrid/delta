@@ -1,5 +1,7 @@
-export default async () => {
-    return Promise.allSettled((
+export const initialize = async () => {
+    console.debug("[Debug] Initializing Middleware ...");
+
+    const Promises = Promise.allSettled((
         [
             import("./Compression.js").then((Module) => Module.Compression()),
             import("./Environment.js").then((Module) => Module.Inject()),
@@ -7,4 +9,10 @@ export default async () => {
             import("./CORS.js").then((Module) => Module.CORS())
         ]
     ));
+
+    Promises.finally(() => console.debug("[Debug] Application Middleware Successfully Injected"));
+
+    return Promises;
 };
+
+export default async () => await initialize();
