@@ -8,10 +8,6 @@ import compression from "compression";
 
 export const Compression = compression;
 
-import validator from "express-validator";
-
-export const Validator = validator;
-
 import axios from "axios";
 
 export const Axios = axios;
@@ -81,11 +77,16 @@ cryptography.decode = bcrypt.decodeBase64;
 
 cryptography.encode = bcrypt.encodeBase64;
 
-/***
+/*** Cryptography Container Object
+ *
  * @extends {import("bcryptjs")}
  * @method encode {import("bcryptjs").encodeBase64}
  */
 export const Cryptography = cryptography;
+
+import cors from "cors";
+
+export const CORS = cors;
 
 export default {
     API,
@@ -95,7 +96,7 @@ export default {
     Axios,
     Octokit,
     Database,
+    CORS,
     ORM,
-    Validator,
     Cryptography
 };

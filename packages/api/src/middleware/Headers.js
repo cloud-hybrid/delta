@@ -3,11 +3,11 @@ import { Application } from "./../index.js";
 const Overwrites = [
     {
         Key: "Server",
-        Value: process.env["Server"] || "Nexus"
+        Value: "Nexus-API"
     },
     {
         Key: "X-Powered-By",
-        Value: "Nexus"
+        Value: "Cloud-Technology"
     }
 ];
 
@@ -15,7 +15,7 @@ Application.use((_, response, $) => {
     Overwrites.forEach((Element, Index) => {
         response.setHeader(Element.Key, Element.Value);
     });
-
+    
     $();
 });
 

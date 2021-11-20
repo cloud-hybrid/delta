@@ -1,4 +1,4 @@
-import { ORM, Schema } from "./../../index.js";
+import { ORM } from "./../../index.js";
 
 /***
  * Definition - Schema Instance that Defines a Model
@@ -6,8 +6,8 @@ import { ORM, Schema } from "./../../index.js";
  * @type {ORM.Schema}
  */
 
-export const Model = new Schema({
-    User: {type: Schema.Types.ObjectId, ref: "User", required: true},
+export const Schema = new ORM.Schema({
+    User: {type: ORM.Schema.Types.ObjectId, ref: "User", required: true},
 
     First: {
         required: true,
@@ -47,5 +47,7 @@ export const Model = new Schema({
         trim: true
     }
 });
+
+export const Model = ORM.model("Name", Schema, "Name", false);
 
 export default Model;

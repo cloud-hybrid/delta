@@ -17,10 +17,13 @@ import {
     ORM
 } from "./../../index.js";
 
-/*** Model Definition ===================================================== - */
+const ID = ORM.Schema.Types.ObjectId;
 
-import { default as Password } from "./utility/hash.js";
-import { default as Validator } from "./utility/comparator.js";
+/* Model Definition ======================================================= - */
+
+import { default as Password } from "./../../middleware/password/index.js";
+import { default as Roles } from "./role.js";
+import { Model as Role } from "./role.js";
 
 /***
  * Definition - Schema Instance that Defines a Model
@@ -28,7 +31,7 @@ import { default as Validator } from "./utility/comparator.js";
  * @type {ORM.Schema}
  */
 
-export const Model = new ORM.Schema({
+export const Schema = new ORM.Schema({
     /// _id: Schema.Types.ObjectId,
 
     Email: {
@@ -70,23 +73,34 @@ export const Model = new ORM.Schema({
         trim: true
     },
 
-    Definition: {
-        name: "Definition-Date",
-        alias: "definition-date",
+    Login: { // Password Usage (Date)
+        name: "Password-Last-Used",
+        alias: "password-last-used",
         type: ORM.Schema.Types.Date,
-        required: true,
+        required: false,
         index: false,
         unique: false,
-        default: Date.now(),
+        default: null,
         lowercase: false,
         uppercase: false,
         trim: false
     },
 
+    Role: [ /// Many-to-One Relationship
+        {
+            name: "Role",
+            alias: "role",
+            type: ID,
+            ref: "Role",
+            enum: Roles,
+            default: null
+        }
+    ],
+
     Name: {
         name: "Name",
         alias: "name",
-        type: ORM.Schema.Types.ObjectId,
+        type: ID,
         required: false,
         ref: "Name"
     }
@@ -97,22 +111,21 @@ export const Model = new ORM.Schema({
     }
 });
 
-/*** Middleware =========================================================== - */
+/* Middleware =============================================================== */
 
-Password(Model);
-Validator(Model);
+Password.initialize(Schema);
 
-/*** Schema =============================================================== - */
+/* Schema =================================================================== */
 
-export const Schema = ORM.model("User", Model, "User", false);
+export const Model = ORM.model("User", Schema, "User", false);
 
-/*** Initialization Unit-Tests ============================================ - */
+/* Initialization Unit-Tests ============================================== - */
 
-const Record = new Schema({Email: "administrator@internal.io", Username: "Administrator", Password: "Kn0wledge!"});
+const Record = new Model({Email: "administrator@internal.io", Username: "Administrator", Password: "Kn0wledge!"});
 
-const Initialize = (await Schema.collection.stats()).count === 0;
+const Initialize = (await Model.collection.stats()).count === 0;
 
-const empty = (await Schema.collection.stats()).count === 0;
+const empty = (await Model.collection.stats()).count === 0;
 (Global.initialize || Initialize) && await Record.save(async (error) => {
     if ( error && empty ) {
         const e = new Error("[Fatal] Validation Failure").stack.split("\n");

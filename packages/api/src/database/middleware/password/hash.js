@@ -4,7 +4,7 @@
 
 // ORM Middleware https://mongoosejs.com/docs/middleware.html
 
-import { Cryptography } from "./../../../../database/index.js";
+import { Cryptography } from "./../../index.js";
 
 const SALT_TUMBLE_FACTOR = 15;
 

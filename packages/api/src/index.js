@@ -18,9 +18,7 @@ const Server = () => {
 
         await Import();
 
-        const Controller = (
-            await import("./controllers/index.js")
-        ).default;
+        const Controller = (await import("./controllers/index.js")).default;
 
         Application.use("/api/v1", Controller);
     }).on("listening", async () => {

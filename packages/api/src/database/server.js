@@ -6,7 +6,8 @@ export const Connection = async () => {
     try {
         await Library.ORM.connect(URI, {
             useNewUrlParser: true,
-            dbName: "Nexus-Dashboard",
+            useUnifiedTopology: true,
+            dbName: "Authorization",
             maxPoolSize: 10,
             keepAlive: true,
             autoIndex: true,
