@@ -25,29 +25,20 @@ export const Generate = async (User, password) => {
 
     if ( !User ) return null;
 
-    const Validation = User.validatePassword(password, function (error, match) {
-        return !error;
+    return new Promise((resolve, reject) => {
+        User.validatePassword(password, (match) => {
+            if ( match ) {
+                const Signature = Token.sign({ID: User.id}, Secret, {
+                    expiresIn: 86400 // 24 hours
+                });
+
+                resolve({
+                    User: {
+                        ID: User.id,
+                        Role: User?.Role
+                    }, JWT: Signature
+                });
+            } else reject();
+        });
     });
-
-    await Validation;
-
-    if ( !Validation ) return false;
-
-    /***
-     *
-     * @type {Signature}
-     *
-     */
-
-    const Signature = Token.sign({ID: User.id}, Secret, {
-        expiresIn: 86400 // 24 hours
-    });
-
-    return {
-        User: {
-            ID: User.id,
-            Role: User?.Role
-        }, JWT: Signature
-    };
-
 };

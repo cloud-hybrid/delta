@@ -12,23 +12,29 @@ import { Cryptography } from "./../../index.js";
  * @returns {Promise}
  * @constructor
  */
-export const Middleware = async (Schema) => {
+export const Middleware = (Schema) => {
     console.debug("[Validation]", "[Debug]", "Instantiating Cryptographic Validation Function ...");
 
     /***
-     * @param password
-     * @param callback
-     * @returns {Promise}
+     * @param password {String}
+     * @param callback {Function}
+     * @returns {Promise<Boolean, Error|null>}
      */
-    Schema.methods.validatePassword = async function (password, callback) {
+    Schema.methods.validatePassword = function (password, callback) {
         const $ = this;
 
         console.debug("[Validation]", "[Debug]", "Evaluating Comparator ...");
 
-        await Cryptography.compare(password, $.Password, function (error, match) {
-            if ( error ) return callback(error);
-            console.debug("[Validation]", "[Log]", "Password has been Successfully Validated");
-            callback(null, match);
+        Cryptography.compare(password, $.Password, function (error, success) {
+            if ( error ) throw new Error(error);
+
+            if ( success === false ) {
+                console.error("[Validation]", "[Error]", "Failed Password Validation Attempt");
+                callback(false, "Failed Password Validation Attempt");
+            } else {
+                console.debug("[Validation]", "[Log]", "Password has been Successfully Validated");
+                callback(true, "Successful");
+            }
         });
     };
 
