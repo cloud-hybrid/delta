@@ -2,33 +2,11 @@
 
 ## Setup ##
 
-1. Create a `.env` File:
-
-```json
-{
-    "CI": false,
-    "GitHub": {
-        "API": "https://api.github.com/",
-        "User": "username",
-        "Token": "********"
-    },
-    "GitLab": {
-        "API": "/api/v4/",
-        "Host": "gitlab.example.com",
-        "Projects": "https://gitlab.example.com/api/v4/projects",
-        "User": "username",
-        "Token": "********"
-    },
-    "Server": "Nexus-API",
-    "Environment": "Development"
-}
-```
-
+1. Create a `.env` File (See [`.env.example` file](./.env.example))
 2. Install Dependencies:
-
-```bash
-npm install .
-```
+    ```bash
+    npm install .
+    ```
 
 ## Usage ##
 
