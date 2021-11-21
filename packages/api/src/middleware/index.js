@@ -1,16 +1,17 @@
+import { Application } from "./../index.js";
+
 export const initialize = async () => {
-    console.debug("[Debug] Initializing Middleware ...");
+    console.debug("[Middleware] [Debug] Initializing Middleware ...");
 
     const Promises = Promise.allSettled((
         [
-            import("./Compression.js").then((Module) => Module.Compression()),
-            import("./Environment.js").then((Module) => Module.Inject()),
-            import("./Headers.js").then((Module) => Module.Headers()),
-            import("./CORS.js").then((Module) => Module.CORS())
+            import("./Compression.js").then((Module) => Module.Compression(Application)),
+            import("./Headers.js").then((Module) => Module.Headers(Application)),
+            import("./CORS.js").then((Module) => Module.CORS(Application))
         ]
     ));
 
-    Promises.finally(() => console.debug("[Debug] Application Middleware Successfully Injected"));
+    Promises.finally(() => console.debug("[Middleware] [Debug] API Middleware Successfully Loaded"));
 
     return Promises;
 };

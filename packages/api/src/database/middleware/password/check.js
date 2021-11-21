@@ -13,6 +13,8 @@ import { Cryptography } from "./../../index.js";
  * @constructor
  */
 export const Middleware = async (Schema) => {
+    console.debug("[Validation]", "[Debug]", "Instantiating Cryptographic Validation Function ...");
+
     /***
      * @param password
      * @param callback
@@ -21,11 +23,16 @@ export const Middleware = async (Schema) => {
     Schema.methods.validatePassword = async function (password, callback) {
         const $ = this;
 
+        console.debug("[Validation]", "[Debug]", "Evaluating Comparator ...");
+
         await Cryptography.compare(password, $.Password, function (error, match) {
             if ( error ) return callback(error);
+            console.debug("[Validation]", "[Log]", "Password has been Successfully Validated");
             callback(null, match);
         });
     };
+
+    console.debug("[Validation]", "[Debug]", "Validation Successfully Instantiated");
 };
 
 export default Middleware;

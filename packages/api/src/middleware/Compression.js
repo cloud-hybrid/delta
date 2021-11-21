@@ -1,9 +1,26 @@
+/*** Compression
+ * @module Compression
+ *
+ * @typedef {import("./../index.js").Application} Application
+ *
+ */
+
 import Library from "./../library/index.js";
 
-import { Application } from "./../index.js";
+/*** Compression Middleware Loader
+ *
+ * @param server {Application}
+ *
+ * @returns {Application}
+ *
+ * @constructor
+ *
+ */
 
-const Compression = Library.Compression;
+export const Compression = (server) => {
+    console.debug("[Compression] [Debug] Setting Compression Configuration(s)");
+    server.use(Library.Compression());
+    console.debug("[Compression] [Debug] Compression has been Enabled");
 
-Application.use(Compression());
-
-export const Compression = () => Application;
+    return server;
+};

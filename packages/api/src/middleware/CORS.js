@@ -1,5 +1,15 @@
+/*** CORS
+ * @module CORS
+ *
+ * @typedef {import("./../index.js").Application} Application
+ *
+ */
+
 import Library from "./../library/index.js";
-import { Application } from "./../index.js";
+
+/***
+ * @type {{credentials: boolean, origin: string, optionsSuccessStatus: number, preflightContinue: boolean}}
+ */
 
 export const Options = {
     origin: "*",
@@ -8,8 +18,34 @@ export const Options = {
     preflightContinue: true
 };
 
-const Middleware = Library.CORS(Options);
+/*** CORS Middleware Loader
+ *
+ * @param server {Application}
+ *
+ * @param options {Options}
+ *
+ * @return {Application}
+ *
+ * @constructor
+ *
+ */
 
-Application.use(Middleware);
+export const CORS = (server, options = Options) => {
+    console.debug("[CORS] [Debug] Setting CORS Policy");
 
-export const CORS = () => Application;
+    /***
+     * @type {((req: e.CorsRequest, res: {statusCode?: number | undefined, setHeader(key: string, value: string): any, end(): any}, next: (err?: any) => any) => void) | *}
+     */
+
+    const Middleware = Library.CORS(Options);
+
+    console.debug("[CORS] [Debug] Updated CORS Settings");
+
+    server.use(Middleware);
+
+    console.debug("[CORS] [Debug] CORS has been Updated & Enabled");
+
+    return server;
+};
+
+export default CORS;

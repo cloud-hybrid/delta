@@ -19,20 +19,20 @@ const Middleware = (Schema) => Schema.pre("save", function (next) {
     // Only Mutate if Password := NEW || MODIFIED
     if ( !$.isModified("Password") ) return next();
 
-    console.debug("[Debug] Initializing Password Salt Middleware ...");
+    console.debug("[Hashing]", "[Debug]", "Instantiating Salt Cryptography Function ...");
 
     // Salt Generation
     Cryptography.generateSalt(SALT_TUMBLE_FACTOR, function (error, salt) {
         if ( error ) return next(error);
 
-        console.debug("[Debug] Initializing Password Hashing Middleware ...");
+        console.debug("[Hashing]", "[Debug]", "Instantiating Password Hashing Function ...");
 
         // Hash Password & Salt
         Cryptography.Hash($.password, salt, function (error, hash) {
             if ( error ) return next(error);
             $.password = hash; // Override Plaintext Password with Updated Hash
 
-            console.debug("[Debug] Successfully Initialized Password Salt & Hashing Middleware");
+            console.debug("[Hashing]", "[Debug]", "Salt + Hash Successfully Instantiated");
 
             next();
         });

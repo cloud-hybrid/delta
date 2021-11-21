@@ -11,7 +11,7 @@ const Global = Object.create({
     initialize: true
 });
 
-import { default as Name } from "./name.js";
+import { Schema as Name } from "./name.js";
 
 import {
     ORM
@@ -113,7 +113,9 @@ export const Schema = new ORM.Schema({
 
 /* Middleware =============================================================== */
 
-Password.initialize(Schema);
+console.debug("[Database]", "[Debug]", "Loading User Password Middleware(s) ...");
+
+await Password.initialize(Schema);
 
 /* Schema =================================================================== */
 
