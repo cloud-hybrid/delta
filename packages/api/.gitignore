@@ -83,3 +83,5 @@ dist
 .idea
 .vscode
 .eclipse
+
+secret.js

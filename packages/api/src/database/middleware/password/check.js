@@ -6,11 +6,22 @@
 
 import { Cryptography } from "./../../index.js";
 
-export const Middleware = (Schema) => {
-    Schema.methods.validatePassword = function (password, callback) {
+/***
+ *
+ * @param Schema
+ * @returns {Promise}
+ * @constructor
+ */
+export const Middleware = async (Schema) => {
+    /***
+     * @param password
+     * @param callback
+     * @returns {Promise}
+     */
+    Schema.methods.validatePassword = async function (password, callback) {
         const $ = this;
 
-        Cryptography.compare(password, $.Password, function (error, match) {
+        await Cryptography.compare(password, $.Password, function (error, match) {
             if ( error ) return callback(error);
             callback(null, match);
         });

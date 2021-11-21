@@ -139,14 +139,14 @@ const empty = (await Model.collection.stats()).count === 0;
                 console.debug("[Debug]", "Validating Password Hashing Middleware ...");
 
                 // Test Valid Password
-                Record?.validatePassword("Kn0wledge!", function (error, match) {
+                Record.validatePassword("Kn0wledge!", function (error, match) {
                     if ( error ) throw error;
                     console.debug("[Debug] Password Hashing Truthy Assertion" + ":", match);
                     console.debug("[Debug]", "Successfully Validated Truthy Password Comparator");
                 });
 
                 // Test Invalid Password
-                Record?.validatePassword("Kn0wledge!#$", function (error, match) {
+                Record.validatePassword("Kn0wledge!#$", function (error, match) {
                     if ( error ) throw error;
                     console.debug("[Debug] Password Hashing Falsy Assertion" + ":", match);
                     console.debug("[Debug]", "Successfully Validated Falsy Password Comparator");

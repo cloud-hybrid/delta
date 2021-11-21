@@ -88,6 +88,10 @@ import cors from "cors";
 
 export const CORS = cors;
 
+import token from "jsonwebtoken";
+
+export const Token = token;
+
 export default {
     API,
     Application,
@@ -98,5 +102,6 @@ export default {
     Database,
     CORS,
     ORM,
+    Token,
     Cryptography
 };
