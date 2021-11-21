@@ -2,7 +2,8 @@
 
 ## Setup ##
 
-1. Create a `.env` File (See [`.env.example` file](./.env.example))
+1. Create a `.env` File
+    - *Example*: [`.env.example`](./.env.example)
 2. Install Dependencies:
     ```bash
     npm install .
