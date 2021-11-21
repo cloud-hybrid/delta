@@ -16,10 +16,12 @@ export const Connection = async () => {
 
         console.debug("[Debug]", "Successfully Established Connection to Database");
     } catch ( error ) {
-        console.error("[Error]", "Fatal Error While Establishing Connection to Database", error);
+        console.trace("[Error]", "Fatal Error While Establishing Connection to Database", "\n", error);
         console.error("[Error]", "Exiting ...");
 
-        throw error;
+        /*** {@link https://github.com/cloud-hybrid/delta/tree/Development/packages/api# GitHub} */
+
+        process.exit(172);
     }
 };
 
