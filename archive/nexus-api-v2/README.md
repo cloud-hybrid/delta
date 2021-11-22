@@ -82,7 +82,7 @@ script complex unattended scenarios with any tool capable of HTTP.
     ```
 7. **Lastly**:
     ```bash
-    python -m pip install --use-feature in-tree-build --force --upgrade . && Nexus-API --Debug Server --TLS
+    python -m pip install --force --upgrade . && Nexus-API --Debug Server --TLS
     ```
     - Optionally, Developers & Contributors ***can and should*** run `Nexus-API` *in Development-Mode*:
         ```bash

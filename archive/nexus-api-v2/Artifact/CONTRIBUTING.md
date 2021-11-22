@@ -1,4 +1,0 @@
-- [Price Hiller](mailto:philler3138@gmail.com)
-- [Jacob B. Sanders](mailto:jacob.sanders@cloudhybrid.io)
-- [Rowan F. Watson](mailto:rowanthen@gmail.com)
-- [Jack Dalton](mailto:jack@jackdalton.org)
