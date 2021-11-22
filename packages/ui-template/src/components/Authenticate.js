@@ -69,7 +69,7 @@ export const Validate = async (Token, Handler) => {
             Token
         }, {
             headers: {
-                "Authorization": ["Bearer", Token].join(" ")
+                "Authorization": [ "Bearer", Token ].join(" ")
             }, cancelToken: Handler.token
         }).then((Response) => {
             console.debug("[Debug]", "Authorization Validation Context");
@@ -82,7 +82,7 @@ export const Validate = async (Token, Handler) => {
             Validation.Status.Message = Response.statusText;
 
             return Store.setItem(STORE, (Validation.Data["JWT"]), (e, value) => {
-                if (e) console.error("[Fatal Error] Unknown Exception", e);
+                if ( e ) console.error("[Fatal Error] Unknown Exception", e);
                 console.debug("[Debug]", "Established JWT Token in Storage", value);
             });
         }).catch((error) => {
@@ -92,17 +92,15 @@ export const Validate = async (Token, Handler) => {
             console.debug("[Debug]", "Clearing Session Storage ...");
 
             return Store.clear((e) => {
-                if (e) console.error("[Fatal Error] Unknown Exception", e);
+                if ( e ) console.error("[Fatal Error] Unknown Exception", e);
                 console.debug("[Debug]", "Removed Stale JWT Token(s) from Storage");
             });
         });
 
         await $;
 
-        console.debug("[Debug]", "Awaitable Complete", "Session Storage Awaitable(s) ?:= Complete")
-    }
-
-    catch (e) {
+        console.debug("[Debug]", "Awaitable Complete", "Session Storage Awaitable(s) ?:= Complete");
+    } catch ( e ) {
         console.error("[Fatal Error (2)]", "@Unknown, Uncaught Error", e);
 
         Handler.cancel("Invalid JWT Token or Response");
@@ -120,7 +118,7 @@ export const Token = async (Handler) => {
     const Schema = await Store.getItem(STORE);
     console.debug("[Debug]", "JWT", Schema);
 
-    if (Schema !== null) {
+    if ( Schema !== null ) {
         const $ = await Validate(Schema, Handler);
 
         return $.Status;
@@ -131,7 +129,7 @@ export const Token = async (Handler) => {
 
 export const JWT = async () => {
     return await Store.getItem(STORE);
-}
+};
 
 /***
  *
@@ -148,15 +146,15 @@ export const JWT = async () => {
  */
 
 export const Authorizer = ({ Page, Session, description }) => {
-    if (Page === null) {
+    if ( Page === null ) {
         throw Error("Page Cannot be Null");
     }
 
-    if (Session === null) {
+    if ( Session === null ) {
         throw Error("Authorization Session Cannot be Null");
     }
 
-    if (description === null) {
+    if ( description === null ) {
         throw Error("Page Loader's Description Cannot be Null");
     }
 
@@ -171,6 +169,11 @@ export const Authorizer = ({ Page, Session, description }) => {
     );
 };
 
+Authorizer.defaultProps = {
+    Session: null,
+    description: "Loading Page ..."
+};
+
 Authorizer.propTypes = {
     /***
      * @type {React.ExoticComponent}
@@ -182,7 +185,7 @@ Authorizer.propTypes = {
      * @type {Boolean|null}
      * @requires {Boolean|null}
      */
-    Session: PropTypes.oneOf([true, false, null]),
+    Session: PropTypes.oneOf([ true, false, null ]),
 
     /***
      * @type {String}

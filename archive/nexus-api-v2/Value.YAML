@@ -1,0 +1,6 @@
+---
+Value:
+    Key: "String"
+    Language: "Shell"
+    Evaluation: |
+        aws ssm get-paremeter --parameter-name "{0}"
