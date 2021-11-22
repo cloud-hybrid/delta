@@ -35,6 +35,8 @@ Controller.get("/", async (request, response) => {
             }
         }, null, 4));
 
+        response.statusMessage = "Authorized";
+
         response.send(Response);
     } catch ( e ) {
         console.debug("[Authorization (Login)]", "[Error]", JSON.stringify({Query: {... Profile.toJSON(), ... {Password: "[Redacted]"}}}, null, 4));

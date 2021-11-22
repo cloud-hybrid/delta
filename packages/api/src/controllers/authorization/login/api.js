@@ -1,4 +1,7 @@
-/***
+/*** Login API
+ *
+ * @module API
+ *
  * @typedef {import("./../../../database/index.js").ORM} ORM
  * @typedef {import("./../../../database/model/user/index.js").Instance} Instance
  * @typedef {import("./../../../library/index.js").Token} Signature
@@ -28,8 +31,10 @@ export const Generate = async (User, password) => {
     return new Promise((resolve, reject) => {
         User.validatePassword(password, (match) => {
             if ( match ) {
-                const Signature = Token.sign({ID: User.id}, Secret, {
-                    expiresIn: 86400 // 24 hours
+                const Signature = Token.sign({id: User.id}, Secret, {
+                    audience: "Audience",
+                    issuer: "Issuer",
+                    expiresIn: Math.floor(Date.now() / 1000) + (60 * 60) // 1 Hour
                 });
 
                 resolve({

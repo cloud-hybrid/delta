@@ -14,10 +14,10 @@ const Server = () => {
 
         const Controller = (await import("./controllers/index.js")).default;
 
-        Application.use("/api/v1", Controller);
+        Application.use("/v1", Controller);
     }).on("listening", async () => {
         console.debug("[API] [Debug] Server Successfully Started via Port" + " " + process.env["Port"]);
-        console.log("[API] [Log] http://localhost" + ":" + process.env["Port"] + "/api/v1");
+        console.log("[API] [Log] http://localhost" + ":" + process.env["Port"] + "/v1");
     });
 };
 
