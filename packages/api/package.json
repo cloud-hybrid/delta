@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/api",
     "private": false,
-    "version": "0.1.34",
+    "version": "0.1.35",
     "description": "...",
     "main": "server.js",
     "type": "module",
