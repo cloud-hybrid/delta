@@ -87,3 +87,5 @@ dist
 
 .vscode
 .eclipse
+
+.env.development

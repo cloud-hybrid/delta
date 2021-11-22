@@ -11,8 +11,8 @@ import { Requestable } from "./../../pages/Development/Code-Snippet-Awaitable/Co
  */
 
 export const Variables = ({ id }) => {
-    const Token = "quLaoKev91BVPsNQh1SZ";
-    const URL = [ "https://gitlab.mycapstone.com/api/v4/projects", id, "variables" ].join("/");
+    const Token = process.env.REACT_APP_GITLAB_TOKEN;
+    const URL = [ process.env.REACT_APP_GITLAB_PROJECTS_URL, id, "variables" ].join("/");
 
     const Headers = {
         "PRIVATE-TOKEN": Token

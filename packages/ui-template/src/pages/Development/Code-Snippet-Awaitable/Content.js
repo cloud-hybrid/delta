@@ -149,7 +149,7 @@ export const Requestable = ({ url, headers }) => {
                 JSON.stringify(data, null, 4)
             }
             showMoreText={ "Expand" }
-            showLessText={ "Collapse" }
+            showLessText={ "Collapse" } hideCopyButton={ true }
             maxCollapsedNumberOfRows={ 15 }
             wrapText={ false }
         />
