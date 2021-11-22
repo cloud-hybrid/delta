@@ -33,7 +33,6 @@
         "octokit": "^1.7.0"
     },
     "devDependencies": {
-        "@cloud-technology/api": "./",
         "@octokit/openapi-types": "^11.2.0",
         "@octokit/types": "^6.34.0",
         "@types/bcryptjs": "^2.4.2",
