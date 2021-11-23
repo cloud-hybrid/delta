@@ -26,10 +26,10 @@ export const Generate = async (User, password) => {
      * @type {Instance}
      */
 
+    /// Fatal Error - Catch @Controller Level
     if ( !User ) throw new Error("NIL");
 
-    console.debug("[Login (API)]", "[Debug]", "User-Profile" + ":", User);
-
+    /// console.debug("[Login (API)]", "[Debug]", "User-Profile" + ":", User);
     return new Promise((resolve, reject) => {
         User.validatePassword(password, (match) => {
             if ( !match ) {
@@ -43,7 +43,7 @@ export const Generate = async (User, password) => {
                     expiresIn: Math.floor(Date.now() / 1000) + (60 * 60)
                 });
 
-                console.debug("[Authorization (API)]", "[Debug]", "JWT-Decoded" + ":", Token.decode(Signature, Secret));
+                /// console.debug("[Authorization (API)]", "[Debug]", "JWT-Decoded" + ":", Token.decode(Signature, Secret));
 
                 resolve({
                     ID: User.id,

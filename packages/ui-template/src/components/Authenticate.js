@@ -71,7 +71,7 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
             headers: {
                 "Authorization": [ "Bearer", Token ].join(" ")
             }, cancelToken: Handler.token
-        }).then((Response) => {
+        }).then(async (Response) => {
             console.debug("[Debug]", "Authorization Validation Context");
             console.debug("[Debug]", "Contextual Response", Response);
 
@@ -81,8 +81,14 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
             Validation.Status.Code = Response.status;
             Validation.Status.Message = Response.statusText;
 
-            return Store.setItem(STORE, (Validation.Data["JWT"]), (e, value) => {
-                if ( e ) console.error("[Fatal Error] Unknown Exception", e);
+            await Store.setItem(STORE, (Validation.Data["Token"]["JWT"]), (e, value) => {
+                (e) && console.error("[Fatal Error] Unknown Exception", e);
+                if ( value === null || value === undefined ) {
+                    const error = new Error("Unknown, Fatal Error" + JSON.stringify(e, null, 4));
+                    error.name = "Fatal-Unknown-Error";
+                    throw error;
+                }
+
                 console.debug("[Debug]", "Established JWT Token in Storage", value);
             });
         }).catch((error) => {
@@ -128,7 +134,11 @@ export const Token = async (Handler) => {
 };
 
 export const JWT = async () => {
-    return await Store.getItem(STORE);
+    console.debug("[Debug] Indexing Session Storage" + ":", STORE);
+    const Token = await Store.getItem(STORE);
+    console.debug("[Debug] Session Token" + ":", Token);
+    
+    return Token;
 };
 
 /***

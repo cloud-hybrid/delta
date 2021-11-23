@@ -7,9 +7,8 @@ import { default as User } from "./../../../database/model/user/index.js";
 import { Generate } from "./api.js";
 
 Controller.post("/", async (request, response) => {
-    console.debug("[Debug]", "Request" + " " + "-", request.originalUrl);
-    
-    console.log("[Authorization (Login)]", "[Debug]", "Request Body" + ":", request.body);
+    console.debug("[Authorization (Login)]", "[Debug]", "Request" + " " + "-", request.originalUrl);
+    /// console.log("[Authorization (Login)]", "[Debug]", "Request Body" + ":", request.body);
 
     const Username = request.body["Username"] || request.body["username"] || request.body["user"] || null;
     const Password = request.body["Password"] || request.body["password"] || null;
@@ -54,6 +53,8 @@ Controller.post("/", async (request, response) => {
         const Response = Query.toJSON();
 
         response.statusMessage = "Authorized";
+
+        console.debug("[Authorization (Login)]", "[Debug]", $);
 
         response.send(Response);
     } catch ( e ) {

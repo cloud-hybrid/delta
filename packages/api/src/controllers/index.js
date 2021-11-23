@@ -10,4 +10,6 @@ Controller.use("/github", GitHub);
 Controller.use("/database", Database);
 Controller.use("/authorization", Authorization);
 
+export const Router = Controller;
+
 export default Controller;

@@ -8,7 +8,8 @@ export const initialize = async () => {
             import("./Compression.js").then((Module) => Module.Compression(Application)),
             import("./Headers.js").then((Module) => Module.Headers(Application)),
             import("./Body.js").then((Module) => Module.Body(Application)),
-            import("./CORS.js").then((Module) => Module.CORS(Application))
+            import("./CORS.js").then((Module) => Module.CORS(Application)),
+            import("./TLS.js")
         ]
     ));
 
