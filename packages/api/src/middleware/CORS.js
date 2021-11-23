@@ -7,7 +7,7 @@
 
 import Library from "./../library/index.js";
 
-/***
+/*** Default CORS Options
  * @type {{credentials: boolean, origin: string, optionsSuccessStatus: number, preflightContinue: boolean}}
  */
 

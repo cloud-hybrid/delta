@@ -26,24 +26,30 @@ export const Generate = async (User, password) => {
      * @type {Instance}
      */
 
-    if ( !User ) return null;
+    if ( !User ) throw new Error("NIL");
+
+    console.debug("[Login (API)]", "[Debug]", "User-Profile" + ":", User);
 
     return new Promise((resolve, reject) => {
         User.validatePassword(password, (match) => {
-            if ( match ) {
+            if ( !match ) {
+                const e = new Error("Incorrect Password Match");
+                e.name = "Password-Validation-Error";
+                reject(e);
+            } else {
                 const Signature = Token.sign({id: User.id}, Secret, {
                     audience: "Audience",
                     issuer: "Issuer",
-                    expiresIn: Math.floor(Date.now() / 1000) + (60 * 60) // 1 Hour
+                    expiresIn: Math.floor(Date.now() / 1000) + (60 * 60)
                 });
 
+                console.debug("[Authorization (API)]", "[Debug]", "JWT-Decoded" + ":", Token.decode(Signature, Secret));
+
                 resolve({
-                    User: {
-                        ID: User.id,
-                        Role: User?.Role
-                    }, JWT: Signature
+                    ID: User.id,
+                    JWT: Signature
                 });
-            } else reject();
+            }
         });
     });
 };

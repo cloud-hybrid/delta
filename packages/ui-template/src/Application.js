@@ -41,14 +41,14 @@ const Application = () => {
 
     useEffect(() => {
         const Token = async (Authorization) => {
-            const Handler = Cancellation.source();
-
             const $ = await JWT();
 
             const Validation = (
                 $ !== null
-            ) ? await Validate($, Handler) : null;
+            ) ? await Validate($) : null;
             Authorization[1](Validation?.Status?.Code === 200);
+
+            console.debug("[Debug]", "Validation", Validation, $);
         };
 
         Token(Authorization).catch((e) => {

@@ -21,7 +21,8 @@ const URL = process.env.REACT_APP_API_ENDPOINT;
  *
  */
 
-const Authorizer = URL + "/API/Authentication/Guarantee";
+    /// const Authorizer = URL + "/API/Authentication/Guarantee";
+const Authorizer = URL + "/v1/authorization/login";
 
 /***
  * HTTP Request Cancellation Handler
@@ -121,6 +122,9 @@ export const Authenticate = async (Payload, Handler) => {
     }).finally(() => Return.Loading = false);
 
     console.debug("[Debug]", "Initializing Authorization Awaitable ...");
+
+    // @Task --> Try Catch
+    console.trace(Authorizer)
 
     await $();
 

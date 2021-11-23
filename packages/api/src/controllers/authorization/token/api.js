@@ -26,19 +26,21 @@ const Verify = Utility.promisify(Token.verify);
  *
  * @param verification {Boolean}
  * @param data {String|Payload}
+ * @param token {String}
  * @param error {Boolean}
  * @param type {null | "Expiration" | "Malformation" | "Issuer"}
  *
- * @return {{Type: null, Message, Error, Verification}}
+ * @return {{Serialization, Type: null, Error, Verification, Data: {JWT}}}
  *
  * @constructor
  *
  */
 
-const Schema = (verification, data, error, type = null) => {
+const Schema = (verification, data, token, error, type = null) => {
     return {
         Verification: verification,
-        Data: data,
+        Serialization: data,
+        Data: {JWT: token},
         Error: error,
         Type: type
     };
@@ -47,7 +49,7 @@ const Schema = (verification, data, error, type = null) => {
 /***
  * @param token
  *
- * @returns {Promise<{Type: null | "Expiration" | "Malformation" | "Issuer", Data: String|Payload, Error: Boolean, Verification: Boolean} | Error>}
+ * @returns {Promise<{Serialization, Type: null, Error, Verification, Data: {JWT}} | Error>}
  *
  * @constructor
  *
@@ -56,12 +58,14 @@ const Schema = (verification, data, error, type = null) => {
 export const Validate = async (token) => {
     const JWT = token;
 
-    if ( !JWT ) return null;
+    if ( !JWT ) throw new Error("NIL");
+
+    console.debug("[Token (API)]", "[Debug]", "JWT-Token" + ":", JWT);
 
     try {
         const Verification = await Verify(JWT, Secret);
         console.debug("[JWT-Validation]", "[Debug]", "Verification" + ":", Verification);
-        return Schema(true, Token.decode(JWT, Secret), false);
+        return Schema(true, Token.decode(JWT, Secret), JWT, false);
     } catch ( e ) {
         const $ = JSON.stringify(e, null, 4);
 
@@ -69,8 +73,9 @@ export const Validate = async (token) => {
 
         /// --> Catch Expiration Error
         if ( e.name === "TokenExpiredError" ) {
-            return Schema(false, "JWT Token Expiration", true, "Expiration");
+            return Schema(false, "JWT Token Expiration", true, JWT, "Expiration");
         } else {
+            console.trace(e);
             throw new Error(e);
         }
     }

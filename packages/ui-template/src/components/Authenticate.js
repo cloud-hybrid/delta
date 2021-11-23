@@ -14,7 +14,7 @@ const DESCRIPTION = "Nexus Dashboard Login State";
 export const STORE = "JWT";
 
 const URL = process.env.REACT_APP_API_ENDPOINT;
-const Deserialize = URL + "/API/Authentication/Deserialized";
+const Deserialize = URL + "/v1/authorization";
 
 export const Cancellation = Request.CancelToken;
 
@@ -53,7 +53,7 @@ export const API = Request.create({
  *
  * @constructor
  */
-export const Validate = async (Token, Handler) => {
+export const Validate = async (Token, Handler = Cancellation.source()) => {
     const Validation = {
         Data: null, // { JWT: String, Type: String ... }
         Loading: true,

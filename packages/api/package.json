@@ -26,16 +26,19 @@
         "body-parser": "^1.19.0",
         "compression": "^1.7.4",
         "cors": "^2.8.5",
+        "debug": "^4.3.2",
         "express": "^5.0.0-alpha.8",
         "jsonwebtoken": "^8.5.1",
         "mongodb": "^4.1.4",
         "mongoose": "^6.0.13",
-        "octokit": "^1.7.0"
+        "octokit": "^1.7.0",
+        "statuses": "^2.0.1"
     },
     "devDependencies": {
         "@octokit/openapi-types": "^11.2.0",
         "@octokit/types": "^6.34.0",
         "@types/bcryptjs": "^2.4.2",
+        "@types/body-parser": "^1.19.2",
         "@types/compression": "^1.7.2",
         "@types/cors": "^2.8.12",
         "@types/fs-extra": "^9.0.13",

@@ -92,6 +92,10 @@ import token from "jsonwebtoken";
 
 export const Token = token;
 
+import body from "body-parser";
+
+export const Parser = body;
+
 export default {
     API,
     Application,
@@ -103,5 +107,6 @@ export default {
     CORS,
     ORM,
     Token,
-    Cryptography
+    Cryptography,
+    Parser
 };

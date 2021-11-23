@@ -32,7 +32,7 @@ const Middleware = (Schema) => Schema.pre("save", function (next) {
             if ( error ) return next(error);
             $.password = hash; // Override Plaintext Password with Updated Hash
 
-            console.debug("[Hashing]", "[Debug]", "Salt + Hash Successfully Instantiated");
+            console.debug("[Hashing]", "[Debug]", "Salt + Hash Successfully Established");
 
             next();
         });
