@@ -25,33 +25,21 @@ Controller.post("/", async (request, response) => {
             Status: 401
         }, null, 4));
     } else {
-        try {
-            const $ = await Validate(Token);
-            console.log($);
-        } catch ( e ) {
-            console.log(e);
-        }
         const $ = await Validate(Token);
 
         const Query = Normalize(request, response, $);
         const Response = Query.toJSON();
 
-        if ( $.Verification === false || $.Error === true ) {
-            switch ( $.Type ) {
-            case null:
-                response.statusCode = 500;
-                response.statusMessage = "Server Error";
+        if ( !$ || !$.Verification || $.Error ) {
+            console.error("[Authorization (Token)]", "[Error]", $);
 
-                break;
-            default:
-                response.statusCode = 401;
-                response.statusMessage = "Unauthorized";
+            response.statusCode = 401;
+            response.statusMessage = "Unauthorized";
 
-                response.setHeader("WWW-Authenticate", "Realm Nexus-JWT-Validator");
-
-                break;
-            }
+            response.setHeader("WWW-Authenticate", "Realm Nexus-JWT-Validator");
         } else {
+            console.debug("[Authorization (Token)]", "Validation := Successful");
+
             response.statusMessage = "Verified";
         }
 

@@ -37,7 +37,7 @@ const Component = () => {
         });
     }, []);
 
-    const Handler =  API.Awaitable();
+    const Handler = API.Awaitable();
 
     const Headers = React.useMemo(() => [
         {
@@ -102,10 +102,10 @@ const Component = () => {
             Handler && Handler.Response && Handler.Response[page] !== null
         ) ? new Array(Handler.Response[page]) : new Array(0);
 
-        const Memoization = React.useMemo(() => Data[Data.length - 1], []);
+        //        const Memoization = React.useMemo(() => Data[Data.length - 1], [ Data ]);
 
         return (
-            <Tabular Headers={ Headers } Data={ Memoization } State={ setAwaiting } Pages={ Pages }/>
+            <Tabular Headers={ Headers } Data={ Data.pop() } State={ setAwaiting } Pages={ Pages }/>
         );
     };
 

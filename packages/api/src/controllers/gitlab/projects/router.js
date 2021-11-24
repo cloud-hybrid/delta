@@ -4,14 +4,16 @@ import { Normalize } from "./../../../utilities/configuration.js";
 
 import { default as Schemas } from "./schema.js";
 
+import { Authenticate } from "./../../../authorization/index.js";
+
 import { Module } from "./api.js";
 
-Controller.get("/", async (request, response) => {
+Controller.get("/", Authenticate, async (request, response) => {
     const $ = await Module.Projects();
     const Query = Normalize(request, response, $);
     const Response = Query.toJSON();
 
-    console.debug("[Debug]", "Response", "(" + request.url + ")", Response);
+    // console.debug("[Debug]", "Response", "(" + request.url + ")", Response);
 
     response.send(Response);
 });

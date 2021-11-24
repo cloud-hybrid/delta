@@ -36,14 +36,21 @@ const Verify = Utility.promisify(Token.verify);
  *
  */
 
-const Schema = (verification, data, token, error, type = null) => {
+const Schema = (verification, data, token, error) => {
     return {
         Verification: verification,
         Serialization: data,
         Token: {JWT: token},
-        Error: error,
-        Type: type
+        Error: error
     };
+
+    /// return {
+    ///     ID: data.id,
+    ///     Verification: verification,
+    ///     Token: {JWT: token},
+    ///     Error: error,
+    ///     Type: type
+    /// };
 };
 
 /***
@@ -63,9 +70,9 @@ export const Validate = async (token) => {
 
     console.debug("[Authorization (Token - API)]", "[Debug]", "JWT-Token" + ":", JWT);
     try {
-        const Verification = await Verify(JWT, Secret);
-        //        console.debug("[Authorization (Token - API)]", "[Debug]", "Verification" + ":", Verification);
-        return Schema(true, Token.decode(JWT, Secret), JWT, false);
+        await Verify(JWT, Secret);
+
+        return Schema(true, Token.decode(JWT, Secret), JWT, false, null);
     } catch ( e ) {
         const $ = JSON.stringify(e, null, 4);
 
@@ -73,11 +80,11 @@ export const Validate = async (token) => {
 
         /// --> Catch Expiration Error
         if ( e.name === "TokenExpiredError" ) {
-            return Schema(false, "JWT Token Expiration", true, JWT, "Expiration");
+            return Schema(false, "JWT Token Expiration", null, "Expiration");
+        } else if ( e.name === "JsonWebTokenError" ) {
+            return Schema(false, "JWT Token Malformation", null, "Invalid");
         } else {
-            console.trace(e);
-
-            throw new Error(e);
+            throw new Error(JSON.stringify(e, null, 4));
         }
     }
 };

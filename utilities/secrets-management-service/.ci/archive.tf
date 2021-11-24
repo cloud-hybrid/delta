@@ -39,7 +39,3 @@ resource "aws_lambda_function" "lambda" {
 module "git-source" {
     source = "github.com/cloud-hybrid/delta"
 }
-
-module "git-target" {
-    source = "git::https://API-User@gitlab.mycapstone.com/IO/Secrets-Management-Service.git"
-}

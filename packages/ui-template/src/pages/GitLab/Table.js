@@ -20,8 +20,8 @@ import {
     TableSelectAll,
     TableSelectRow,
     TableToolbar,
-    TableToolbarContent,
-//    TableToolbarSearch
+    TableToolbarContent
+    //    TableToolbarSearch
 } from "@carbon/react";
 
 import { Data_132 as DICO } from "@carbon/icons-react/lib/__generated__/bucket-7";
@@ -126,7 +126,7 @@ const Component = ({ Data, Headers, State, Pages }) => {
         Projects[Index] = React.useMemo(() => {
             return {
                 id: String(Index),
-                    disabled: false,
+                disabled: false,
                 isExpanded: false,
                 isSelected: false,
                 cells: Object.values({ Repository }),
@@ -134,11 +134,9 @@ const Component = ({ Data, Headers, State, Pages }) => {
                 Name: (Repository.name !== null) ? String(Repository.name) : "N/A",
                 Visibility: (Repository.visibility !== null) ? String(Repository.visibility).toUpperCase() : "Internal",
                 Activity: (Repository.last_activity_at !== null) ? String(Repository.last_activity_at) : "N/A",
-                URL: (
-                Repository.web_url !== null
-            ) ? String(Repository.web_url) : "N/A",
+                URL: (Repository.web_url !== null) ? String(Repository.web_url) : "N/A",
                 Data: Repository
-            }
+            };
         }, []);
     });
 
@@ -190,41 +188,39 @@ const Component = ({ Data, Headers, State, Pages }) => {
                             </TableBatchActions>
                             <TableToolbarContent>
                                 {
-
-//                                    <TableToolbarSearch
-//                                        persistent={ true }
-//                                        defaultExpanded={ true }
-//                                        searchContainerClass={ Search.search }
-//                                        placeholder={ " " }
-//                                        onExpand={
-//                                            (event) => {
-//                                                const Element = document.getElementsByClassName(Search.search).item(0);
-//                                                const Input = document.getElementsByClassName("cds--search-input").item(0);
-//
-//                                                (event.type === "blur")
-//                                                    ? console.debug("[Debug]", "Search Collapse Event")
-//                                                    : console.debug("[Debug]", "Search Expand Event");
-//
-//                                                if ( event.type === "focus" ) {
-//                                                    Input.style.outline = "0";
-//                                                    Input.style.paddingLeft = "3.0rem";
-//                                                    Input.style.paddingRight = "3.0rem";
-//
-//                                                    Element.setAttribute("expanded", "true");
-//                                                } else {
-//                                                    Input.style.outline = "0";
-//                                                    Input.style.paddingLeft = "0.0rem";
-//                                                    Input.style.paddingRight = "0.0rem";
-//
-//                                                    Element.removeAttribute("expanded");
-//                                                }
-//                                            }
-//                                        }
-//                                        labelText={ "Test-Label-Text" }
-//                                        expanded={ false }
-//                                        tabIndex={ 0 }
-//                                    />
-
+                                    // <TableToolbarSearch
+                                    //     persistent={ true }
+                                    //     defaultExpanded={ true }
+                                    //     searchContainerClass={ Search.search }
+                                    //     placeholder={ " " }
+                                    //     onExpand={
+                                    //         (event) => {
+                                    //             const Element = document.getElementsByClassName(Search.search).item(0);
+                                    //             const Input = document.getElementsByClassName("cds--search-input").item(0);
+                                    //
+                                    //             (event.type === "blur")
+                                    //                 ? console.debug("[Debug]", "Search Collapse Event")
+                                    //                 : console.debug("[Debug]", "Search Expand Event");
+                                    //
+                                    //             if ( event.type === "focus" ) {
+                                    //                 Input.style.outline = "0";
+                                    //                 Input.style.paddingLeft = "3.0rem";
+                                    //                 Input.style.paddingRight = "3.0rem";
+                                    //
+                                    //                 Element.setAttribute("expanded", "true");
+                                    //             } else {
+                                    //                 Input.style.outline = "0";
+                                    //                 Input.style.paddingLeft = "0.0rem";
+                                    //                 Input.style.paddingRight = "0.0rem";
+                                    //
+                                    //                 Element.removeAttribute("expanded");
+                                    //             }
+                                    //         }
+                                    //     }
+                                    //     labelText={ "Test-Label-Text" }
+                                    //     expanded={ false }
+                                    //     tabIndex={ 0 }
+                                    // />
                                 }
                                 <Button
                                     kind="ghost"
@@ -249,7 +245,7 @@ const Component = ({ Data, Headers, State, Pages }) => {
                                         Headers.map(
                                             (Header) => (Header.value === "Name")
                                                 ? (
-                                                    <TableHeader { ... getHeaderProps({ header: Header }) } colSpan={ 1 } >
+                                                    <TableHeader { ... getHeaderProps({ header: Header }) } colSpan={ 1 }>
                                                         { Header.value }
                                                     </TableHeader>
                                                 ) : (
@@ -288,7 +284,8 @@ const Component = ({ Data, Headers, State, Pages }) => {
 
                                             return (
                                                 <Fragment key={ String(Index) }>
-                                                    <TableExpandRow expandIconDescription={ "Select to Expand Repository's Description" } { ... getRowProps({ row: Row }) }>
+                                                    <TableExpandRow
+                                                        expandIconDescription={ "Select to Expand Repository's Description" } { ... getRowProps({ row: Row }) }>
                                                         <TableSelectRow { ... getSelectionProps({ row: Row }) } />
                                                         <TableCell
                                                             key={ String(Index) + "-" + "ID" + "-" + Row.UID }
@@ -378,13 +375,13 @@ const Component = ({ Data, Headers, State, Pages }) => {
                                                             id={ String(Index) + "-" + "Overflow" + "-" + Row.UID }
                                                             key={ String(Index) + "-" + "Overflow" + "-" + Row.UID }
                                                         >
-                                                            <div style={{
+                                                            <div style={ {
                                                                 display: "flex",
                                                                 justifyContent: "space-between"
-                                                            }}>
-                                                                <Modal.Environment id={Row.UID} />
-                                                                <Modal.Modify id={Row.UID} />
-                                                                <Modal.Trigger id={Row.UID} />
+                                                            } }>
+                                                                <Modal.Environment id={ Row.UID }/>
+                                                                <Modal.Modify id={ Row.UID }/>
+                                                                <Modal.Trigger id={ Row.UID }/>
                                                             </div>
                                                         </TableCell>
                                                     </TableExpandRow>
