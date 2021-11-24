@@ -16,7 +16,8 @@ $prefix: "cds";
 
 /* -------------------------
  --> Table User Agent Styles
-*/// -----------------------
+*/
+// -----------------------
 
 th, tr, td {
     box-shadow:     none !important;
@@ -49,42 +50,42 @@ th, tr, td {
 }
 
 // Menu Notification Border
-.exp--notifications-panel__container .exp--notifications-panel__notification:focus {
+.c4p--notifications-panel__container .c4p--notifications-panel__notification:focus {
     //box-shadow: inset 0 0 0 2px var(--cds-focus),inset 0 0 0 2px var(--cds-focus);
 }
 
-.exp--notifications-panel__container .exp--notifications-panel__notification-today:not(:first-of-type):before, .exp--notifications-panel__container .exp--notifications-panel__notification-yesterday:not(:first-of-type):before, .exp--notifications-panel__container .exp--notifications-panel__notification-previous:not(:first-of-type):before {
+.c4p--notifications-panel__container .c4p--notifications-panel__notification-today:not(:first-of-type):before, .c4p--notifications-panel__container .c4p--notifications-panel__notification-yesterday:not(:first-of-type):before, .c4p--notifications-panel__container .c4p--notifications-panel__notification-previous:not(:first-of-type):before {
     top: 0.295rem;
 }
 
-.exp--notifications-panel__settings-button {
+.c4p--notifications-panel__settings-button {
     .cds--btn__icon {
         margin-left: 0.0rem;
     }
 }
 
 // Menu Notifications Label
-.exp--notifications-panel__container {
-    .exp--notifications-panel__time-section-label {
+.c4p--notifications-panel__container {
+    .c4p--notifications-panel__time-section-label {
         z-index:  1;
         position: absolute;
         width:    100%;
         top:      6.5rem;
     }
 
-    .exp--notifications-panel__notification {
-        .exp--notifications-panel__notifications-link {
+    .c4p--notifications-panel__notification {
+        .c4p--notifications-panel__notifications-link {
             margin-top: 0.5rem;
         }
     }
 
-    .exp--notifications-panel__notification:first-of-type {
+    .c4p--notifications-panel__notification:first-of-type {
         margin-top: 1.75rem;
     }
 }
 
 // Data Table Borders
-tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expandable-row):hover td {
+tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--c4pandable-row):hover td {
     border-top:    1px solid var(--cds-layer-selected-hover);
     border-bottom: 1px solid var(--cds-layer-selected-hover);
     background:    var(--cds-layer-selected-hover);
@@ -92,13 +93,13 @@ tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expa
 }
 
 // Data Table Checkboxes
-.#{$prefix}--data-table th.#{$prefix}--table-expand + .#{$prefix}--table-column-checkbox,
-.#{$prefix}--data-table td.#{$prefix}--table-expand + .#{$prefix}--table-column-checkbox {
+.#{$prefix}--data-table th.#{$prefix}--table-c4pand + .#{$prefix}--table-column-checkbox,
+.#{$prefix}--data-table td.#{$prefix}--table-c4pand + .#{$prefix}--table-column-checkbox {
     min-width: 35px;
 }
 
 // Data Table Highlight Selected Row (*:--last-of-type)
-tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--expandable-row + tr[data-child-row]:last-of-type td {
+tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--c4pandable-row + tr[data-child-row]:last-of-type td {
     padding-bottom: unset;
 }
 
@@ -124,22 +125,22 @@ tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--expandabl
     border-bottom: 1px solid var(--cds-border-inverse) inset;
 }
 
-// Data Table Data Cell Expander
-tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expandable-row):hover td {
-    border-top: 1px solid var(--cds-layer-active);
+// Data Table Data Cell c4pander
+tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--c4pandable-row):hover td {
+    border-top:    1px solid var(--cds-layer-active);
     border-bottom: 1px solid var(--cds-layer-active);
-    background: var(--cds-layer-active);
-    box-shadow: 0 1px var(--cds-layer-active);
+    background:    var(--cds-layer-active);
+    box-shadow:    0 1px var(--cds-layer-active);
 }
 
-// Data Table Data Cell Expander
+// Data Table Data Cell c4pander
 tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:first-of-type td {
     border-bottom: 1px solid var(--cds-layer-active) !important;
-    border-top: 1px solid var(--cds-layer-active) !important;
+    border-top:    1px solid var(--cds-layer-active) !important;
 }
 
-// Data Table Row & Expandable Optimizations
-tr.#{$prefix}--parent-row:not(.#{$prefix}--expandable-row) + tr[data-child-row] {
+// Data Table Row & c4pandable Optimizations
+tr.#{$prefix}--parent-row:not(.#{$prefix}--c4pandable-row) + tr[data-child-row] {
     opacity: 0;
 }
 
@@ -183,7 +184,9 @@ tr[data-child-row] {
     .#{$prefix}--inline-notification {
         max-width: 100%;
     }
-};
+}
+
+;
 
 /* -------------------
  --> Functional Mixins
@@ -201,7 +204,7 @@ tr[data-child-row] {
     -webkit-user-select: none; /* Safari */
     -khtml-user-select:  none; /* Konqueror HTML */
     -moz-user-select:    none; /* Old versions of Firefox */
-    -ms-user-select:     none; /* Internet Explorer/Edge */
+    -ms-user-select:     none; /* Internet c4plorer/Edge */
 
     user-select:         none;
 }
@@ -216,7 +219,7 @@ tr[data-child-row] {
     -webkit-user-select: auto; /* Safari */
     -khtml-user-select:  auto; /* Konqueror HTML */
     -moz-user-select:    auto; /* Old versions of Firefox */
-    -ms-user-select:     auto; /* Internet Explorer/Edge */
+    -ms-user-select:     auto; /* Internet c4plorer/Edge */
 
     user-select:         auto;
 }
@@ -231,7 +234,7 @@ tr[data-child-row] {
     -webkit-user-select: all; /* Safari */
     -khtml-user-select:  all; /* Konqueror HTML */
     -moz-user-select:    all; /* Old versions of Firefox */
-    -ms-user-select:     all; /* Internet Explorer/Edge */
+    -ms-user-select:     all; /* Internet c4plorer/Edge */
 
     user-select:         all;
 }

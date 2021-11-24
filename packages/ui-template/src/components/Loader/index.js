@@ -6,10 +6,12 @@ import React, {
 
 import {
     InlineLoading
-} from "@carbon/react"
+} from "@carbon/react";
 
-export const Loader = ({description}) => (
-    <InlineLoading description={description} iconDescription={"Loading Indicator"}/>
+import Styles from "./index.module.scss";
+
+export const Loader = ({ description, ... properties }) => (
+    <InlineLoading className={ Styles.spinner } description={ description } iconDescription={ "Loading Indicator" } { ... properties }/>
 );
 
 Loader.defaultProps = {
@@ -22,24 +24,26 @@ Loader.defaultProps = {
  * @param description {String}
  * @param timeout {Number}
  *
+ * @param properties
  * @returns {JSX.Element}
  *
  * @constructor
  *
  */
 
-const Component = ({children, description, timeout}) => {
+const Component = ({ children, description, timeout, ... properties }) => {
+    console.log(properties);
     const $ = () => children;
 
-    if (timeout === null) return (<Loader description={ " " }/>);
+    if ( timeout === null ) return (<Loader description={ " " } { ... properties }/>);
 
-    const [awaiting, setAwaiting] = useState(null);
+    const [ awaiting, setAwaiting ] = useState(null);
 
     useEffect(() => {
         let $ = setTimeout(() => setAwaiting(false), timeout);
 
         return () => {
-            clearTimeout($)
+            clearTimeout($);
         };
 
         /***
@@ -48,9 +52,9 @@ const Component = ({children, description, timeout}) => {
          * array, then clearTimeout will run every time any attribute
          * or value changes.
          */
-    }, [awaiting]);
+    }, [ awaiting ]);
 
-    return (awaiting === false) ? (<$/>) : (<Loader description={description}/>);
+    return (awaiting === false) ? (<$ className={ Styles.spinner }/>) : (<Loader className={ Styles.spinner } description={ description } { ... properties }/>);
 };
 
 Component.propTypes = {
@@ -72,11 +76,12 @@ Component.propTypes = {
      * component
      */
 
-    timeout: PropTypes.number
+    timeout: PropTypes.number,
+
+    properties: PropTypes.any
 };
 
 export default Component;
-
 
 /***
  *
@@ -92,18 +97,18 @@ export default Component;
  *
  */
 
-export const Validator = ({children, description, timeout}) => {
+export const Validator = ({ children, description, timeout }) => {
     const $ = () => children;
 
-    if (timeout === null) return (<Loader description={ " " }/>);
+    if ( timeout === null ) return (<Loader description={ " " }/>);
 
-    const [awaiting, setAwaiting] = useState(null);
+    const [ awaiting, setAwaiting ] = useState(null);
 
     useEffect(() => {
         let $ = setTimeout(() => setAwaiting(false), timeout);
 
         return () => {
-            clearTimeout($)
+            clearTimeout($);
         };
 
         /***
@@ -112,9 +117,9 @@ export const Validator = ({children, description, timeout}) => {
          * array, then clearTimeout will run every time any attribute
          * or value changes.
          */
-    }, [awaiting]);
+    }, [ awaiting ]);
 
-    return (awaiting === false) ? (<$/>) : (<Loader description={description}/>);
+    return (awaiting === false) ? (<$ className={ Styles.spinner }/>) : (<Loader className={ Styles.spinner } description={ description }/>);
 };
 
 Validator.propTypes = {
@@ -154,4 +159,4 @@ Validator.propTypes = {
 Validator.defaultProps = {
     timeout: 1000,
     description: "Validating Authorized Session ..."
-}
+};

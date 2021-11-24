@@ -3,16 +3,19 @@
 @use "@carbon/react/scss/spacing" as Spacing;
 
 .breadcrumb {
-    display: flex;
-    flex-wrap: initial;
-    width: max-content;
+    display:       flex;
+    flex-wrap:     initial;
+    width:         max-content;
 
-    margin-left: 0.0rem;
+    // margin-left: 0.0rem;
+    margin-left:   1.5rem;
 
-    margin-top: Spacing.$spacing-05;
+    margin-top:    calc(3.0rem + 1.0rem);
+
+    // margin-top:    Spacing.$spacing-05;
     margin-bottom: Spacing.$spacing-05;
 
-    position: relative;
+    position:      relative;
 
     @include disable-selection();
 

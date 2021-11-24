@@ -9,7 +9,7 @@ const Page = () => {
                 () => {
                     console.debug("[Debug]", "Instantiating Waiter ...");
 
-                    setAwaiting(false)
+                    setAwaiting(false);
 
                     if ( awaiting === false ) resolve(awaiting);
                 },
@@ -23,21 +23,21 @@ const Page = () => {
     }, []);
 
     switch ( awaiting ) {
-        case true: {
-            console.debug("[Debug]", "Awaitable", awaiting);
+    case true: {
+        console.debug("[Debug]", "Awaitable", awaiting);
 
-            return (awaiting === true) && (
-                "..."
-            );
-        }
+        return (awaiting === true) && (
+            "... Waiting"
+        );
+    }
 
-        default: {
-            console.debug("[Debug]", "Awaitable", awaiting);
-            
-            console.debug("[Debug]", "Waiter has Successfully Resolved");
+    default: {
+        console.debug("[Debug]", "Awaitable", awaiting);
 
-            return (awaiting === false) && null;
-        }
+        console.debug("[Debug]", "Waiter has Successfully Resolved");
+
+        return (awaiting === false) && null;
+    }
     }
 };
 

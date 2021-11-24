@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 
 import { useState } from "react";
 import {
-    Button,
-    UnorderedList,
-    ListItem
+    Button
 } from "@carbon/react";
 import { ImportModal } from "@carbon/ibm-cloud-cognitive";
 
@@ -19,8 +17,8 @@ const Types = [
 const Component = (Properties) => {
     const { Type } = Properties;
 
-    const [modalVisible, setModalVisible] = useState(false);
-    const [inTransit, setInTransit] = useState(false);
+    const [ modalVisible, setModalVisible ] = useState(false);
+    const [ inTransit, setInTransit ] = useState(false);
 
     const Submission = ({ File }) => {
         console.debug(File);
@@ -74,7 +72,7 @@ Component.propTypes = {
      * Type:  "Import" XOR "Upload"
      */
 
-    Type: PropTypes.oneOf(["Import", "Upload"])
+    Type: PropTypes.oneOf([ "Import", "Upload" ])
 };
 
 export default Component;

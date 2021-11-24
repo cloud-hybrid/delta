@@ -1,6 +1,6 @@
 import React, { useEffect, useState, lazy as Import, Suspense } from "react";
 
-import { Grid, Column, Row } from "@carbon/react";
+import { Grid, Column, Row } from "./components/Grid";
 
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 
@@ -15,10 +15,10 @@ import { Authorizer, JWT, Validate, Cancellation } from "./components/Authentica
 
 const Login = Import(() => import("./pages/Login"));
 const GitHub = Import(() => import("./pages/GitHub"));
-const GitLab = Import(() => import("./pages/GitLab"));
-const ID = Import(() => import("./pages/GitLab/Project"));
+// const GitLab = Import(() => import("./pages/GitLab"));
+// const ID = Import(() => import("./pages/GitLab/Project"));
 const Template = Import(() => import("./pages/Template"));
-const Pipelines = Import(() => import("./pages/Pipelines"));
+//const Pipelines = Import(() => import("./pages/Pipelines"));
 const Tiles = Import(() => import("./pages/Development/Tiles"));
 const Awaitable = Import(() => import("./pages/Development/Awaitable"));
 const List = Import(() => import("./pages/Development/Selectable-List"));
@@ -67,11 +67,6 @@ const Application = () => {
                             <Breadcrumbs Title={ location.pathname }/>
                         </Column>
                     </Row>
-                    {/*<Row>*/ }
-                    {/*    <$Button loading={ true } recommended={ true } kind={ "ghost" }>*/ }
-                    {/*        <span>Hello</span>*/ }
-                    {/*    </$Button>*/ }
-                    {/*</Row>*/ }
                     <Suspense fallback={ null }>
                         <Spinner timeout={ 1000 } description={ "" }>
                             <Routes basename={ "/" }>
@@ -94,27 +89,37 @@ const Application = () => {
                                     } path={ "/login" }
                                 />
 
+                                <Route
+                                    element={ (
+                                        <Authorizer
+                                            Page={ Template }
+                                            Session={ Authorization[0] }
+                                            description={ "Loading Template Page ..." }
+                                        />
+                                    ) } path={ "/template" }
+                                />
+
                                 { /* Authorized Endpoint(s) */ }
 
-                                <Route
-                                    element={ (
-                                        <Authorizer
-                                            Page={ GitLab }
-                                            Session={ Authorization[0] }
-                                            description={ "Loading VCS Project(s) ..." }
-                                        />
-                                    ) } path={ "/gitlab" }
-                                />
+                                {/*<Route*/ }
+                                {/*    element={ (*/ }
+                                {/*        <Authorizer*/ }
+                                {/*            Page={ GitLab }*/ }
+                                {/*            Session={ Authorization[0] }*/ }
+                                {/*            description={ "Loading VCS Project(s) ..." }*/ }
+                                {/*        />*/ }
+                                {/*    ) } path={ "/gitlab" }*/ }
+                                {/*/>*/ }
 
-                                <Route
-                                    element={ (
-                                        <Authorizer
-                                            Page={ ID }
-                                            Session={ Authorization[0] }
-                                            description={ "Loading Test Table ..." }
-                                        />
-                                    ) } path={ "/gitlab/:id" }
-                                />
+                                {/*<Route*/ }
+                                {/*    element={ (*/ }
+                                {/*        <Authorizer*/ }
+                                {/*            Page={ ID }*/ }
+                                {/*            Session={ Authorization[0] }*/ }
+                                {/*            description={ "Loading Test Table ..." }*/ }
+                                {/*        />*/ }
+                                {/*    ) } path={ "/gitlab/:id" }*/ }
+                                {/*/>*/ }
 
                                 <Route
                                     element={ (
@@ -126,15 +131,15 @@ const Application = () => {
                                     ) } path={ "/development/github" }
                                 />
 
-                                <Route
-                                    element={ (
-                                        <Authorizer
-                                            Page={ Pipelines }
-                                            Session={ Authorization[0] }
-                                            description={ "Loading Deployment Pipeline(s) ..." }
-                                        />
-                                    ) } path={ "/development/pipelines" }
-                                />
+                                {/*<Route*/ }
+                                {/*    element={ (*/ }
+                                {/*        <Authorizer*/ }
+                                {/*            Page={ Pipelines }*/ }
+                                {/*            Session={ Authorization[0] }*/ }
+                                {/*            description={ "Loading Deployment Pipeline(s) ..." }*/ }
+                                {/*        />*/ }
+                                {/*    ) } path={ "/development/pipelines" }*/ }
+                                {/*/>*/ }
 
                                 <Route
                                     element={ (

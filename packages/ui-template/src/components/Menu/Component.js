@@ -157,50 +157,59 @@ const Component = ({ Authorizer }) => {
                             Nexus
                         </HeaderName>
                         <HeaderNavigation aria-label="Nexus">
-                            <HeaderMenuItem element={ Link } to={ "/gitlab" } isCurrentPage={ Active("gitlab") } onClick={ () => navigation("/gitlab") }>
-                                GitLab
-                            </HeaderMenuItem>
-                            <hr
-                                width="1px"
-                                size="auto"
-                                style={
-                                    {
-                                        borderStyle: "solid",
-                                        color: "var(--cds-border-subtle)",
-                                        marginLeft: "0.5rem",
-                                        marginRight: "0.5rem"
-                                    }
-                                }
-                            />
+                            {/*<HeaderMenuItem element={ Link } to={ "/gitlab" } isCurrentPage={ Active("gitlab") } onClick={ () => navigation("/gitlab") }>*/ }
+                            {/*    GitLab*/ }
+                            {/*</HeaderMenuItem>*/ }
+                            {/*<hr*/ }
+                            {/*    width="1px"*/ }
+                            {/*    size="auto"*/ }
+                            {/*    style={*/ }
+                            {/*        {*/ }
+                            {/*            borderStyle: "solid",*/ }
+                            {/*            color: "var(--cds-border-subtle)",*/ }
+                            {/*            marginLeft: "0.5rem",*/ }
+                            {/*            marginRight: "0.5rem"*/ }
+                            {/*        }*/ }
+                            {/*    }*/ }
+                            {/*/>*/ }
                             <HeaderMenu aria-label={ "Label" } menuLinkName={ "Development" }>
                                 {/*<HeaderMenuItem element={ Link } to={ "/dashboard" } isCurrentPage={ Active("dashboard") } onClick={ () => navigation("/dashboard") }>*/ }
                                 {/*    <strong>Dashboard</strong>*/ }
                                 {/*</HeaderMenuItem>*/ }
-                                <HeaderMenuItem element={ Link } to={ "/development/github" } isCurrentPage={ Active("development/github") } onClick={ () => navigation("/development/github") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/github" } isCurrentPage={ Active("development/github") }
+                                                onClick={ () => navigation("/development/github") }>
                                     <strong>GitHub</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/pipelines" } isCurrentPage={ Active("development/pipelines") } onClick={ () => navigation("/development/pipelines") }>
-                                    <strong>Pipelines</strong>
-                                </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/template" } isCurrentPage={ Active("development/template") } onClick={ () => navigation("/development/template") }>
+                                {/*<HeaderMenuItem element={ Link } to={ "/development/pipelines" } isCurrentPage={ Active("development/pipelines") }*/ }
+                                {/*                onClick={ () => navigation("/development/pipelines") }>*/ }
+                                {/*    <strong>Pipelines</strong>*/ }
+                                {/*</HeaderMenuItem>*/ }
+                                <HeaderMenuItem element={ Link } to={ "/development/template" } isCurrentPage={ Active("development/template") }
+                                                onClick={ () => navigation("/development/template") }>
                                     <strong>Template</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/awaitable" } isCurrentPage={ Active("development/awaitable") } onClick={ () => navigation("/development/awaitable") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/awaitable" } isCurrentPage={ Active("development/awaitable") }
+                                                onClick={ () => navigation("/development/awaitable") }>
                                     <strong>Awaitable</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/snippet" } isCurrentPage={ Active("development/snippet") } onClick={ () => navigation("/development/snippet") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/snippet" } isCurrentPage={ Active("development/snippet") }
+                                                onClick={ () => navigation("/development/snippet") }>
                                     <strong>Code-Snippet</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/tiles" } isCurrentPage={ Active("development/tiles") } onClick={ () => navigation("/development/tiles") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/tiles" } isCurrentPage={ Active("development/tiles") }
+                                                onClick={ () => navigation("/development/tiles") }>
                                     <strong>Tiles</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/list" } isCurrentPage={ Active("development/list") } onClick={ () => navigation("/development/list") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/list" } isCurrentPage={ Active("development/list") }
+                                                onClick={ () => navigation("/development/list") }>
                                     <strong>Selectable-List</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/table" } isCurrentPage={ Active("development/table") } onClick={ () => navigation("/development/table") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/table" } isCurrentPage={ Active("development/table") }
+                                                onClick={ () => navigation("/development/table") }>
                                     <strong>Test-Table</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/card" } isCurrentPage={ Active("development/card") } onClick={ () => navigation("/development/card") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/card" } isCurrentPage={ Active("development/card") }
+                                                onClick={ () => navigation("/development/card") }>
                                     <strong>Card</strong>
                                 </HeaderMenuItem>
                             </HeaderMenu>
@@ -233,19 +242,19 @@ const Component = ({ Authorizer }) => {
                                     } }
                                 >
                                     <SideNavItems>
-                                        <SideNavLink
-                                            renderIcon={ Icons.Development }
-                                            isSideNavExpanded={ isSideNavExpanded }
-                                            isActive={ Active("gitlab") }
-                                            onClick={
-                                                () => {
-                                                    navigation("/gitlab");
-                                                    onClickSideNavExpand();
-                                                }
-                                            }
-                                        >
-                                            GitLab
-                                        </SideNavLink>
+                                        {/*<SideNavLink*/ }
+                                        {/*    renderIcon={ Icons.Development }*/ }
+                                        {/*    isSideNavExpanded={ isSideNavExpanded }*/ }
+                                        {/*    isActive={ Active("gitlab") }*/ }
+                                        {/*    onClick={*/ }
+                                        {/*        () => {*/ }
+                                        {/*            navigation("/gitlab");*/ }
+                                        {/*            onClickSideNavExpand();*/ }
+                                        {/*        }*/ }
+                                        {/*    }*/ }
+                                        {/*>*/ }
+                                        {/*    GitLab*/ }
+                                        {/*</SideNavLink>*/ }
                                         <SideNavLink
                                             renderIcon={ Icons.Development }
                                             isSideNavExpanded={ isSideNavExpanded }
@@ -259,19 +268,19 @@ const Component = ({ Authorizer }) => {
                                         >
                                             GitHub
                                         </SideNavLink>
-                                        <SideNavLink
-                                            renderIcon={ Icons.Development }
-                                            isSideNavExpanded={ isSideNavExpanded }
-                                            isActive={ Active("pipelines") }
-                                            onClick={
-                                                () => {
-                                                    navigation("/pipelines");
-                                                    onClickSideNavExpand();
-                                                }
-                                            }
-                                        >
-                                            Pipelines
-                                        </SideNavLink>
+                                        {/*<SideNavLink*/ }
+                                        {/*    renderIcon={ Icons.Development }*/ }
+                                        {/*    isSideNavExpanded={ isSideNavExpanded }*/ }
+                                        {/*    isActive={ Active("pipelines") }*/ }
+                                        {/*    onClick={*/ }
+                                        {/*        () => {*/ }
+                                        {/*            navigation("/pipelines");*/ }
+                                        {/*            onClickSideNavExpand();*/ }
+                                        {/*        }*/ }
+                                        {/*    }*/ }
+                                        {/*>*/ }
+                                        {/*    Pipelines*/ }
+                                        {/*</SideNavLink>*/ }
                                         <SideNavMenu
                                             renderIcon={ Icons.Debug }
                                             title="Development"
