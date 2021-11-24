@@ -10,6 +10,7 @@ export const Authenticate = (request, response, callback) => {
 
         Token.verify(JWT, Secret, (error, user) => {
             if ( error ) {
+                console.log(error);
                 console.error("[Authorization (Middleware)]", "[Error]", JSON.stringify(error, null, 4));
 
                 response.statusCode = 403;
@@ -26,7 +27,7 @@ export const Authenticate = (request, response, callback) => {
 
             response.statusMessage = "Verified";
 
-            console.log("[Authorization (Middleware)]", "[Error]", JSON.stringify(user, null, 4));
+            console.log("[Authorization (Middleware)]", "[Log]", "Successful JWT Validation" + ":", JSON.stringify(user, null, 4));
 
             callback();
         });

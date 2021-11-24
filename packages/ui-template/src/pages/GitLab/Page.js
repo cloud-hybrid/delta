@@ -79,33 +79,13 @@ const Component = () => {
         }
     ], []);
 
-    const Pages = {
-        Rows: {
-            Data: rows,
-            Setter: (value) => setRows(value)
-        },
-        Total: (
-            Handler.Total > rows
-        ) ? Handler.Total - rows : rows,
-        Index: {
-            Data: page,
-            Setter: (value) => setPage(value)
-        },
-        Size: rows,
-        Sizes: [ rows ]
-    };
-
     const Awaitable = () => {
         if ( awaiting === true ) return Component();
 
-        const Data = (
-            Handler && Handler.Response && Handler.Response[page] !== null
-        ) ? new Array(Handler.Response[page]) : new Array(0);
-
-        //        const Memoization = React.useMemo(() => Data[Data.length - 1], [ Data ]);
+        const Data = React.useMemo(() => Handler.Response["Data"]["Projects"]) || [];
 
         return (
-            <Tabular Headers={ Headers } Data={ Data.pop() } State={ setAwaiting } Pages={ Pages }/>
+            <Tabular Headers={ Headers } Data={ Data } State={ setAwaiting }/>
         );
     };
 

@@ -80,7 +80,7 @@ function batchActionClick(event, rows = null) {
     }
 }
 
-async function Refresh(setter) {
+const Refresh = async (setter) => {
     await Store.removeItem(STORE, (error) => {
         (
             error
@@ -92,10 +92,18 @@ async function Refresh(setter) {
 
         setter(true);
     });
-}
+};
 
-const Compute = (Data, Projects) => Data.forEach((Repository, Index) => {
-    useMemo(() => {
+const Component = ({ Data, Headers, State }) => {
+    const Home = "https://gitlab.cloud-technology.io/";
+
+    const Projects = [];
+
+    const Total = (
+        Data
+    ) ? Data?.length : 0;
+
+    Data.forEach((Repository, Index) => React.useMemo(() => {
         Projects[Index] = {
             id: String(Index),
             disabled: false,
@@ -106,39 +114,10 @@ const Compute = (Data, Projects) => Data.forEach((Repository, Index) => {
             Name: (Repository.name !== null) ? String(Repository.name) : "N/A",
             Visibility: (Repository.visibility !== null) ? String(Repository.visibility).toUpperCase() : "Internal",
             Activity: (Repository.last_activity_at !== null) ? String(Repository.last_activity_at) : "N/A",
-            URL: (
-                Repository.web_url !== null
-            ) ? String(Repository.web_url) : "N/A",
+            URL: (Repository.web_url !== null) ? String(Repository.web_url) : "N/A",
             Data: Repository
         };
-    }, []);
-});
-
-const Component = ({ Data, Headers, State, Pages }) => {
-    const Home = "https://gitlab.cloud-technology.io/";
-
-    const Total = (
-        Data
-    ) ? Data?.length : 0;
-    const Projects = new Array(Total);
-
-    Data.forEach((Repository, Index) => {
-        Projects[Index] = React.useMemo(() => {
-            return {
-                id: String(Index),
-                disabled: false,
-                isExpanded: false,
-                isSelected: false,
-                cells: Object.values({ Repository }),
-                UID: (Repository.id !== null) ? String(Repository.id) : 0,
-                Name: (Repository.name !== null) ? String(Repository.name) : "N/A",
-                Visibility: (Repository.visibility !== null) ? String(Repository.visibility).toUpperCase() : "Internal",
-                Activity: (Repository.last_activity_at !== null) ? String(Repository.last_activity_at) : "N/A",
-                URL: (Repository.web_url !== null) ? String(Repository.web_url) : "N/A",
-                Data: Repository
-            };
-        }, []);
-    });
+    }, [ Data ]));
 
     return (
         <DataTable
@@ -407,9 +386,9 @@ const Component = ({ Data, Headers, State, Pages }) => {
                                 }
                             </TableBody>
                         </Table>
-                        {
-                            (Data) ? (<Pagination Pages={ Pages }/>) : (<></>)
-                        }
+                        {/*{*/ }
+                        {/*    (Data) ? (<Pagination Pages={ Pages }/>) : (<></>)*/ }
+                        {/*}*/ }
                     </TableContainer>
                 ) }
         />

@@ -2,6 +2,8 @@ import { default as axios } from "axios";
 
 import { useState, useEffect } from "react";
 
+import { JWT } from "./../../components/Authenticate.js";
+
 const Adapter = require("axios-cache-adapter");
 const Forage = require("localforage");
 
@@ -55,7 +57,7 @@ export const Methods = [
 ];
 
 export class AIO {
-    static URL = String(process.env.REACT_APP_API_ENDPOINT) + "/API/Gitlab/Projects";
+    static URL = String(process.env.REACT_APP_API_ENDPOINT) + "/v1/gitlab/projects";
 
     static Request = () => {
         const Query = () => {
@@ -74,12 +76,12 @@ export class AIO {
 
                         const Awaitable = { Value: null };
 
-                        await Store.getItem(STORE).then((Key) => {
-                            if ( Key !== null ) {
+                        await Store.getItem(STORE).then((Data) => {
+                            if ( Data ) {
                                 console.debug("[DEBUG]", "Cache Hit");
 
-                                setData(Key);
-                                Awaitable["Value"] = Key;
+                                setData(Data);
+                                Awaitable["Value"] = Data;
                                 ignore = true;
                             } else {
                                 console.debug("[DEBUG]", "Cache Miss");
@@ -95,10 +97,15 @@ export class AIO {
                                 await Store.setItem(STORE, Awaitable.Value);
                             }
                         };
+
                         await Handler().then(async () => {
                             if ( ignore === false ) {
+                                const Token = await JWT();
                                 const response = API.get(AIO.URL, {
-                                    timeout: 30000
+                                    timeout: 30000,
+                                    headers: {
+                                        "Authorization": "Bearer" + " " + Token
+                                    }
                                 }).catch((error) => (
                                     console.debug("[DEBUG]", "API-Request", "Projects", "Error", error)
                                 )).finally(
