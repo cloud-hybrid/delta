@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { InlineNotification, ToastNotification, ActionableNotification } from "@carbon/react";
 
-import { default as Difference } from "./../../../utilities/Difference.js";
+import { default as Difference } from "./../../utilities/Difference.js";
 
 const Delimiter = () => (
     <>
@@ -29,10 +29,6 @@ export const Inline = (props) => {
         ... properties
     } = props;
 
-    console.debug("Properties (Inline-Notification)", Difference(props, properties));
-
-    console.debug("Attributes (Inline-Notification)", properties);
-
     return (
         <InlineNotification
             kind={ kind }
@@ -50,13 +46,6 @@ export const Inline = (props) => {
             {
                 ... properties
             }
-
-            /// data-properties={
-            ///     String(JSON.stringify({
-            ///         Properties: JSON.stringify(Difference(props, properties), null, 4),
-            ///         Attributes: JSON.stringify(properties, null, 4)
-            ///     }, null, 4).valueOf())
-            /// }
         >
             <span>
                 <strong>
@@ -77,8 +66,8 @@ Inline.defaultProps = {
     kind: "info",
     lowContrast: true,
     role: "alert",
-    title: "[Title Title]",
-    subtitle: "[Subtitle Content]",
+    title: "[Title]",
+    subtitle: "[Subtitle]",
     iconDescription: "[Icon Descriptive Content]",
     statusIconDescription: "[Status Icon Descriptive Content]",
     hideCloseButton: false,
@@ -169,10 +158,6 @@ export const Toast = (props) => {
         ... properties
     } = props;
 
-    console.debug("Properties (Toast-Notification)", Difference(props, properties));
-
-    console.debug("Attributes (Toast-Notification)", properties);
-
     return (
         <ToastNotification
             kind={ kind }
@@ -190,12 +175,6 @@ export const Toast = (props) => {
                 ... properties
             }
 
-            data-properties={
-                String(JSON.stringify({
-                    Properties: JSON.stringify(Difference(props, properties), null, 4),
-                    Attributes: JSON.stringify(properties, null, 4)
-                }, null, 4).valueOf())
-            }
         >
             <strong>
                 { title }
@@ -278,13 +257,13 @@ Toast.defaultProps = {
     kind: "info",
     lowContrast: true,
     role: "alert",
-    title: "[Title Title]",
-    subtitle: "[Subtitle Content]",
+    title: "[Title]",
+    subtitle: "[Subtitle]",
     iconDescription: "[Icon Descriptive Content]",
     statusIconDescription: "[Status Icon Descriptive Content]",
     hideCloseButton: false,
     closeOnEscape: true,
-    timeout: 1000,
+    timeout: null,
     properties: null
 };
 
@@ -306,10 +285,6 @@ export const Actionable = (props) => {
         ... properties
     } = props;
 
-    console.debug("Properties (Actionable-Notification)", Difference(props, properties));
-
-    console.debug("Attributes (Actionable-Notification)", properties);
-
     return (
         <ActionableNotification
             kind={ kind }
@@ -328,13 +303,6 @@ export const Actionable = (props) => {
 
             {
                 ... properties
-            }
-
-            data-properties={
-                String(JSON.stringify({
-                    Properties: JSON.stringify(Difference(props, properties), null, 4),
-                    Attributes: JSON.stringify(properties, null, 4)
-                }, null, 4).valueOf())
             }
         >
             <strong>
@@ -433,8 +401,8 @@ Actionable.defaultProps = {
     kind: "info",
     lowContrast: true,
     role: "alert",
-    title: "[Title Title]",
-    subtitle: "[Subtitle Content]",
+    title: "[Title]",
+    subtitle: "[Subtitle]",
     iconDescription: "[Icon Descriptive Content]",
     statusIconDescription: "[Status Icon Descriptive Content]",
     hideCloseButton: false,

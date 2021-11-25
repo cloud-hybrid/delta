@@ -1,12 +1,14 @@
+import { default as Template } from "./../../Module.js";
+
 import PropTypes from "prop-types";
 
-import { default as Template } from "./../../Module";
+import { default as Page } from "./Page.js";
 
-import { default as Page } from "./Page";
+import Styles from "./SCSS/Index.module.scss";
 
 const Component = ({ timeout, description }) => {
     return (
-        <Template Page={ Page } description={ description } timeout={ timeout }/>
+        <Template Page={ Page } description={ description } timeout={ timeout } className={ Styles.component }/>
     );
 };
 
@@ -16,7 +18,7 @@ Component.defaultProps = {
 
 Component.propTypes = {
     /**
-     * Forced Delay during Transition (Units in ms)
+     * Forced Delay during Transition
      */
 
     timeout: PropTypes.number.isRequired,

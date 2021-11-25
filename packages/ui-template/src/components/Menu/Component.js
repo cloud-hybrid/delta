@@ -176,34 +176,63 @@ const Component = ({ Authorizer }) => {
                                 {/*<HeaderMenuItem element={ Link } to={ "/dashboard" } isCurrentPage={ Active("dashboard") } onClick={ () => navigation("/dashboard") }>*/ }
                                 {/*    <strong>Dashboard</strong>*/ }
                                 {/*</HeaderMenuItem>*/ }
-                                <HeaderMenuItem element={ Link } to={ "/development/github" } isCurrentPage={ Active("development/github") } onClick={ () => navigation("/development/github") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/github" } isCurrentPage={ Active("development/github") }
+                                                onClick={ () => navigation("/development/github") }>
                                     <strong>GitHub</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/pipelines" } isCurrentPage={ Active("development/pipelines") } onClick={ () => navigation("/development/pipelines") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/pipelines" } isCurrentPage={ Active("development/pipelines") }
+                                                onClick={ () => navigation("/development/pipelines") }>
                                     <strong>Pipelines</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/template" } isCurrentPage={ Active("development/template") } onClick={ () => navigation("/development/template") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/template" } isCurrentPage={ Active("development/template") }
+                                                onClick={ () => navigation("/development/template") }>
                                     <strong>Template</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/awaitable" } isCurrentPage={ Active("development/awaitable") } onClick={ () => navigation("/development/awaitable") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/awaitable" } isCurrentPage={ Active("development/awaitable") }
+                                                onClick={ () => navigation("/development/awaitable") }>
                                     <strong>Awaitable</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/snippet" } isCurrentPage={ Active("development/snippet") } onClick={ () => navigation("/development/snippet") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/snippet" } isCurrentPage={ Active("development/snippet") }
+                                                onClick={ () => navigation("/development/snippet") }>
                                     <strong>Code-Snippet</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/tiles" } isCurrentPage={ Active("development/tiles") } onClick={ () => navigation("/development/tiles") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/tiles" } isCurrentPage={ Active("development/tiles") }
+                                                onClick={ () => navigation("/development/tiles") }>
                                     <strong>Tiles</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/list" } isCurrentPage={ Active("development/list") } onClick={ () => navigation("/development/list") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/list" } isCurrentPage={ Active("development/list") }
+                                                onClick={ () => navigation("/development/list") }>
                                     <strong>Selectable-List</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/table" } isCurrentPage={ Active("development/table") } onClick={ () => navigation("/development/table") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/table" } isCurrentPage={ Active("development/table") }
+                                                onClick={ () => navigation("/development/table") }>
                                     <strong>Test-Table</strong>
                                 </HeaderMenuItem>
-                                <HeaderMenuItem element={ Link } to={ "/development/card" } isCurrentPage={ Active("development/card") } onClick={ () => navigation("/development/card") }>
+                                <HeaderMenuItem element={ Link } to={ "/development/card" } isCurrentPage={ Active("development/card") }
+                                                onClick={ () => navigation("/development/card") }>
                                     <strong>Card</strong>
                                 </HeaderMenuItem>
                             </HeaderMenu>
+                            <hr
+                                width="1px"
+                                size="auto"
+                                style={
+                                    {
+                                        borderStyle: "solid",
+                                        color: "var(--cds-border-subtle)",
+                                        marginLeft: "0.5rem",
+                                        marginRight: "0.5rem"
+                                    }
+                                }
+                            />
+                            <HeaderMenuItem
+                                element={ Link }
+                                to={ "/dashboard-2.0" }
+                                isCurrentPage={ Active("dashboard-2.0") }
+                                onClick={ () => navigation("/dashboard-2.0") }
+                            >
+                                Dashboard 2.0
+                            </HeaderMenuItem>
                             <hr
                                 width="1px"
                                 size="auto"

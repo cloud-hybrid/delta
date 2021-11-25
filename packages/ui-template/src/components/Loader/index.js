@@ -6,14 +6,30 @@ import React, {
 
 import {
     InlineLoading
-} from "@carbon/react"
+} from "@carbon/react";
 
-export const Loader = ({description}) => (
-    <InlineLoading description={description} iconDescription={"Loading Indicator"}/>
+/***
+ *
+ * @param description {String} Target Component Description
+ *
+ * @return {JSX.Element}
+ * @constructor
+ */
+
+export const Loader = ({ description }) => (
+    <InlineLoading
+        description={ description }
+        iconDescription={ "Loading Indicator" }
+    />
 );
 
 Loader.defaultProps = {
     description: " "
+};
+
+Loader.propTypes = {
+    /*** @type {String} Loader's Target Component Description */
+    description: PropTypes.string.isRequired
 };
 
 /***
@@ -28,18 +44,18 @@ Loader.defaultProps = {
  *
  */
 
-const Component = ({children, description, timeout}) => {
+const Component = ({ children, description, timeout }) => {
     const $ = () => children;
 
-    if (timeout === null) return (<Loader description={ " " }/>);
+    if ( timeout === null ) return (<Loader description={ " " }/>);
 
-    const [awaiting, setAwaiting] = useState(null);
+    const [ awaiting, setAwaiting ] = useState(null);
 
     useEffect(() => {
         let $ = setTimeout(() => setAwaiting(false), timeout);
 
         return () => {
-            clearTimeout($)
+            clearTimeout($);
         };
 
         /***
@@ -48,9 +64,9 @@ const Component = ({children, description, timeout}) => {
          * array, then clearTimeout will run every time any attribute
          * or value changes.
          */
-    }, [awaiting]);
+    }, [ awaiting ]);
 
-    return (awaiting === false) ? (<$/>) : (<Loader description={description}/>);
+    return (awaiting === false) ? (<$/>) : (<Loader description={ description }/>);
 };
 
 Component.propTypes = {
@@ -77,7 +93,6 @@ Component.propTypes = {
 
 export default Component;
 
-
 /***
  *
  * Authorization Lazy Page Loader
@@ -92,19 +107,17 @@ export default Component;
  *
  */
 
-export const Validator = ({children, description, timeout}) => {
+export const Validator = ({ children, description, timeout }) => {
     const $ = () => children;
 
-    if (timeout === null) return (<Loader description={ " " }/>);
+    if ( timeout === null ) return (<Loader description={ " " }/>);
 
-    const [awaiting, setAwaiting] = useState(null);
+    const [ awaiting, setAwaiting ] = useState(null);
 
     useEffect(() => {
         let $ = setTimeout(() => setAwaiting(false), timeout);
 
-        return () => {
-            clearTimeout($)
-        };
+        return () => clearTimeout($);
 
         /***
          * useEffect will run only once with an empty [];
@@ -112,9 +125,14 @@ export const Validator = ({children, description, timeout}) => {
          * array, then clearTimeout will run every time any attribute
          * or value changes.
          */
-    }, [awaiting]);
+    }, [ awaiting ]);
 
-    return (awaiting === false) ? (<$/>) : (<Loader description={description}/>);
+    return (awaiting === false) ? (<$/>) : (<Loader description={ description }/>);
+};
+
+Validator.defaultProps = {
+    timeout: 1000,
+    description: "Validating Authorized Session ..."
 };
 
 Validator.propTypes = {
@@ -150,8 +168,3 @@ Validator.propTypes = {
 
     timeout: PropTypes.number
 };
-
-Validator.defaultProps = {
-    timeout: 1000,
-    description: "Validating Authorized Session ..."
-}

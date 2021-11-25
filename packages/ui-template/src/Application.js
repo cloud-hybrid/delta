@@ -9,9 +9,7 @@ import { default as BTT } from "./components/Back-To-Top";
 import { default as Breadcrumbs } from "./components/Breadcrumb";
 import { default as Spinner } from "./components/Loader";
 
-import { Authorizer, JWT, Validate, Cancellation } from "./components/Authenticate";
-
-//import { default as $Button } from "./components/Button";
+import { Authorizer, JWT, Validate } from "./components/Authenticate";
 
 const Login = Import(() => import("./pages/Login"));
 const GitHub = Import(() => import("./pages/GitHub"));
@@ -30,6 +28,8 @@ const Dashboard = {
     Index: Import(() => import("./pages/Dashboard/Pages/Index")),
     Mobile: Import(() => import("./pages/Dashboard/Pages/Mobile"))
 };
+
+Dashboard.Next = Import(() => import("./pages/Dashboard-2.0"));
 
 import { default as Home } from "./pages/Home";
 
@@ -67,24 +67,12 @@ const Application = () => {
                             <Breadcrumbs Title={ location.pathname }/>
                         </Column>
                     </Row>
-                    {/*<Row>*/ }
-                    {/*    <$Button loading={ true } recommended={ true } kind={ "ghost" }>*/ }
-                    {/*        <span>Hello</span>*/ }
-                    {/*    </$Button>*/ }
-                    {/*</Row>*/ }
                     <Suspense fallback={ null }>
                         <Spinner timeout={ 1000 } description={ "" }>
                             <Routes basename={ "/" }>
                                 {/* Base Endpoint(s) */ }
 
-                                <Route
-                                    path={ "/" }
-                                    element={
-                                        (
-                                            <Home/>
-                                        )
-                                    }
-                                />
+                                <Route path={ "/" } element={ (<Home/>) }/>
 
                                 <Route
                                     element={
@@ -176,6 +164,16 @@ const Application = () => {
                                     ) } path={ "/development/awaitable" }
                                 />
 
+                                <Route
+                                    element={ (
+                                        <Authorizer
+                                            Page={ Dashboard.Next }
+                                            Session={ Authorization[0] }
+                                            description={ "Loading Dashboard 2.0 ..." }
+                                        />
+                                    ) } path={ "/dashboard-2.0" }
+                                />
+
                                 { /* Development Component(s) */ }
 
                                 <Route
@@ -227,13 +225,16 @@ const Application = () => {
                                         />
                                     ) } path={ "/development/table" }
                                 />
+
+                                { /* Wildcard */ }
+
                                 <Route path={ "/*" } element={ (<Navigate to={ "/" }/>) }/>
                             </Routes>
                         </Spinner>
                     </Suspense>
                 </Column>
             </Grid>
-            <BTT/>
+            {/* <BTT/> // @Task: Fix Issue(s) with Page Bottom-Margin(s) & Z-Index(es) */ }
         </React.StrictMode>
     );
 };

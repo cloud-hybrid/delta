@@ -6,10 +6,10 @@ import {
 
 import { default as Loader } from "./../components/Loader";
 
-const Component = ({ Page, timeout, description }) => {
+const Component = ({ Page, timeout, description, ... Properties }) => {
     return (
         <Loader description={ description } timeout={ timeout }>
-            <Grid>
+            <Grid { ... Properties }>
                 <Column lg={ 16 } md={ 8 } sm={ 4 }>
                     <Page/>
                 </Column>
