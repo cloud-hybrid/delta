@@ -1,54 +1,22 @@
-import * as Styles from "./SCSS/Index.module.scss";
-
 import PropTypes from "prop-types";
 
-import {
-    Grid, Column
-} from "@carbon/react";
+import { default as Template } from "./../../Module";
 
-import React, {
-    Suspense, lazy as Import
-} from "react";
+import { default as Page } from "./Page";
 
-import { default as Loader } from "./../../../components/Loader";
-
-/***
- * 
- * @param timeout {Number}
- * @param description {String}
- * @param Properties {*}
- * 
- * @returns {JSX.Element}
- * 
- * @constructor
- * 
- */
-const Component = ({timeout, description}, Properties = { ... props }) => {
-    console.debug("[Debug] Unassigned Properties", Properties);
-
-    const Page = Import(() => import("./Page"));
-
+const Component = ({ timeout, description }) => {
     return (
-        <Grid className={Styles.component}>
-            <Column lg={16} md={8} sm={4}>
-                <Suspense fallback={(<Loader description={description} timeout={timeout}/>)}>
-                    <Loader description={description} timeout={timeout}>
-                        <Page/>
-                    </Loader>
-                </Suspense>
-            </Column>
-        </Grid>
+        <Template Page={ Page } description={ description } timeout={ timeout }/>
     );
 };
 
 Component.defaultProps = {
-    timeout: 1250,
-    description: null
+    timeout: 1250
 };
 
 Component.propTypes = {
     /**
-     * Forced Delay during Transition
+     * Forced Delay during Transition (Units in ms)
      */
 
     timeout: PropTypes.number.isRequired,

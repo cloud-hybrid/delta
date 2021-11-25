@@ -11,8 +11,8 @@ const Parsers = {
     "URL-Encoded": {
         Module: Library.Parser.urlencoded,
         Parameters: {
-            extended: true,
-            parameterLimit: 100
+            extended: false,
+            parameterLimit: 1000
         }
     }, JSON: {
         Module: Library.Parser.json,
@@ -49,7 +49,7 @@ export const Body = (server, parsers = Parsers) => {
 
         console.debug("[Body-Parser] [Debug] Updated Application Request + Response Parser(s)");
     });
-    
+
     return server;
 };
 

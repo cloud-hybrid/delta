@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 import * as Styles from "./SCSS/Index.module.scss";
@@ -13,8 +14,6 @@ import { default as List } from "./../../../components/Selectable-List";
  *
  */
 
-const Component = () => (
-    <List rows={15}/>
-);
+const Component = () => (<List rows={ 15 }/>);
 
 export default Component;

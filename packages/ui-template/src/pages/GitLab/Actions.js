@@ -1,4 +1,4 @@
-import { Requestable } from "./../../pages/Development/Code-Snippet-Awaitable/Content.js";
+import { Requestable } from "./../../pages/Development/Code-Snippet-Awaitable/Page";
 
 /***
  *

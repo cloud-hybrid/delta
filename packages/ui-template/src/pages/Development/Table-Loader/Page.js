@@ -56,7 +56,7 @@ const Linker = ({ organization, url }) => (
 const generateData = () => {
     const repositories = [];
 
-    for (let i = 0; i < 50; i++) {
+    for ( let i = 0; i < 50; i++ ) {
         repositories[i] = {
             id: String(i),
             name: "Test",
@@ -76,8 +76,7 @@ const generateData = () => {
     }
 
     return repositories;
-}
-
+};
 
 /*****
  *
@@ -89,24 +88,24 @@ const generateData = () => {
 const getRowItems = (rows) => {
     return rows.map(
         (row) => ({
-            ...row,
+            ... row,
             key: row.id,
             stars: row.stargazers.length,
             issueCount: row.issues.length,
             createdAt: new Date(row.createdAt).toLocaleDateString(),
             updatedAt: new Date(row.updatedAt).toLocaleDateString(),
-            links: <Linker organization={ "https://github.com/cloud-hybrid" } url={ "https://github.com/cloud-hybrid" } />
+            links: <Linker organization={ "https://github.com/cloud-hybrid" } url={ "https://github.com/cloud-hybrid" }/>
         })
     );
 };
 
 const Page = () => {
-    const [firstRowIndex, setFirstRowIndex] = useState(0);
-    const [currentPageSize, setCurrentPageSize] = useState(10);
+    const [ firstRowIndex, setFirstRowIndex ] = useState(0);
+    const [ currentPageSize, setCurrentPageSize ] = useState(10);
 
     const Data = useMemo(() => generateData(), []);
 
-    const [awaiting, setAwaiting] = useState(true);
+    const [ awaiting, setAwaiting ] = useState(true);
 
     useEffect(() => {
         async function Await() {
@@ -115,8 +114,8 @@ const Page = () => {
             const Waiter = new Promise((resolve, reject) => setTimeout(
                 (_) => {
                     setAwaiting(false);
-                    
-                    if (awaiting === false ) resolve(awaiting)
+
+                    if ( awaiting === false ) resolve(awaiting);
                 },
                 1500
             ));
@@ -131,7 +130,7 @@ const Page = () => {
         Await().finally();
     }, []);
 
-    if (awaiting === true) return (<Skeleton/>)
+    if ( awaiting === true ) return (<Skeleton/>);
     else {
         const rows = getRowItems(Data);
         return (
@@ -140,10 +139,10 @@ const Page = () => {
                     headers={ headers }
                     rows={ rows.slice(firstRowIndex, firstRowIndex + currentPageSize) }
                 />
-                <Pagination Data={Data} currentPageSize={currentPageSize} setCurrentPageSize={setCurrentPageSize} setFirstRowIndex={setFirstRowIndex}/>
+                <Pagination Data={ Data } currentPageSize={ currentPageSize } setCurrentPageSize={ setCurrentPageSize } setFirstRowIndex={ setFirstRowIndex }/>
             </>
         );
     }
-}
+};
 
 export default Page;

@@ -43,13 +43,13 @@ class AIO extends Object {
         super(props);
     };
 
-    static URL = process.env.REACT_APP_API_ENDPOINT + "/API/Awaitable";
+    static URL = process.env.REACT_APP_API_ENDPOINT + "/v1/gitlab/projects/empty";
 
     static Resolve = () => {
         const Query = () => {
-            const [data, setData] = useState(null);
-            const [loading, setLoading] = useState(null);
-            const [error, setError] = useState(null);
+            const [ data, setData ] = useState(null);
+            const [ loading, setLoading ] = useState(null);
+            const [ error, setError ] = useState(null);
 
             useEffect(() => {
                 let ignore = false;
@@ -68,9 +68,9 @@ class AIO extends Object {
 
                         console.debug("[Debug] Query (Pseudo) Response", response);
 
-                        if (!ignore) setData(response);
+                        if ( !ignore ) setData(response);
 
-                    } catch (Error) {
+                    } catch ( Error ) {
                         setError(Error);
                     }
 
@@ -82,8 +82,8 @@ class AIO extends Object {
                 return (() => {
                     ignore = true;
                 });
-            }, [URL]);
-            return {data, loading, error};
+            }, [ URL ]);
+            return { data, loading, error };
         };
         return Query(URL);
     };

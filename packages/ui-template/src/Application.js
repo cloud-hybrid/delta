@@ -99,6 +99,16 @@ const Application = () => {
                                 <Route
                                     element={ (
                                         <Authorizer
+                                            Page={ Template }
+                                            Session={ Authorization[0] }
+                                            description={ "Loading Template Page ..." }
+                                        />
+                                    ) } path={ "/template" }
+                                />
+
+                                <Route
+                                    element={ (
+                                        <Authorizer
                                             Page={ GitLab }
                                             Session={ Authorization[0] }
                                             description={ "Loading VCS Project(s) ..." }

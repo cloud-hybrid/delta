@@ -29,15 +29,14 @@ const Component = (props) => {
 
     const Name = Parameters.get("name");
 
-
     const Page = Import(() => import("./Page.js"));
 
     return (
         <Grid>
-            <Column lg={16} md={8} sm={4}>
-                <Suspense fallback={(<Loader description={description} timeout={timeout}/>)}>
-                    <Loader description={description} timeout={timeout}>
-                        <Page id={id} project={Name}/>
+            <Column lg={ 16 } md={ 8 } sm={ 4 }>
+                <Suspense fallback={ (<Loader description={ description } timeout={ timeout }/>) }>
+                    <Loader description={ description } timeout={ timeout }>
+                        <Page id={ id } project={ Name }/>
                     </Loader>
                 </Suspense>
             </Column>
@@ -51,7 +50,7 @@ Component.defaultProps = {
 
 Component.propTypes = {
     /**
-     * Forced Delay during Transition
+     * Forced Delay during Transition (Units in ms)
      */
 
     timeout: PropTypes.number.isRequired,

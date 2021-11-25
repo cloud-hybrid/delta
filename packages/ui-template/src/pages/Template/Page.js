@@ -4,8 +4,8 @@ const Page = () => {
     const Awaitable = Import(() => import("./Awaitable.js"));
 
     return (
-        <Suspense fallback={<></>}>
-            <Awaitable Evaluation={"..."}/>
+        <Suspense fallback={ <></> }>
+            <Awaitable Evaluation={ "..." }/>
         </Suspense>
     );
 };
