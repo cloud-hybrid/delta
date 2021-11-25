@@ -132,121 +132,121 @@ const Tree = {
  * the parent directories are recursively searched until the file is found or
  * the root directory is reached. Returns the pathname if found or null if not.
  */
-function Package(directory) {
-    if ( !directory ) directory = Path.dirname(__dirname + Path.sep + "CLI");
-
-    var file = Path.resolve(directory, "package.json");
-    var module = Path.resolve(directory, "Module.js");
-
-    const Modular = FS.existsSync(module) && FS.statSync(module).isFile();
-
-    if ( FS.existsSync(file) && FS.statSync(file).isFile() || Modular ) {
-        Tree.Modules.push(directory);
-        const Target = (Modular) ? Path.join(Path.dirname(module), "..")
-            : Path.join(Path.dirname(file), "..");
-        return Package(Target);
-    }
-
-    var parent = Path.resolve(directory, "..");
-
-    if ( parent === directory ) return CWD;
-    return Package(parent);
-}
-
-Tree.Root = Package();
-
-console.info(
-    "[DEBUG]",
-    "➜" + " " + "Package" + ":" + " " + Tree.Root
-);
-
-console.info(
-    "[DEBUG]",
-    "➜" + " " + "Modules" + ":" + " " + JSON.stringify(Tree.Modules, null, 4)
-);
+    //function Package(directory) {
+    //    if ( !directory ) directory = Path.dirname(__dirname + Path.sep + "CLI");
+    //
+    //    var file = Path.resolve(directory, "package.json");
+    //    var module = Path.resolve(directory, "Module.js");
+    //
+    //    const Modular = FS.existsSync(module) && FS.statSync(module).isFile();
+    //
+    //    if ( FS.existsSync(file) && FS.statSync(file).isFile() || Modular ) {
+    //        Tree.Modules.push(directory);
+    //        const Target = (Modular) ? Path.join(Path.dirname(module), "..")
+    //            : Path.join(Path.dirname(file), "..");
+    //        return Package(Target);
+    //    }
+    //
+    //    var parent = Path.resolve(directory, "..");
+    //
+    //    if ( parent === directory ) return CWD;
+    //    return Package(parent);
+    //}
+    //
+    //Tree.Root = Package();
+    //
+    //console.info(
+    //    "[DEBUG]",
+    //    "➜" + " " + "Package" + ":" + " " + Tree.Root
+    //);
+    //
+    //console.info(
+    //    "[DEBUG]",
+    //    "➜" + " " + "Modules" + ":" + " " + JSON.stringify(Tree.Modules, null, 4)
+    //);
 
 const Generation = {};
 
-Tree.Modules.forEach((Element, Index) => {
-    const Directory = String(Element);
-    const Keys = Directory.split(Path.sep);
-    const Length = Keys.length;
-
-    const Key = Keys[Length - 1];
-
-    const Version = Path.join(Directory, "VERSION");
-    const Archive = Path.join(Directory, ".version");
-    const Target = Path.join(Archive, Today);
-
-    Generation[Key] = {};
-
-    if ( !(FS.existsSync(Path.join(Directory, "package.json"))) || FS.existsSync(Path.join(Directory, "Module.js")) ) {
-        const Components = Directory.split(Path.sep);
-        const Length = Components.length;
-        const Package = Components[Length - 1];
-
-        FS.writeFileSync(
-            Path.join(Directory, "package.json"),
-            JSON.stringify(
-                {
-                    "name": Package,
-                    "version": "0.0.0",
-                    "private": true,
-                    "author": "Jacob B. Sanders",
-                    "license": "Proprietary",
-                    "main": "./Module.js",
-                    "description": "Module Path",
-                    "scripts": {},
-                    "dependencies": {},
-                    "devDependencies": {},
-                    "workspaces": [
-                        "./*"
-                    ]
-                }, null, 4
-            )
-        );
-    }
-
-    const Buffer = FS.readFileSync(
-        Path.join(Directory, "package.json")
-    );
-
-    Generation[Key].Data = JSON.parse(Buffer);
-
-    // Generation[Key].Version = ...
-    if ( !FS.existsSync(Path.normalize(Version)) ) {
-        FS.writeFileSync(
-            Path.join(Version),
-            "0.0.0"
-        );
-    }
-
-    // Generation[Key].Date = ...
-    if ( !FS.existsSync(Path.normalize(Target)) ) {
-        FS.mkdirSync(Target);
-    }
-
-    const File = Path.join(Target, Random());
-    FS.writeFileSync(
-        File + "." + "JSON",
-        JSON.stringify(
-            Generation[Key].Data, null, 4
-        )
-    );
-
-    FS.writeFileSync(
-        Path.join(Version),
-        Generation[Key].Data.version
-    );
-
-    console.debug("[DEBUG] ➜ Successfully Created & Wrote to Archive", "(" + Path.normalize(Target) + ")");
-
-    Generation[Key].FS = {
-        Archive: Path.normalize(Archive),
-        Output: Path.normalize(Target),
-        File: File
-    };
-});
+//Tree.Modules.forEach((Element, Index) => {
+//    const Directory = String(Element);
+//    const Keys = Directory.split(Path.sep);
+//    const Length = Keys.length;
+//
+//    const Key = Keys[Length - 1];
+//
+//    const Version = Path.join(Directory, "VERSION");
+//    const Archive = Path.join(Directory, ".version");
+//    const Target = Path.join(Archive, Today);
+//
+//    Generation[Key] = {};
+//
+//    if ( !(FS.existsSync(Path.join(Directory, "package.json"))) || FS.existsSync(Path.join(Directory, "Module.js")) ) {
+//        const Components = Directory.split(Path.sep);
+//        const Length = Components.length;
+//        const Package = Components[Length - 1];
+//
+//        FS.writeFileSync(
+//            Path.join(Directory, "package.json"),
+//            JSON.stringify(
+//                {
+//                    "name": Package,
+//                    "version": "0.0.0",
+//                    "private": true,
+//                    "author": "Jacob B. Sanders",
+//                    "license": "Proprietary",
+//                    "main": "./Module.js",
+//                    "description": "Module Path",
+//                    "scripts": {},
+//                    "dependencies": {},
+//                    "devDependencies": {},
+//                    "workspaces": [
+//                        "./*"
+//                    ]
+//                }, null, 4
+//            )
+//        );
+//    }
+//
+//    const Buffer = FS.readFileSync(
+//        Path.join(Directory, "package.json")
+//    );
+//
+//    Generation[Key].Data = JSON.parse(Buffer);
+//
+//    // Generation[Key].Version = ...
+//    if ( !FS.existsSync(Path.normalize(Version)) ) {
+//        FS.writeFileSync(
+//            Path.join(Version),
+//            "0.0.0"
+//        );
+//    }
+//
+//    // Generation[Key].Date = ...
+//    if ( !FS.existsSync(Path.normalize(Target)) ) {
+//        FS.mkdirSync(Target);
+//    }
+//
+//    const File = Path.join(Target, Random());
+//    FS.writeFileSync(
+//        File + "." + "JSON",
+//        JSON.stringify(
+//            Generation[Key].Data, null, 4
+//        )
+//    );
+//
+//    FS.writeFileSync(
+//        Path.join(Version),
+//        Generation[Key].Data.version
+//    );
+//
+//    console.debug("[DEBUG] ➜ Successfully Created & Wrote to Archive", "(" + Path.normalize(Target) + ")");
+//
+//    Generation[Key].FS = {
+//        Archive: Path.normalize(Archive),
+//        Output: Path.normalize(Target),
+//        File: File
+//    };
+//});
 
 if ( Parameters.includes("--Increment") || Parameters.includes("--increment") ) {
     Version.Current = {};
@@ -358,9 +358,9 @@ Parameters.forEach((Value, Index) => {
 });
 
 module.exports.default = {
-    Tree: Tree,
-    Parent: Tree.Root,
-    Modules: Tree.Modules,
+    // Tree: Tree,
+    // Parent: Tree.Root,
+    // Modules: Tree.Modules,
     Parameters: Parameters,
     Version: Generation
 };
