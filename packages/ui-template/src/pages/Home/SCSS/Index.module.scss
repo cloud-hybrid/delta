@@ -1,10 +1,23 @@
-@use "./../../../Application" as *;
-
 @use "@carbon/react/scss/type" as *;
 @use "@carbon/react/scss/spacing" as *;
 @use "@carbon/react/scss/breakpoint" as *;
 
 @use "@carbon/styles/scss/utilities/convert" as *;
+
+@mixin disable-selection { /*** Supported by Chrome, Edge, Opera and Firefox */
+    // - [] @Task: Test on Mobile
+    // >>> -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    // - [] @Task: Test on Mobile
+    // >>> -webkit-touch-callout: none; /* iOS Safari */
+
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select:  none; /* Konqueror HTML */
+    -moz-user-select:    none; /* Old versions of Firefox */
+    -ms-user-select:     none; /* Internet Explorer/Edge */
+
+    user-select:         none;
+}
 
 .home {
     #{&}-heading {
@@ -33,10 +46,6 @@
         position:       relative;
     }
 
-    #{&}-tabs-group-content {
-        padding: $spacing-05 $spacing-05;
-    }
-
     #{&}-paragraph {
         @include type-style("productive-heading-03");
         margin-top:    $spacing-05;
@@ -48,9 +57,44 @@
     }
 
     #{&}-row-2 {
-        margin-top:      #{rem(50px)};
+        margin-top:      var(--cds-spacing-01);
         transform:       translateZ(0);
         justify-content: flex-end;
+
+        .navigators {
+            padding-top:      $spacing-05;
+            padding-bottom:   $spacing-05;
+
+            background-color: transparent;
+            border-color:     transparent;
+            outline-color:    transparent;
+
+            box-shadow:       none;
+        }
+
+        .navigation {
+            background-color:    transparent;
+            border-color:        transparent;
+            outline-color:       transparent;
+
+            box-shadow:          none;
+
+            transition-property: all;
+
+            button {
+                background-color: transparent;
+                box-shadow:       none;
+                margin-left:      1.0rem;
+            }
+        }
+
+        .navigation:first-child {
+            button {
+                background-color: transparent;
+                box-shadow:       none;
+                margin-left:      0.0rem;
+            }
+        }
     }
 
     #{&}-row-3 {

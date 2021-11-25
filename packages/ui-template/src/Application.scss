@@ -16,7 +16,8 @@ $prefix: "cds";
 
 /* -------------------------
  --> Table User Agent Styles
-*/// -----------------------
+*/
+// -----------------------
 
 th, tr, td {
     box-shadow:     none !important;
@@ -126,16 +127,16 @@ tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--expandabl
 
 // Data Table Data Cell Expander
 tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expandable-row):hover td {
-    border-top: 1px solid var(--cds-layer-active);
+    border-top:    1px solid var(--cds-layer-active);
     border-bottom: 1px solid var(--cds-layer-active);
-    background: var(--cds-layer-active);
-    box-shadow: 0 1px var(--cds-layer-active);
+    background:    var(--cds-layer-active);
+    box-shadow:    0 1px var(--cds-layer-active);
 }
 
 // Data Table Data Cell Expander
 tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:first-of-type td {
     border-bottom: 1px solid var(--cds-layer-active) !important;
-    border-top: 1px solid var(--cds-layer-active) !important;
+    border-top:    1px solid var(--cds-layer-active) !important;
 }
 
 // Data Table Row & Expandable Optimizations
@@ -183,7 +184,9 @@ tr[data-child-row] {
     .#{$prefix}--inline-notification {
         max-width: 100%;
     }
-};
+}
+
+;
 
 /* -------------------
  --> Functional Mixins

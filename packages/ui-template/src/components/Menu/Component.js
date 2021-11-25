@@ -6,6 +6,8 @@ import { Store, STORE } from "./../Authenticate";
 
 import React, { useState } from "react";
 
+import { default as Splitter } from "./Vertical-Splitter.js";
+
 import {
     Header,
     HeaderContainer,
@@ -160,18 +162,7 @@ const Component = ({ Authorizer }) => {
                             <HeaderMenuItem element={ Link } to={ "/gitlab" } isCurrentPage={ Active("gitlab") } onClick={ () => navigation("/gitlab") }>
                                 GitLab
                             </HeaderMenuItem>
-                            <hr
-                                width="1px"
-                                size="auto"
-                                style={
-                                    {
-                                        borderStyle: "solid",
-                                        color: "var(--cds-border-subtle)",
-                                        marginLeft: "0.5rem",
-                                        marginRight: "0.5rem"
-                                    }
-                                }
-                            />
+                            <Splitter/>
                             <HeaderMenu aria-label={ "Label" } menuLinkName={ "Development" }>
                                 {/*<HeaderMenuItem element={ Link } to={ "/dashboard" } isCurrentPage={ Active("dashboard") } onClick={ () => navigation("/dashboard") }>*/ }
                                 {/*    <strong>Dashboard</strong>*/ }
@@ -213,18 +204,7 @@ const Component = ({ Authorizer }) => {
                                     <strong>Card</strong>
                                 </HeaderMenuItem>
                             </HeaderMenu>
-                            <hr
-                                width="1px"
-                                size="auto"
-                                style={
-                                    {
-                                        borderStyle: "solid",
-                                        color: "var(--cds-border-subtle)",
-                                        marginLeft: "0.5rem",
-                                        marginRight: "0.5rem"
-                                    }
-                                }
-                            />
+                            <Splitter/>
                             <HeaderMenuItem
                                 element={ Link }
                                 to={ "/dashboard-2.0" }
@@ -233,18 +213,7 @@ const Component = ({ Authorizer }) => {
                             >
                                 Dashboard 2.0
                             </HeaderMenuItem>
-                            <hr
-                                width="1px"
-                                size="auto"
-                                style={
-                                    {
-                                        borderStyle: "solid",
-                                        color: "var(--cds-border-subtle)",
-                                        marginLeft: "0.5rem",
-                                        marginRight: "0.5rem"
-                                    }
-                                }
-                            />
+                            <Splitter/>
                         </HeaderNavigation>
                         <Mode/>
                         <Version/>

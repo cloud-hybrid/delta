@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import React, { lazy as Import, Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import "./index.scss";
+import "./Index.Fix.css";
 
 import { Theme, Content } from "@carbon/react";
 

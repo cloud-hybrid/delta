@@ -104,9 +104,9 @@ const Component = () => (
                 <Column className={ Styles["home-row-2"] }>
                     <Tabs
                         aria-label="Tab Navigation"
-                        className={ Styles["home-tabs-group"] }
+                        className={ Styles.navigators }
                     >
-                        <Tab label="Overview" className={ Styles["home-label"] }>
+                        <Tab label="Overview" className={ Styles.navigation }>
                             <Grid fullWidth={ true }>
                                 <Column
                                     md={ 4 }
@@ -118,8 +118,8 @@ const Component = () => (
                                     </h2>
                                     <p className={ Styles["home-paragraph"] }>
                                         Nexus is a managed cloud service & provided software library that interface(s)
-                                        community-driven APIs and extends IBM’s open-source Design System
-                                        to create a seamless, easy-to-use management experience.
+                                        community-driven APIs and extends IBM’s open-source design system
+                                        to create an easy-to-use and engaging experience.
                                     </p>
                                     <Button>
                                         Learn more
@@ -138,7 +138,7 @@ const Component = () => (
                                 </Column>
                             </Grid>
                         </Tab>
-                        <Tab label="Design" className={ Styles["home-label"] }>
+                        <Tab label="Design" className={ Styles.navigation }>
                             <Grid fullWidth={ true }>
                                 <Column
                                     md={ 4 }
@@ -167,7 +167,7 @@ const Component = () => (
                                 </Column>
                             </Grid>
                         </Tab>
-                        <Tab label="Development" className={ Styles["home-label"] }>
+                        <Tab label="Development" className={ Styles.navigation }>
                             <Grid fullWidth={ true }>
                                 <Column
                                     md={ 4 }
@@ -180,7 +180,7 @@ const Component = () => (
                                     <p className={ Styles["home-paragraph"] }>
                                         With strong automation-first design principals & intuitive web UIs, eliminate repetitive
                                         business procedures or engineering related technical debt through simple and easy-to-understand
-                                        CDKs & VCS workflows.
+                                        workflows.
                                     </p>
                                     <Button>Learn more</Button>
                                 </Column>

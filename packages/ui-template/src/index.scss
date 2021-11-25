@@ -1,66 +1,32 @@
-@forward "./Normalize.css";
-
-/* =============================================================================
-Package Style Sheet (SCSS)
-*/
-//// =========================================================================
-
 @use "sass:map";
 
-/* --------------------
-Global Variable(s)
-*/
-// ------------------
+/* =============================================================================
+ --> Package Style Sheet (SCSS)
+================================================================================ */
 
-$prefix: "cds" !default;
-$name:   "io" !default;
-
-/* ------------------------------------
-Design System Extension Enablement
-*/
-// ----------------------------------
+@use "./Normalize.css";
 
 /* ---------------------
-Module(s) & Imports
-*/
-// -------------------
+ --> Global Variable(s)
+------------------------ */
 
-@use "@carbon/react";
+$Prefix: "io" !default;
 
-@use "@carbon/grid";
+@use "@carbon/styles/scss/config" with ($prefix: "cds");
 
-@use "@carbon/react/scss/reset" as *;
-@use "@carbon/react/scss/type" as *;
-@use "@carbon/react/scss/zone" as *;
-@use "@carbon/react/scss/colors" as *;
-@use "@carbon/react/scss/motion" as *;
-@use "@carbon/react/scss/themes" as *;
-@use "@carbon/react/scss/spacing" as *;
-@use "@carbon/react/scss/breakpoint" as *;
-@use "@carbon/react/scss/feature-flags" as *;
+@use "@carbon/styles/scss/themes";
+@use "@carbon/styles/scss/theme" with (
+  $fallback: themes.$g100,
+  $theme: (
+    custom-token-01: #000000,
+    popover-offset: 0.0rem
+  ),
+);
 
-@use "@carbon/react/scss/theme" as *;
-
-@forward "@carbon/react/scss/breakpoint";
-@forward "~@carbon/react/scss/colors";
-@forward "@carbon/react/scss/spacing";
-@forward "@carbon/react/scss/grid";
-@forward "@carbon/react/scss/type";
-@forward "@carbon/react/scss/zone";
-@forward "@carbon/react/scss/config";
-@forward "@carbon/react/scss/motion";
-
-@forward "@carbon/react/scss/theme";
-
-@import "./Application";
-
-/* -------------------------
-Document & Root Styling
-*/
-// -----------------------
+@use "@carbon/styles";
 
 :root {
-    @include theme($g100);
+    @include theme.theme(theme.$theme);
 
     background-color: #161616;
 }

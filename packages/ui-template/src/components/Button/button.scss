@@ -30,12 +30,40 @@ $ghost-button-background-active:   #34363FFF;
 
 $ghost-button-text-on-color:       rgb(255, 255, 255);
 
-:export {
-    --#{$prefix}-primary-button:               $primary-button-background;
-    --#{$prefix}-primary-button-hover:         $primary-button-background-hover;
-    --#{$prefix}-primary-button-active:        $primary-button-background-active;
+:root {
+    --#{$prefix}-primary-button:                #{$primary-button-background};
+    --#{$prefix}-primary-button-hover:          #{$primary-button-background-hover};
+    --#{$prefix}-primary-button-active:         #{$primary-button-background-active};
+    --#{$prefix}-primary-button-text-on-color:  #{$primary-button-text-on-color};
+    /* // --> Legacy Support */
+    --#{$prefix}--primary-button:               #{$primary-button-background};
+    --#{$prefix}--primary-button-hover:         #{$primary-button-background-hover};
+    --#{$prefix}--primary-button-active:        #{$primary-button-background-active};
+    --#{$prefix}--primary-button-text-on-color: #{$primary-button-text-on-color};
 
-    --#{$prefix}-primary-button-text-on-color: $primary-button-text-on-color;
+    /* --- */
+
+    --#{$prefix}-default-button:                #{$default-button-background};
+    --#{$prefix}-default-button-hover:          #{$default-button-background-hover};
+    --#{$prefix}-default-button-active:         #{$default-button-background-active};
+    --#{$prefix}-default-button-text-on-color:  #{$default-button-text-on-color};
+    /* // --> Legacy Support */
+    --#{$prefix}--default-button:               #{$default-button-background};
+    --#{$prefix}--default-button-hover:         #{$default-button-background-hover};
+    --#{$prefix}--default-button-active:        #{$default-button-background-active};
+    --#{$prefix}--default-button-text-on-color: #{$default-button-text-on-color};
+
+    /* --- */
+
+    --#{$prefix}-ghost-button:                  #{$ghost-button-background};
+    --#{$prefix}-ghost-button-hover:            #{$ghost-button-background-hover};
+    --#{$prefix}-ghost-button-active:           #{$ghost-button-background-active};
+    --#{$prefix}-ghost-button-text-on-color:    #{$ghost-button-text-on-color};
+    /* // --> Legacy Support */
+    --#{$prefix}--ghost-button:                 #{$ghost-button-background};
+    --#{$prefix}--ghost-button-hover:           #{$ghost-button-background-hover};
+    --#{$prefix}--ghost-button-active:          #{$ghost-button-background-active};
+    --#{$prefix}--ghost-button-text-on-color:   #{$ghost-button-text-on-color};
 }
 
 /*

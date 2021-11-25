@@ -2,36 +2,36 @@
 
 /* Colors --- */
 
-@use "~@carbon/colors/scss/mixins" as *;
+@use "@carbon/colors/scss/mixins" as *;
 
 /* SCSS, React Styles --- */
 
-@use "~@carbon/react/scss/motion" as *;
-@use "~@carbon/react/scss/spacing" as *;
-@use "~@carbon/react/scss/breakpoint" as *;
+@use "@carbon/react/scss/motion" as *;
+@use "@carbon/react/scss/spacing" as *;
+@use "@carbon/react/scss/breakpoint" as *;
 
 /* Theme Export(s) --- */
 
-@use "~@carbon/themes/scss/generated/tokens" as Tokens;
-@use "~@carbon/themes/scss/generated/mixins" as Mixins;
-@use "~@carbon/themes/scss/generated/themes" as Themes;
+@use "@carbon/themes/scss/generated/tokens" as Tokens;
+@use "@carbon/themes/scss/generated/mixins" as Mixins;
+@use "@carbon/themes/scss/generated/themes" as Themes;
 
 .button {
-    width: $spacing-09;
-    height: $spacing-09;
+    width:         $spacing-09;
+    height:        $spacing-09;
     border-radius: 50%;
-    border-color: Tokens.$icon-03;
-    background: rgb(75, 75, 75);
-    transition: background-color 250ms ease 0ms;
-    padding-top: 0.325rem;
-    cursor: pointer;
-    position: fixed;
-    bottom: $spacing-03;
-    right: $spacing-03;
+    border-color:  Tokens.$icon-03;
+    background:    rgb(75, 75, 75);
+    transition:    background-color 250ms ease 0ms;
+    padding-top:   0.325rem;
+    cursor:        pointer;
+    position:      fixed;
+    bottom:        $spacing-03;
+    right:         $spacing-03;
 
     @include breakpoint(md) {
         bottom: $spacing-05;
-        right: $spacing-06;
+        right:  $spacing-06;
     }
 }
 
@@ -44,39 +44,39 @@
 }
 
 .button::after {
-    pointer-events: none;
+    pointer-events:   none;
     background-color: var(--cds-tag-background-gray);
-    border-radius: 2px;
-    color: #fff;
-    content: attr(data-tooltip-title) " ";
-    font-weight: normal;
-    min-width: 100px;
-    padding: 5px 8px;
-    text-align: center;
-    text-transform: none;
+    border-radius:    2px;
+    color:            #FFFFFF;
+    content:          attr(data-tooltip-title) " ";
+    font-weight:      normal;
+    min-width:        100px;
+    padding:          5px 8px;
+    text-align:       center;
+    text-transform:   none;
 
-    transition: opacity 250ms ease 0ms, transform 250ms ease 0ms;
+    transition:       opacity 250ms ease 0ms, transform 250ms ease 0ms;
 }
 
 .button::before {
-    width: 0;
-    height: 0;
-    content: "";
+    width:          0;
+    height:         0;
+    content:        "";
 
-    transition: opacity 250ms ease 0ms, transform 250ms ease 0ms;
+    transition:     opacity 250ms ease 0ms, transform 250ms ease 0ms;
 
     pointer-events: none;
 }
 
 .button::before,
 .button::after {
-    position: absolute;
-    transition: opacity 250ms ease 0ms, transform 250ms ease 0ms;
+    position:        absolute;
+    transition:      opacity 250ms ease 0ms, transform 250ms ease 0ms;
     transform-style: preserve-3d;
-    opacity: 0;
-    z-index: -1;
+    opacity:         0;
+    z-index:         -1;
 
-    pointer-events: none;
+    pointer-events:  none;
 }
 
 .button[data-tooltip-position="top"]::after,
@@ -125,9 +125,9 @@
 
 .button[data-tooltip-position="top"]::before,
 .button[data-tooltip-position="bottom"]::before {
-    border-left: 7px solid transparent;
+    border-left:  7px solid transparent;
     border-right: 7px solid transparent;
-    left: 50%;
+    left:         50%;
 }
 
 .button[data-tooltip-position="top"]::before {
@@ -140,20 +140,20 @@
 
 .button[data-tooltip-position="top"]::before {
     border-top: 7px solid var(--cds-tag-background-gray);
-    bottom: calc(100% + 5px);
+    bottom:     calc(100% + 5px);
 }
 
 .button[data-tooltip-position="bottom"]::before {
     border-bottom: 7px solid var(--cds-tag-background-gray);
-    top: calc(100% + 5px);
+    top:           calc(100% + 5px);
 }
 
 .button[data-tooltip-position="left"]::before,
 .button[data-tooltip-position="right"]::before {
-    border-top: 7px solid transparent;
+    border-top:    7px solid transparent;
     border-bottom: 7px solid transparent;
 
-    top: 50%;
+    top:           50%;
 }
 
 .button[data-tooltip-position="left"]::before {
@@ -166,12 +166,12 @@
 
 .button[data-tooltip-position="left"]::before {
     border-left: 7px solid var(--cds-tag-background-gray);
-    right: calc(100% + 7px);
+    right:       calc(100% + 7px);
 }
 
 .button[data-tooltip-position="right"]::before {
     border-right: 7px solid var(--cds-tag-background-gray);
-    left: calc(100% + 5px);
+    left:         calc(100% + 5px);
 }
 
 .button:hover::before,
