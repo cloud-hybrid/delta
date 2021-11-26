@@ -16,17 +16,20 @@ $Prefix: "io" !default;
 
 @use "@carbon/styles/scss/themes";
 @use "@carbon/styles/scss/theme" with (
-  $fallback: themes.$g100,
-  $theme: (
-    custom-token-01: #000000,
-    popover-offset: 0.0rem
-  ),
+    $fallback: themes.$g100,
+    $theme: (
+        custom-token-01: #000000,
+        popover-offset: 0.0rem
+    )
 );
 
 @use "@carbon/styles";
 
 :root {
     @include theme.theme(theme.$theme);
+}
 
-    background-color: #161616;
+html {
+    background:       #161616 !important;
+    background-color: #161616 !important;
 }

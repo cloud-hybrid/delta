@@ -1,0 +1,34 @@
+@use "sass:map";
+
+/* =============================================================================
+ --> Package Style Sheet (SCSS)
+================================================================================ */
+
+/* ---------------------
+ --> Global Variable(s)
+------------------------ */
+
+$prefix: "io" !default;
+
+@use "@carbon/styles/scss/config" with ($prefix: "cds");
+
+@use "@carbon/styles/scss/themes";
+@use "@carbon/styles/scss/theme" with (
+    $fallback: themes.$g100,
+    $theme: (
+        custom-token-01: #000000,
+        popover-offset: 0.0rem
+    )
+);
+
+@use "@carbon/styles";
+
+:root {
+    @include theme.theme(theme.$theme);
+
+    background: #161616 !important;
+}
+
+html {
+    background: #161616 !important;
+}

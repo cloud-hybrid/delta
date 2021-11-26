@@ -18,6 +18,8 @@
         }
     },
     "packages": [
-        "packages/*"
+        "packages/*",
+        "documentation/*",
+        "utilities/*"
     ]
 }

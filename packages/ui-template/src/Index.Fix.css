@@ -1,5 +1,9 @@
 @charset "UTF-8";
+
 /*@import-normalize;*/
+
+html { background-color: #161616 !important; }
+
 :root {
     --cds-layer:                  var(--cds-layer-01, #262626);
     --cds-layer-active:           var(--cds-layer-active-01, #525252);
@@ -3312,7 +3316,7 @@ li.cds--accordion__item--disabled:last-of-type {
 .cds--tooltip__trigger.cds--btn--icon-only--bottom::after,
 .cds--tooltip__trigger.cds--btn--icon-only--bottom .cds--assistive-text,
 .cds--tooltip__trigger.cds--btn--icon-only--bottom + .cds--assistive-text {
-    box-shadow:       0 2px 6px var(--cds-shadow, rgba(0, 0, 0, 0.8));
+    box-shadow:       0 2px 6px var(--cds-shadow);
     z-index:          6000;
     width:            max-content;
     min-width:        1.5rem;

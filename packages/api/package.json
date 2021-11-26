@@ -32,7 +32,8 @@
         "mongodb": "^4.1.4",
         "mongoose": "^6.0.13",
         "octokit": "^1.7.0",
-        "statuses": "^2.0.1"
+        "statuses": "^2.0.1",
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/packages/dashboard"
     },
     "devDependencies": {
         "@octokit/openapi-types": "^11.2.0",

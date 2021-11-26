@@ -25,6 +25,8 @@ const Table = Import(() => import("./pages/Development/Test-Table"));
 const Snippet = Import(() => import("./pages/Development/Code-Snippet-Awaitable"));
 const Card = Import(() => import("./pages/Development/Card"));
 
+const Error = Import(() => import("./pages/Error/Test.js"));
+
 const Dashboard = {
     Index: Import(() => import("./pages/Dashboard/Pages/Index")),
     Mobile: Import(() => import("./pages/Dashboard/Pages/Mobile"))
@@ -74,6 +76,7 @@ const Application = () => {
                                 {/* Base Endpoint(s) */ }
 
                                 <Route path={ "/" } element={ (<Home/>) }/>
+                                <Route path={ "/error" } element={ (<Error/>) }/>
 
                                 <Route
                                     element={
