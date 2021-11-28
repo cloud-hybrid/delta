@@ -27,10 +27,6 @@ $Prefix: "io" !default;
 
 :root {
     @include theme.theme(theme.$theme);
-
-    :focus:not(:focus-visible) {
-        outline: 0 none;
-    }
 }
 
 html {
