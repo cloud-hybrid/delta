@@ -32,8 +32,6 @@ const Dashboard = {
     Mobile: Import(() => import("./pages/Dashboard/Pages/Mobile"))
 };
 
-Dashboard.Next = Import(() => import("./pages/Dashboard-2.0"));
-
 import { default as Home } from "./pages/Home";
 
 import "./Application.scss";
@@ -166,16 +164,6 @@ const Application = () => {
                                             description={ "Loading Awaitable Page ..." }
                                         />
                                     ) } path={ "/development/awaitable" }
-                                />
-
-                                <Route
-                                    element={ (
-                                        <Authorizer
-                                            Page={ Dashboard.Next }
-                                            Session={ Authorization[0] }
-                                            description={ "Loading Dashboard 2.0 ..." }
-                                        />
-                                    ) } path={ "/dashboard-2.0" }
                                 />
 
                                 { /* Development Component(s) */ }

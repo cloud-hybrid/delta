@@ -1,0 +1,32 @@
+.io-profile-popover {
+    opacity:        1;
+
+    pointer-events: auto;
+
+    will-change:    opacity;
+    transition:     opacity 450ms;
+
+    background:     green;
+    position:       fixed;
+    width:          15rem;
+    top:            3.5rem;
+    right:          0.5rem;
+
+    margin:         0.0rem;
+
+    z-index:        1;
+
+    height:         15rem;
+
+    .io-profile-popover-container {
+        text-align: center;
+        padding:    1.0rem;
+        height:     100%;
+    }
+}
+
+.io-profile-popover-hidden {
+    opacity:        0;
+
+    pointer-events: none;
+}

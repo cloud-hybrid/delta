@@ -4,11 +4,11 @@
  --> Package Style Sheet (SCSS)
 ================================================================================ */
 
+$prefix: "io" !default;
+
 /* ---------------------
  --> Global Variable(s)
 ------------------------ */
-
-$prefix: "io" !default;
 
 @use "@carbon/styles/scss/config" with ($prefix: "cds");
 
@@ -16,7 +16,6 @@ $prefix: "io" !default;
 @use "@carbon/styles/scss/theme" with (
     $fallback: themes.$g100,
     $theme: (
-        custom-token-01: #000000,
         popover-offset: 0.0rem
     )
 );
@@ -30,5 +29,9 @@ $prefix: "io" !default;
 }
 
 html {
+    background: #161616 !important;
+}
+
+.cds--content {
     background: #161616 !important;
 }

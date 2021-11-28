@@ -91,6 +91,7 @@ const Icons = {
 };
 
 import { default as Notifications } from "./Notifications.js";
+import { default as Account } from "./Profile.js";
 
 /***
  *
@@ -109,6 +110,7 @@ const Component = ({ Authorizer }) => {
 
     const Opener = useState(false);
     const Notifies = useState(false);
+    const Profile = useState(false);
 
     const Active = (_ = "") => {
         const $ = "/" + _;
@@ -204,15 +206,6 @@ const Component = ({ Authorizer }) => {
                                     <strong>Card</strong>
                                 </HeaderMenuItem>
                             </HeaderMenu>
-                            <Splitter/>
-                            <HeaderMenuItem
-                                element={ Link }
-                                to={ "/dashboard-2.0" }
-                                isCurrentPage={ Active("dashboard-2.0") }
-                                onClick={ () => navigation("/dashboard-2.0") }
-                            >
-                                Dashboard 2.0
-                            </HeaderMenuItem>
                             <Splitter/>
                         </HeaderNavigation>
                         <Mode/>
@@ -316,14 +309,13 @@ const Component = ({ Authorizer }) => {
                         }
                         <HeaderGlobalBar>
                             <HeaderGlobalAction
-                                id={ "primary-menu-notifications-button" }
+                                id={ "global-menu-notifications" }
                                 aria-label="Notifications"
                                 tooltipAlignment="start"
-                                renderIcon={ Notification }
+                                // renderIcon={ Notification }
                                 children={ (
-                                    <></>
+                                    <Notification/>
                                 ) }
-                                id={ "global-menu-notifications" }
                                 onClick={
                                     (event) => {
                                         event.preventDefault();
@@ -333,30 +325,37 @@ const Component = ({ Authorizer }) => {
                                 }
                             />
                             <HeaderGlobalAction
-                                id={ "primary-menu-user-profile-button" }
+                                id={ "global-menu-profile" }
                                 aria-label="User Avatar"
                                 children={ (
-                                    <></>
+                                    <UserAvatar/>
                                 ) }
-                                renderIcon={ UserAvatar }
+                                // renderIcon={ UserAvatar }
                                 onClick={
-                                    () => {
-                                        console.debug("...");
+                                    (event) => {
+                                        event.preventDefault();
+
+                                        //                                        Profile[1](!Profile[0]);
+
+                                        document.getElementById("io-profile").classList.toggle("io-profile-popover-hidden");
                                     }
                                 }
                             />
+
                             <HeaderGlobalAction
-                                id={ "primary-menu-switcher-button" }
+                                id={ "global-menu-switcher" }
                                 aria-label="Switcher"
                                 isActive={ Opener[0] }
                                 children={ (
-                                    <></>
+                                    <Switch/>
                                 ) }
-                                renderIcon={ Switch }
+                                // renderIcon={ Switch }
                                 tooltipPosition={ "left" }
                                 tooltipAlignment={ "end" }
                                 onClick={
-                                    () => {
+                                    (event) => {
+                                        event.preventDefault();
+
                                         Opener[1](!Opener[0]);
                                     }
                                 }
@@ -468,6 +467,7 @@ const Component = ({ Authorizer }) => {
                 }
             </HeaderPanel>
             <Notifications State={ Notifies }/>
+            <Account State={ Profile }/>
         </nav>
     );
 };
