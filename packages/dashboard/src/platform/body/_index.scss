@@ -1,0 +1,20 @@
+////
+/// Body entry point.
+/// @group body
+/// @copyright IBM Security 2019 - 2021
+////
+
+@import "@carbon/grid/scss/mixins";
+@import "@carbon/type/scss/classes";
+@import "@carbon/type/scss/reset";
+
+@import "../../globals/deprecate/index";
+@import "../../globals/namespace/index";
+
+@import "mixins";
+
+@include export-namespace($name: $platform__name) {
+    @include carbon--grid;
+    @include carbon--type-reset;
+    @include carbon--type-classes;
+}

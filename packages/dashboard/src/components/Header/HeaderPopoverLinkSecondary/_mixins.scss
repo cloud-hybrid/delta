@@ -1,0 +1,24 @@
+////
+/// Header popover secondary link mixins.
+/// @group header-popover-link--secondary
+/// @copyright IBM Security 2019
+////
+
+@import "@carbon/themes/scss/tokens";
+
+@mixin header-popover-link--secondary {
+    // Color.
+    /// @type Color
+    $header-popover-link--secondary__color: $inverse-link;
+
+    &,
+    &:focus,
+    &:hover,
+    &:visited {
+        color: $header-popover-link--secondary__color;
+    }
+
+    &:focus {
+        outline-color: $header-popover-link--secondary__color;
+    }
+}

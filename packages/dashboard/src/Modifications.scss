@@ -1,0 +1,24 @@
+.cds--content {
+    background: var(--cds-background);
+    min-height: 100vh;
+}
+
+.security--header__container {
+    padding-top: 0.0rem;
+}
+
+.io-shell-header-container {
+    width:            100%;
+    height:           3rem;
+    padding-top:      0.0rem;
+    background-color: var(--cds-ui-background);
+}
+
+.security--toolbar {
+    padding: 0.0rem !important;
+
+    .security--button--icon {
+        width:  3.0rem;
+        height: 3.0rem;
+    }
+}

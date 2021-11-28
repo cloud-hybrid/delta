@@ -1,0 +1,952 @@
+:root {
+    --cds-layer:                  var(--cds-layer-01, #262626);
+    --cds-layer-active:           var(--cds-layer-active-01, #525252);
+    --cds-layer-hover:            var(--cds-layer-hover-01, #333333);
+    --cds-layer-selected:         var(--cds-layer-selected-01, #393939);
+    --cds-layer-selected-hover:   var(--cds-layer-selected-hover-01, #474747);
+    --cds-layer-accent:           var(--cds-layer-accent-01, #393939);
+    --cds-layer-accent-hover:     var(--cds-layer-accent-hover-01, #474747);
+    --cds-layer-accent-active:    var(--cds-layer-accent-active-01, #6F6F6F);
+    --cds-field:                  var(--cds-field-01, #262626);
+    --cds-field-hover:            var(--cds-field-hover-01, #333333);
+    --cds-border-subtle:          var(--cds-border-subtle-01, #393939);
+    --cds-border-subtle-selected: var(--cds-border-subtle-selected-01, #525252);
+    --cds-border-strong:          var(--cds-border-strong-01, #6F6F6F);
+}
+
+.cds--layer {
+    --cds-layer:                  var(--cds-layer-02, #393939);
+    --cds-layer-active:           var(--cds-layer-active-02, #6F6F6F);
+    --cds-layer-hover:            var(--cds-layer-hover-02, #474747);
+    --cds-layer-selected:         var(--cds-layer-selected-02, #525252);
+    --cds-layer-selected-hover:   var(--cds-layer-selected-hover-02, #636363);
+    --cds-layer-accent:           var(--cds-layer-accent-02, #525252);
+    --cds-layer-accent-hover:     var(--cds-layer-accent-hover-02, #636363);
+    --cds-layer-accent-active:    var(--cds-layer-accent-active-02, #8D8D8D);
+    --cds-field:                  var(--cds-field-02, #393939);
+    --cds-field-hover:            var(--cds-field-hover-02, #474747);
+    --cds-border-subtle:          var(--cds-border-subtle-02, #525252);
+    --cds-border-subtle-selected: var(--cds-border-subtle-selected-02, #6F6F6F);
+    --cds-border-strong:          var(--cds-border-strong-02, #8D8D8D);
+}
+
+.cds--layer .cds--layer {
+    --cds-layer:                  var(--cds-layer-03, #525252);
+    --cds-layer-active:           var(--cds-layer-active-03, #8D8D8D);
+    --cds-layer-hover:            var(--cds-layer-hover-03, #636363);
+    --cds-layer-selected:         var(--cds-layer-selected-03, #6F6F6F);
+    --cds-layer-selected-hover:   var(--cds-layer-selected-hover-03, #5E5E5E);
+    --cds-layer-accent:           var(--cds-layer-accent-03, #6F6F6F);
+    --cds-layer-accent-hover:     var(--cds-layer-accent-hover-03, #5E5E5E);
+    --cds-layer-accent-active:    var(--cds-layer-accent-active-03, #393939);
+    --cds-field:                  var(--cds-field-03, #525252);
+    --cds-field-hover:            var(--cds-field-hover-03, #636363);
+    --cds-border-subtle:          var(--cds-border-subtle-03, #6F6F6F);
+    --cds-border-subtle-selected: var(--cds-border-subtle-selected-03, #8D8D8D);
+    --cds-border-strong:          var(--cds-border-strong-03, #A8A8A8);
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    padding:        0;
+    border:         0;
+    margin:         0;
+    font:           inherit;
+    font-size:      100%;
+    vertical-align: baseline;
+}
+
+button,
+select,
+input,
+textarea {
+    border-radius: 0;
+    font-family:   inherit;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+sup {
+    vertical-align: super;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: "";
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing:  0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    margin: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-weight:             400;
+    font-family:             "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing:  antialiased;
+    text-rendering:          optimizeLegibility;
+}
+
+code {
+    font-family: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+}
+
+strong {
+    font-weight: 600;
+}
+
+@media screen and (-ms-high-contrast: active) {
+    svg {
+        fill: ButtonText;
+    }
+}
+
+h1 {
+    font-size:      2.625rem;
+    font-weight:    300;
+    line-height:    1.199;
+    letter-spacing: 0;
+}
+
+h2 {
+    font-size:      2rem;
+    font-weight:    400;
+    line-height:    1.25;
+    letter-spacing: 0;
+}
+
+h3 {
+    font-size:      1.75rem;
+    font-weight:    400;
+    line-height:    1.28572;
+    letter-spacing: 0;
+}
+
+h4 {
+    font-size:      1.25rem;
+    font-weight:    400;
+    line-height:    1.4;
+    letter-spacing: 0;
+}
+
+h5 {
+    font-size:      1rem;
+    font-weight:    600;
+    line-height:    1.375;
+    letter-spacing: 0;
+}
+
+h6 {
+    font-size:      0.875rem;
+    font-weight:    600;
+    line-height:    1.28572;
+    letter-spacing: 0.16px;
+}
+
+p {
+    font-size:      1rem;
+    font-weight:    400;
+    line-height:    1.5;
+    letter-spacing: 0;
+}
+
+a {
+    color: #0F62FE;
+}
+
+em {
+    font-style: italic;
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+@keyframes skeleton {
+    0% {
+        opacity:          0.3;
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+    20% {
+        opacity:          1;
+        transform:        scaleX(1);
+        transform-origin: left;
+    }
+    28% {
+        transform:        scaleX(1);
+        transform-origin: right;
+    }
+    51% {
+        transform:        scaleX(0);
+        transform-origin: right;
+    }
+    58% {
+        transform:        scaleX(0);
+        transform-origin: right;
+    }
+    82% {
+        transform:        scaleX(1);
+        transform-origin: right;
+    }
+    83% {
+        transform:        scaleX(1);
+        transform-origin: left;
+    }
+    96% {
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+    100% {
+        opacity:          0.3;
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+}
+
+.cds--text-truncate--end {
+    display:       inline-block;
+    overflow:      hidden;
+    width:         100%;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+}
+
+.cds--text-truncate--front {
+    display:       inline-block;
+    overflow:      hidden;
+    width:         100%;
+    direction:     rtl;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+.security--nav {
+    position: relative;
+}
+
+.security--nav:not(:first-of-type) {
+    padding-top: 1rem;
+}
+
+.security--nav:not(:last-of-type) {
+    padding-bottom: 1rem;
+}
+
+.security--nav:last-of-type {
+    padding-bottom: 2rem;
+}
+
+.security--nav + .security--nav > .security--nav__heading {
+    padding-top: 0.25rem;
+}
+
+.security--nav::before {
+    position:      absolute;
+    right:         2rem;
+    bottom:        0;
+    left:          2rem;
+    display:       inline-block;
+    width:         auto;
+    border-bottom: 0.0625rem solid #FFFFFF;
+    content:       "";
+}
+
+.security--nav:last-of-type::before {
+    border-width: 0;
+}
+
+.security--nav__wrapper {
+    padding-left:  unset;
+    margin-top:    unset;
+    margin-bottom: unset;
+    list-style:    none;
+}
+
+.security--nav__wrapper[dir=rtl], [dir=rtl] .security--nav__wrapper {
+    padding-right: unset;
+}
+
+.security--nav__heading {
+    font-size:      0.75rem;
+    font-weight:    400;
+    line-height:    1.33333;
+    letter-spacing: 0.32px;
+    padding:        0.75rem 2.5rem;
+    margin-top:     unset;
+    margin-bottom:  unset;
+    color:          #525252;
+}
+
+.security--nav__list {
+    font-size:      0.875rem;
+    font-weight:    400;
+    line-height:    1.28572;
+    letter-spacing: 0.16px;
+    display:        flex;
+    flex-direction: column;
+    list-style:     none;
+}
+
+.security--nav__list, .security--nav__list__item {
+    margin-bottom: 0.125rem;
+}
+
+.security--nav__list:focus {
+    outline:       0;
+    outline-width: 0;
+}
+
+.security--nav__list:focus > .security--nav__list__item-link {
+    outline:        2px solid #0F62FE;
+    outline-offset: -2px;
+}
+
+@media screen and (prefers-contrast) {
+    .security--nav__list:focus > .security--nav__list__item-link {
+        outline-style: dotted;
+    }
+}
+
+.security--nav__list__icon {
+    transition-duration:        240ms;
+    transition-property:        transform;
+    transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
+    margin-top:                 0.125rem;
+    margin-left:                auto;
+    transform:                  translate3d(-50%, 0, 0) rotate(0deg);
+}
+
+.security--nav__list__icon[dir=rtl], [dir=rtl] .security--nav__list__icon {
+    right:     0.25rem;
+    transform: translate3d(-50%, 0, 0) rotate(180deg);
+}
+
+.security--nav__list__item {
+    font-size:      0.875rem;
+    font-weight:    400;
+    line-height:    1.28572;
+    letter-spacing: 0.16px;
+    position:       relative;
+}
+
+.security--nav__list__item__content {
+    display: flex;
+}
+
+.security--nav__list__item::before {
+    transition-duration:        240ms;
+    transition-property:        transform;
+    transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
+    position:                   absolute;
+    z-index:                    6000;
+    top:                        0;
+    left:                       0;
+    display:                    inline-block;
+    width:                      0.25rem;
+    height:                     100%;
+    background-color:           transparent;
+    content:                    "";
+    transform:                  translate3d(-100%, 0, 0);
+}
+
+.security--nav__list__item--disabled {
+    pointer-events: none;
+}
+
+.security--nav__list__item--disabled > .security--nav__list__item-link {
+    color: #8D8D8D;
+}
+
+.security--nav__list__item-active {
+    font-weight: 600;
+}
+
+.security--nav__list__item-active[dir=rtl]::before, [dir=rtl] .security--nav__list__item-active::before {
+    transform: translate3d(0, 0, 0);
+}
+
+.security--nav__list__item-active::before {
+    background-color: #0F62FE;
+    transform:        translate3d(0, 0, 0);
+}
+
+.security--nav__list__item-link {
+    transition-duration:        240ms;
+    transition-property:        background-color;
+    transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
+    position:                   relative;
+    display:                    flex;
+    padding:                    0.5rem 0.25rem 0.5rem 2.5rem;
+    color:                      #161616;
+    cursor:                     pointer;
+    text-decoration:            none;
+}
+
+.security--nav__list__item-link:hover, .security--nav__list__item-link:focus {
+    background-color: #FFFFFF;
+}
+
+.security--nav__list__item-link:focus {
+    outline:        2px solid #0F62FE;
+    outline-offset: -2px;
+}
+
+@media screen and (prefers-contrast) {
+    .security--nav__list__item-link:focus {
+        outline-style: dotted;
+    }
+}
+
+.security--nav__list__item__img {
+    height:       1.25rem;
+    margin-right: 0.75rem;
+    margin-left:  -2rem;
+}
+
+.security--nav__list__item-link--external .security--nav__list__item-link--external__icon {
+    flex-shrink: 0;
+    align-self:  center;
+    margin-left: 0.25rem;
+    fill:        #161616;
+    opacity:     0;
+}
+
+.security--nav__list__item-link--external:hover > .security--nav__list__item-link--external__icon, .security--nav__list__item-link--external:focus > .security--nav__list__item-link--external__icon {
+    opacity: 1;
+}
+
+.security--nav__list__item--expanded {
+    margin-bottom: 0.5rem;
+}
+
+.security--nav__list__item--expanded > .security--nav__list--nested {
+    max-height:                 20rem;
+    opacity:                    1;
+    transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
+}
+
+.security--nav__list__item--expanded > .security--nav__list__item-link > .security--nav__list__icon {
+    transform: translate3d(-50%, 0, 0) rotate(180deg);
+}
+
+.security--nav__list__item--expanded > .security--nav__list__item-link > .security--nav__list__icon[dir=rtl], [dir=rtl] .security--nav__list__item--expanded > .security--nav__list__item-link > .security--nav__list__icon {
+    transform: translate3d(-50%, 0, 0) rotate(0);
+}
+
+.security--nav__list--nested {
+    transition-duration:        240ms;
+    transition-property:        max-height, opacity;
+    transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
+    overflow:                   hidden;
+    max-height:                 0;
+    padding-left:               0;
+    margin-bottom:              0;
+    opacity:                    0;
+}
+
+.security--nav__list--nested[dir=rtl], [dir=rtl] .security--nav__list--nested {
+    padding-right: 0;
+    padding-left:  unset;
+}
+
+.security--nav__list--nested > .security--nav__list__item:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+/* =============================================================================
+ --> Package Style Sheet (SCSS)
+================================================================================ */
+/* ---------------------
+ --> Global Variable(s)
+------------------------ */
+:root {
+    --cds-background:                             #161616;
+    --cds-background-inverse:                     #F4F4F4;
+    --cds-background-brand:                       #0F62FE;
+    --cds-background-active:                      #393939;
+    --cds-background-hover:                       #292929;
+    --cds-background-inverse-hover:               #E8E8E8;
+    --cds-background-selected:                    #262626;
+    --cds-background-selected-hover:              #333333;
+    --cds-layer-01:                               #262626;
+    --cds-layer-active-01:                        #525252;
+    --cds-layer-hover-01:                         #333333;
+    --cds-layer-selected-01:                      #393939;
+    --cds-layer-selected-hover-01:                #474747;
+    --cds-layer-02:                               #393939;
+    --cds-layer-active-02:                        #6F6F6F;
+    --cds-layer-hover-02:                         #474747;
+    --cds-layer-selected-02:                      #525252;
+    --cds-layer-selected-hover-02:                #636363;
+    --cds-layer-03:                               #525252;
+    --cds-layer-active-03:                        #8D8D8D;
+    --cds-layer-hover-03:                         #636363;
+    --cds-layer-selected-03:                      #6F6F6F;
+    --cds-layer-selected-hover-03:                #5E5E5E;
+    --cds-layer-disabled:                         #262626;
+    --cds-layer-selected-inverse:                 #F4F4F4;
+    --cds-layer-selected-disabled:                #A8A8A8;
+    --cds-layer-accent-01:                        #393939;
+    --cds-layer-accent-active-01:                 #6F6F6F;
+    --cds-layer-accent-hover-01:                  #474747;
+    --cds-layer-accent-02:                        #525252;
+    --cds-layer-accent-active-02:                 #8D8D8D;
+    --cds-layer-accent-hover-02:                  #636363;
+    --cds-layer-accent-03:                        #6F6F6F;
+    --cds-layer-accent-active-03:                 #393939;
+    --cds-layer-accent-hover-03:                  #5E5E5E;
+    --cds-field-01:                               #262626;
+    --cds-field-hover-01:                         #333333;
+    --cds-field-02:                               #393939;
+    --cds-field-hover-02:                         #474747;
+    --cds-field-03:                               #525252;
+    --cds-field-hover-03:                         #636363;
+    --cds-field-disabled:                         #393939;
+    --cds-border-subtle-00:                       #393939;
+    --cds-border-subtle-01:                       #393939;
+    --cds-border-subtle-selected-01:              #525252;
+    --cds-border-subtle-02:                       #525252;
+    --cds-border-subtle-selected-02:              #6F6F6F;
+    --cds-border-subtle-03:                       #6F6F6F;
+    --cds-border-subtle-selected-03:              #8D8D8D;
+    --cds-border-strong-01:                       #6F6F6F;
+    --cds-border-strong-02:                       #8D8D8D;
+    --cds-border-strong-03:                       #A8A8A8;
+    --cds-border-inverse:                         #F4F4F4;
+    --cds-border-interactive:                     #4589FF;
+    --cds-border-disabled:                        #262626;
+    --cds-text-primary:                           #F4F4F4;
+    --cds-text-secondary:                         #C6C6C6;
+    --cds-text-placeholder:                       #6F6F6F;
+    --cds-text-helper:                            #A8A8A8;
+    --cds-text-error:                             #FFB3B8;
+    --cds-text-inverse:                           #161616;
+    --cds-text-on-color:                          #FFFFFF;
+    --cds-text-on-color-disabled:                 #A8A8A8;
+    --cds-text-disabled:                          #525252;
+    --cds-link-primary:                           #78A9FF;
+    --cds-link-primary-hover:                     #A6C8FF;
+    --cds-link-secondary:                         #A6C8FF;
+    --cds-link-inverse:                           #0F62FE;
+    --cds-link-visited:                           #BE95FF;
+    --cds-icon-primary:                           #F4F4F4;
+    --cds-icon-secondary:                         #C6C6C6;
+    --cds-icon-inverse:                           #161616;
+    --cds-icon-on-color:                          #FFFFFF;
+    --cds-icon-on-color-disabled:                 #A8A8A8;
+    --cds-icon-disabled:                          #525252;
+    --cds-support-error:                          #FA4D56;
+    --cds-support-success:                        #42BE65;
+    --cds-support-warning:                        #F1C21B;
+    --cds-support-info:                           #4589FF;
+    --cds-support-error-inverse:                  #DA1E28;
+    --cds-support-success-inverse:                #24A148;
+    --cds-support-warning-inverse:                #F1C21B;
+    --cds-support-info-inverse:                   #0F62FE;
+    --cds-support-caution-minor:                  #F1C21B;
+    --cds-support-caution-major:                  #FF832B;
+    --cds-support-caution-undefined:              #A56EFF;
+    --cds-focus:                                  #FFFFFF;
+    --cds-focus-inset:                            #161616;
+    --cds-focus-inverse:                          #0F62FE;
+    --cds-skeleton-background:                    #292929;
+    --cds-skeleton-element:                       #393939;
+    --cds-interactive:                            #4589FF;
+    --cds-highlight:                              #D0E2FF;
+    --cds-overlay:                                rgba(0, 0, 0, 0.65);
+    --cds-toggle-off:                             #8D8D8D;
+    --cds-shadow:                                 rgba(0, 0, 0, 0.8);
+    --cds-spacing-01:                             0.125rem;
+    --cds-spacing-02:                             0.25rem;
+    --cds-spacing-03:                             0.5rem;
+    --cds-spacing-04:                             0.75rem;
+    --cds-spacing-05:                             1rem;
+    --cds-spacing-06:                             1.5rem;
+    --cds-spacing-07:                             2rem;
+    --cds-spacing-08:                             2.5rem;
+    --cds-spacing-09:                             3rem;
+    --cds-spacing-10:                             4rem;
+    --cds-spacing-11:                             5rem;
+    --cds-spacing-12:                             6rem;
+    --cds-spacing-13:                             10rem;
+    --cds-fluid-spacing-01:                       0;
+    --cds-fluid-spacing-02:                       2vw;
+    --cds-fluid-spacing-03:                       5vw;
+    --cds-fluid-spacing-04:                       10vw;
+    --cds-caption-01-font-size:                   0.75rem;
+    --cds-caption-01-font-weight:                 400;
+    --cds-caption-01-line-height:                 1.33333;
+    --cds-caption-01-letter-spacing:              0.32px;
+    --cds-label-01-font-size:                     0.75rem;
+    --cds-label-01-font-weight:                   400;
+    --cds-label-01-line-height:                   1.33333;
+    --cds-label-01-letter-spacing:                0.32px;
+    --cds-helper-text-01-font-size:               0.75rem;
+    --cds-helper-text-01-line-height:             1.33333;
+    --cds-helper-text-01-letter-spacing:          0.32px;
+    --cds-body-short-01-font-size:                0.875rem;
+    --cds-body-short-01-font-weight:              400;
+    --cds-body-short-01-line-height:              1.28572;
+    --cds-body-short-01-letter-spacing:           0.16px;
+    --cds-body-short-02-font-size:                1rem;
+    --cds-body-short-02-font-weight:              400;
+    --cds-body-short-02-line-height:              1.375;
+    --cds-body-short-02-letter-spacing:           0;
+    --cds-body-long-01-font-size:                 0.875rem;
+    --cds-body-long-01-font-weight:               400;
+    --cds-body-long-01-line-height:               1.42857;
+    --cds-body-long-01-letter-spacing:            0.16px;
+    --cds-body-long-02-font-size:                 1rem;
+    --cds-body-long-02-font-weight:               400;
+    --cds-body-long-02-line-height:               1.5;
+    --cds-body-long-02-letter-spacing:            0;
+    --cds-code-01-font-family:                    "IBM Plex Mono", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", monospace;
+    --cds-code-01-font-size:                      0.75rem;
+    --cds-code-01-font-weight:                    400;
+    --cds-code-01-line-height:                    1.33333;
+    --cds-code-01-letter-spacing:                 0.32px;
+    --cds-code-02-font-family:                    "IBM Plex Mono", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", monospace;
+    --cds-code-02-font-size:                      0.875rem;
+    --cds-code-02-font-weight:                    400;
+    --cds-code-02-line-height:                    1.42857;
+    --cds-code-02-letter-spacing:                 0.32px;
+    --cds-heading-01-font-size:                   0.875rem;
+    --cds-heading-01-font-weight:                 600;
+    --cds-heading-01-line-height:                 1.42857;
+    --cds-heading-01-letter-spacing:              0.16px;
+    --cds-heading-02-font-size:                   1rem;
+    --cds-heading-02-font-weight:                 600;
+    --cds-heading-02-line-height:                 1.5;
+    --cds-heading-02-letter-spacing:              0;
+    --cds-productive-heading-01-font-size:        0.875rem;
+    --cds-productive-heading-01-font-weight:      600;
+    --cds-productive-heading-01-line-height:      1.28572;
+    --cds-productive-heading-01-letter-spacing:   0.16px;
+    --cds-productive-heading-02-font-size:        1rem;
+    --cds-productive-heading-02-font-weight:      600;
+    --cds-productive-heading-02-line-height:      1.375;
+    --cds-productive-heading-02-letter-spacing:   0;
+    --cds-productive-heading-03-font-size:        1.25rem;
+    --cds-productive-heading-03-font-weight:      400;
+    --cds-productive-heading-03-line-height:      1.4;
+    --cds-productive-heading-03-letter-spacing:   0;
+    --cds-productive-heading-04-font-size:        1.75rem;
+    --cds-productive-heading-04-font-weight:      400;
+    --cds-productive-heading-04-line-height:      1.28572;
+    --cds-productive-heading-04-letter-spacing:   0;
+    --cds-productive-heading-05-font-size:        2rem;
+    --cds-productive-heading-05-font-weight:      400;
+    --cds-productive-heading-05-line-height:      1.25;
+    --cds-productive-heading-05-letter-spacing:   0;
+    --cds-productive-heading-06-font-size:        2rem;
+    --cds-productive-heading-06-font-weight:      300;
+    --cds-productive-heading-06-line-height:      1.199;
+    --cds-productive-heading-06-letter-spacing:   0;
+    --cds-productive-heading-07-font-size:        2.625rem;
+    --cds-productive-heading-07-font-weight:      300;
+    --cds-productive-heading-07-line-height:      1.19;
+    --cds-productive-heading-07-letter-spacing:   0;
+    --cds-expressive-paragraph-01-font-size:      1.5rem;
+    --cds-expressive-paragraph-01-font-weight:    300;
+    --cds-expressive-paragraph-01-line-height:    1.334;
+    --cds-expressive-paragraph-01-letter-spacing: 0;
+    --cds-expressive-heading-01-font-size:        0.875rem;
+    --cds-expressive-heading-01-font-weight:      600;
+    --cds-expressive-heading-01-line-height:      1.42857;
+    --cds-expressive-heading-01-letter-spacing:   0.16px;
+    --cds-expressive-heading-02-font-size:        1rem;
+    --cds-expressive-heading-02-font-weight:      600;
+    --cds-expressive-heading-02-line-height:      1.5;
+    --cds-expressive-heading-02-letter-spacing:   0;
+    --cds-expressive-heading-03-font-size:        1.25rem;
+    --cds-expressive-heading-03-font-weight:      400;
+    --cds-expressive-heading-03-line-height:      1.4;
+    --cds-expressive-heading-03-letter-spacing:   0;
+    --cds-expressive-heading-04-font-size:        1.75rem;
+    --cds-expressive-heading-04-font-weight:      400;
+    --cds-expressive-heading-04-line-height:      1.28572;
+    --cds-expressive-heading-04-letter-spacing:   0;
+    --cds-expressive-heading-05-font-size:        2rem;
+    --cds-expressive-heading-05-font-weight:      400;
+    --cds-expressive-heading-05-line-height:      1.25;
+    --cds-expressive-heading-05-letter-spacing:   0;
+    --cds-expressive-heading-06-font-size:        2rem;
+    --cds-expressive-heading-06-font-weight:      600;
+    --cds-expressive-heading-06-line-height:      1.25;
+    --cds-expressive-heading-06-letter-spacing:   0;
+    --cds-quotation-01-font-family:               "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-quotation-01-font-size:                 1.25rem;
+    --cds-quotation-01-font-weight:               400;
+    --cds-quotation-01-line-height:               1.3;
+    --cds-quotation-01-letter-spacing:            0;
+    --cds-quotation-02-font-family:               "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-quotation-02-font-size:                 2rem;
+    --cds-quotation-02-font-weight:               300;
+    --cds-quotation-02-line-height:               1.25;
+    --cds-quotation-02-letter-spacing:            0;
+    --cds-display-01-font-size:                   2.625rem;
+    --cds-display-01-font-weight:                 300;
+    --cds-display-01-line-height:                 1.19;
+    --cds-display-01-letter-spacing:              0;
+    --cds-display-02-font-size:                   2.625rem;
+    --cds-display-02-font-weight:                 600;
+    --cds-display-02-line-height:                 1.19;
+    --cds-display-02-letter-spacing:              0;
+    --cds-display-03-font-size:                   2.625rem;
+    --cds-display-03-font-weight:                 300;
+    --cds-display-03-line-height:                 1.19;
+    --cds-display-03-letter-spacing:              0;
+    --cds-display-04-font-size:                   2.625rem;
+    --cds-display-04-font-weight:                 600;
+    --cds-display-04-line-height:                 1.19;
+    --cds-display-04-letter-spacing:              0;
+    --cds-legal-01-font-size:                     0.75rem;
+    --cds-legal-01-font-weight:                   400;
+    --cds-legal-01-line-height:                   1.33333;
+    --cds-legal-01-letter-spacing:                0.32px;
+    --cds-legal-02-font-size:                     0.875rem;
+    --cds-legal-02-font-weight:                   400;
+    --cds-legal-02-line-height:                   1.28572;
+    --cds-legal-02-letter-spacing:                0.16px;
+    --cds-body-compact-01-font-size:              0.875rem;
+    --cds-body-compact-01-font-weight:            400;
+    --cds-body-compact-01-line-height:            1.28572;
+    --cds-body-compact-01-letter-spacing:         0.16px;
+    --cds-body-compact-02-font-size:              1rem;
+    --cds-body-compact-02-font-weight:            400;
+    --cds-body-compact-02-line-height:            1.375;
+    --cds-body-compact-02-letter-spacing:         0;
+    --cds-heading-compact-01-font-size:           0.875rem;
+    --cds-heading-compact-01-font-weight:         600;
+    --cds-heading-compact-01-line-height:         1.28572;
+    --cds-heading-compact-01-letter-spacing:      0.16px;
+    --cds-heading-compact-02-font-size:           1rem;
+    --cds-heading-compact-02-font-weight:         600;
+    --cds-heading-compact-02-line-height:         1.375;
+    --cds-heading-compact-02-letter-spacing:      0;
+    --cds-body-01-font-size:                      0.875rem;
+    --cds-body-01-font-weight:                    400;
+    --cds-body-01-line-height:                    1.42857;
+    --cds-body-01-letter-spacing:                 0.16px;
+    --cds-body-02-font-size:                      1rem;
+    --cds-body-02-font-weight:                    400;
+    --cds-body-02-line-height:                    1.5;
+    --cds-body-02-letter-spacing:                 0;
+    --cds-heading-03-font-size:                   1.25rem;
+    --cds-heading-03-font-weight:                 400;
+    --cds-heading-03-line-height:                 1.4;
+    --cds-heading-03-letter-spacing:              0;
+    --cds-heading-04-font-size:                   1.75rem;
+    --cds-heading-04-font-weight:                 400;
+    --cds-heading-04-line-height:                 1.28572;
+    --cds-heading-04-letter-spacing:              0;
+    --cds-heading-05-font-size:                   2rem;
+    --cds-heading-05-font-weight:                 400;
+    --cds-heading-05-line-height:                 1.25;
+    --cds-heading-05-letter-spacing:              0;
+    --cds-heading-06-font-size:                   2rem;
+    --cds-heading-06-font-weight:                 300;
+    --cds-heading-06-line-height:                 1.199;
+    --cds-heading-06-letter-spacing:              0;
+    --cds-heading-07-font-size:                   2.625rem;
+    --cds-heading-07-font-weight:                 300;
+    --cds-heading-07-line-height:                 1.19;
+    --cds-heading-07-letter-spacing:              0;
+    --cds-fluid-heading-03-font-size:             1.25rem;
+    --cds-fluid-heading-03-font-weight:           400;
+    --cds-fluid-heading-03-line-height:           1.4;
+    --cds-fluid-heading-03-letter-spacing:        0;
+    --cds-fluid-heading-04-font-size:             1.75rem;
+    --cds-fluid-heading-04-font-weight:           400;
+    --cds-fluid-heading-04-line-height:           1.28572;
+    --cds-fluid-heading-04-letter-spacing:        0;
+    --cds-fluid-heading-05-font-size:             2rem;
+    --cds-fluid-heading-05-font-weight:           400;
+    --cds-fluid-heading-05-line-height:           1.25;
+    --cds-fluid-heading-05-letter-spacing:        0;
+    --cds-fluid-heading-06-font-size:             2rem;
+    --cds-fluid-heading-06-font-weight:           600;
+    --cds-fluid-heading-06-line-height:           1.25;
+    --cds-fluid-heading-06-letter-spacing:        0;
+    --cds-fluid-paragraph-01-font-size:           1.5rem;
+    --cds-fluid-paragraph-01-font-weight:         300;
+    --cds-fluid-paragraph-01-line-height:         1.334;
+    --cds-fluid-paragraph-01-letter-spacing:      0;
+    --cds-fluid-quotation-01-font-family:         "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-fluid-quotation-01-font-size:           1.25rem;
+    --cds-fluid-quotation-01-font-weight:         400;
+    --cds-fluid-quotation-01-line-height:         1.3;
+    --cds-fluid-quotation-01-letter-spacing:      0;
+    --cds-fluid-quotation-02-font-family:         "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-fluid-quotation-02-font-size:           2rem;
+    --cds-fluid-quotation-02-font-weight:         300;
+    --cds-fluid-quotation-02-line-height:         1.25;
+    --cds-fluid-quotation-02-letter-spacing:      0;
+    --cds-fluid-display-01-font-size:             2.625rem;
+    --cds-fluid-display-01-font-weight:           300;
+    --cds-fluid-display-01-line-height:           1.19;
+    --cds-fluid-display-01-letter-spacing:        0;
+    --cds-fluid-display-02-font-size:             2.625rem;
+    --cds-fluid-display-02-font-weight:           600;
+    --cds-fluid-display-02-line-height:           1.19;
+    --cds-fluid-display-02-letter-spacing:        0;
+    --cds-fluid-display-03-font-size:             2.625rem;
+    --cds-fluid-display-03-font-weight:           300;
+    --cds-fluid-display-03-line-height:           1.19;
+    --cds-fluid-display-03-letter-spacing:        0;
+    --cds-fluid-display-04-font-size:             2.625rem;
+    --cds-fluid-display-04-font-weight:           600;
+    --cds-fluid-display-04-line-height:           1.19;
+    --cds-fluid-display-04-letter-spacing:        0;
+    --cds-popover-offset:                         0rem;
+    background:                                   #161616 !important;
+}
+
+html {
+    background: #161616 !important;
+}
+
+.cds--content {
+    background: #161616 !important;
+}
+
+/*# sourceMappingURL=index.css.map */

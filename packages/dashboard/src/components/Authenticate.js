@@ -3,8 +3,6 @@ import React from "react";
 
 import { Navigate } from "react-router-dom";
 
-import { Validator } from "./../components/Loader";
-
 const Request = require("axios");
 const Adapter = require("axios-cache-adapter");
 const Forage = require("localforage");
@@ -137,7 +135,7 @@ export const JWT = async () => {
     console.debug("[Debug] Indexing Session Storage" + ":", STORE);
     const Token = await Store.getItem(STORE);
     console.debug("[Debug] Session Token" + ":", Token);
-    
+
     return Token;
 };
 
@@ -168,15 +166,9 @@ export const Authorizer = ({ Page, Session, description }) => {
         throw Error("Page Loader's Description Cannot be Null");
     }
 
-    return (
-        <Validator>
-            {
-                (Session === true)
-                    ? (<Page description={ description }/>)
-                    : (<Navigate to={ "/login" }/>)
-            }
-        </Validator>
-    );
+    return (Session === true)
+        ? (<Page description={ description }/>)
+        : (<Navigate to={ "/login" }/>);
 };
 
 Authorizer.defaultProps = {

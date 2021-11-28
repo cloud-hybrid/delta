@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import React, { lazy as Import } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import "./index.scss";
+import "./Production.css";
+import "./Modifications.scss";
 
 import { Theme, Content } from "@carbon/react";
 
@@ -36,13 +37,9 @@ const DOM = () => {
     });
 
     return (
-        <Theme theme={ theme.theme }>
-            <Content>
-                <Router>
-                    <Application/>
-                </Router>
-            </Content>
-        </Theme>
+        <Router>
+            <Application/>
+        </Router>
     );
 };
 

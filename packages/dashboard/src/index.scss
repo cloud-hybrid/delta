@@ -4,34 +4,4 @@
  --> Package Style Sheet (SCSS)
 ================================================================================ */
 
-$prefix: "io" !default;
-
-/* ---------------------
- --> Global Variable(s)
------------------------- */
-
-@use "@carbon/styles/scss/config" with ($prefix: "cds");
-
-@use "@carbon/styles/scss/themes";
-@use "@carbon/styles/scss/theme" with (
-    $fallback: themes.$g100,
-    $theme: (
-        popover-offset: 0.0rem
-    )
-);
-
-@use "@carbon/styles";
-
-:root {
-    @include theme.theme(theme.$theme);
-
-    background: #161616 !important;
-}
-
-html {
-    background: #161616 !important;
-}
-
-.cds--content {
-    background: #161616 !important;
-}
+@use "@carbon/ibm-security/scss/index" with ($prefix: "cds");

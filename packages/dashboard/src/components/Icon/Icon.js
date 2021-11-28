@@ -1,5 +1,14 @@
+/**
+ * @file Icon.
+ * @copyright IBM Security 2019
+ */
+
+import classnames from "classnames";
 import { func, number, object, oneOfType, string } from "prop-types";
 import React, { cloneElement } from "react";
+
+import deprecatedProp from "../../globals/prop-types";
+import { getComponentNamespace } from "../../globals/namespace";
 
 const sizeDefaultProp = 20;
 const sizePropType = oneOfType([ number, string ]);
@@ -25,6 +34,7 @@ const Icon = ({
               }) => {
     const iconProps = {
         "aria-hidden": "true",
+        className: classnames(getComponentNamespace("icon"), className),
         focusable: false,
         preserveAspectRatio: "xMidYMid meet",
         style: {
@@ -58,9 +68,13 @@ Icon.defaultProps = {
     width: null
 };
 
+const deprecatedSizeProp = deprecatedProp("size", sizePropType);
+
 Icon.propTypes = {
     /** @type {string} Extra classes to add. */
     className: string,
+
+    height: deprecatedSizeProp,
 
     /** @type {string} Path. */
     path: string,
@@ -75,7 +89,9 @@ Icon.propTypes = {
     title: string,
 
     /** @type {string} The SVG viewBox property. */
-    viewBox: string
+    viewBox: string,
+
+    width: deprecatedSizeProp
 };
 
 export default Icon;

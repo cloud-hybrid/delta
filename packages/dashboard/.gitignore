@@ -1,6 +1,7 @@
 !./.run
 !./src/Index.Fix.css
 !./src/Normalize.css
+!./src/Globals.css
 
 logs
 *.log

@@ -1,6 +1,6 @@
-import Path from "path";
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+
+import React, { useState } from "react";
 
 import { Tag } from "@carbon/react";
 import { default as Version } from "./../Version/Component.js";

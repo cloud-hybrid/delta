@@ -1,0 +1,4062 @@
+:root {
+    --cds-layer:                  var(--cds-layer-01, #262626);
+    --cds-layer-active:           var(--cds-layer-active-01, #525252);
+    --cds-layer-hover:            var(--cds-layer-hover-01, #333333);
+    --cds-layer-selected:         var(--cds-layer-selected-01, #393939);
+    --cds-layer-selected-hover:   var(--cds-layer-selected-hover-01, #474747);
+    --cds-layer-accent:           var(--cds-layer-accent-01, #393939);
+    --cds-layer-accent-hover:     var(--cds-layer-accent-hover-01, #474747);
+    --cds-layer-accent-active:    var(--cds-layer-accent-active-01, #6F6F6F);
+    --cds-field:                  var(--cds-field-01, #262626);
+    --cds-field-hover:            var(--cds-field-hover-01, #333333);
+    --cds-border-subtle:          var(--cds-border-subtle-01, #393939);
+    --cds-border-subtle-selected: var(--cds-border-subtle-selected-01, #525252);
+    --cds-border-strong:          var(--cds-border-strong-01, #6F6F6F);
+}
+
+.cds--layer {
+    --cds-layer:                  var(--cds-layer-02, #393939);
+    --cds-layer-active:           var(--cds-layer-active-02, #6F6F6F);
+    --cds-layer-hover:            var(--cds-layer-hover-02, #474747);
+    --cds-layer-selected:         var(--cds-layer-selected-02, #525252);
+    --cds-layer-selected-hover:   var(--cds-layer-selected-hover-02, #636363);
+    --cds-layer-accent:           var(--cds-layer-accent-02, #525252);
+    --cds-layer-accent-hover:     var(--cds-layer-accent-hover-02, #636363);
+    --cds-layer-accent-active:    var(--cds-layer-accent-active-02, #8D8D8D);
+    --cds-field:                  var(--cds-field-02, #393939);
+    --cds-field-hover:            var(--cds-field-hover-02, #474747);
+    --cds-border-subtle:          var(--cds-border-subtle-02, #525252);
+    --cds-border-subtle-selected: var(--cds-border-subtle-selected-02, #6F6F6F);
+    --cds-border-strong:          var(--cds-border-strong-02, #8D8D8D);
+}
+
+.cds--layer .cds--layer {
+    --cds-layer:                  var(--cds-layer-03, #525252);
+    --cds-layer-active:           var(--cds-layer-active-03, #8D8D8D);
+    --cds-layer-hover:            var(--cds-layer-hover-03, #636363);
+    --cds-layer-selected:         var(--cds-layer-selected-03, #6F6F6F);
+    --cds-layer-selected-hover:   var(--cds-layer-selected-hover-03, #5E5E5E);
+    --cds-layer-accent:           var(--cds-layer-accent-03, #6F6F6F);
+    --cds-layer-accent-hover:     var(--cds-layer-accent-hover-03, #5E5E5E);
+    --cds-layer-accent-active:    var(--cds-layer-accent-active-03, #393939);
+    --cds-field:                  var(--cds-field-03, #525252);
+    --cds-field-hover:            var(--cds-field-hover-03, #636363);
+    --cds-border-subtle:          var(--cds-border-subtle-03, #6F6F6F);
+    --cds-border-subtle-selected: var(--cds-border-subtle-selected-03, #8D8D8D);
+    --cds-border-strong:          var(--cds-border-strong-03, #A8A8A8);
+}
+
+.security--input__background__color--light .security--button--icon:focus, .security--input__background__color--light .security--button--icon:hover, .security--input__background__color--light .cds--list-box, .security--input__background__color--light .cds--list-box__menu, .security--input__background__color--light .cds--date-picker__input, .security--input__background__color--light .cds--dropdown, .security--input__background__color--light .cds--number input[type=number], .security--input__background__color--light .cds--search-input, .security--input__background__color--light .cds--select-input, .security--input__background__color--light .cds--text-area, .security--input__background__color--light .cds--text-input {
+    background-color: var(--cds-ui-02, #393939);
+}
+
+.security--theme--cg10 {
+    --cds-interactive-01:                         #0F62FE;
+    --cds-interactive-02:                         #343A3F;
+    --cds-interactive-03:                         #0F62FE;
+    --cds-interactive-04:                         #0F62FE;
+    --cds-ui-background:                          #F2F4F8;
+    --cds-ui-01:                                  #FFFFFF;
+    --cds-ui-02:                                  #F2F4F8;
+    --cds-ui-03:                                  #DDE1E6;
+    --cds-ui-04:                                  #878D96;
+    --cds-ui-05:                                  #121619;
+    --cds-text-01:                                #121619;
+    --cds-text-02:                                #4D5358;
+    --cds-text-03:                                #A2A9B0;
+    --cds-text-04:                                #FFFFFF;
+    --cds-text-05:                                #697077;
+    --cds-text-error:                             #DA1E28;
+    --cds-icon-01:                                #121619;
+    --cds-icon-02:                                #4D5358;
+    --cds-icon-03:                                #FFFFFF;
+    --cds-link-01:                                #0F62FE;
+    --cds-link-02:                                #0043CE;
+    --cds-inverse-link:                           #78A9FF;
+    --cds-field-01:                               #FFFFFF;
+    --cds-field-02:                               #F2F4F8;
+    --cds-inverse-01:                             #FFFFFF;
+    --cds-inverse-02:                             #343A3F;
+    --cds-support-01:                             #DA1E28;
+    --cds-support-02:                             #198038;
+    --cds-support-03:                             #F1C21B;
+    --cds-support-04:                             #0043CE;
+    --cds-inverse-support-01:                     #FA4D56;
+    --cds-inverse-support-02:                     #42BE65;
+    --cds-inverse-support-03:                     #F1C21B;
+    --cds-inverse-support-04:                     #4589FF;
+    --cds-overlay-01:                             rgba(22, 22, 22, 0.5);
+    --cds-danger-01:                              #DA1E28;
+    --cds-danger-02:                              #DA1E28;
+    --cds-focus:                                  #0F62FE;
+    --cds-inverse-focus-ui:                       #FFFFFF;
+    --cds-hover-primary:                          #0353E9;
+    --cds-active-primary:                         #002D9C;
+    --cds-hover-primary-text:                     #0043CE;
+    --cds-hover-secondary:                        #464C51;
+    --cds-active-secondary:                       #697077;
+    --cds-hover-tertiary:                         #0353E9;
+    --cds-active-tertiary:                        #002D9C;
+    --cds-hover-ui:                               #E0E4EA;
+    --cds-hover-light-ui:                         #E5E5E5;
+    --cds-hover-selected-ui:                      #C4C9D1;
+    --cds-active-ui:                              #C1C7CD;
+    --cds-active-light-ui:                        #C1C7CD;
+    --cds-selected-ui:                            #DDE1E6;
+    --cds-selected-light-ui:                      #DDE1E6;
+    --cds-inverse-hover-ui:                       #464C51;
+    --cds-hover-danger:                           #B81921;
+    --cds-active-danger:                          #750E13;
+    --cds-hover-row:                              #E0E4EA;
+    --cds-visited-link:                           #8A3FFC;
+    --cds-disabled-01:                            #FFFFFF;
+    --cds-disabled-02:                            #C1C7CD;
+    --cds-disabled-03:                            #878D96;
+    --cds-highlight:                              #D0E2FF;
+    --cds-decorative-01:                          #DDE1E6;
+    --cds-button-separator:                       #DDE1E6;
+    --cds-skeleton-01:                            #E0E4EA;
+    --cds-skeleton-02:                            #C1C7CD;
+    --cds-background:                             #F2F4F8;
+    --cds-layer:                                  #FFFFFF;
+    --cds-layer-accent:                           #DDE1E6;
+    --cds-layer-accent-hover:                     #D1D1D1;
+    --cds-layer-accent-active:                    #A2A9B0;
+    --cds-field:                                  #FFFFFF;
+    --cds-background-inverse:                     #343A3F;
+    --cds-background-brand:                       #0F62FE;
+    --cds-interactive:                            #0F62FE;
+    --cds-border-subtle:                          #DDE1E6;
+    --cds-border-strong:                          #878D96;
+    --cds-border-inverse:                         #121619;
+    --cds-border-interactive:                     #0F62FE;
+    --cds-text-primary:                           #121619;
+    --cds-text-secondary:                         #4D5358;
+    --cds-text-placeholder:                       #A2A9B0;
+    --cds-text-helper:                            #697077;
+    --cds-text-on-color:                          #FFFFFF;
+    --cds-text-inverse:                           #FFFFFF;
+    --cds-link-primary:                           #0F62FE;
+    --cds-link-secondary:                         #0043CE;
+    --cds-link-visited:                           #8A3FFC;
+    --cds-link-inverse:                           #78A9FF;
+    --cds-icon-primary:                           #121619;
+    --cds-icon-secondary:                         #4D5358;
+    --cds-icon-on-color:                          #FFFFFF;
+    --cds-icon-inverse:                           #FFFFFF;
+    --cds-support-error:                          #DA1E28;
+    --cds-support-success:                        #198038;
+    --cds-support-warning:                        #F1C21B;
+    --cds-support-info:                           #0043CE;
+    --cds-support-error-inverse:                  #FA4D56;
+    --cds-support-success-inverse:                #42BE65;
+    --cds-support-warning-inverse:                #F1C21B;
+    --cds-support-info-inverse:                   #4589FF;
+    --cds-overlay:                                rgba(22, 22, 22, 0.5);
+    --cds-toggle-off:                             #878D96;
+    --cds-shadow:                                 rgba(0, 0, 0, 0.3);
+    --cds-button-primary:                         #0F62FE;
+    --cds-button-secondary:                       #343A3F;
+    --cds-button-tertiary:                        #0F62FE;
+    --cds-button-danger-primary:                  #DA1E28;
+    --cds-button-danger-secondary:                #DA1E28;
+    --cds-background-active:                      #C1C7CD;
+    --cds-layer-active:                           #C1C7CD;
+    --cds-button-danger-active:                   #750E13;
+    --cds-button-primary-active:                  #002D9C;
+    --cds-button-secondary-active:                #697077;
+    --cds-button-tertiary-active:                 #002D9C;
+    --cds-focus-inset:                            #FFFFFF;
+    --cds-focus-inverse:                          #FFFFFF;
+    --cds-background-hover:                       #E5E5E5;
+    --cds-layer-hover:                            #E5E5E5;
+    --cds-field-hover:                            #E5E5E5;
+    --cds-background-inverse-hover:               #4C4C4C;
+    --cds-link-primary-hover:                     #0043CE;
+    --cds-button-danger-hover:                    #B81921;
+    --cds-button-primary-hover:                   #0353E9;
+    --cds-button-secondary-hover:                 #4C4C4C;
+    --cds-button-tertiary-hover:                  #0353E9;
+    --cds-background-selected:                    #DDE1E6;
+    --cds-background-selected-hover:              #CACACA;
+    --cds-layer-selected:                         #DDE1E6;
+    --cds-layer-selected-hover:                   #CACACA;
+    --cds-layer-selected-inverse:                 #121619;
+    --cds-border-subtle-selected:                 #C1C7CD;
+    --cds-layer-disabled:                         #FFFFFF;
+    --cds-field-disabled:                         #FFFFFF;
+    --cds-border-disabled:                        #FFFFFF;
+    --cds-text-disabled:                          #C1C7CD;
+    --cds-button-disabled:                        #C1C7CD;
+    --cds-icon-disabled:                          #C1C7CD;
+    --cds-text-on-color-disabled:                 #878D96;
+    --cds-icon-on-color-disabled:                 #878D96;
+    --cds-layer-selected-disabled:                #878D96;
+    --cds-skeleton-background:                    #E5E5E5;
+    --cds-skeleton-element:                       #C1C7CD;
+    --cds-brand-01:                               #0F62FE;
+    --cds-brand-02:                               #343A3F;
+    --cds-brand-03:                               #0F62FE;
+    --cds-active-01:                              #C1C7CD;
+    --cds-hover-field:                            #E0E4EA;
+    --cds-danger:                                 #DA1E28;
+    --cds-caption-01-font-size:                   0.75rem;
+    --cds-caption-01-font-weight:                 400;
+    --cds-caption-01-line-height:                 1.33333;
+    --cds-caption-01-letter-spacing:              0.32px;
+    --cds-caption-02-font-size:                   0.875rem;
+    --cds-caption-02-font-weight:                 400;
+    --cds-caption-02-line-height:                 1.28572;
+    --cds-caption-02-letter-spacing:              0.32px;
+    --cds-label-01-font-size:                     0.75rem;
+    --cds-label-01-font-weight:                   400;
+    --cds-label-01-line-height:                   1.33333;
+    --cds-label-01-letter-spacing:                0.32px;
+    --cds-label-02-font-size:                     0.875rem;
+    --cds-label-02-font-weight:                   400;
+    --cds-label-02-line-height:                   1.28572;
+    --cds-label-02-letter-spacing:                0.16px;
+    --cds-helper-text-01-font-size:               0.75rem;
+    --cds-helper-text-01-line-height:             1.33333;
+    --cds-helper-text-01-letter-spacing:          0.32px;
+    --cds-helper-text-02-font-size:               0.875rem;
+    --cds-helper-text-02-line-height:             1.28572;
+    --cds-helper-text-02-letter-spacing:          0.16px;
+    --cds-body-short-01-font-size:                0.875rem;
+    --cds-body-short-01-font-weight:              400;
+    --cds-body-short-01-line-height:              1.28572;
+    --cds-body-short-01-letter-spacing:           0.16px;
+    --cds-body-long-01-font-size:                 0.875rem;
+    --cds-body-long-01-font-weight:               400;
+    --cds-body-long-01-line-height:               1.42857;
+    --cds-body-long-01-letter-spacing:            0.16px;
+    --cds-body-short-02-font-size:                1rem;
+    --cds-body-short-02-font-weight:              400;
+    --cds-body-short-02-line-height:              1.375;
+    --cds-body-short-02-letter-spacing:           0;
+    --cds-body-long-02-font-size:                 1rem;
+    --cds-body-long-02-font-weight:               400;
+    --cds-body-long-02-line-height:               1.5;
+    --cds-body-long-02-letter-spacing:            0;
+    --cds-code-01-font-family:                    "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+    --cds-code-01-font-size:                      0.75rem;
+    --cds-code-01-font-weight:                    400;
+    --cds-code-01-line-height:                    1.33333;
+    --cds-code-01-letter-spacing:                 0.32px;
+    --cds-code-02-font-family:                    "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+    --cds-code-02-font-size:                      0.875rem;
+    --cds-code-02-font-weight:                    400;
+    --cds-code-02-line-height:                    1.42857;
+    --cds-code-02-letter-spacing:                 0.32px;
+    --cds-heading-01-font-size:                   0.875rem;
+    --cds-heading-01-font-weight:                 600;
+    --cds-heading-01-line-height:                 1.42857;
+    --cds-heading-01-letter-spacing:              0.16px;
+    --cds-productive-heading-01-font-size:        0.875rem;
+    --cds-productive-heading-01-font-weight:      600;
+    --cds-productive-heading-01-line-height:      1.28572;
+    --cds-productive-heading-01-letter-spacing:   0.16px;
+    --cds-heading-02-font-size:                   1rem;
+    --cds-heading-02-font-weight:                 600;
+    --cds-heading-02-line-height:                 1.5;
+    --cds-heading-02-letter-spacing:              0;
+    --cds-productive-heading-02-font-size:        1rem;
+    --cds-productive-heading-02-font-weight:      600;
+    --cds-productive-heading-02-line-height:      1.375;
+    --cds-productive-heading-02-letter-spacing:   0;
+    --cds-productive-heading-03-font-size:        1.25rem;
+    --cds-productive-heading-03-font-weight:      400;
+    --cds-productive-heading-03-line-height:      1.4;
+    --cds-productive-heading-03-letter-spacing:   0;
+    --cds-productive-heading-04-font-size:        1.75rem;
+    --cds-productive-heading-04-font-weight:      400;
+    --cds-productive-heading-04-line-height:      1.28572;
+    --cds-productive-heading-04-letter-spacing:   0;
+    --cds-productive-heading-05-font-size:        2rem;
+    --cds-productive-heading-05-font-weight:      400;
+    --cds-productive-heading-05-line-height:      1.25;
+    --cds-productive-heading-05-letter-spacing:   0;
+    --cds-productive-heading-06-font-size:        2.625rem;
+    --cds-productive-heading-06-font-weight:      300;
+    --cds-productive-heading-06-line-height:      1.199;
+    --cds-productive-heading-06-letter-spacing:   0;
+    --cds-productive-heading-07-font-size:        3.375rem;
+    --cds-productive-heading-07-font-weight:      300;
+    --cds-productive-heading-07-line-height:      1.199;
+    --cds-productive-heading-07-letter-spacing:   0;
+    --cds-expressive-heading-01-font-size:        0.875rem;
+    --cds-expressive-heading-01-font-weight:      600;
+    --cds-expressive-heading-01-line-height:      1.25;
+    --cds-expressive-heading-01-letter-spacing:   0.16px;
+    --cds-expressive-heading-02-font-size:        1rem;
+    --cds-expressive-heading-02-font-weight:      600;
+    --cds-expressive-heading-02-line-height:      1.5;
+    --cds-expressive-heading-02-letter-spacing:   0;
+    --cds-expressive-heading-03-font-size:        1.25rem;
+    --cds-expressive-heading-03-font-weight:      400;
+    --cds-expressive-heading-03-line-height:      1.4;
+    --cds-expressive-heading-03-letter-spacing:   0;
+    --cds-expressive-heading-04-font-size:        1.75rem;
+    --cds-expressive-heading-04-font-weight:      400;
+    --cds-expressive-heading-04-line-height:      1.28572;
+    --cds-expressive-heading-04-letter-spacing:   0;
+    --cds-expressive-heading-05-font-size:        2rem;
+    --cds-expressive-heading-05-font-weight:      400;
+    --cds-expressive-heading-05-line-height:      1.25;
+    --cds-expressive-heading-05-letter-spacing:   0;
+    --cds-expressive-heading-06-font-size:        2rem;
+    --cds-expressive-heading-06-font-weight:      600;
+    --cds-expressive-heading-06-line-height:      1.25;
+    --cds-expressive-heading-06-letter-spacing:   0;
+    --cds-expressive-paragraph-01-font-size:      1.5rem;
+    --cds-expressive-paragraph-01-font-weight:    300;
+    --cds-expressive-paragraph-01-line-height:    1.334;
+    --cds-expressive-paragraph-01-letter-spacing: 0;
+    --cds-quotation-01-font-family:               "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-quotation-01-font-size:                 1.25rem;
+    --cds-quotation-01-font-weight:               400;
+    --cds-quotation-01-line-height:               1.3;
+    --cds-quotation-01-letter-spacing:            0;
+    --cds-quotation-02-font-family:               "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-quotation-02-font-size:                 2rem;
+    --cds-quotation-02-font-weight:               300;
+    --cds-quotation-02-line-height:               1.25;
+    --cds-quotation-02-letter-spacing:            0;
+    --cds-display-01-font-size:                   2.625rem;
+    --cds-display-01-font-weight:                 300;
+    --cds-display-01-line-height:                 1.19;
+    --cds-display-01-letter-spacing:              0;
+    --cds-display-02-font-size:                   2.625rem;
+    --cds-display-02-font-weight:                 600;
+    --cds-display-02-line-height:                 1.19;
+    --cds-display-02-letter-spacing:              0;
+    --cds-display-03-font-size:                   2.625rem;
+    --cds-display-03-font-weight:                 300;
+    --cds-display-03-line-height:                 1.19;
+    --cds-display-03-letter-spacing:              0;
+    --cds-display-04-font-size:                   2.625rem;
+    --cds-display-04-font-weight:                 600;
+    --cds-display-04-line-height:                 1.19;
+    --cds-display-04-letter-spacing:              0;
+    --cds-legal-01-font-size:                     0.75rem;
+    --cds-legal-01-font-weight:                   400;
+    --cds-legal-01-line-height:                   1.33333;
+    --cds-legal-01-letter-spacing:                0.32px;
+    --cds-legal-02-font-size:                     0.875rem;
+    --cds-legal-02-font-weight:                   400;
+    --cds-legal-02-line-height:                   1.28572;
+    --cds-legal-02-letter-spacing:                0.16px;
+    --cds-body-compact-01-font-size:              0.875rem;
+    --cds-body-compact-01-font-weight:            400;
+    --cds-body-compact-01-line-height:            1.28572;
+    --cds-body-compact-01-letter-spacing:         0.16px;
+    --cds-body-compact-02-font-size:              1rem;
+    --cds-body-compact-02-font-weight:            400;
+    --cds-body-compact-02-line-height:            1.375;
+    --cds-body-compact-02-letter-spacing:         0;
+    --cds-body-01-font-size:                      0.875rem;
+    --cds-body-01-font-weight:                    400;
+    --cds-body-01-line-height:                    1.42857;
+    --cds-body-01-letter-spacing:                 0.16px;
+    --cds-body-02-font-size:                      1rem;
+    --cds-body-02-font-weight:                    400;
+    --cds-body-02-line-height:                    1.5;
+    --cds-body-02-letter-spacing:                 0;
+    --cds-heading-compact-01-font-size:           0.875rem;
+    --cds-heading-compact-01-font-weight:         600;
+    --cds-heading-compact-01-line-height:         1.28572;
+    --cds-heading-compact-01-letter-spacing:      0.16px;
+    --cds-heading-compact-02-font-size:           1rem;
+    --cds-heading-compact-02-font-weight:         600;
+    --cds-heading-compact-02-line-height:         1.375;
+    --cds-heading-compact-02-letter-spacing:      0;
+    --cds-heading-03-font-size:                   1.25rem;
+    --cds-heading-03-font-weight:                 400;
+    --cds-heading-03-line-height:                 1.4;
+    --cds-heading-03-letter-spacing:              0;
+    --cds-heading-04-font-size:                   1.75rem;
+    --cds-heading-04-font-weight:                 400;
+    --cds-heading-04-line-height:                 1.28572;
+    --cds-heading-04-letter-spacing:              0;
+    --cds-heading-05-font-size:                   2rem;
+    --cds-heading-05-font-weight:                 400;
+    --cds-heading-05-line-height:                 1.25;
+    --cds-heading-05-letter-spacing:              0;
+    --cds-heading-06-font-size:                   2.625rem;
+    --cds-heading-06-font-weight:                 300;
+    --cds-heading-06-line-height:                 1.199;
+    --cds-heading-06-letter-spacing:              0;
+    --cds-heading-07-font-size:                   3.375rem;
+    --cds-heading-07-font-weight:                 300;
+    --cds-heading-07-line-height:                 1.199;
+    --cds-heading-07-letter-spacing:              0;
+    --cds-fluid-heading-03-font-size:             1.25rem;
+    --cds-fluid-heading-03-font-weight:           400;
+    --cds-fluid-heading-03-line-height:           1.4;
+    --cds-fluid-heading-03-letter-spacing:        0;
+    --cds-fluid-heading-04-font-size:             1.75rem;
+    --cds-fluid-heading-04-font-weight:           400;
+    --cds-fluid-heading-04-line-height:           1.28572;
+    --cds-fluid-heading-04-letter-spacing:        0;
+    --cds-fluid-heading-05-font-size:             2rem;
+    --cds-fluid-heading-05-font-weight:           400;
+    --cds-fluid-heading-05-line-height:           1.25;
+    --cds-fluid-heading-05-letter-spacing:        0;
+    --cds-fluid-heading-06-font-size:             2rem;
+    --cds-fluid-heading-06-font-weight:           600;
+    --cds-fluid-heading-06-line-height:           1.25;
+    --cds-fluid-heading-06-letter-spacing:        0;
+    --cds-fluid-paragraph-01-font-size:           1.5rem;
+    --cds-fluid-paragraph-01-font-weight:         300;
+    --cds-fluid-paragraph-01-line-height:         1.334;
+    --cds-fluid-paragraph-01-letter-spacing:      0;
+    --cds-fluid-quotation-01-font-family:         "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-fluid-quotation-01-font-size:           1.25rem;
+    --cds-fluid-quotation-01-font-weight:         400;
+    --cds-fluid-quotation-01-line-height:         1.3;
+    --cds-fluid-quotation-01-letter-spacing:      0;
+    --cds-fluid-quotation-02-font-family:         "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-fluid-quotation-02-font-size:           2rem;
+    --cds-fluid-quotation-02-font-weight:         300;
+    --cds-fluid-quotation-02-line-height:         1.25;
+    --cds-fluid-quotation-02-letter-spacing:      0;
+    --cds-fluid-display-01-font-size:             2.625rem;
+    --cds-fluid-display-01-font-weight:           300;
+    --cds-fluid-display-01-line-height:           1.19;
+    --cds-fluid-display-01-letter-spacing:        0;
+    --cds-fluid-display-02-font-size:             2.625rem;
+    --cds-fluid-display-02-font-weight:           600;
+    --cds-fluid-display-02-line-height:           1.19;
+    --cds-fluid-display-02-letter-spacing:        0;
+    --cds-fluid-display-03-font-size:             2.625rem;
+    --cds-fluid-display-03-font-weight:           300;
+    --cds-fluid-display-03-line-height:           1.19;
+    --cds-fluid-display-03-letter-spacing:        0;
+    --cds-fluid-display-04-font-size:             2.625rem;
+    --cds-fluid-display-04-font-weight:           600;
+    --cds-fluid-display-04-line-height:           1.19;
+    --cds-fluid-display-04-letter-spacing:        0;
+    --cds-spacing-01:                             0.125rem;
+    --cds-spacing-02:                             0.25rem;
+    --cds-spacing-03:                             0.5rem;
+    --cds-spacing-04:                             0.75rem;
+    --cds-spacing-05:                             1rem;
+    --cds-spacing-06:                             1.5rem;
+    --cds-spacing-07:                             2rem;
+    --cds-spacing-08:                             2.5rem;
+    --cds-spacing-09:                             3rem;
+    --cds-spacing-10:                             4rem;
+    --cds-spacing-11:                             5rem;
+    --cds-spacing-12:                             6rem;
+    --cds-spacing-13:                             10rem;
+    --cds-fluid-spacing-01:                       0;
+    --cds-fluid-spacing-02:                       2vw;
+    --cds-fluid-spacing-03:                       5vw;
+    --cds-fluid-spacing-04:                       10vw;
+    --cds-layout-01:                              1rem;
+    --cds-layout-02:                              1.5rem;
+    --cds-layout-03:                              2rem;
+    --cds-layout-04:                              3rem;
+    --cds-layout-05:                              4rem;
+    --cds-layout-06:                              6rem;
+    --cds-layout-07:                              10rem;
+    --cds-container-01:                           1.5rem;
+    --cds-container-02:                           2rem;
+    --cds-container-03:                           2.5rem;
+    --cds-container-04:                           3rem;
+    --cds-container-05:                           4rem;
+    --cds-size-xsmall:                            1.5rem;
+    --cds-size-small:                             2rem;
+    --cds-size-medium:                            2.5rem;
+    --cds-size-large:                             3rem;
+    --cds-size-xlarge:                            4rem;
+    --cds-size-2XLarge:                           5rem;
+    --cds-icon-size-01:                           1rem;
+    --cds-icon-size-02:                           1.25rem;
+    --interactive-01:                             var(--cds-interactive-01, #0F62FE);
+    --interactive-02:                             var(--cds-interactive-02, #343A3F);
+    --interactive-03:                             var(--cds-interactive-03, #0F62FE);
+    --interactive-04:                             var(--cds-interactive-04, #0F62FE);
+    --ui-background:                              var(--cds-ui-background, #F2F4F8);
+    --ui-01:                                      var(--cds-ui-01, #FFFFFF);
+    --ui-02:                                      var(--cds-ui-02, #F2F4F8);
+    --ui-03:                                      var(--cds-ui-03, #DDE1E6);
+    --ui-04:                                      var(--cds-ui-04, #878D96);
+    --ui-05:                                      var(--cds-ui-05, #121619);
+    --text-01:                                    var(--cds-text-01, #121619);
+    --text-02:                                    var(--cds-text-02, #4D5358);
+    --text-03:                                    var(--cds-text-03, #A2A9B0);
+    --text-04:                                    var(--cds-text-04, #FFFFFF);
+    --text-05:                                    var(--cds-text-05, #697077);
+    --text-error:                                 var(--cds-text-error, #DA1E28);
+    --icon-01:                                    var(--cds-icon-01, #121619);
+    --icon-02:                                    var(--cds-icon-02, #4D5358);
+    --icon-03:                                    var(--cds-icon-03, #FFFFFF);
+    --link-01:                                    var(--cds-link-01, #0F62FE);
+    --link-02:                                    var(--cds-link-02, #0043CE);
+    --inverse-link:                               var(--cds-inverse-link, #78A9FF);
+    --field-01:                                   var(--cds-field-01, #FFFFFF);
+    --field-02:                                   var(--cds-field-02, #F2F4F8);
+    --inverse-01:                                 var(--cds-inverse-01, #FFFFFF);
+    --inverse-02:                                 var(--cds-inverse-02, #343A3F);
+    --support-01:                                 var(--cds-support-01, #DA1E28);
+    --support-02:                                 var(--cds-support-02, #198038);
+    --support-03:                                 var(--cds-support-03, #F1C21B);
+    --support-04:                                 var(--cds-support-04, #0043CE);
+    --inverse-support-01:                         var(--cds-inverse-support-01, #FA4D56);
+    --inverse-support-02:                         var(--cds-inverse-support-02, #42BE65);
+    --inverse-support-03:                         var(--cds-inverse-support-03, #F1C21B);
+    --inverse-support-04:                         var(--cds-inverse-support-04, #4589FF);
+    --overlay-01:                                 var(--cds-overlay-01, rgba(22, 22, 22, 0.5));
+    --danger-01:                                  var(--cds-danger-01, #DA1E28);
+    --danger-02:                                  var(--cds-danger-02, #DA1E28);
+    --focus:                                      var(--cds-focus, #0F62FE);
+    --inverse-focus-ui:                           var(--cds-inverse-focus-ui, #FFFFFF);
+    --hover-primary:                              var(--cds-hover-primary, #0353E9);
+    -active-primary:                              var(--cds-active-primary, #002D9C);
+    --hover-primary-text:                         var(--cds-hover-primary-text, #0043CE);
+    --hover-secondary:                            var(--cds-hover-secondary, #464C51);
+    -active-secondary:                            var(--cds-active-secondary, #697077);
+    --hover-tertiary:                             var(--cds-hover-tertiary, #0353E9);
+    -active-tertiary:                             var(--cds-active-tertiary, #002D9C);
+    --hover-ui:                                   var(--cds-hover-ui, #E0E4EA);
+    --hover-light-ui:                             var(--cds-hover-light-ui, #E5E5E5);
+    -active-ui:                                   var(--cds-active-ui, #C1C7CD);
+    -active-light-ui:                             var(--cds-active-light-ui, #C1C7CD);
+    --selected-ui:                                var(--cds-selected-ui, #DDE1E6);
+    --selected-light-ui:                          var(--cds-selected-light-ui, #DDE1E6);
+    --inverse-hover-ui:                           var(--cds-inverse-hover-ui, #464C51);
+    --hover-selected-ui:                          var(--cds-hover-selected-ui, #C4C9D1);
+    --hover-danger:                               var(--cds-hover-danger, #B81921);
+    -active-danger:                               var(--cds-active-danger, #750E13);
+    --hover-row:                                  var(--cds-hover-row, #E0E4EA);
+    --visited-link:                               var(--cds-visited-link, #8A3FFC);
+    --disabled-01:                                var(--cds-disabled-01, #FFFFFF);
+    --disabled-02:                                var(--cds-disabled-02, #C1C7CD);
+    --disabled-03:                                var(--cds-disabled-03, #878D96);
+    --highlight:                                  var(--cds-highlight, #D0E2FF);
+    --decorative-01:                              var(--cds-decorative-01, #DDE1E6);
+    --button-separator:                           var(--cds-button-separator, #DDE1E6);
+    --skeleton-01:                                var(--cds-skeleton-01, #E0E4EA);
+    --skeleton-02:                                var(--cds-skeleton-02, #C1C7CD);
+    --background:                                 var(--cds-background, #F2F4F8);
+    --layer:                                      var(--cds-layer, #FFFFFF);
+    --layer-accent:                               var(--cds-layer-accent, #DDE1E6);
+    --layer-accent-active:                        var(--cds-layer-accent-active, #A2A9B0);
+    --layer-accent-hover:                         var(--cds-layer-accent-hover, #D1D1D1);
+    --field:                                      var(--cds-field, #FFFFFF);
+    --background-inverse:                         var(--cds-background-inverse, #343A3F);
+    --background-brand:                           var(--cds-background-brand, #0F62FE);
+    --interactive:                                var(--cds-interactive, #0F62FE);
+    --border-subtle:                              var(--cds-border-subtle, #DDE1E6);
+    --border-strong:                              var(--cds-border-strong, #878D96);
+    --border-inverse:                             var(--cds-border-inverse, #121619);
+    --border-interactive:                         var(--cds-border-interactive, #0F62FE);
+    --text-primary:                               var(--cds-text-primary, #121619);
+    --text-secondary:                             var(--cds-text-secondary, #4D5358);
+    --text-placeholder:                           var(--cds-text-placeholder, #A2A9B0);
+    --text-helper:                                var(--cds-text-helper, #697077);
+    --text-on-color:                              var(--cds-text-on-color, #FFFFFF);
+    --text-inverse:                               var(--cds-text-inverse, #FFFFFF);
+    --link-primary:                               var(--cds-link-primary, #0F62FE);
+    --link-secondary:                             var(--cds-link-secondary, #0043CE);
+    --link-visited:                               var(--cds-link-visited, #8A3FFC);
+    --link-inverse:                               var(--cds-link-inverse, #78A9FF);
+    --icon-primary:                               var(--cds-icon-primary, #121619);
+    --icon-secondary:                             var(--cds-icon-secondary, #4D5358);
+    --icon-on-color:                              var(--cds-icon-on-color, #FFFFFF);
+    --icon-inverse:                               var(--cds-icon-inverse, #FFFFFF);
+    --support-error:                              var(--cds-support-error, #DA1E28);
+    --support-success:                            var(--cds-support-success, #198038);
+    --support-warning:                            var(--cds-support-warning, #F1C21B);
+    --support-info:                               var(--cds-support-info, #0043CE);
+    --support-error-inverse:                      var(--cds-support-error-inverse, #FA4D56);
+    --support-success-inverse:                    var(--cds-support-success-inverse, #42BE65);
+    --support-warning-inverse:                    var(--cds-support-warning-inverse, #F1C21B);
+    --support-info-inverse:                       var(--cds-support-info-inverse, #4589FF);
+    --overlay:                                    var(--cds-overlay, rgba(22, 22, 22, 0.5));
+    --toggle-off:                                 var(--cds-toggle-off, #878D96);
+    --shadow:                                     var(--cds-shadow, rgba(0, 0, 0, 0.3));
+    --button-primary:                             var(--cds-button-primary, #0F62FE);
+    --button-secondary:                           var(--cds-button-secondary, #343A3F);
+    --button-tertiary:                            var(--cds-button-tertiary, #0F62FE);
+    --button-danger-primary:                      var(--cds-button-danger-primary, #DA1E28);
+    --button-danger-secondary:                    var(--cds-button-danger-secondary, #DA1E28);
+    --background-active:                          var(--cds-background-active, #C1C7CD);
+    --layer-active:                               var(--cds-layer-active, #C1C7CD);
+    --button-danger-active:                       var(--cds-button-danger-active, #750E13);
+    --button-primary-active:                      var(--cds-button-primary-active, #002D9C);
+    --button-secondary-active:                    var(--cds-button-secondary-active, #697077);
+    --button-tertiary-active:                     var(--cds-button-tertiary-active, #002D9C);
+    --focus-inset:                                var(--cds-focus-inset, #FFFFFF);
+    --focus-inverse:                              var(--cds-focus-inverse, #FFFFFF);
+    --background-hover:                           var(--cds-background-hover, #E5E5E5);
+    --layer-hover:                                var(--cds-layer-hover, #E5E5E5);
+    --field-hover:                                var(--cds-field-hover, #E5E5E5);
+    --background-inverse-hover:                   var(--cds-background-inverse-hover, #4C4C4C);
+    --link-primary-hover:                         var(--cds-link-primary-hover, #0043CE);
+    --button-danger-hover:                        var(--cds-button-danger-hover, #B81921);
+    --button-primary-hover:                       var(--cds-button-primary-hover, #0353E9);
+    --button-secondary-hover:                     var(--cds-button-secondary-hover, #4C4C4C);
+    --button-tertiary-hover:                      var(--cds-button-tertiary-hover, #0353E9);
+    --background-selected:                        var(--cds-background-selected, #DDE1E6);
+    --background-selected-hover:                  var(--cds-background-selected-hover, #CACACA);
+    --layer-selected:                             var(--cds-layer-selected, #DDE1E6);
+    --layer-selected-hover:                       var(--cds-layer-selected-hover, #CACACA);
+    --layer-selected-inverse:                     var(--cds-layer-selected-inverse, #121619);
+    --border-subtle-selected:                     var(--cds-border-subtle-selected, #C1C7CD);
+    --layer-disabled:                             var(--cds-layer-disabled, #FFFFFF);
+    --field-disabled:                             var(--cds-field-disabled, #FFFFFF);
+    --border-disabled:                            var(--cds-border-disabled, #FFFFFF);
+    --text-disabled:                              var(--cds-text-disabled, #C1C7CD);
+    --button-disabled:                            var(--cds-button-disabled, #C1C7CD);
+    --icon-disabled:                              var(--cds-icon-disabled, #C1C7CD);
+    --text-on-color-disabled:                     var(--cds-text-on-color-disabled, #878D96);
+    --icon-on-color-disabled:                     var(--cds-icon-on-color-disabled, #878D96);
+    --layer-selected-disabled:                    var(--cds-layer-selected-disabled, #878D96);
+    --skeleton-background:                        var(--cds-skeleton-background, #E5E5E5);
+    --skeleton-element:                           var(--cds-skeleton-element, #C1C7CD);
+    --brand-01:                                   var(--cds-brand-01, #0F62FE);
+    --brand-02:                                   var(--cds-brand-02, #343A3F);
+    --brand-03:                                   var(--cds-brand-03, #0F62FE);
+    -active-01:                                   var(--cds-active-01, #C1C7CD);
+    --hover-field:                                var(--cds-hover-field, #E0E4EA);
+    --danger:                                     var(--cds-danger, #DA1E28);
+}
+
+.security--theme--g100 {
+    --cds-interactive-01:                         #0F62FE;
+    --cds-interactive-02:                         #6F6F6F;
+    --cds-interactive-03:                         #FFFFFF;
+    --cds-interactive-04:                         #4589FF;
+    --cds-ui-background:                          #161616;
+    --cds-ui-01:                                  #262626;
+    --cds-ui-02:                                  #393939;
+    --cds-ui-03:                                  #393939;
+    --cds-ui-04:                                  #6F6F6F;
+    --cds-ui-05:                                  #F4F4F4;
+    --cds-text-01:                                #F4F4F4;
+    --cds-text-02:                                #C6C6C6;
+    --cds-text-03:                                #6F6F6F;
+    --cds-text-04:                                #FFFFFF;
+    --cds-text-05:                                #8D8D8D;
+    --cds-text-error:                             #FF8389;
+    --cds-icon-01:                                #F4F4F4;
+    --cds-icon-02:                                #C6C6C6;
+    --cds-icon-03:                                #FFFFFF;
+    --cds-link-01:                                #78A9FF;
+    --cds-link-02:                                #A6C8FF;
+    --cds-inverse-link:                           #0F62FE;
+    --cds-field-01:                               #262626;
+    --cds-field-02:                               #393939;
+    --cds-inverse-01:                             #161616;
+    --cds-inverse-02:                             #F4F4F4;
+    --cds-support-01:                             #FA4D56;
+    --cds-support-02:                             #42BE65;
+    --cds-support-03:                             #F1C21B;
+    --cds-support-04:                             #4589FF;
+    --cds-inverse-support-01:                     #DA1E28;
+    --cds-inverse-support-02:                     #24A148;
+    --cds-inverse-support-03:                     #F1C21B;
+    --cds-inverse-support-04:                     #0F62FE;
+    --cds-overlay-01:                             rgba(0, 0, 0, 0.65);
+    --cds-danger-01:                              #DA1E28;
+    --cds-danger-02:                              #FA4D56;
+    --cds-focus:                                  #FFFFFF;
+    --cds-inverse-focus-ui:                       #0F62FE;
+    --cds-hover-primary:                          #0353E9;
+    --cds-active-primary:                         #002D9C;
+    --cds-hover-primary-text:                     #A6C8FF;
+    --cds-hover-secondary:                        #606060;
+    --cds-active-secondary:                       #393939;
+    --cds-hover-tertiary:                         #F4F4F4;
+    --cds-active-tertiary:                        #C6C6C6;
+    --cds-hover-ui:                               #353535;
+    --cds-hover-light-ui:                         #4C4C4C;
+    --cds-hover-selected-ui:                      #4C4C4C;
+    --cds-active-ui:                              #525252;
+    --cds-active-light-ui:                        #6F6F6F;
+    --cds-selected-ui:                            #393939;
+    --cds-selected-light-ui:                      #525252;
+    --cds-inverse-hover-ui:                       #E5E5E5;
+    --cds-hover-danger:                           #B81921;
+    --cds-active-danger:                          #750E13;
+    --cds-hover-row:                              #353535;
+    --cds-visited-link:                           #BE95FF;
+    --cds-disabled-01:                            #262626;
+    --cds-disabled-02:                            #525252;
+    --cds-disabled-03:                            #8D8D8D;
+    --cds-highlight:                              #002D9C;
+    --cds-decorative-01:                          #525252;
+    --cds-button-separator:                       #161616;
+    --cds-skeleton-01:                            #353535;
+    --cds-skeleton-02:                            #525252;
+    --cds-background:                             #161616;
+    --cds-layer:                                  #262626;
+    --cds-layer-accent:                           #393939;
+    --cds-layer-accent-hover:                     #474747;
+    --cds-layer-accent-active:                    #6F6F6F;
+    --cds-field:                                  #262626;
+    --cds-background-inverse:                     #F4F4F4;
+    --cds-background-brand:                       #0F62FE;
+    --cds-interactive:                            #4589FF;
+    --cds-border-subtle:                          #393939;
+    --cds-border-strong:                          #6F6F6F;
+    --cds-border-inverse:                         #F4F4F4;
+    --cds-border-interactive:                     #4589FF;
+    --cds-text-primary:                           #F4F4F4;
+    --cds-text-secondary:                         #C6C6C6;
+    --cds-text-placeholder:                       #6F6F6F;
+    --cds-text-helper:                            #8D8D8D;
+    --cds-text-on-color:                          #FFFFFF;
+    --cds-text-inverse:                           #161616;
+    --cds-link-primary:                           #78A9FF;
+    --cds-link-secondary:                         #A6C8FF;
+    --cds-link-visited:                           #BE95FF;
+    --cds-link-inverse:                           #0F62FE;
+    --cds-icon-primary:                           #F4F4F4;
+    --cds-icon-secondary:                         #C6C6C6;
+    --cds-icon-on-color:                          #FFFFFF;
+    --cds-icon-inverse:                           #161616;
+    --cds-support-error:                          #FA4D56;
+    --cds-support-success:                        #42BE65;
+    --cds-support-warning:                        #F1C21B;
+    --cds-support-info:                           #4589FF;
+    --cds-support-error-inverse:                  #DA1E28;
+    --cds-support-success-inverse:                #24A148;
+    --cds-support-warning-inverse:                #F1C21B;
+    --cds-support-info-inverse:                   #0F62FE;
+    --cds-overlay:                                rgba(0, 0, 0, 0.65);
+    --cds-toggle-off:                             #6F6F6F;
+    --cds-shadow:                                 rgba(0, 0, 0, 0.8);
+    --cds-button-primary:                         #0F62FE;
+    --cds-button-secondary:                       #6F6F6F;
+    --cds-button-tertiary:                        #FFFFFF;
+    --cds-button-danger-primary:                  #DA1E28;
+    --cds-button-danger-secondary:                #FA4D56;
+    --cds-background-active:                      #525252;
+    --cds-layer-active:                           #525252;
+    --cds-button-danger-active:                   #750E13;
+    --cds-button-primary-active:                  #002D9C;
+    --cds-button-secondary-active:                #393939;
+    --cds-button-tertiary-active:                 #C6C6C6;
+    --cds-focus-inset:                            #161616;
+    --cds-focus-inverse:                          #0F62FE;
+    --cds-background-hover:                       #353535;
+    --cds-layer-hover:                            #353535;
+    --cds-field-hover:                            #353535;
+    --cds-background-inverse-hover:               #E5E5E5;
+    --cds-link-primary-hover:                     #A6C8FF;
+    --cds-button-danger-hover:                    #B81921;
+    --cds-button-primary-hover:                   #0353E9;
+    --cds-button-secondary-hover:                 #606060;
+    --cds-button-tertiary-hover:                  #F4F4F4;
+    --cds-background-selected:                    #393939;
+    --cds-background-selected-hover:              #4C4C4C;
+    --cds-layer-selected:                         #393939;
+    --cds-layer-selected-hover:                   #4C4C4C;
+    --cds-layer-selected-inverse:                 #F4F4F4;
+    --cds-border-subtle-selected:                 #525252;
+    --cds-layer-disabled:                         #262626;
+    --cds-field-disabled:                         #262626;
+    --cds-border-disabled:                        #262626;
+    --cds-text-disabled:                          #525252;
+    --cds-button-disabled:                        #525252;
+    --cds-icon-disabled:                          #525252;
+    --cds-text-on-color-disabled:                 #8D8D8D;
+    --cds-icon-on-color-disabled:                 #8D8D8D;
+    --cds-layer-selected-disabled:                #8D8D8D;
+    --cds-skeleton-background:                    #353535;
+    --cds-skeleton-element:                       #525252;
+    --cds-brand-01:                               #0F62FE;
+    --cds-brand-02:                               #6F6F6F;
+    --cds-brand-03:                               #FFFFFF;
+    --cds-active-01:                              #525252;
+    --cds-hover-field:                            #353535;
+    --cds-danger:                                 #DA1E28;
+    --cds-caption-01-font-size:                   0.75rem;
+    --cds-caption-01-font-weight:                 400;
+    --cds-caption-01-line-height:                 1.33333;
+    --cds-caption-01-letter-spacing:              0.32px;
+    --cds-caption-02-font-size:                   0.875rem;
+    --cds-caption-02-font-weight:                 400;
+    --cds-caption-02-line-height:                 1.28572;
+    --cds-caption-02-letter-spacing:              0.32px;
+    --cds-label-01-font-size:                     0.75rem;
+    --cds-label-01-font-weight:                   400;
+    --cds-label-01-line-height:                   1.33333;
+    --cds-label-01-letter-spacing:                0.32px;
+    --cds-label-02-font-size:                     0.875rem;
+    --cds-label-02-font-weight:                   400;
+    --cds-label-02-line-height:                   1.28572;
+    --cds-label-02-letter-spacing:                0.16px;
+    --cds-helper-text-01-font-size:               0.75rem;
+    --cds-helper-text-01-line-height:             1.33333;
+    --cds-helper-text-01-letter-spacing:          0.32px;
+    --cds-helper-text-02-font-size:               0.875rem;
+    --cds-helper-text-02-line-height:             1.28572;
+    --cds-helper-text-02-letter-spacing:          0.16px;
+    --cds-body-short-01-font-size:                0.875rem;
+    --cds-body-short-01-font-weight:              400;
+    --cds-body-short-01-line-height:              1.28572;
+    --cds-body-short-01-letter-spacing:           0.16px;
+    --cds-body-long-01-font-size:                 0.875rem;
+    --cds-body-long-01-font-weight:               400;
+    --cds-body-long-01-line-height:               1.42857;
+    --cds-body-long-01-letter-spacing:            0.16px;
+    --cds-body-short-02-font-size:                1rem;
+    --cds-body-short-02-font-weight:              400;
+    --cds-body-short-02-line-height:              1.375;
+    --cds-body-short-02-letter-spacing:           0;
+    --cds-body-long-02-font-size:                 1rem;
+    --cds-body-long-02-font-weight:               400;
+    --cds-body-long-02-line-height:               1.5;
+    --cds-body-long-02-letter-spacing:            0;
+    --cds-code-01-font-family:                    "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+    --cds-code-01-font-size:                      0.75rem;
+    --cds-code-01-font-weight:                    400;
+    --cds-code-01-line-height:                    1.33333;
+    --cds-code-01-letter-spacing:                 0.32px;
+    --cds-code-02-font-family:                    "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+    --cds-code-02-font-size:                      0.875rem;
+    --cds-code-02-font-weight:                    400;
+    --cds-code-02-line-height:                    1.42857;
+    --cds-code-02-letter-spacing:                 0.32px;
+    --cds-heading-01-font-size:                   0.875rem;
+    --cds-heading-01-font-weight:                 600;
+    --cds-heading-01-line-height:                 1.42857;
+    --cds-heading-01-letter-spacing:              0.16px;
+    --cds-productive-heading-01-font-size:        0.875rem;
+    --cds-productive-heading-01-font-weight:      600;
+    --cds-productive-heading-01-line-height:      1.28572;
+    --cds-productive-heading-01-letter-spacing:   0.16px;
+    --cds-heading-02-font-size:                   1rem;
+    --cds-heading-02-font-weight:                 600;
+    --cds-heading-02-line-height:                 1.5;
+    --cds-heading-02-letter-spacing:              0;
+    --cds-productive-heading-02-font-size:        1rem;
+    --cds-productive-heading-02-font-weight:      600;
+    --cds-productive-heading-02-line-height:      1.375;
+    --cds-productive-heading-02-letter-spacing:   0;
+    --cds-productive-heading-03-font-size:        1.25rem;
+    --cds-productive-heading-03-font-weight:      400;
+    --cds-productive-heading-03-line-height:      1.4;
+    --cds-productive-heading-03-letter-spacing:   0;
+    --cds-productive-heading-04-font-size:        1.75rem;
+    --cds-productive-heading-04-font-weight:      400;
+    --cds-productive-heading-04-line-height:      1.28572;
+    --cds-productive-heading-04-letter-spacing:   0;
+    --cds-productive-heading-05-font-size:        2rem;
+    --cds-productive-heading-05-font-weight:      400;
+    --cds-productive-heading-05-line-height:      1.25;
+    --cds-productive-heading-05-letter-spacing:   0;
+    --cds-productive-heading-06-font-size:        2.625rem;
+    --cds-productive-heading-06-font-weight:      300;
+    --cds-productive-heading-06-line-height:      1.199;
+    --cds-productive-heading-06-letter-spacing:   0;
+    --cds-productive-heading-07-font-size:        3.375rem;
+    --cds-productive-heading-07-font-weight:      300;
+    --cds-productive-heading-07-line-height:      1.199;
+    --cds-productive-heading-07-letter-spacing:   0;
+    --cds-expressive-heading-01-font-size:        0.875rem;
+    --cds-expressive-heading-01-font-weight:      600;
+    --cds-expressive-heading-01-line-height:      1.25;
+    --cds-expressive-heading-01-letter-spacing:   0.16px;
+    --cds-expressive-heading-02-font-size:        1rem;
+    --cds-expressive-heading-02-font-weight:      600;
+    --cds-expressive-heading-02-line-height:      1.5;
+    --cds-expressive-heading-02-letter-spacing:   0;
+    --cds-expressive-heading-03-font-size:        1.25rem;
+    --cds-expressive-heading-03-font-weight:      400;
+    --cds-expressive-heading-03-line-height:      1.4;
+    --cds-expressive-heading-03-letter-spacing:   0;
+    --cds-expressive-heading-04-font-size:        1.75rem;
+    --cds-expressive-heading-04-font-weight:      400;
+    --cds-expressive-heading-04-line-height:      1.28572;
+    --cds-expressive-heading-04-letter-spacing:   0;
+    --cds-expressive-heading-05-font-size:        2rem;
+    --cds-expressive-heading-05-font-weight:      400;
+    --cds-expressive-heading-05-line-height:      1.25;
+    --cds-expressive-heading-05-letter-spacing:   0;
+    --cds-expressive-heading-06-font-size:        2rem;
+    --cds-expressive-heading-06-font-weight:      600;
+    --cds-expressive-heading-06-line-height:      1.25;
+    --cds-expressive-heading-06-letter-spacing:   0;
+    --cds-expressive-paragraph-01-font-size:      1.5rem;
+    --cds-expressive-paragraph-01-font-weight:    300;
+    --cds-expressive-paragraph-01-line-height:    1.334;
+    --cds-expressive-paragraph-01-letter-spacing: 0;
+    --cds-quotation-01-font-family:               "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-quotation-01-font-size:                 1.25rem;
+    --cds-quotation-01-font-weight:               400;
+    --cds-quotation-01-line-height:               1.3;
+    --cds-quotation-01-letter-spacing:            0;
+    --cds-quotation-02-font-family:               "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-quotation-02-font-size:                 2rem;
+    --cds-quotation-02-font-weight:               300;
+    --cds-quotation-02-line-height:               1.25;
+    --cds-quotation-02-letter-spacing:            0;
+    --cds-display-01-font-size:                   2.625rem;
+    --cds-display-01-font-weight:                 300;
+    --cds-display-01-line-height:                 1.19;
+    --cds-display-01-letter-spacing:              0;
+    --cds-display-02-font-size:                   2.625rem;
+    --cds-display-02-font-weight:                 600;
+    --cds-display-02-line-height:                 1.19;
+    --cds-display-02-letter-spacing:              0;
+    --cds-display-03-font-size:                   2.625rem;
+    --cds-display-03-font-weight:                 300;
+    --cds-display-03-line-height:                 1.19;
+    --cds-display-03-letter-spacing:              0;
+    --cds-display-04-font-size:                   2.625rem;
+    --cds-display-04-font-weight:                 600;
+    --cds-display-04-line-height:                 1.19;
+    --cds-display-04-letter-spacing:              0;
+    --cds-legal-01-font-size:                     0.75rem;
+    --cds-legal-01-font-weight:                   400;
+    --cds-legal-01-line-height:                   1.33333;
+    --cds-legal-01-letter-spacing:                0.32px;
+    --cds-legal-02-font-size:                     0.875rem;
+    --cds-legal-02-font-weight:                   400;
+    --cds-legal-02-line-height:                   1.28572;
+    --cds-legal-02-letter-spacing:                0.16px;
+    --cds-body-compact-01-font-size:              0.875rem;
+    --cds-body-compact-01-font-weight:            400;
+    --cds-body-compact-01-line-height:            1.28572;
+    --cds-body-compact-01-letter-spacing:         0.16px;
+    --cds-body-compact-02-font-size:              1rem;
+    --cds-body-compact-02-font-weight:            400;
+    --cds-body-compact-02-line-height:            1.375;
+    --cds-body-compact-02-letter-spacing:         0;
+    --cds-body-01-font-size:                      0.875rem;
+    --cds-body-01-font-weight:                    400;
+    --cds-body-01-line-height:                    1.42857;
+    --cds-body-01-letter-spacing:                 0.16px;
+    --cds-body-02-font-size:                      1rem;
+    --cds-body-02-font-weight:                    400;
+    --cds-body-02-line-height:                    1.5;
+    --cds-body-02-letter-spacing:                 0;
+    --cds-heading-compact-01-font-size:           0.875rem;
+    --cds-heading-compact-01-font-weight:         600;
+    --cds-heading-compact-01-line-height:         1.28572;
+    --cds-heading-compact-01-letter-spacing:      0.16px;
+    --cds-heading-compact-02-font-size:           1rem;
+    --cds-heading-compact-02-font-weight:         600;
+    --cds-heading-compact-02-line-height:         1.375;
+    --cds-heading-compact-02-letter-spacing:      0;
+    --cds-heading-03-font-size:                   1.25rem;
+    --cds-heading-03-font-weight:                 400;
+    --cds-heading-03-line-height:                 1.4;
+    --cds-heading-03-letter-spacing:              0;
+    --cds-heading-04-font-size:                   1.75rem;
+    --cds-heading-04-font-weight:                 400;
+    --cds-heading-04-line-height:                 1.28572;
+    --cds-heading-04-letter-spacing:              0;
+    --cds-heading-05-font-size:                   2rem;
+    --cds-heading-05-font-weight:                 400;
+    --cds-heading-05-line-height:                 1.25;
+    --cds-heading-05-letter-spacing:              0;
+    --cds-heading-06-font-size:                   2.625rem;
+    --cds-heading-06-font-weight:                 300;
+    --cds-heading-06-line-height:                 1.199;
+    --cds-heading-06-letter-spacing:              0;
+    --cds-heading-07-font-size:                   3.375rem;
+    --cds-heading-07-font-weight:                 300;
+    --cds-heading-07-line-height:                 1.199;
+    --cds-heading-07-letter-spacing:              0;
+    --cds-fluid-heading-03-font-size:             1.25rem;
+    --cds-fluid-heading-03-font-weight:           400;
+    --cds-fluid-heading-03-line-height:           1.4;
+    --cds-fluid-heading-03-letter-spacing:        0;
+    --cds-fluid-heading-04-font-size:             1.75rem;
+    --cds-fluid-heading-04-font-weight:           400;
+    --cds-fluid-heading-04-line-height:           1.28572;
+    --cds-fluid-heading-04-letter-spacing:        0;
+    --cds-fluid-heading-05-font-size:             2rem;
+    --cds-fluid-heading-05-font-weight:           400;
+    --cds-fluid-heading-05-line-height:           1.25;
+    --cds-fluid-heading-05-letter-spacing:        0;
+    --cds-fluid-heading-06-font-size:             2rem;
+    --cds-fluid-heading-06-font-weight:           600;
+    --cds-fluid-heading-06-line-height:           1.25;
+    --cds-fluid-heading-06-letter-spacing:        0;
+    --cds-fluid-paragraph-01-font-size:           1.5rem;
+    --cds-fluid-paragraph-01-font-weight:         300;
+    --cds-fluid-paragraph-01-line-height:         1.334;
+    --cds-fluid-paragraph-01-letter-spacing:      0;
+    --cds-fluid-quotation-01-font-family:         "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-fluid-quotation-01-font-size:           1.25rem;
+    --cds-fluid-quotation-01-font-weight:         400;
+    --cds-fluid-quotation-01-line-height:         1.3;
+    --cds-fluid-quotation-01-letter-spacing:      0;
+    --cds-fluid-quotation-02-font-family:         "IBM Plex Serif", "Georgia", Times, serif;
+    --cds-fluid-quotation-02-font-size:           2rem;
+    --cds-fluid-quotation-02-font-weight:         300;
+    --cds-fluid-quotation-02-line-height:         1.25;
+    --cds-fluid-quotation-02-letter-spacing:      0;
+    --cds-fluid-display-01-font-size:             2.625rem;
+    --cds-fluid-display-01-font-weight:           300;
+    --cds-fluid-display-01-line-height:           1.19;
+    --cds-fluid-display-01-letter-spacing:        0;
+    --cds-fluid-display-02-font-size:             2.625rem;
+    --cds-fluid-display-02-font-weight:           600;
+    --cds-fluid-display-02-line-height:           1.19;
+    --cds-fluid-display-02-letter-spacing:        0;
+    --cds-fluid-display-03-font-size:             2.625rem;
+    --cds-fluid-display-03-font-weight:           300;
+    --cds-fluid-display-03-line-height:           1.19;
+    --cds-fluid-display-03-letter-spacing:        0;
+    --cds-fluid-display-04-font-size:             2.625rem;
+    --cds-fluid-display-04-font-weight:           600;
+    --cds-fluid-display-04-line-height:           1.19;
+    --cds-fluid-display-04-letter-spacing:        0;
+    --cds-spacing-01:                             0.125rem;
+    --cds-spacing-02:                             0.25rem;
+    --cds-spacing-03:                             0.5rem;
+    --cds-spacing-04:                             0.75rem;
+    --cds-spacing-05:                             1rem;
+    --cds-spacing-06:                             1.5rem;
+    --cds-spacing-07:                             2rem;
+    --cds-spacing-08:                             2.5rem;
+    --cds-spacing-09:                             3rem;
+    --cds-spacing-10:                             4rem;
+    --cds-spacing-11:                             5rem;
+    --cds-spacing-12:                             6rem;
+    --cds-spacing-13:                             10rem;
+    --cds-fluid-spacing-01:                       0;
+    --cds-fluid-spacing-02:                       2vw;
+    --cds-fluid-spacing-03:                       5vw;
+    --cds-fluid-spacing-04:                       10vw;
+    --cds-layout-01:                              1rem;
+    --cds-layout-02:                              1.5rem;
+    --cds-layout-03:                              2rem;
+    --cds-layout-04:                              3rem;
+    --cds-layout-05:                              4rem;
+    --cds-layout-06:                              6rem;
+    --cds-layout-07:                              10rem;
+    --cds-container-01:                           1.5rem;
+    --cds-container-02:                           2rem;
+    --cds-container-03:                           2.5rem;
+    --cds-container-04:                           3rem;
+    --cds-container-05:                           4rem;
+    --cds-size-xsmall:                            1.5rem;
+    --cds-size-small:                             2rem;
+    --cds-size-medium:                            2.5rem;
+    --cds-size-large:                             3rem;
+    --cds-size-xlarge:                            4rem;
+    --cds-size-2XLarge:                           5rem;
+    --cds-icon-size-01:                           1rem;
+    --cds-icon-size-02:                           1.25rem;
+    --interactive-01:                             var(--cds-interactive-01, #0F62FE);
+    --interactive-02:                             var(--cds-interactive-02, #6F6F6F);
+    --interactive-03:                             var(--cds-interactive-03, #FFFFFF);
+    --interactive-04:                             var(--cds-interactive-04, #4589FF);
+    --ui-background:                              var(--cds-ui-background, #161616);
+    --ui-01:                                      var(--cds-ui-01, #262626);
+    --ui-02:                                      var(--cds-ui-02, #393939);
+    --ui-03:                                      var(--cds-ui-03, #393939);
+    --ui-04:                                      var(--cds-ui-04, #6F6F6F);
+    --ui-05:                                      var(--cds-ui-05, #F4F4F4);
+    --text-01:                                    var(--cds-text-01, #F4F4F4);
+    --text-02:                                    var(--cds-text-02, #C6C6C6);
+    --text-03:                                    var(--cds-text-03, #6F6F6F);
+    --text-04:                                    var(--cds-text-04, #FFFFFF);
+    --text-05:                                    var(--cds-text-05, #8D8D8D);
+    --text-error:                                 var(--cds-text-error, #FF8389);
+    --icon-01:                                    var(--cds-icon-01, #F4F4F4);
+    --icon-02:                                    var(--cds-icon-02, #C6C6C6);
+    --icon-03:                                    var(--cds-icon-03, #FFFFFF);
+    --link-01:                                    var(--cds-link-01, #78A9FF);
+    --link-02:                                    var(--cds-link-02, #A6C8FF);
+    --inverse-link:                               var(--cds-inverse-link, #0F62FE);
+    --field-01:                                   var(--cds-field-01, #262626);
+    --field-02:                                   var(--cds-field-02, #393939);
+    --inverse-01:                                 var(--cds-inverse-01, #161616);
+    --inverse-02:                                 var(--cds-inverse-02, #F4F4F4);
+    --support-01:                                 var(--cds-support-01, #FA4D56);
+    --support-02:                                 var(--cds-support-02, #42BE65);
+    --support-03:                                 var(--cds-support-03, #F1C21B);
+    --support-04:                                 var(--cds-support-04, #4589FF);
+    --inverse-support-01:                         var(--cds-inverse-support-01, #DA1E28);
+    --inverse-support-02:                         var(--cds-inverse-support-02, #24A148);
+    --inverse-support-03:                         var(--cds-inverse-support-03, #F1C21B);
+    --inverse-support-04:                         var(--cds-inverse-support-04, #0F62FE);
+    --overlay-01:                                 var(--cds-overlay-01, rgba(0, 0, 0, 0.65));
+    --danger-01:                                  var(--cds-danger-01, #DA1E28);
+    --danger-02:                                  var(--cds-danger-02, #FA4D56);
+    --focus:                                      var(--cds-focus, #FFFFFF);
+    --inverse-focus-ui:                           var(--cds-inverse-focus-ui, #0F62FE);
+    --hover-primary:                              var(--cds-hover-primary, #0353E9);
+    -active-primary:                              var(--cds-active-primary, #002D9C);
+    --hover-primary-text:                         var(--cds-hover-primary-text, #A6C8FF);
+    --hover-secondary:                            var(--cds-hover-secondary, #606060);
+    -active-secondary:                            var(--cds-active-secondary, #393939);
+    --hover-tertiary:                             var(--cds-hover-tertiary, #F4F4F4);
+    -active-tertiary:                             var(--cds-active-tertiary, #C6C6C6);
+    --hover-ui:                                   var(--cds-hover-ui, #353535);
+    --hover-light-ui:                             var(--cds-hover-light-ui, #4C4C4C);
+    -active-ui:                                   var(--cds-active-ui, #525252);
+    -active-light-ui:                             var(--cds-active-light-ui, #6F6F6F);
+    --selected-ui:                                var(--cds-selected-ui, #393939);
+    --selected-light-ui:                          var(--cds-selected-light-ui, #525252);
+    --inverse-hover-ui:                           var(--cds-inverse-hover-ui, #E5E5E5);
+    --hover-selected-ui:                          var(--cds-hover-selected-ui, #4C4C4C);
+    --hover-danger:                               var(--cds-hover-danger, #B81921);
+    -active-danger:                               var(--cds-active-danger, #750E13);
+    --hover-row:                                  var(--cds-hover-row, #353535);
+    --visited-link:                               var(--cds-visited-link, #BE95FF);
+    --disabled-01:                                var(--cds-disabled-01, #262626);
+    --disabled-02:                                var(--cds-disabled-02, #525252);
+    --disabled-03:                                var(--cds-disabled-03, #8D8D8D);
+    --highlight:                                  var(--cds-highlight, #002D9C);
+    --decorative-01:                              var(--cds-decorative-01, #525252);
+    --button-separator:                           var(--cds-button-separator, #161616);
+    --skeleton-01:                                var(--cds-skeleton-01, #353535);
+    --skeleton-02:                                var(--cds-skeleton-02, #525252);
+    --background:                                 var(--cds-background, #161616);
+    --layer:                                      var(--cds-layer, #262626);
+    --layer-accent:                               var(--cds-layer-accent, #393939);
+    --layer-accent-active:                        var(--cds-layer-accent-active, #6F6F6F);
+    --layer-accent-hover:                         var(--cds-layer-accent-hover, #474747);
+    --field:                                      var(--cds-field, #262626);
+    --background-inverse:                         var(--cds-background-inverse, #F4F4F4);
+    --background-brand:                           var(--cds-background-brand, #0F62FE);
+    --interactive:                                var(--cds-interactive, #4589FF);
+    --border-subtle:                              var(--cds-border-subtle, #393939);
+    --border-strong:                              var(--cds-border-strong, #6F6F6F);
+    --border-inverse:                             var(--cds-border-inverse, #F4F4F4);
+    --border-interactive:                         var(--cds-border-interactive, #4589FF);
+    --text-primary:                               var(--cds-text-primary, #F4F4F4);
+    --text-secondary:                             var(--cds-text-secondary, #C6C6C6);
+    --text-placeholder:                           var(--cds-text-placeholder, #6F6F6F);
+    --text-helper:                                var(--cds-text-helper, #8D8D8D);
+    --text-on-color:                              var(--cds-text-on-color, #FFFFFF);
+    --text-inverse:                               var(--cds-text-inverse, #161616);
+    --link-primary:                               var(--cds-link-primary, #78A9FF);
+    --link-secondary:                             var(--cds-link-secondary, #A6C8FF);
+    --link-visited:                               var(--cds-link-visited, #BE95FF);
+    --link-inverse:                               var(--cds-link-inverse, #0F62FE);
+    --icon-primary:                               var(--cds-icon-primary, #F4F4F4);
+    --icon-secondary:                             var(--cds-icon-secondary, #C6C6C6);
+    --icon-on-color:                              var(--cds-icon-on-color, #FFFFFF);
+    --icon-inverse:                               var(--cds-icon-inverse, #161616);
+    --support-error:                              var(--cds-support-error, #FA4D56);
+    --support-success:                            var(--cds-support-success, #42BE65);
+    --support-warning:                            var(--cds-support-warning, #F1C21B);
+    --support-info:                               var(--cds-support-info, #4589FF);
+    --support-error-inverse:                      var(--cds-support-error-inverse, #DA1E28);
+    --support-success-inverse:                    var(--cds-support-success-inverse, #24A148);
+    --support-warning-inverse:                    var(--cds-support-warning-inverse, #F1C21B);
+    --support-info-inverse:                       var(--cds-support-info-inverse, #0F62FE);
+    --overlay:                                    var(--cds-overlay, rgba(0, 0, 0, 0.65));
+    --toggle-off:                                 var(--cds-toggle-off, #6F6F6F);
+    --shadow:                                     var(--cds-shadow, rgba(0, 0, 0, 0.8));
+    --button-primary:                             var(--cds-button-primary, #0F62FE);
+    --button-secondary:                           var(--cds-button-secondary, #6F6F6F);
+    --button-tertiary:                            var(--cds-button-tertiary, #FFFFFF);
+    --button-danger-primary:                      var(--cds-button-danger-primary, #DA1E28);
+    --button-danger-secondary:                    var(--cds-button-danger-secondary, #FA4D56);
+    --background-active:                          var(--cds-background-active, #525252);
+    --layer-active:                               var(--cds-layer-active, #525252);
+    --button-danger-active:                       var(--cds-button-danger-active, #750E13);
+    --button-primary-active:                      var(--cds-button-primary-active, #002D9C);
+    --button-secondary-active:                    var(--cds-button-secondary-active, #393939);
+    --button-tertiary-active:                     var(--cds-button-tertiary-active, #C6C6C6);
+    --focus-inset:                                var(--cds-focus-inset, #161616);
+    --focus-inverse:                              var(--cds-focus-inverse, #0F62FE);
+    --background-hover:                           var(--cds-background-hover, #353535);
+    --layer-hover:                                var(--cds-layer-hover, #353535);
+    --field-hover:                                var(--cds-field-hover, #353535);
+    --background-inverse-hover:                   var(--cds-background-inverse-hover, #E5E5E5);
+    --link-primary-hover:                         var(--cds-link-primary-hover, #A6C8FF);
+    --button-danger-hover:                        var(--cds-button-danger-hover, #B81921);
+    --button-primary-hover:                       var(--cds-button-primary-hover, #0353E9);
+    --button-secondary-hover:                     var(--cds-button-secondary-hover, #606060);
+    --button-tertiary-hover:                      var(--cds-button-tertiary-hover, #F4F4F4);
+    --background-selected:                        var(--cds-background-selected, #393939);
+    --background-selected-hover:                  var(--cds-background-selected-hover, #4C4C4C);
+    --layer-selected:                             var(--cds-layer-selected, #393939);
+    --layer-selected-hover:                       var(--cds-layer-selected-hover, #4C4C4C);
+    --layer-selected-inverse:                     var(--cds-layer-selected-inverse, #F4F4F4);
+    --border-subtle-selected:                     var(--cds-border-subtle-selected, #525252);
+    --layer-disabled:                             var(--cds-layer-disabled, #262626);
+    --field-disabled:                             var(--cds-field-disabled, #262626);
+    --border-disabled:                            var(--cds-border-disabled, #262626);
+    --text-disabled:                              var(--cds-text-disabled, #525252);
+    --button-disabled:                            var(--cds-button-disabled, #525252);
+    --icon-disabled:                              var(--cds-icon-disabled, #525252);
+    --text-on-color-disabled:                     var(--cds-text-on-color-disabled, #8D8D8D);
+    --icon-on-color-disabled:                     var(--cds-icon-on-color-disabled, #8D8D8D);
+    --layer-selected-disabled:                    var(--cds-layer-selected-disabled, #8D8D8D);
+    --skeleton-background:                        var(--cds-skeleton-background, #353535);
+    --skeleton-element:                           var(--cds-skeleton-element, #525252);
+    --brand-01:                                   var(--cds-brand-01, #0F62FE);
+    --brand-02:                                   var(--cds-brand-02, #6F6F6F);
+    --brand-03:                                   var(--cds-brand-03, #FFFFFF);
+    -active-01:                                   var(--cds-active-01, #525252);
+    --hover-field:                                var(--cds-hover-field, #353535);
+    --danger:                                     var(--cds-danger, #DA1E28);
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+h1 {
+    font-size:      var(--cds-productive-heading-06-font-size, 2.625rem);
+    font-weight:    var(--cds-productive-heading-06-font-weight, 300);
+    line-height:    var(--cds-productive-heading-06-line-height, 1.199);
+    letter-spacing: var(--cds-productive-heading-06-letter-spacing, 0);
+}
+
+h2 {
+    font-size:      var(--cds-productive-heading-05-font-size, 2rem);
+    font-weight:    var(--cds-productive-heading-05-font-weight, 400);
+    line-height:    var(--cds-productive-heading-05-line-height, 1.25);
+    letter-spacing: var(--cds-productive-heading-05-letter-spacing, 0);
+}
+
+h3 {
+    font-size:      var(--cds-productive-heading-04-font-size, 1.75rem);
+    font-weight:    var(--cds-productive-heading-04-font-weight, 400);
+    line-height:    var(--cds-productive-heading-04-line-height, 1.28572);
+    letter-spacing: var(--cds-productive-heading-04-letter-spacing, 0);
+}
+
+h4 {
+    font-size:      var(--cds-productive-heading-03-font-size, 1.25rem);
+    font-weight:    var(--cds-productive-heading-03-font-weight, 400);
+    line-height:    var(--cds-productive-heading-03-line-height, 1.4);
+    letter-spacing: var(--cds-productive-heading-03-letter-spacing, 0);
+}
+
+h5 {
+    font-size:      var(--cds-productive-heading-02-font-size, 1rem);
+    font-weight:    var(--cds-productive-heading-02-font-weight, 600);
+    line-height:    var(--cds-productive-heading-02-line-height, 1.375);
+    letter-spacing: var(--cds-productive-heading-02-letter-spacing, 0);
+}
+
+h6 {
+    font-size:      var(--cds-productive-heading-01-font-size, 0.875rem);
+    font-weight:    var(--cds-productive-heading-01-font-weight, 600);
+    line-height:    var(--cds-productive-heading-01-line-height, 1.28572);
+    letter-spacing: var(--cds-productive-heading-01-letter-spacing, 0.16px);
+}
+
+p {
+    font-size:      var(--cds-body-long-02-font-size, 1rem);
+    font-weight:    var(--cds-body-long-02-font-weight, 400);
+    line-height:    var(--cds-body-long-02-line-height, 1.5);
+    letter-spacing: var(--cds-body-long-02-letter-spacing, 0);
+}
+
+a {
+    color: #78A9FF;
+}
+
+em {
+    font-style: italic;
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+@keyframes skeleton {
+    0% {
+        opacity:          0.3;
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+    20% {
+        opacity:          1;
+        transform:        scaleX(1);
+        transform-origin: left;
+    }
+    28% {
+        transform:        scaleX(1);
+        transform-origin: right;
+    }
+    51% {
+        transform:        scaleX(0);
+        transform-origin: right;
+    }
+    58% {
+        transform:        scaleX(0);
+        transform-origin: right;
+    }
+    82% {
+        transform:        scaleX(1);
+        transform-origin: right;
+    }
+    83% {
+        transform:        scaleX(1);
+        transform-origin: left;
+    }
+    96% {
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+    100% {
+        opacity:          0.3;
+        transform:        scaleX(0);
+        transform-origin: left;
+    }
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+.cds-container {
+    width:        100vw;
+    max-width:    120rem;
+    box-sizing:   border-box;
+    margin-right: auto;
+    margin-left:  auto;
+    overflow-x:   hidden;
+}
+
+.cds-container--left {
+    margin-left: 0;
+}
+
+.cds-container--right {
+    margin-right: 0;
+}
+
+.cds-grid {
+    position:    relative;
+    display:     grid;
+    box-sizing:  border-box;
+    flex-wrap:   wrap;
+    align-items: flex-start;
+}
+
+.cds-grid > * {
+    box-sizing: border-box;
+}
+
+.cds-grid > * :last-child,
+.cds-grid > * :last-child > :last-child,
+.cds-grid > * :last-child > :last-child > :last-child {
+    margin-bottom: 0;
+}
+
+[class*=cds-padding] {
+    box-sizing: border-box;
+}
+
+@supports (display: grid) {
+    .cds-grid > * {
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 20rem) {
+    .cds-grid__height--sm--0 {
+        height:     0;
+        min-height: 0;
+    }
+
+    .cds-grid__height--sm--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__height--sm--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__height--sm--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__height--sm--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__height--sm--5 {
+        grid-row: span 5;
+    }
+
+    .cds-grid__height--sm--6 {
+        grid-row: span 6;
+    }
+
+    .cds-grid__height--sm--7 {
+        grid-row: span 7;
+    }
+
+    .cds-grid__height--sm--8 {
+        grid-row: span 8;
+    }
+
+    .cds-grid__height--sm--9 {
+        grid-row: span 9;
+    }
+
+    .cds-grid__height--sm--10 {
+        grid-row: span 10;
+    }
+
+    .cds-grid__height--sm--11 {
+        grid-row: span 11;
+    }
+
+    .cds-grid__height--sm--12 {
+        grid-row: span 12;
+    }
+
+    .cds-grid__height--sm--13 {
+        grid-row: span 13;
+    }
+
+    .cds-grid__height--sm--14 {
+        grid-row: span 14;
+    }
+
+    .cds-grid__height--sm--15 {
+        grid-row: span 15;
+    }
+
+    .cds-grid__height--sm--16 {
+        grid-row: span 16;
+    }
+
+    .cds-grid__height--sm--17 {
+        grid-row: span 17;
+    }
+
+    .cds-grid__height--sm--18 {
+        grid-row: span 18;
+    }
+
+    .cds-grid__height--sm--19 {
+        grid-row: span 19;
+    }
+
+    .cds-grid__height--sm--20 {
+        grid-row: span 20;
+    }
+
+    .cds-grid__height--sm--21 {
+        grid-row: span 21;
+    }
+
+    .cds-grid__height--sm--22 {
+        grid-row: span 22;
+    }
+
+    .cds-grid__height--sm--23 {
+        grid-row: span 23;
+    }
+
+    .cds-grid__height--sm--24 {
+        grid-row: span 24;
+    }
+
+    .cds-grid__height--sm--25 {
+        grid-row: span 25;
+    }
+
+    .cds-grid__height--sm--26 {
+        grid-row: span 26;
+    }
+
+    .cds-grid__height--sm--27 {
+        grid-row: span 27;
+    }
+
+    .cds-grid__height--sm--28 {
+        grid-row: span 28;
+    }
+
+    .cds-grid__height--sm--29 {
+        grid-row: span 29;
+    }
+
+    [class*=cds-grid__col--sm--] {
+        display: block;
+    }
+
+    .cds-grid__col--sm--0,
+    .cds-grid__col--sm--0--only {
+        display: none;
+    }
+
+    .cds-padding {
+        padding: 1rem;
+    }
+
+    .cds-padding--bottom {
+        padding-bottom: 1rem;
+    }
+
+    .cds-padding--left {
+        padding-left: 1rem;
+    }
+
+    .cds-padding--right {
+        padding-right: 1rem;
+    }
+
+    .cds-padding--top {
+        padding-top: 1rem;
+    }
+
+    .cds-padding--horizontal {
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-padding--vertical {
+        padding-bottom: 1rem;
+        padding-top:    1rem;
+    }
+
+    .cds-grid {
+        grid-auto-rows:        minmax(0.5rem, min-content);
+        grid-template-columns: repeat(auto-fill, 25vw);
+    }
+
+    .cds-grid.cds-grid--fixed-columns {
+        grid-template-columns: repeat(auto-fill, 5rem);
+    }
+
+    .cds-grid.cds-grid--fluid-rows {
+        grid-auto-rows: 25vw;
+    }
+
+    .cds-grid > * {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--sm--1 {
+        grid-column: span 1;
+    }
+
+    .cds-grid__col--sm--1.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 1;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__col--sm--2 {
+        grid-column: span 2;
+    }
+
+    .cds-grid__col--sm--2.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 2;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__col--sm--3 {
+        grid-column: span 3;
+    }
+
+    .cds-grid__col--sm--3.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 3;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__col--sm--4 {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--sm--4.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 4;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--4 {
+        grid-row: span 4;
+    }
+}
+
+@media screen and (min-width: 42rem) {
+    .cds-grid__height--md--0 {
+        height:     0;
+        min-height: 0;
+    }
+
+    .cds-grid__height--md--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__height--md--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__height--md--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__height--md--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__height--md--5 {
+        grid-row: span 5;
+    }
+
+    .cds-grid__height--md--6 {
+        grid-row: span 6;
+    }
+
+    .cds-grid__height--md--7 {
+        grid-row: span 7;
+    }
+
+    .cds-grid__height--md--8 {
+        grid-row: span 8;
+    }
+
+    .cds-grid__height--md--9 {
+        grid-row: span 9;
+    }
+
+    .cds-grid__height--md--10 {
+        grid-row: span 10;
+    }
+
+    .cds-grid__height--md--11 {
+        grid-row: span 11;
+    }
+
+    .cds-grid__height--md--12 {
+        grid-row: span 12;
+    }
+
+    .cds-grid__height--md--13 {
+        grid-row: span 13;
+    }
+
+    .cds-grid__height--md--14 {
+        grid-row: span 14;
+    }
+
+    .cds-grid__height--md--15 {
+        grid-row: span 15;
+    }
+
+    .cds-grid__height--md--16 {
+        grid-row: span 16;
+    }
+
+    .cds-grid__height--md--17 {
+        grid-row: span 17;
+    }
+
+    .cds-grid__height--md--18 {
+        grid-row: span 18;
+    }
+
+    .cds-grid__height--md--19 {
+        grid-row: span 19;
+    }
+
+    .cds-grid__height--md--20 {
+        grid-row: span 20;
+    }
+
+    .cds-grid__height--md--21 {
+        grid-row: span 21;
+    }
+
+    .cds-grid__height--md--22 {
+        grid-row: span 22;
+    }
+
+    .cds-grid__height--md--23 {
+        grid-row: span 23;
+    }
+
+    .cds-grid__height--md--24 {
+        grid-row: span 24;
+    }
+
+    .cds-grid__height--md--25 {
+        grid-row: span 25;
+    }
+
+    .cds-grid__height--md--26 {
+        grid-row: span 26;
+    }
+
+    .cds-grid__height--md--27 {
+        grid-row: span 27;
+    }
+
+    .cds-grid__height--md--28 {
+        grid-row: span 28;
+    }
+
+    .cds-grid__height--md--29 {
+        grid-row: span 29;
+    }
+
+    .cds-grid__col--sm--0--only {
+        display: block;
+    }
+
+    [class*=cds-grid__col--md--] {
+        display: block;
+    }
+
+    .cds-grid__col--md--0,
+    .cds-grid__col--md--0--only {
+        display: none;
+    }
+
+    .cds-padding {
+        padding: 1rem;
+    }
+
+    .cds-padding--bottom {
+        padding-bottom: 1rem;
+    }
+
+    .cds-padding--left {
+        padding-left: 1rem;
+    }
+
+    .cds-padding--right {
+        padding-right: 1rem;
+    }
+
+    .cds-padding--top {
+        padding-top: 1rem;
+    }
+
+    .cds-padding--horizontal {
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-padding--vertical {
+        padding-bottom: 1rem;
+        padding-top:    1rem;
+    }
+
+    .cds-grid {
+        grid-template-columns: repeat(auto-fill, calc((100vw - 2rem) * 0.125));
+    }
+
+    .cds-grid.cds-grid--fixed-columns {
+        grid-template-columns: repeat(auto-fill, 5.25rem);
+    }
+
+    .cds-grid.cds-grid--fluid-rows {
+        grid-auto-rows: calc((100vw - 2rem) * 0.125);
+    }
+
+    .cds-grid > * {
+        grid-column: span 8;
+    }
+
+    .cds-grid__col--sm--1 {
+        grid-column: span 2;
+    }
+
+    .cds-grid__col--sm--1.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 1;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__col--sm--2 {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--sm--2.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 2;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__col--sm--3 {
+        grid-column: span 6;
+    }
+
+    .cds-grid__col--sm--3.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 3;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__col--sm--4 {
+        grid-column: span 8;
+    }
+
+    .cds-grid__col--sm--4.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 4;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__col--md--1 {
+        grid-column: span 1;
+    }
+
+    .cds-grid__col--md--1.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 1;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__col--md--2 {
+        grid-column: span 2;
+    }
+
+    .cds-grid__col--md--2.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 2;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__col--md--3 {
+        grid-column: span 3;
+    }
+
+    .cds-grid__col--md--3.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 3;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__col--md--4 {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--md--4.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 4;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__col--md--5 {
+        grid-column: span 5;
+    }
+
+    .cds-grid__col--md--5.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 5;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--5 {
+        grid-row: span 5;
+    }
+
+    .cds-grid__col--md--6 {
+        grid-column: span 6;
+    }
+
+    .cds-grid__col--md--6.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 6;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--6 {
+        grid-row: span 6;
+    }
+
+    .cds-grid__col--md--7 {
+        grid-column: span 7;
+    }
+
+    .cds-grid__col--md--7.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 7;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--7 {
+        grid-row: span 7;
+    }
+
+    .cds-grid__col--md--8 {
+        grid-column: span 8;
+    }
+
+    .cds-grid__col--md--8.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 8;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--8 {
+        grid-row: span 8;
+    }
+
+    .cds-container {
+        margin-left:   auto;
+        margin-right:  auto;
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-container--left {
+        margin-left: 0;
+    }
+
+    .cds-container--right {
+        margin-right: 0;
+    }
+
+    .cds-container__bleed--md,
+    .cds-container__bleed--md--left,
+    .cds-container__break--md,
+    .cds-container__break--md--left {
+        margin-left: -1rem;
+    }
+
+    .cds-container__bleed--md,
+    .cds-container__bleed--md--right,
+    .cds-container__break--md,
+    .cds-container__break--md--right {
+        margin-right: -1rem;
+    }
+
+    .cds-container__bleed--md,
+    .cds-container__bleed--md--left {
+        padding-left: 1rem;
+    }
+
+    .cds-container__bleed--md.cds-padding, .cds-container__bleed--md.cds-padding--horizontal, .cds-container__bleed--md.cds-padding--left,
+    .cds-container__bleed--md--left.cds-padding,
+    .cds-container__bleed--md--left.cds-padding--horizontal,
+    .cds-container__bleed--md--left.cds-padding--left {
+        padding-left: calc(1rem + 1rem);
+    }
+
+    .cds-container__bleed--md,
+    .cds-container__bleed--md--right {
+        padding-right: 1rem;
+    }
+
+    .cds-container__bleed--md.cds-padding, .cds-container__bleed--md.cds-padding--horizontal, .cds-container__bleed--md.cds-padding--right,
+    .cds-container__bleed--md--right.cds-padding,
+    .cds-container__bleed--md--right.cds-padding--horizontal,
+    .cds-container__bleed--md--right.cds-padding--right {
+        padding-right: calc(1rem + 1rem);
+    }
+}
+
+@media screen and (min-width: 66rem) {
+    .cds-grid__height--lg--0 {
+        height:     0;
+        min-height: 0;
+    }
+
+    .cds-grid__height--lg--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__height--lg--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__height--lg--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__height--lg--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__height--lg--5 {
+        grid-row: span 5;
+    }
+
+    .cds-grid__height--lg--6 {
+        grid-row: span 6;
+    }
+
+    .cds-grid__height--lg--7 {
+        grid-row: span 7;
+    }
+
+    .cds-grid__height--lg--8 {
+        grid-row: span 8;
+    }
+
+    .cds-grid__height--lg--9 {
+        grid-row: span 9;
+    }
+
+    .cds-grid__height--lg--10 {
+        grid-row: span 10;
+    }
+
+    .cds-grid__height--lg--11 {
+        grid-row: span 11;
+    }
+
+    .cds-grid__height--lg--12 {
+        grid-row: span 12;
+    }
+
+    .cds-grid__height--lg--13 {
+        grid-row: span 13;
+    }
+
+    .cds-grid__height--lg--14 {
+        grid-row: span 14;
+    }
+
+    .cds-grid__height--lg--15 {
+        grid-row: span 15;
+    }
+
+    .cds-grid__height--lg--16 {
+        grid-row: span 16;
+    }
+
+    .cds-grid__height--lg--17 {
+        grid-row: span 17;
+    }
+
+    .cds-grid__height--lg--18 {
+        grid-row: span 18;
+    }
+
+    .cds-grid__height--lg--19 {
+        grid-row: span 19;
+    }
+
+    .cds-grid__height--lg--20 {
+        grid-row: span 20;
+    }
+
+    .cds-grid__height--lg--21 {
+        grid-row: span 21;
+    }
+
+    .cds-grid__height--lg--22 {
+        grid-row: span 22;
+    }
+
+    .cds-grid__height--lg--23 {
+        grid-row: span 23;
+    }
+
+    .cds-grid__height--lg--24 {
+        grid-row: span 24;
+    }
+
+    .cds-grid__height--lg--25 {
+        grid-row: span 25;
+    }
+
+    .cds-grid__height--lg--26 {
+        grid-row: span 26;
+    }
+
+    .cds-grid__height--lg--27 {
+        grid-row: span 27;
+    }
+
+    .cds-grid__height--lg--28 {
+        grid-row: span 28;
+    }
+
+    .cds-grid__height--lg--29 {
+        grid-row: span 29;
+    }
+
+    .cds-grid__col--sm--0--only {
+        display: block;
+    }
+
+    .cds-grid__col--md--0--only {
+        display: block;
+    }
+
+    [class*=cds-grid__col--lg--] {
+        display: block;
+    }
+
+    .cds-grid__col--lg--0,
+    .cds-grid__col--lg--0--only {
+        display: none;
+    }
+
+    .cds-padding {
+        padding: 1rem;
+    }
+
+    .cds-padding--bottom {
+        padding-bottom: 1rem;
+    }
+
+    .cds-padding--left {
+        padding-left: 1rem;
+    }
+
+    .cds-padding--right {
+        padding-right: 1rem;
+    }
+
+    .cds-padding--top {
+        padding-top: 1rem;
+    }
+
+    .cds-padding--horizontal {
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-padding--vertical {
+        padding-bottom: 1rem;
+        padding-top:    1rem;
+    }
+
+    .cds-grid {
+        grid-template-columns: repeat(auto-fill, calc((100vw - 2rem) * 0.0625));
+    }
+
+    .cds-grid.cds-grid--fixed-columns {
+        grid-template-columns: repeat(auto-fill, 4.125rem);
+    }
+
+    .cds-grid.cds-grid--fluid-rows {
+        grid-auto-rows: calc((100vw - 2rem) * 0.0625);
+    }
+
+    .cds-grid > * {
+        grid-column: span 16;
+    }
+
+    .cds-grid__col--sm--1 {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--sm--1.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 1;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__col--sm--2 {
+        grid-column: span 8;
+    }
+
+    .cds-grid__col--sm--2.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 2;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__col--sm--3 {
+        grid-column: span 12;
+    }
+
+    .cds-grid__col--sm--3.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 3;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__col--sm--4 {
+        grid-column: span 16;
+    }
+
+    .cds-grid__col--sm--4.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 4;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--sm--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__col--md--1 {
+        grid-column: span 2;
+    }
+
+    .cds-grid__col--md--1.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 1;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__col--md--2 {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--md--2.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 2;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__col--md--3 {
+        grid-column: span 6;
+    }
+
+    .cds-grid__col--md--3.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 3;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__col--md--4 {
+        grid-column: span 8;
+    }
+
+    .cds-grid__col--md--4.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 4;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__col--md--5 {
+        grid-column: span 10;
+    }
+
+    .cds-grid__col--md--5.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 5;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--5 {
+        grid-row: span 5;
+    }
+
+    .cds-grid__col--md--6 {
+        grid-column: span 12;
+    }
+
+    .cds-grid__col--md--6.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 6;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--6 {
+        grid-row: span 6;
+    }
+
+    .cds-grid__col--md--7 {
+        grid-column: span 14;
+    }
+
+    .cds-grid__col--md--7.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 7;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--7 {
+        grid-row: span 7;
+    }
+
+    .cds-grid__col--md--8 {
+        grid-column: span 16;
+    }
+
+    .cds-grid__col--md--8.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 8;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--md--8 {
+        grid-row: span 8;
+    }
+
+    .cds-grid__col--lg--1 {
+        grid-column: span 1;
+    }
+
+    .cds-grid__col--lg--1.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 1;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--1 {
+        grid-row: span 1;
+    }
+
+    .cds-grid__col--lg--2 {
+        grid-column: span 2;
+    }
+
+    .cds-grid__col--lg--2.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 2;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--2 {
+        grid-row: span 2;
+    }
+
+    .cds-grid__col--lg--3 {
+        grid-column: span 3;
+    }
+
+    .cds-grid__col--lg--3.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 3;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--3 {
+        grid-row: span 3;
+    }
+
+    .cds-grid__col--lg--4 {
+        grid-column: span 4;
+    }
+
+    .cds-grid__col--lg--4.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 4;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--4 {
+        grid-row: span 4;
+    }
+
+    .cds-grid__col--lg--5 {
+        grid-column: span 5;
+    }
+
+    .cds-grid__col--lg--5.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 5;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--5 {
+        grid-row: span 5;
+    }
+
+    .cds-grid__col--lg--6 {
+        grid-column: span 6;
+    }
+
+    .cds-grid__col--lg--6.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 6;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--6 {
+        grid-row: span 6;
+    }
+
+    .cds-grid__col--lg--7 {
+        grid-column: span 7;
+    }
+
+    .cds-grid__col--lg--7.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 7;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--7 {
+        grid-row: span 7;
+    }
+
+    .cds-grid__col--lg--8 {
+        grid-column: span 8;
+    }
+
+    .cds-grid__col--lg--8.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 8;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--8 {
+        grid-row: span 8;
+    }
+
+    .cds-grid__col--lg--9 {
+        grid-column: span 9;
+    }
+
+    .cds-grid__col--lg--9.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 9;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--9 {
+        grid-row: span 9;
+    }
+
+    .cds-grid__col--lg--10 {
+        grid-column: span 10;
+    }
+
+    .cds-grid__col--lg--10.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 10;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--10 {
+        grid-row: span 10;
+    }
+
+    .cds-grid__col--lg--11 {
+        grid-column: span 11;
+    }
+
+    .cds-grid__col--lg--11.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 11;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--11 {
+        grid-row: span 11;
+    }
+
+    .cds-grid__col--lg--12 {
+        grid-column: span 12;
+    }
+
+    .cds-grid__col--lg--12.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 12;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--12 {
+        grid-row: span 12;
+    }
+
+    .cds-grid__col--lg--13 {
+        grid-column: span 13;
+    }
+
+    .cds-grid__col--lg--13.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 13;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--13 {
+        grid-row: span 13;
+    }
+
+    .cds-grid__col--lg--14 {
+        grid-column: span 14;
+    }
+
+    .cds-grid__col--lg--14.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 14;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--14 {
+        grid-row: span 14;
+    }
+
+    .cds-grid__col--lg--15 {
+        grid-column: span 15;
+    }
+
+    .cds-grid__col--lg--15.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 15;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--15 {
+        grid-row: span 15;
+    }
+
+    .cds-grid__col--lg--16 {
+        grid-column: span 16;
+    }
+
+    .cds-grid__col--lg--16.cds-grid > *:not([class*=cds-grid__col]) {
+        grid-column: span 16;
+    }
+
+    .cds-grid--fluid-rows > .cds-grid__height--lg--16 {
+        grid-row: span 16;
+    }
+
+    [class^=cds-container__bleed--md],
+    [class^=cds-container__break--md] {
+        margin-left:   0;
+        margin-right:  0;
+        padding-left:  0;
+        padding-right: 0;
+    }
+
+    [class^=cds-container__bleed--md][class^=cds-padding],
+    [class^=cds-container__break--md][class^=cds-padding] {
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-container {
+        margin-left:   auto;
+        margin-right:  auto;
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-container--left {
+        margin-left: 0;
+    }
+
+    .cds-container--right {
+        margin-right: 0;
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--left,
+    .cds-container__break--lg,
+    .cds-container__break--lg--left {
+        margin-left: -1rem;
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--right,
+    .cds-container__break--lg,
+    .cds-container__break--lg--right {
+        margin-right: -1rem;
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--left {
+        padding-left: 1rem;
+    }
+
+    .cds-container__bleed--lg.cds-padding, .cds-container__bleed--lg.cds-padding--horizontal, .cds-container__bleed--lg.cds-padding--left,
+    .cds-container__bleed--lg--left.cds-padding,
+    .cds-container__bleed--lg--left.cds-padding--horizontal,
+    .cds-container__bleed--lg--left.cds-padding--left {
+        padding-left: calc(1rem + 1rem);
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--right {
+        padding-right: 1rem;
+    }
+
+    .cds-container__bleed--lg.cds-padding, .cds-container__bleed--lg.cds-padding--horizontal, .cds-container__bleed--lg.cds-padding--right,
+    .cds-container__bleed--lg--right.cds-padding,
+    .cds-container__bleed--lg--right.cds-padding--horizontal,
+    .cds-container__bleed--lg--right.cds-padding--right {
+        padding-right: calc(1rem + 1rem);
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    .cds-grid__col--sm--0--only {
+        display: block;
+    }
+
+    .cds-grid__col--md--0--only {
+        display: block;
+    }
+
+    .cds-grid__col--lg--0--only {
+        display: block;
+    }
+
+    [class*=cds-grid__col--max--] {
+        display: block;
+    }
+
+    .cds-grid__col--max--0,
+    .cds-grid__col--max--0--only {
+        display: none;
+    }
+
+    .cds-padding {
+        padding: 1rem;
+    }
+
+    .cds-padding--bottom {
+        padding-bottom: 1rem;
+    }
+
+    .cds-padding--left {
+        padding-left: 1rem;
+    }
+
+    .cds-padding--right {
+        padding-right: 1rem;
+    }
+
+    .cds-padding--top {
+        padding-top: 1rem;
+    }
+
+    .cds-padding--horizontal {
+        padding-left:  1rem;
+        padding-right: 1rem;
+    }
+
+    .cds-padding--vertical {
+        padding-bottom: 1rem;
+        padding-top:    1rem;
+    }
+
+    .cds-grid {
+        grid-template-columns: repeat(auto-fill, calc((120rem - 3rem) * 0.0625));
+    }
+
+    .cds-grid.cds-grid--fixed-columns {
+        grid-template-columns: repeat(auto-fill, 7.5rem);
+    }
+
+    .cds-grid.cds-grid--fluid-rows {
+        grid-auto-rows: calc((120rem - 3rem) * 0.0625);
+    }
+
+    .cds-container {
+        margin-left:   auto;
+        margin-right:  auto;
+        padding-left:  1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .cds-container--left {
+        margin-left: 0;
+    }
+
+    .cds-container--right {
+        margin-right: 0;
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--left,
+    .cds-container__break--lg,
+    .cds-container__break--lg--left {
+        margin-left: -1.5rem;
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--right,
+    .cds-container__break--lg,
+    .cds-container__break--lg--right {
+        margin-right: -1.5rem;
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--left {
+        padding-left: 1.5rem;
+    }
+
+    .cds-container__bleed--lg.cds-padding, .cds-container__bleed--lg.cds-padding--horizontal, .cds-container__bleed--lg.cds-padding--left,
+    .cds-container__bleed--lg--left.cds-padding,
+    .cds-container__bleed--lg--left.cds-padding--horizontal,
+    .cds-container__bleed--lg--left.cds-padding--left {
+        padding-left: calc(1.5rem + 1rem);
+    }
+
+    .cds-container__bleed--lg,
+    .cds-container__bleed--lg--right {
+        padding-right: 1.5rem;
+    }
+
+    .cds-container__bleed--lg.cds-padding, .cds-container__bleed--lg.cds-padding--horizontal, .cds-container__bleed--lg.cds-padding--right,
+    .cds-container__bleed--lg--right.cds-padding,
+    .cds-container__bleed--lg--right.cds-padding--horizontal,
+    .cds-container__bleed--lg--right.cds-padding--right {
+        padding-right: calc(1.5rem + 1rem);
+    }
+}
+
+@supports (display: grid) {
+    .cds-grid > *,
+    .cds-grid > [class*=cds-grid__col--] {
+        width:     initial;
+        min-width: initial;
+        max-width: initial;
+    }
+
+    .cds-grid > *.cds-grid,
+    .cds-grid > [class*=cds-grid__col--].cds-grid {
+        display: grid;
+    }
+
+    .cds-grid > [class*=cds-grid__height--] {
+        height:     unset;
+        min-height: initial;
+        max-height: unset;
+    }
+}
+
+.cds-grid > script {
+    display: none;
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+.cds--text-truncate--end {
+    display:       inline-block;
+    overflow:      hidden;
+    width:         100%;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+}
+
+.cds--text-truncate--front {
+    display:       inline-block;
+    overflow:      hidden;
+    width:         100%;
+    direction:     rtl;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+}
+
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+/* stylelint-disable-line no-invalid-position-at-import-rule */
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Mono";
+    font-style:   italic;
+    font-weight:  300;
+    src:          local("IBM Plex Mono Light Italic"), local("IBMPlexMono-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSflV1gMoW.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Mono";
+    font-style:   italic;
+    font-weight:  400;
+    src:          local("IBM Plex Mono Italic"), local("IBMPlexMono-Italic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6pfjptAgt5VM-kVkqdyU8n1ioa1Xdm.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Mono";
+    font-style:   italic;
+    font-weight:  600;
+    src:          local("IBM Plex Mono SemiBold Italic"), local("IBMPlexMono-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSClN1gMoW.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Mono";
+    font-style:   normal;
+    font-weight:  300;
+    src:          local("IBM Plex Mono Light"), local("IBMPlexMono-Light"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3oQIwlBFhA.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Mono";
+    font-style:   normal;
+    font-weight:  400;
+    src:          local("IBM Plex Mono"), local("IBMPlexMono"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F63fjptAgt5VM-kVkqdyU8n1i8q0Q.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Mono";
+    font-style:   normal;
+    font-weight:  600;
+    src:          local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFhA.woff) format("woff");
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light Italic"), local("IBMPlexMono-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSflV1jcoQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light Italic"), local("IBMPlexMono-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSflV1hMoQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light Italic"), local("IBMPlexMono-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSflV1j8oQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light Italic"), local("IBMPlexMono-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSflV1jsoQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light Italic"), local("IBMPlexMono-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSflV1gMoQPttozw.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Mono Italic"), local("IBMPlexMono-Italic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6pfjptAgt5VM-kVkqdyU8n1ioa2HdgregdFOFh.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Mono Italic"), local("IBMPlexMono-Italic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6pfjptAgt5VM-kVkqdyU8n1ioa0XdgregdFOFh.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Mono Italic"), local("IBMPlexMono-Italic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6pfjptAgt5VM-kVkqdyU8n1ioa2ndgregdFOFh.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Mono Italic"), local("IBMPlexMono-Italic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6pfjptAgt5VM-kVkqdyU8n1ioa23dgregdFOFh.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Mono Italic"), local("IBMPlexMono-Italic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6pfjptAgt5VM-kVkqdyU8n1ioa1XdgregdFA.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold Italic"), local("IBMPlexMono-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSClN1jcoQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold Italic"), local("IBMPlexMono-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSClN1hMoQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold Italic"), local("IBMPlexMono-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSClN1j8oQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold Italic"), local("IBMPlexMono-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSClN1jsoQPttoz6Pz.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold Italic"), local("IBMPlexMono-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6sfjptAgt5VM-kVkqdyU8n1ioSClN1gMoQPttozw.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light"), local("IBMPlexMono-Light"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3oQIwl1FgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light"), local("IBMPlexMono-Light"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3oQIwlRFgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light"), local("IBMPlexMono-Light"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3oQIwl9FgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light"), local("IBMPlexMono-Light"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3oQIwl5FgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Mono Light"), local("IBMPlexMono-Light"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3oQIwlBFgsAXHNk.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Mono"), local("IBMPlexMono"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F63fjptAgt5VM-kVkqdyU8n1iIq131nj-otFQ.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Mono"), local("IBMPlexMono"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F63fjptAgt5VM-kVkqdyU8n1isq131nj-otFQ.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Mono"), local("IBMPlexMono"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F63fjptAgt5VM-kVkqdyU8n1iAq131nj-otFQ.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Mono"), local("IBMPlexMono"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F63fjptAgt5VM-kVkqdyU8n1iEq131nj-otFQ.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Mono"), local("IBMPlexMono"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3vAOwl1FgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlRFgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3vAOwl9FgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3vAOwl5FgsAXHNlYzg.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Mono";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Mono SemiBold"), local("IBMPlexMono-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexmono/v4/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Sans";
+    font-style:   italic;
+    font-weight:  300;
+    src:          local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRcdvfo.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Sans";
+    font-style:   italic;
+    font-weight:  400;
+    src:          local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuF6ZP.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Sans";
+    font-style:   italic;
+    font-weight:  600;
+    src:          local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJcdvfo.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Sans";
+    font-style:   normal;
+    font-weight:  300;
+    src:          local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AIFscg.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Sans";
+    font-style:   normal;
+    font-weight:  400;
+    src:          local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdHeEw.woff) format("woff");
+}
+
+@font-face {
+    font-display: auto;
+    font-family:  "IBM Plex Sans";
+    font-style:   normal;
+    font-weight:  600;
+    src:          local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIFscg.woff) format("woff");
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRce_fuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRccvfuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRcdffuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRceffuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRcePfuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light Italic"), local("IBMPlexSans-LightItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmvIRcdvfuJGl18Q.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuGqZJW9XjDlN8.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuE6ZJW9XjDlN8.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuFKZJW9XjDlN8.woff2) format("woff2");
+    unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuGKZJW9XjDlN8.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuGaZJW9XjDlN8.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   400;
+    src:           local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuF6ZJW9XjDg.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJce_fuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJccvfuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJcdffuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJceffuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJcePfuJGl18QRY.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    italic;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold Italic"), local("IBMPlexSans-SemiBoldItalic"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJcdvfuJGl18Q.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AIxsdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AIVsdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AIJsdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AI5sdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AI9sdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   300;
+    src:           local("IBM Plex Sans Light"), local("IBMPlexSans-Light"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjXr8AIFsdP3pBms.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdzeFaxOedfTDw.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdXeFaxOedfTDw.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdLeFaxOedfTDw.woff2) format("woff2");
+    unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhd7eFaxOedfTDw.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhd_eFaxOedfTDw.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   400;
+    src:           local("IBM Plex Sans"), local("IBMPlexSans"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdHeFaxOedc.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIxsdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIVsdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIJsdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AI5sdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AI9sdP3pBmtF8A.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-display:  auto;
+    font-family:   "IBM Plex Sans";
+    font-style:    normal;
+    font-weight:   600;
+    src:           local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIFsdP3pBms.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+[class*=ibm-type] {
+    margin-top: 0;
+}
+
+.ibm-type {
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.ibm-type-italic {
+    font-style: italic;
+}
+
+.ibm-type-mono {
+    font-family: "IBM Plex Mono", "Menlo", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace;
+}
+
+.ibm-type-serif {
+    font-family: "IBM Plex Serif", "Georgia", Times, serif;
+}
+
+.ibm-type-light {
+    font-weight: 300;
+}
+
+.ibm-type-semibold {
+    font-weight: 600;
+}
+
+.ibm-type-a {
+    font-size:      var(--cds-caption-01-font-size, 0.75rem);
+    font-weight:    var(--cds-caption-01-font-weight, 400);
+    line-height:    var(--cds-caption-01-line-height, 1.33333);
+    letter-spacing: var(--cds-caption-01-letter-spacing, 0.32px);
+}
+
+.ibm-type-b {
+    font-size:      var(--cds-body-long-01-font-size, 0.875rem);
+    font-weight:    var(--cds-body-long-01-font-weight, 400);
+    line-height:    var(--cds-body-long-01-line-height, 1.42857);
+    letter-spacing: var(--cds-body-long-01-letter-spacing, 0.16px);
+}
+
+.ibm-type-c {
+    font-size:      var(--cds-body-short-02-font-size, 1rem);
+    font-weight:    var(--cds-body-short-02-font-weight, 400);
+    line-height:    var(--cds-body-short-02-line-height, 1.375);
+    letter-spacing: var(--cds-body-short-02-letter-spacing, 0);
+}
+
+.ibm-type-d {
+    font-size:      var(--cds-heading-02-font-size, 1rem);
+    font-weight:    var(--cds-heading-02-font-weight, 600);
+    line-height:    var(--cds-heading-02-line-height, 1.5);
+    letter-spacing: var(--cds-heading-02-letter-spacing, 0);
+}
+
+.ibm-type-e {
+    font-size:      var(--cds-productive-heading-03-font-size, 1.25rem);
+    font-weight:    var(--cds-productive-heading-03-font-weight, 400);
+    line-height:    var(--cds-productive-heading-03-line-height, 1.4);
+    letter-spacing: var(--cds-productive-heading-03-letter-spacing, 0);
+}
+
+.ibm-type-f {
+    font-size:      1.75rem;
+    font-weight:    400;
+    line-height:    1.28572;
+    letter-spacing: 0;
+    font-size:      calc(1.75rem + 0 * ((100vw - 20rem) / 62));
+}
+
+@media (min-width: 82rem) {
+    .ibm-type-f {
+        font-size:   1.75rem;
+        line-height: 1.25;
+        font-size:   calc(1.75rem + 0.25 * ((100vw - 82rem) / 17));
+    }
+}
+
+@media (min-width: 99rem) {
+    .ibm-type-f {
+        font-size: 2rem;
+        font-size: 2rem;
+    }
+}
+
+.ibm-type-g {
+    font-size:      var(--cds-productive-heading-04-font-size, 1.75rem);
+    font-weight:    var(--cds-productive-heading-04-font-weight, 400);
+    line-height:    var(--cds-productive-heading-04-line-height, 1.28572);
+    letter-spacing: var(--cds-productive-heading-04-letter-spacing, 0);
+}
+
+.ibm-type-h {
+    font-size:      var(--cds-productive-heading-05-font-size, 2rem);
+    font-weight:    var(--cds-productive-heading-05-font-weight, 400);
+    line-height:    var(--cds-productive-heading-05-line-height, 1.25);
+    letter-spacing: var(--cds-productive-heading-05-letter-spacing, 0);
+}
+
+.ibm-type-i {
+    font-size:      2.625rem;
+    font-weight:    300;
+    line-height:    1.19;
+    letter-spacing: 0;
+    font-size:      calc(2.625rem + 0 * ((100vw - 20rem) / 22));
+}
+
+@media (min-width: 42rem) {
+    .ibm-type-i {
+        font-size: 2.625rem;
+        font-size: calc(2.625rem + 0.75 * ((100vw - 42rem) / 24));
+    }
+}
+
+@media (min-width: 66rem) {
+    .ibm-type-i {
+        font-size: 3.375rem;
+        font-size: calc(3.375rem + 0.375 * ((100vw - 66rem) / 16));
+    }
+}
+
+@media (min-width: 82rem) {
+    .ibm-type-i {
+        font-size:   3.75rem;
+        line-height: 1.17;
+        font-size:   calc(3.75rem + 1 * ((100vw - 82rem) / 17));
+    }
+}
+
+@media (min-width: 99rem) {
+    .ibm-type-i {
+        font-size:   4.75rem;
+        line-height: 1.13;
+        font-size:   4.75rem;
+    }
+}
+
+.ibm-type-j {
+    font-size:      2.625rem;
+    font-weight:    300;
+    line-height:    1.19;
+    letter-spacing: 0;
+    font-size:      calc(2.625rem + 1.625 * ((100vw - 20rem) / 22));
+}
+
+@media (min-width: 42rem) {
+    .ibm-type-j {
+        font-size:   4.25rem;
+        line-height: 1.15;
+        font-size:   calc(4.25rem + 1.5 * ((100vw - 42rem) / 24));
+    }
+}
+
+@media (min-width: 66rem) {
+    .ibm-type-j {
+        font-size:      5.75rem;
+        line-height:    1.11;
+        letter-spacing: -0.64px;
+        font-size:      calc(5.75rem + 1.875 * ((100vw - 66rem) / 16));
+    }
+}
+
+@media (min-width: 82rem) {
+    .ibm-type-j {
+        font-size:   7.625rem;
+        line-height: 1.07;
+        font-size:   calc(7.625rem + 2.125 * ((100vw - 82rem) / 17));
+    }
+}
+
+@media (min-width: 99rem) {
+    .ibm-type-j {
+        font-size:      9.75rem;
+        line-height:    1.05;
+        letter-spacing: -0.96px;
+        font-size:      9.75rem;
+    }
+}
+
+.ibm-type-k {
+    font-size:      2.625rem;
+    font-weight:    600;
+    line-height:    1.19;
+    letter-spacing: 0;
+    font-size:      calc(2.625rem + 1.625 * ((100vw - 20rem) / 22));
+}
+
+@media (min-width: 42rem) {
+    .ibm-type-k {
+        font-size:   4.25rem;
+        line-height: 1.15;
+        font-size:   calc(4.25rem + 1.5 * ((100vw - 42rem) / 24));
+    }
+}
+
+@media (min-width: 66rem) {
+    .ibm-type-k {
+        font-size:      5.75rem;
+        line-height:    1.11;
+        letter-spacing: -0.64px;
+        font-size:      calc(5.75rem + 1.875 * ((100vw - 66rem) / 16));
+    }
+}
+
+@media (min-width: 82rem) {
+    .ibm-type-k {
+        font-size:      7.625rem;
+        line-height:    1.07;
+        letter-spacing: -0.64px;
+        font-size:      calc(7.625rem + 2.125 * ((100vw - 82rem) / 17));
+    }
+}
+
+@media (min-width: 99rem) {
+    .ibm-type-k {
+        font-size:      9.75rem;
+        line-height:    1.05;
+        letter-spacing: -0.96px;
+        font-size:      9.75rem;
+    }
+}
+
+/* =============================================================================
+ --> Package Style Sheet (SCSS)
+================================================================================ */
+/* ---------------------
+ --> Global Variable(s)
+------------------------ */
+:root {
+    --cds-background:                             #161616;
+    --cds-background-inverse:                     #F4F4F4;
+    --cds-background-brand:                       #0F62FE;
+    --cds-background-active:                      #393939;
+    --cds-background-hover:                       #292929;
+    --cds-background-inverse-hover:               #E8E8E8;
+    --cds-background-selected:                    #262626;
+    --cds-background-selected-hover:              #333333;
+    --cds-layer-01:                               #262626;
+    --cds-layer-active-01:                        #525252;
+    --cds-layer-hover-01:                         #333333;
+    --cds-layer-selected-01:                      #393939;
+    --cds-layer-selected-hover-01:                #474747;
+    --cds-layer-02:                               #393939;
+    --cds-layer-active-02:                        #6F6F6F;
+    --cds-layer-hover-02:                         #474747;
+    --cds-layer-selected-02:                      #525252;
+    --cds-layer-selected-hover-02:                #636363;
+    --cds-layer-03:                               #525252;
+    --cds-layer-active-03:                        #8D8D8D;
+    --cds-layer-hover-03:                         #636363;
+    --cds-layer-selected-03:                      #6F6F6F;
+    --cds-layer-selected-hover-03:                #5E5E5E;
+    --cds-layer-disabled:                         #262626;
+    --cds-layer-selected-inverse:                 #F4F4F4;
+    --cds-layer-selected-disabled:                #A8A8A8;
+    --cds-layer-accent-01:                        #393939;
+    --cds-layer-accent-active-01:                 #6F6F6F;
+    --cds-layer-accent-hover-01:                  #474747;
+    --cds-layer-accent-02:                        #525252;
+    --cds-layer-accent-active-02:                 #8D8D8D;
+    --cds-layer-accent-hover-02:                  #636363;
+    --cds-layer-accent-03:                        #6F6F6F;
+    --cds-layer-accent-active-03:                 #393939;
+    --cds-layer-accent-hover-03:                  #5E5E5E;
+    --cds-field-01:                               #262626;
+    --cds-field-hover-01:                         #333333;
+    --cds-field-02:                               #393939;
+    --cds-field-hover-02:                         #474747;
+    --cds-field-03:                               #525252;
+    --cds-field-hover-03:                         #636363;
+    --cds-field-disabled:                         #393939;
+    --cds-border-subtle-00:                       #393939;
+    --cds-border-subtle-01:                       #393939;
+    --cds-border-subtle-selected-01:              #525252;
+    --cds-border-subtle-02:                       #525252;
+    --cds-border-subtle-selected-02:              #6F6F6F;
+    --cds-border-subtle-03:                       #6F6F6F;
+    --cds-border-subtle-selected-03:              #8D8D8D;
+    --cds-border-strong-01:                       #6F6F6F;
+    --cds-border-strong-02:                       #8D8D8D;
+    --cds-border-strong-03:                       #A8A8A8;
+    --cds-border-inverse:                         #F4F4F4;
+    --cds-border-interactive:                     #4589FF;
+    --cds-border-disabled:                        #262626;
+    --cds-text-primary:                           #F4F4F4;
+    --cds-text-secondary:                         #C6C6C6;
+    --cds-text-placeholder:                       #6F6F6F;
+    --cds-text-helper:                            #A8A8A8;
+    --cds-text-error:                             #FFB3B8;
+    --cds-text-inverse:                           #161616;
+    --cds-text-on-color:                          #FFFFFF;
+    --cds-text-on-color-disabled:                 #A8A8A8;
+    --cds-text-disabled:                          #525252;
+    --cds-link-primary:                           #78A9FF;
+    --cds-link-primary-hover:                     #A6C8FF;
+    --cds-link-secondary:                         #A6C8FF;
+    --cds-link-inverse:                           #0F62FE;
+    --cds-link-visited:                           #BE95FF;
+    --cds-icon-primary:                           #F4F4F4;
+    --cds-icon-secondary:                         #C6C6C6;
+    --cds-icon-inverse:                           #161616;
+    --cds-icon-on-color:                          #FFFFFF;
+    --cds-icon-on-color-disabled:                 #A8A8A8;
+    --cds-icon-disabled:                          #525252;
+    --cds-support-error:                          #FA4D56;
+    --cds-support-success:                        #42BE65;
+    --cds-support-warning:                        #F1C21B;
+    --cds-support-info:                           #4589FF;
+    --cds-support-error-inverse:                  #DA1E28;
+    --cds-support-success-inverse:                #24A148;
+    --cds-support-warning-inverse:                #F1C21B;
+    --cds-support-info-inverse:                   #0F62FE;
+    --cds-support-caution-minor:                  #F1C21B;
+    --cds-support-caution-major:                  #FF832B;
+    --cds-support-caution-undefined:              #A56EFF;
+    --cds-focus:                                  #FFFFFF;
+    --cds-focus-inset:                            #161616;
+    --cds-focus-inverse:                          #0F62FE;
+    --cds-skeleton-background:                    #292929;
+    --cds-skeleton-element:                       #393939;
+    --cds-interactive:                            #4589FF;
+    --cds-highlight:                              #D0E2FF;
+    --cds-overlay:                                rgba(0, 0, 0, 0.65);
+    --cds-toggle-off:                             #8D8D8D;
+    --cds-shadow:                                 rgba(0, 0, 0, 0.8);
+    --cds-spacing-01:                             0.125rem;
+    --cds-spacing-02:                             0.25rem;
+    --cds-spacing-03:                             0.5rem;
+    --cds-spacing-04:                             0.75rem;
+    --cds-spacing-05:                             1rem;
+    --cds-spacing-06:                             1.5rem;
+    --cds-spacing-07:                             2rem;
+    --cds-spacing-08:                             2.5rem;
+    --cds-spacing-09:                             3rem;
+    --cds-spacing-10:                             4rem;
+    --cds-spacing-11:                             5rem;
+    --cds-spacing-12:                             6rem;
+    --cds-spacing-13:                             10rem;
+    --cds-fluid-spacing-01:                       0;
+    --cds-fluid-spacing-02:                       2vw;
+    --cds-fluid-spacing-03:                       5vw;
+    --cds-fluid-spacing-04:                       10vw;
+    --cds-caption-01-font-size:                   0.75rem;
+    --cds-caption-01-font-weight:                 400;
+    --cds-caption-01-line-height:                 1.33333;
+    --cds-caption-01-letter-spacing:              0.32px;
+    --cds-label-01-font-size:                     0.75rem;
+    --cds-label-01-font-weight:                   400;
+    --cds-label-01-line-height:                   1.33333;
+    --cds-label-01-letter-spacing:                0.32px;
+    --cds-helper-text-01-font-size:               0.75rem;
+    --cds-helper-text-01-line-height:             1.33333;
+    --cds-helper-text-01-letter-spacing:          0.32px;
+    --cds-body-short-01-font-size:                0.875rem;
+    --cds-body-short-01-font-weight:              400;
+    --cds-body-short-01-line-height:              1.28572;
+    --cds-body-short-01-letter-spacing:           0.16px;
+    --cds-body-short-02-font-size:                1rem;
+    --cds-body-short-02-font-weight:              400;
+    --cds-body-short-02-line-height:              1.375;
+    --cds-body-short-02-letter-spacing:           0;
+    --cds-body-long-01-font-size:                 0.875rem;
+    --cds-body-long-01-font-weight:               400;
+    --cds-body-long-01-line-height:               1.42857;
+    --cds-body-long-01-letter-spacing:            0.16px;
+    --cds-body-long-02-font-size:                 1rem;
+    --cds-body-long-02-font-weight:               400;
+    --cds-body-long-02-line-height:               1.5;
+    --cds-body-long-02-letter-spacing:            0;
+    --cds-code-01-font-family:                    "IBM Plex Mono", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", monospace;
+    --cds-code-01-font-size:                      0.75rem;
+    --cds-code-01-font-weight:                    400;
+    --cds-code-01-line-height:                    1.33333;
+    --cds-code-01-letter-spacing:                 0.32px;
+    --cds-code-02-font-family:                    "IBM Plex Mono", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", monospace;
+    --cds-code-02-font-size:                      0.875rem;
+    --cds-code-02-font-weight:                    400;
+    --cds-code-02-line-height:                    1.42857;
+    --cds-code-02-letter-spacing:                 0.32px;
+    --cds-heading-01-font-size:                   0.875rem;
+    --cds-heading-01-font-weight:                 600;
+    --cds-heading-01-line-height:                 1.42857;
+    --cds-heading-01-letter-spacing:              0.16px;
+    --cds-heading-02-font-size:                   1rem;
+    --cds-heading-02-font-weight:                 600;
+    --cds-heading-02-line-height:                 1.5;
+    --cds-heading-02-letter-spacing:              0;
+    --cds-productive-heading-01-font-size:        0.875rem;
+    --cds-productive-heading-01-font-weight:      600;
+    --cds-productive-heading-01-line-height:      1.28572;
+    --cds-productive-heading-01-letter-spacing:   0.16px;
+    --cds-productive-heading-02-font-size:        1rem;
+    --cds-productive-heading-02-font-weight:      600;
+    --cds-productive-heading-02-line-height:      1.375;
+    --cds-productive-heading-02-letter-spacing:   0;
+    --cds-productive-heading-03-font-size:        1.25rem;
+    --cds-productive-heading-03-font-weight:      400;
+    --cds-productive-heading-03-line-height:      1.4;
+    --cds-productive-heading-03-letter-spacing:   0;
+    --cds-productive-heading-04-font-size:        1.75rem;
+    --cds-productive-heading-04-font-weight:      400;
+    --cds-productive-heading-04-line-height:      1.28572;
+    --cds-productive-heading-04-letter-spacing:   0;
+    --cds-productive-heading-05-font-size:        2rem;
+    --cds-productive-heading-05-font-weight:      400;
+    --cds-productive-heading-05-line-height:      1.25;
+    --cds-productive-heading-05-letter-spacing:   0;
+    --cds-productive-heading-06-font-size:        2rem;
+    --cds-productive-heading-06-font-weight:      300;
+    --cds-productive-heading-06-line-height:      1.199;
+    --cds-productive-heading-06-letter-spacing:   0;
+    --cds-productive-heading-07-font-size:        2.625rem;
+    --cds-productive-heading-07-font-weight:      300;
+    --cds-productive-heading-07-line-height:      1.19;
+    --cds-productive-heading-07-letter-spacing:   0;
+    --cds-expressive-paragraph-01-font-size:      1.5rem;
+    --cds-expressive-paragraph-01-font-weight:    300;
+    --cds-expressive-paragraph-01-line-height:    1.334;
+    --cds-expressive-paragraph-01-letter-spacing: 0;
+    --cds-expressive-heading-01-font-size:        0.875rem;
+    --cds-expressive-heading-01-font-weight:      600;
+    --cds-expressive-heading-01-line-height:      1.42857;
+    --cds-expressive-heading-01-letter-spacing:   0.16px;
+    --cds-expressive-heading-02-font-size:        1rem;
+    --cds-expressive-heading-02-font-weight:      600;
+    --cds-expressive-heading-02-line-height:      1.5;
+    --cds-expressive-heading-02-letter-spacing:   0;
+    --cds-expressive-heading-03-font-size:        1.25rem;
+    --cds-expressive-heading-03-font-weight:      400;
+    --cds-expressive-heading-03-line-height:      1.4;
+    --cds-expressive-heading-03-letter-spacing:   0;
+    --cds-expressive-heading-04-font-size:        1.75rem;
+    --cds-expressive-heading-04-font-weight:      400;
+    --cds-expressive-heading-04-line-height:      1.28572;
+    --cds-expressive-heading-04-letter-spacing:   0;
+    --cds-expressive-heading-05-font-size:        2rem;
+    --cds-expressive-heading-05-font-weight:      400;
+    --cds-expressive-heading-05-line-height:      1.25;
+    --cds-expressive-heading-05-letter-spacing:   0;
+    --cds-expressive-heading-06-font-size:        2rem;
+    --cds-expressive-heading-06-font-weight:      600;
+    --cds-expressive-heading-06-line-height:      1.25;
+    --cds-expressive-heading-06-letter-spacing:   0;
+    --cds-quotation-01-font-family:               "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-quotation-01-font-size:                 1.25rem;
+    --cds-quotation-01-font-weight:               400;
+    --cds-quotation-01-line-height:               1.3;
+    --cds-quotation-01-letter-spacing:            0;
+    --cds-quotation-02-font-family:               "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-quotation-02-font-size:                 2rem;
+    --cds-quotation-02-font-weight:               300;
+    --cds-quotation-02-line-height:               1.25;
+    --cds-quotation-02-letter-spacing:            0;
+    --cds-display-01-font-size:                   2.625rem;
+    --cds-display-01-font-weight:                 300;
+    --cds-display-01-line-height:                 1.19;
+    --cds-display-01-letter-spacing:              0;
+    --cds-display-02-font-size:                   2.625rem;
+    --cds-display-02-font-weight:                 600;
+    --cds-display-02-line-height:                 1.19;
+    --cds-display-02-letter-spacing:              0;
+    --cds-display-03-font-size:                   2.625rem;
+    --cds-display-03-font-weight:                 300;
+    --cds-display-03-line-height:                 1.19;
+    --cds-display-03-letter-spacing:              0;
+    --cds-display-04-font-size:                   2.625rem;
+    --cds-display-04-font-weight:                 600;
+    --cds-display-04-line-height:                 1.19;
+    --cds-display-04-letter-spacing:              0;
+    --cds-legal-01-font-size:                     0.75rem;
+    --cds-legal-01-font-weight:                   400;
+    --cds-legal-01-line-height:                   1.33333;
+    --cds-legal-01-letter-spacing:                0.32px;
+    --cds-legal-02-font-size:                     0.875rem;
+    --cds-legal-02-font-weight:                   400;
+    --cds-legal-02-line-height:                   1.28572;
+    --cds-legal-02-letter-spacing:                0.16px;
+    --cds-body-compact-01-font-size:              0.875rem;
+    --cds-body-compact-01-font-weight:            400;
+    --cds-body-compact-01-line-height:            1.28572;
+    --cds-body-compact-01-letter-spacing:         0.16px;
+    --cds-body-compact-02-font-size:              1rem;
+    --cds-body-compact-02-font-weight:            400;
+    --cds-body-compact-02-line-height:            1.375;
+    --cds-body-compact-02-letter-spacing:         0;
+    --cds-heading-compact-01-font-size:           0.875rem;
+    --cds-heading-compact-01-font-weight:         600;
+    --cds-heading-compact-01-line-height:         1.28572;
+    --cds-heading-compact-01-letter-spacing:      0.16px;
+    --cds-heading-compact-02-font-size:           1rem;
+    --cds-heading-compact-02-font-weight:         600;
+    --cds-heading-compact-02-line-height:         1.375;
+    --cds-heading-compact-02-letter-spacing:      0;
+    --cds-body-01-font-size:                      0.875rem;
+    --cds-body-01-font-weight:                    400;
+    --cds-body-01-line-height:                    1.42857;
+    --cds-body-01-letter-spacing:                 0.16px;
+    --cds-body-02-font-size:                      1rem;
+    --cds-body-02-font-weight:                    400;
+    --cds-body-02-line-height:                    1.5;
+    --cds-body-02-letter-spacing:                 0;
+    --cds-heading-03-font-size:                   1.25rem;
+    --cds-heading-03-font-weight:                 400;
+    --cds-heading-03-line-height:                 1.4;
+    --cds-heading-03-letter-spacing:              0;
+    --cds-heading-04-font-size:                   1.75rem;
+    --cds-heading-04-font-weight:                 400;
+    --cds-heading-04-line-height:                 1.28572;
+    --cds-heading-04-letter-spacing:              0;
+    --cds-heading-05-font-size:                   2rem;
+    --cds-heading-05-font-weight:                 400;
+    --cds-heading-05-line-height:                 1.25;
+    --cds-heading-05-letter-spacing:              0;
+    --cds-heading-06-font-size:                   2rem;
+    --cds-heading-06-font-weight:                 300;
+    --cds-heading-06-line-height:                 1.199;
+    --cds-heading-06-letter-spacing:              0;
+    --cds-heading-07-font-size:                   2.625rem;
+    --cds-heading-07-font-weight:                 300;
+    --cds-heading-07-line-height:                 1.19;
+    --cds-heading-07-letter-spacing:              0;
+    --cds-fluid-heading-03-font-size:             1.25rem;
+    --cds-fluid-heading-03-font-weight:           400;
+    --cds-fluid-heading-03-line-height:           1.4;
+    --cds-fluid-heading-03-letter-spacing:        0;
+    --cds-fluid-heading-04-font-size:             1.75rem;
+    --cds-fluid-heading-04-font-weight:           400;
+    --cds-fluid-heading-04-line-height:           1.28572;
+    --cds-fluid-heading-04-letter-spacing:        0;
+    --cds-fluid-heading-05-font-size:             2rem;
+    --cds-fluid-heading-05-font-weight:           400;
+    --cds-fluid-heading-05-line-height:           1.25;
+    --cds-fluid-heading-05-letter-spacing:        0;
+    --cds-fluid-heading-06-font-size:             2rem;
+    --cds-fluid-heading-06-font-weight:           600;
+    --cds-fluid-heading-06-line-height:           1.25;
+    --cds-fluid-heading-06-letter-spacing:        0;
+    --cds-fluid-paragraph-01-font-size:           1.5rem;
+    --cds-fluid-paragraph-01-font-weight:         300;
+    --cds-fluid-paragraph-01-line-height:         1.334;
+    --cds-fluid-paragraph-01-letter-spacing:      0;
+    --cds-fluid-quotation-01-font-family:         "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-fluid-quotation-01-font-size:           1.25rem;
+    --cds-fluid-quotation-01-font-weight:         400;
+    --cds-fluid-quotation-01-line-height:         1.3;
+    --cds-fluid-quotation-01-letter-spacing:      0;
+    --cds-fluid-quotation-02-font-family:         "IBM Plex Serif", system-ui, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", serif;
+    --cds-fluid-quotation-02-font-size:           2rem;
+    --cds-fluid-quotation-02-font-weight:         300;
+    --cds-fluid-quotation-02-line-height:         1.25;
+    --cds-fluid-quotation-02-letter-spacing:      0;
+    --cds-fluid-display-01-font-size:             2.625rem;
+    --cds-fluid-display-01-font-weight:           300;
+    --cds-fluid-display-01-line-height:           1.19;
+    --cds-fluid-display-01-letter-spacing:        0;
+    --cds-fluid-display-02-font-size:             2.625rem;
+    --cds-fluid-display-02-font-weight:           600;
+    --cds-fluid-display-02-line-height:           1.19;
+    --cds-fluid-display-02-letter-spacing:        0;
+    --cds-fluid-display-03-font-size:             2.625rem;
+    --cds-fluid-display-03-font-weight:           300;
+    --cds-fluid-display-03-line-height:           1.19;
+    --cds-fluid-display-03-letter-spacing:        0;
+    --cds-fluid-display-04-font-size:             2.625rem;
+    --cds-fluid-display-04-font-weight:           600;
+    --cds-fluid-display-04-line-height:           1.19;
+    --cds-fluid-display-04-letter-spacing:        0;
+    --cds-popover-offset:                         0rem;
+    background:                                   #161616 !important;
+}
+
+html {
+    background: #161616 !important;
+}
+
+.cds--content {
+    background: #161616 !important;
+}
+
+/*# sourceMappingURL=index.css.map */

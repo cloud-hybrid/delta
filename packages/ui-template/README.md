@@ -18,7 +18,7 @@ The Cloud Dashboard & User Interface for *Cloud-Technology LLC.*
 
 ```javascript
 function Course() {
-    let { id } = useParams<"id">();
+    let {id} = useParams < "id" > ();
 
     return (
             <div>
@@ -37,11 +37,10 @@ function capitalizeString(s: string): string {
     return s.charAt(0).toUpperCase() + s.slice(1);
 }
 ```
-Cloud-Technology's Dashboard is a set of user-friendly utilities that interface RESTful HTTP endpoints & related
-database CRUD actions. The User-Interface is consistent in visibility, styling, but above all else, ***functionality***.
 
-As a *Single-Page-Application* (*SPA*), the client-sided front-end can remain functional so long as the API & dependent
-endpoints remain online -- largely a benefit from micro-serviced architecture(s).
+Cloud-Technology's Dashboard is a set of user-friendly utilities that interface RESTful HTTP endpoints & related database CRUD actions. The User-Interface is consistent in visibility, styling, but above all else, ***functionality***.
+
+As a *Single-Page-Application* (*SPA*), the client-sided front-end can remain functional so long as the API & dependent endpoints remain online -- largely a benefit from micro-serviced architecture(s).
 
 ## Usage ##
 
@@ -230,8 +229,7 @@ aws cloudformation wait stack-update-complete \
 ## Environment Variables ##
 
 The included `.env.local` file + pre-configured TLS `*.key`, `*.conf`,
-`*.crt`, & `*.pfx` located in [configuration](./configuration) should be enough to begin local development. If the
-default development TLS file(s) need to be changed, the password for `Development.pfx` is `Development`.
+`*.crt`, & `*.pfx` located in [configuration](./configuration) should be enough to begin local development. If the default development TLS file(s) need to be changed, the password for `Development.pfx` is `Development`.
 
 Please refer to the following table when creating distributions & deploying assets:
 
@@ -253,13 +251,10 @@ Please refer to the following table when creating distributions & deploying asse
 | `SSL_KEY_FILE`            |  _N/A_                 | [Description] |
 | `ENVIRONMENT`             | **_Production_**       | [Description] |
 
-Anything listed as a value of `...` is a ***soft dependency*** -- meaning that in order to achieve a full working state,
-the value(s) should exist and any associated resource(s)
-created ahead of time. However, the application will continue to resolve requests regardless of such dependents in order
-to avoid *chicken-or-egg* problems.
+Anything listed as a value of `...` is a ***soft dependency*** -- meaning that in order to achieve a full working state, the value(s) should exist and any associated resource(s)
+created ahead of time. However, the application will continue to resolve requests regardless of such dependents in order to avoid *chicken-or-egg* problems.
 
-These values for production should be established in a `.env.production` file during the CI-CD build process, and
-finally, in a `.env` during the distribution.
+These values for production should be established in a `.env.production` file during the CI-CD build process, and finally, in a `.env` during the distribution.
 
 ### TLS Development Key(s) ###
 
@@ -368,3 +363,8 @@ openssl pkcs12 -export -out "Development.pfx" -inkey "Development.key" -in "Deve
 ```
 
 </details>
+
+## Contributors ##
+
+- Jacob ([`HeckingEdgy`](noreply@cloudhybrid.io))
+- Xander ([`The Duck-Byte`](noreply@cloudhybrid.io)) 

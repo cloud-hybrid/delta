@@ -312,7 +312,6 @@ const Component = ({ Authorizer }) => {
                                 id={ "global-menu-notifications" }
                                 aria-label="Notifications"
                                 tooltipAlignment="start"
-                                // renderIcon={ Notification }
                                 children={ (
                                     <Notification/>
                                 ) }
@@ -320,6 +319,8 @@ const Component = ({ Authorizer }) => {
                                     (event) => {
                                         event.preventDefault();
 
+                                        Opener[1](false);
+                                        Profile[1](false);
                                         Notifies[1](!Notifies[0]);
                                     }
                                 }
@@ -330,14 +331,11 @@ const Component = ({ Authorizer }) => {
                                 children={ (
                                     <UserAvatar/>
                                 ) }
-                                // renderIcon={ UserAvatar }
                                 onClick={
                                     (event) => {
-                                        event.preventDefault();
-
-                                        //                                        Profile[1](!Profile[0]);
-
-                                        document.getElementById("io-profile").classList.toggle("io-profile-popover-hidden");
+                                        Notifies[1](false);
+                                        Opener[1](false);
+                                        Profile[1](!Profile[0]);
                                     }
                                 }
                             />
@@ -349,13 +347,14 @@ const Component = ({ Authorizer }) => {
                                 children={ (
                                     <Switch/>
                                 ) }
-                                // renderIcon={ Switch }
                                 tooltipPosition={ "left" }
                                 tooltipAlignment={ "end" }
                                 onClick={
                                     (event) => {
                                         event.preventDefault();
 
+                                        Notifies[1](false);
+                                        Profile[1](false);
                                         Opener[1](!Opener[0]);
                                     }
                                 }
