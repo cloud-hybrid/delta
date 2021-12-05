@@ -220,7 +220,6 @@ const Component = () => (
                 />
             </Sectional>
         </Column>
-        <hr/>
         <Selectable/>
         <hr/>
         <List rows={ 15 }/>

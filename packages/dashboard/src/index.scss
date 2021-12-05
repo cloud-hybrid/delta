@@ -4,4 +4,4 @@
  --> Package Style Sheet (SCSS)
 ================================================================================ */
 
-@use "@carbon/ibm-security/scss/index" with ($prefix: "cds");
+@use "@carbon/ibm-security/scss" with ($prefix: "cds");

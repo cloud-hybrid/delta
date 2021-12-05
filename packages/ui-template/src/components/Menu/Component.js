@@ -161,6 +161,10 @@ const Component = ({ Authorizer }) => {
                             Nexus
                         </HeaderName>
                         <HeaderNavigation aria-label="Nexus">
+                            <HeaderMenuItem element={ Link } to={ "/blog" } isCurrentPage={ Active("blog") } onClick={ () => navigation("/blog") }>
+                                Blog
+                            </HeaderMenuItem>
+                            <Splitter/>
                             <HeaderMenuItem element={ Link } to={ "/gitlab" } isCurrentPage={ Active("gitlab") } onClick={ () => navigation("/gitlab") }>
                                 GitLab
                             </HeaderMenuItem>

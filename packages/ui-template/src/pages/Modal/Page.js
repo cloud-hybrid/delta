@@ -1,24 +1,29 @@
 import axios from "axios";
 
-import { Inline } from "./../../components/Notifications/Authentication/Informational.js";
+import { Inline } from "./../../components/Notifications/Informational.js";
 
-import PropTypes, { default as Types } from "prop-types";
+import PropTypes from "prop-types";
 
 import React, { useState, useEffect } from "react";
 
+import { default as Test } from "./Test.js";
+
+import { Button } from "@carbon/react";
+
 /***
- * @param Evaluation {any}
  * @param duration {Number} Total Skeleton Simulated Loading Time (Seconds)
  * @return {JSX.Element}
  * @constructor
  */
 
-const Component = ({ Evaluation, duration }) => {
+export const Page = ({ duration }) => {
     const url = process.env.REACT_APP_API_ENDPOINT + [ "/v1/utility/awaitable?duration", duration ].join("=");
 
     const [ data, setData ] = useState(false);
     const [ loading, setLoading ] = useState(false);
     const [ error, setError ] = useState(null);
+
+    const Modal  = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,9 +43,9 @@ const Component = ({ Evaluation, duration }) => {
                     stack: error?.stack
                 });
             }
-            finally {
-                setLoading(false);
-            }
+
+            finally { setLoading(false); }
+
         };
 
         fetchData().finally(() => {
@@ -48,7 +53,7 @@ const Component = ({ Evaluation, duration }) => {
         });
     }, [ url ]);
 
-    const Awaitable = () => (loading) && (<div>...</div>);
+    const Awaitable = () => (loading) && (<span>...</span>);
 
     const Error = () => (error && !loading) && (
         <div style={ { marginBottom: "1.0rem" } }>
@@ -68,6 +73,12 @@ const Component = ({ Evaluation, duration }) => {
     const Data = () => (data && !loading) && (
         <>
             Complete
+            <Button onClick={() => {
+                Modal[1](!Modal[0]);
+            }}>
+                Test
+            </Button>
+            <Test State={Modal}/>
         </>
     );
 
@@ -80,14 +91,13 @@ const Component = ({ Evaluation, duration }) => {
     );
 };
 
-Component.defaultProps = {
+Page.defaultProps = {
     duration: 3
 };
 
-Component.propTypes = {
-    Evaluation: Types.string,
+Page.propTypes = {
     /*** @type {Number} Total Skeleton Simulated Loading Time (Seconds) */
     duration: PropTypes.number.isRequired
 };
 
-export default Component;
+export default Page;

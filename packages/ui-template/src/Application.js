@@ -25,7 +25,11 @@ const Table = Import(() => import("./pages/Development/Test-Table"));
 const Snippet = Import(() => import("./pages/Development/Code-Snippet-Awaitable"));
 const Card = Import(() => import("./pages/Development/Card"));
 
+const Modal = Import(() => import("./pages/Modal"));
+
 const Error = Import(() => import("./pages/Error/Test.js"));
+
+const Blog = Import(() => import("./pages/Blog"));
 
 const Dashboard = {
     Index: Import(() => import("./pages/Dashboard/Pages/Index")),
@@ -74,6 +78,12 @@ const Application = () => {
                                 {/* Base Endpoint(s) */ }
 
                                 <Route path={ "/" } element={ (<Home/>) }/>
+
+                                <Route path={ "/blog" } element={ (<Blog description={"Loading Blog Article(s) ..."}/>) }/>
+                                <Route path={ "/blog/:category" } element={ (<Blog description={"Loading Blog Article(s) Category ..."}/>) }/>
+                                <Route path={ "/blog/:category/:subcategory" } element={ (<Blog description={"Loading Blog Article(s) Subcategory ..."}/>) }/>
+                                <Route path={ "/blog/:category/:subcategory/:article" } element={ (<Blog description={"Loading Blog Article ..."}/>) }/>
+
                                 <Route path={ "/error" } element={ (<Error/>) }/>
 
                                 <Route
@@ -94,6 +104,16 @@ const Application = () => {
                                             description={ "Loading Template Page ..." }
                                         />
                                     ) } path={ "/template" }
+                                />
+
+                                <Route
+                                    element={ (
+                                        <Authorizer
+                                            Page={ Modal }
+                                            Session={ Authorization[0] }
+                                            description={ "Loading Modal Page ..." }
+                                        />
+                                    ) } path={ "/modal" }
                                 />
 
                                 <Route
