@@ -9,7 +9,8 @@
         "catalog": "node src/catalog/index.js",
         "sam": "node src/catalog/SAM.js",
         "cloudformation": "node src/catalog/CFN.js",
-        "gitlab-ci": "node src/catalog/GitLab.js"
+        "gitlab-ci": "node src/catalog/GitLab.js",
+        "zip": "node src/extension/CFN.js"
     },
     "author": "",
     "license": "ISC",
