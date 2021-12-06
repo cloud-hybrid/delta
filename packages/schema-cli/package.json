@@ -1,0 +1,22 @@
+{
+    "name": "schema-cli",
+    "version": "0.0.1",
+    "description": "CLI Prompt(s) for https://schemastore.org Resource Definitions",
+    "module": true,
+    "type": "module",
+    "scripts": {
+        "test": "node library/unit-tests.js",
+        "catalog": "node src/catalog/index.js",
+        "sam": "node src/catalog/SAM.js",
+        "cloudformation": "node src/catalog/CFN.js",
+        "gitlab-ci": "node src/catalog/GitLab.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "ajv": "^8.8.2"
+    },
+    "devDependencies": {
+        "@types/node": "^16.11.11"
+    }
+}

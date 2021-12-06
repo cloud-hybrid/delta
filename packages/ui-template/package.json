@@ -48,6 +48,13 @@
         "undefined": "/Users/io/Next/Cloud-Hybrid/delta/packages/dashboard"
     },
     "devDependencies": {
+        "@babel/cli": "^7.16.0",
+        "@babel/core": "^7.16.0",
+        "@babel/node": "^7.16.0",
+        "@babel/preset-env": "^7.16.4",
+        "@babel/preset-react": "^7.16.0",
+        "@babel/register": "^7.16.0",
+        "lodash.throttle": "^4.1.1",
         "prop-types": "^15.7.2",
         "sass": "1.38.2",
         "source-map-explorer": "^2.5.2",

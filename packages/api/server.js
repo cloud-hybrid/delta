@@ -31,15 +31,33 @@ import("./src/index.js").then(async ($) => {
         async ($) => await $.initialize()
     );
 
+    /***
+     *
+     * @type {Router}
+     *
+     */
+
     const Controller = await import("./src/controllers/index.js").then(($) => $.Router);
 
     Application.use("/v1", Controller);
+
+    /***
+     *
+     * @type {{PFX: Buffer, Key: Buffer, Certificate: Buffer}}
+     *
+     */
 
     const Content = {
         Key: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["Key"])),
         PFX: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["PFX"])),
         Certificate: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["Certificate"]))
     };
+
+    /***
+     *
+     * @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}}
+     *
+     */
 
     const options = {
         passphrase: Process.env["TLS"]["Passphrase"],

@@ -14,11 +14,19 @@
         "@babel/core": "^7.16.0",
         "@babel/eslint-parser": "^7.16.3",
         "@babel/plugin-proposal-class-properties": "^7.16.0",
+        "@babel/plugin-proposal-dynamic-import": "^7.16.0",
+        "@babel/plugin-proposal-export-default-from": "^7.16.0",
+        "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+        "@babel/plugin-proposal-throw-expressions": "^7.16.0",
+        "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+        "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+        "@babel/plugin-transform-modules-systemjs": "^7.16.0",
+        "@babel/plugin-transform-react-jsx": "^7.16.0",
         "@babel/plugin-transform-runtime": "^7.16.4",
+        "@babel/plugin-transform-typescript": "^7.16.1",
         "@babel/preset-env": "^7.16.4",
         "@babel/preset-react": "^7.16.0",
         "@babel/preset-typescript": "^7.16.0",
-        "@carbon/storybook-addon-theme": "^0.22.0",
         "@octokit/openapi-types": "^11.2.0",
         "@octokit/types": "^6.34.0",
         "@types/body-parser": "^1.19.2",
@@ -54,6 +62,7 @@
         "express": "^5.0.0-alpha.8",
         "jest-styled-components": "^7.0.6",
         "lerna": "^4.0.0",
+        "lodash.throttle": "^4.1.1",
         "mongodb": "^4.2.0",
         "prettier": "^2.4.1",
         "react-scripts": "^4.0.3",
@@ -76,11 +85,6 @@
         "info": "lerna info"
     },
     "workspaces": [
-        "packages/*",
-        "documentation/*",
-        "utilities/*"
-    ],
-    "bundledDependencies": [
-        "workspaces:packages/*"
+        "packages/*"
     ]
 }

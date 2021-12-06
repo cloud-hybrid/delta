@@ -16,7 +16,7 @@ export const Page = ({}) => {
                     className={ "blog-content-card-header-title" }
                     children={ (
                         <>
-                            <span className={"blog-content-card-header-title-text"}>Header Card Title</span>
+                            <span className={ "blog-content-card-header-title-text" }>Header Card Title</span>
                             <img
                                 className={ "blog-content-card-header-image" }
                                 src="/Images/Cube.svg"
@@ -47,11 +47,11 @@ export const Page = ({}) => {
 
             <div className={ "blog-primary-content-container" }>
                 <div className={ cx("blog-content-card", "blog-primary-content-normalized-item") }>
-                    {/*<img*/}
-                    {/*    className={ "blog-content-card-header-image" }*/}
-                    {/*    src="/Images/Cube.svg"*/}
-                    {/*    alt={ "..." }*/}
-                    {/*/>*/}
+                    {/*<img*/ }
+                    {/*    className={ "blog-content-card-header-image" }*/ }
+                    {/*    src="/Images/Cube.svg"*/ }
+                    {/*    alt={ "..." }*/ }
+                    {/*/>*/ }
                     <h3 className={ "blog-content-card-header-title" } children={ (<span>Title Name</span>) }/>
                     <hr/>
                     <p className={ cx("blog-content-card-author-name") }>
@@ -122,11 +122,11 @@ export const Page = ({}) => {
                     </p>
                 </div>
                 <div className={ cx("blog-content-card", "blog-primary-content-normalized-item") }>
-                    {/*<img*/}
-                    {/*    className={ "blog-content-card-header-image" }*/}
-                    {/*    src="/Images/Cube.svg"*/}
-                    {/*    alt={ "..." }*/}
-                    {/*/>*/}
+                    {/*<img*/ }
+                    {/*    className={ "blog-content-card-header-image" }*/ }
+                    {/*    src="/Images/Cube.svg"*/ }
+                    {/*    alt={ "..." }*/ }
+                    {/*/>*/ }
                     <h3 className={ "blog-content-card-header-title" } children={ (<span>Title Name</span>) }/>
                     <hr/>
                     <p className={ cx("blog-content-card-author-name") }>

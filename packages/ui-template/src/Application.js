@@ -21,6 +21,7 @@ const Pipelines = Import(() => import("./pages/Pipelines"));
 const Tiles = Import(() => import("./pages/Development/Tiles"));
 const Awaitable = Import(() => import("./pages/Development/Awaitable"));
 const List = Import(() => import("./pages/Development/Selectable-List"));
+const Linklist = Import(() => import("./pages/Development/Selectable-Link-List"));
 const Table = Import(() => import("./pages/Development/Test-Table"));
 const Snippet = Import(() => import("./pages/Development/Code-Snippet-Awaitable"));
 const Card = Import(() => import("./pages/Development/Card"));
@@ -30,6 +31,8 @@ const Modal = Import(() => import("./pages/Modal"));
 const Error = Import(() => import("./pages/Error/Test.js"));
 
 const Blog = Import(() => import("./pages/Blog"));
+const Blog2 = Import(() => import("./pages/Blog-2"));
+const Blog3 = Import(() => import("./pages/Blog-3"));
 
 const Dashboard = {
     Index: Import(() => import("./pages/Dashboard/Pages/Index")),
@@ -79,10 +82,13 @@ const Application = () => {
 
                                 <Route path={ "/" } element={ (<Home/>) }/>
 
-                                <Route path={ "/blog" } element={ (<Blog description={"Loading Blog Article(s) ..."}/>) }/>
-                                <Route path={ "/blog/:category" } element={ (<Blog description={"Loading Blog Article(s) Category ..."}/>) }/>
-                                <Route path={ "/blog/:category/:subcategory" } element={ (<Blog description={"Loading Blog Article(s) Subcategory ..."}/>) }/>
-                                <Route path={ "/blog/:category/:subcategory/:article" } element={ (<Blog description={"Loading Blog Article ..."}/>) }/>
+                                <Route path={ "/blog" } element={ (<Blog description={ "Loading Blog Article(s) ..." }/>) }/>
+                                <Route path={ "/blog/:category" } element={ (<Blog description={ "Loading Blog Article(s) Category ..." }/>) }/>
+                                <Route path={ "/blog/:category/:subcategory" } element={ (<Blog description={ "Loading Blog Article(s) Subcategory ..." }/>) }/>
+                                <Route path={ "/blog/:category/:subcategory/:article" } element={ (<Blog description={ "Loading Blog Article ..." }/>) }/>
+
+                                <Route path={ "/blog-2" } element={ (<Blog2 description={ "Loading Blog Article(s) ..." }/>) }/>
+                                <Route path={ "/blog-3" } element={ (<Blog3 description={ "Loading Blog Article(s) ..." }/>) }/>
 
                                 <Route path={ "/error" } element={ (<Error/>) }/>
 
@@ -216,6 +222,16 @@ const Application = () => {
                                             description={ "Loading List Component ..." }
                                         />
                                     ) } path={ "/development/list" }
+                                />
+
+                                <Route
+                                    element={ (
+                                        <Authorizer
+                                            Page={ Linklist }
+                                            Session={ Authorization[0] }
+                                            description={ "Loading Link-List Component ..." }
+                                        />
+                                    ) } path={ "/development/link-list" }
                                 />
 
                                 <Route
