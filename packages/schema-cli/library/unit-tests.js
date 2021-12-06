@@ -89,13 +89,17 @@ Base({
     Type: "Cloud-Technology-Development-Database-API",
     Resources: {
         Test: {
+            required: [
+                "Name",
+                "Status"
+            ],
             properties: {
                 "Name": {
                     "type": "string",
                     "minLength": 20,
                     "maxLength": 250
                 },
-                "Trigger": {
+                "Status": {
                     "type": "string",
                     "enum": [
                         "NOT_STARTED",
