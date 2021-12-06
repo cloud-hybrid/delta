@@ -1,0 +1,10 @@
+{
+    "Organization": "Cloud-Technology",
+    "Environments": [
+        "Development",
+        "QA",
+        "Staging",
+        "UAT",
+        "Production"
+    ]
+}
