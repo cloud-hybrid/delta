@@ -1,6 +1,6 @@
 {
     "name": "schema-cli",
-    "version": "0.0.1",
+    "version": "0.1.56",
     "description": "CLI Prompt(s) for https://schemastore.org Resource Definitions",
     "module": true,
     "type": "module",
