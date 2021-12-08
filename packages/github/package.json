@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/github",
-    "version": "0.0.1",
+    "version": "0.1.62",
     "description": "...",
     "main": "index.js",
     "type": "module",
@@ -10,13 +10,13 @@
     "dependencies": {
         "@cloud-technology/cli-prompt": "latest",
         "@octokit/core": "latest",
-        "@octokit/rest": "latest",
         "@octokit/request": "latest",
+        "@octokit/rest": "latest",
         "@octokit/webhooks": "latest"
     },
     "devDependencies": {
-        "@types/node": "latest",
-        "@octokit/types": "latest"
+        "@octokit/types": "latest",
+        "@types/node": "latest"
     },
     "license": "BSD-3-Clause"
 }

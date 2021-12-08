@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/schema-cli",
-    "version": "0.1.61",
+    "version": "0.1.62",
     "description": "CLI Prompt(s) for https://schemastore.org Resource Definitions",
     "module": true,
     "type": "module",

@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/github-api",
-    "version": "0.0.3",
+    "version": "0.1.62",
     "repository": "git+https://github.com/cloud-hybrid/github-api.git",
     "scripts": {
         "cli": "node ./Source/CLI.js",
