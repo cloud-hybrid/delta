@@ -9,16 +9,7 @@
     },
     "dependencies": {
         "@cloud-technology/cli-prompt": "latest",
-        "@octokit/core": "latest",
-        "@octokit/request": "latest",
-        "@octokit/rest": "latest",
-        "@octokit/webhooks": "latest"
-    },
-    "devDependencies": {
-        "@octokit/openapi-types": "latest",
-        "@octokit/types": "latest",
-        "@types/node": "latest",
-        "babel-plugin-import": "^1.13.3"
+        "@octokit/core": "latest"
     },
     "license": "BSD-3-Clause"
 }
