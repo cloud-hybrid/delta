@@ -1,14 +1,44 @@
-import { Data } from "./Request.js";
+import { Octokit } from "@octokit/core";
 
-//export const People = Data.People.map(($, _) => {
-//    return {
-//        ID: $["Username"]["id"],
-//        URL: $["Username"]["url"],
-//        Type: $["Username"]["type"],
-//        Username: $["Username"]["login"]
-//    };
-//});
-//
-//Users["Total"] = Users.length;
+import { Settings } from "./../configuration/index.js";
 
-export default JSON.stringify(Data, null, 4);
+const Authentication = {
+    Organization: Settings.GitHub.Organization,
+    Token: Settings.GitHub.Token,
+    User: Settings.GitHub.User
+};
+
+const Users = async () => {
+    const Data = {
+        Members: [],
+        Total: -1,
+        Valid: null
+    };
+
+    const API = new Octokit({
+        auth: Authentication.Token
+    });
+
+    const Members = await API.request("GET /orgs/{org}/members", {
+        org: Authentication.Organization
+    });
+
+    Members.data.forEach((User, _) => {
+        Data.Members.push({
+            User
+        });
+    });
+
+    Data.Total = Data.Members.length;
+
+    (Data.Total !== 0) ? Data.Valid = true
+        : Data.Valid = false;
+
+    return Data;
+};
+
+export const Data = await Users();
+
+export const Serial = JSON.stringify(await Users(), null, 4);
+
+export default Data;
