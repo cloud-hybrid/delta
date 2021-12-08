@@ -1,13 +1,4 @@
-import { Octokit } from "@octokit/core";
-
-import { Settings as Configuration } from "./../configuration/index.js";
-
-const Settings = Configuration["GitHub"];
-const Authentication = {
-    Organization: Settings.Organization,
-    Token: Settings.Token,
-    User: Settings.User
-};
+import { API, Organization } from "./API.js";
 
 /***
  *
@@ -44,13 +35,9 @@ const Members = () => {
 const Request = async () => {
     const Structure = Members();
 
-    const API = new Octokit({
-        auth: Authentication.Token
-    });
-
     const Data = await API.request("/orgs/{org}/members", {
         method: "GET",
-        org: Authentication.Organization
+        org: Organization
     }).then(($) => $["data"]);
 
     Data?.forEach((User, _) => { Structure.push(User); });

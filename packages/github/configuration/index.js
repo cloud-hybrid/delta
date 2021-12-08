@@ -1,5 +1,3 @@
-await import("./Validation.js");
-
 import * as Module from "module";
 
 export const Import = Module.createRequire(import.meta.url);
@@ -12,6 +10,8 @@ export const Import = Module.createRequire(import.meta.url);
 
 export const Settings = Import("./settings.json");
 
-export default {
-    Settings, Import
-};
+export default await import("./Validation.js").finally(() => {
+    return {
+        Settings, Import
+    };
+});
