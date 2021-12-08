@@ -35,13 +35,13 @@ const Prompt = async () => {
     Input.prompt();
 
     Input.on("line", async (stream) => {
-        switch (stream.trim()) {
-            case "":
-                console.log("  ↳ Please Provide a Valid API Token");
-                break;
-            default:
-                const Data = await Request(stream.trim());
-                break;
+        switch ( stream.trim() ) {
+        case "":
+            console.log("  ↳ Please Provide a Valid API Token");
+            break;
+        default:
+            const Data = await Request(stream.trim());
+            break;
 
         }
 
@@ -50,7 +50,7 @@ const Prompt = async () => {
     }).on("close", () => {
         process.exit(0);
     });
-}
+};
 
 /*****
  *
@@ -63,7 +63,7 @@ const Prompt = async () => {
 const Request = async (token) => {
     const Data = {
         Repositories: [],
-        API: { ... Globals },
+        API: {... Globals},
         Total: {
             Repositories: null
         }, Valid: null
@@ -90,12 +90,12 @@ const Request = async (token) => {
                     HTTPs: Repository.clone_url,
                     SSH: Repository.ssh_url
                 },
-                Public: ! Repository.private,
+                Public: !Repository.private,
                 Language: Repository.language,
                 Branch: {
                     HEAD: Repository.default_branch
                 }
-            })
+            });
         }
     );
 
@@ -107,7 +107,7 @@ const Request = async (token) => {
     ;
 
     return Data;
-}
+};
 
 /*****
  *
@@ -119,7 +119,7 @@ const Request = async (token) => {
 
 export const Main = async (token) => {
     return await Request(token);
-}
+};
 
 /*****
  *
@@ -141,4 +141,4 @@ export const Command = [
     ... Callable, []
 ];
 
-export default { Query: async (token) => await Main(token), Callable, Command };
+export default {Query: async (token) => await Main(token), Callable, Command};

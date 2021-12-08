@@ -1,0 +1,22 @@
+{
+    "name": "@cloud-technology/github",
+    "version": "0.0.1",
+    "description": "...",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "@cloud-technology/cli-prompt": "latest",
+        "@octokit/core": "latest",
+        "@octokit/rest": "latest",
+        "@octokit/request": "latest",
+        "@octokit/webhooks": "latest"
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "@octokit/types": "latest"
+    },
+    "license": "BSD-3-Clause"
+}
