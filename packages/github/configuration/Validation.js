@@ -12,18 +12,20 @@ export const Target = Path.join(Directory, "Settings.json");
 
 export const validate = () => {
     try {
-        Assertion.equal(FS.existsSync(Target), true, "Settings.json Not Found");
+        const Message = "Settings.json Not Found";
+        const Expectation = FS.existsSync(Target);
+
+        Assertion.equal(Expectation, true, Message);
     } catch ( error ) {
-        const $ = new Error("Settings.json Not Found");
+        const $ = new Error(Message);
 
         $.error = true;
+        $.module = import.meta.url;
 
         $.target = Target;
         $.namespace = File;
-        $.module = import.meta.url;
 
         $.name = "Settings-File-Not-Found-Error";
-        $.message = "Settings.json Not Found";
 
         const Throw = () => {
             throw $;
