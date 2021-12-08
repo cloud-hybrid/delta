@@ -1,3 +1,3 @@
-import { default as Users } from "./src/Users.js";
+import { default as Users } from "./src";
 
 console.log(Users);
