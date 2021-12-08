@@ -54,7 +54,9 @@
         "prop-types": "^15.7.2",
         "sass": "1.38.2",
         "source-map-explorer": "^2.5.2",
-        "web-vitals": "^2.1.2"
+        "web-vitals": "^2.1.2",
+        "@types/carbon-components": "^10.27.1",
+        "@types/carbon-components-react": "^7.46.1"
     },
     "browserslist": [
         "last 1 version"

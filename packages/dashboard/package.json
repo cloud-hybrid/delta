@@ -17,13 +17,9 @@
         "patch": "node Version.js --Increment --Write --Patch",
         "minor": "node Version.js --Increment --Write --Patch",
         "major": "node Version.js --Increment --Write --Patch",
-        "outdated": "node ./node_modules/.bin/npm-check-outdated",
         "build": "react-scripts build",
         "eject": "react-scripts eject",
-        "start": "react-scripts start",
-        "test": "react-scripts test",
-        "storybook": "start-storybook -p 6006 -s public",
-        "build-storybook": "build-storybook -s public"
+        "start": "react-scripts start"
     },
     "dependencies": {
         "@carbon/ibm-cloud-cognitive": "^0.99.0",
@@ -42,26 +38,12 @@
     "devDependencies": {
         "prop-types": "^15.7.2",
         "sass": "1.38.2",
+        "@types/carbon-components": "^10.27.1",
+        "@types/carbon-components-react": "^7.46.1",
         "source-map-explorer": "^2.5.2",
         "web-vitals": "^2.1.2"
     },
-    "lint-staged": {
-        "*.js": "eslint --cache --fix",
-        "*.{js,md,yml}": "prettier --write"
-    },
     "browserslist": [
         "last 1 version"
-    ],
-    "eslintConfig": {
-        "overrides": [
-            {
-                "files": [
-                    "**/*.stories.*"
-                ],
-                "rules": {
-                    "import/no-anonymous-default-export": "off"
-                }
-            }
-        ]
-    }
+    ]
 }
