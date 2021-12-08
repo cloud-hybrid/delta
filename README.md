@@ -4,7 +4,13 @@
 
 [...] (*Under Development*)
 
-## Updates ##
+## Workspace(s) ##
+
+```bash
+npm run start --workspace packages/api
+```
+
+## Updating NPM Dependencies ##
 
 In order to update all dependencies across all module(s) or package(s):
 
@@ -23,4 +29,3 @@ or
 ```bash
 npm outdated
 ```
-
