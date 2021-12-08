@@ -1,3 +1,7 @@
-import { default as Users } from "./src";
+import Process from "process";
 
-console.log(Users);
+import Data from "./src/index.js";
+
+const Normalized = JSON.stringify(Data, null, 4);
+
+Process.stdout.write(Normalized + "\n");

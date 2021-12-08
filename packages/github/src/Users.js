@@ -1,44 +1,73 @@
 import { Octokit } from "@octokit/core";
 
-import { Settings } from "./../configuration/index.js";
+import { Settings as Configuration } from "./../configuration/index.js";
 
+const Settings = Configuration["GitHub"];
 const Authentication = {
-    Organization: Settings.GitHub.Organization,
-    Token: Settings.GitHub.Token,
-    User: Settings.GitHub.User
+    Organization: Settings.Organization,
+    Token: Settings.Token,
+    User: Settings.User
 };
 
-const Users = async () => {
-    const Data = {
-        Members: [],
-        Total: -1,
-        Valid: null
-    };
+/***
+ *
+ * A simplified ***Virtual*** Proxy Object
+ *
+ * @external Snippet
+ *
+ *  - [ES2015 Definition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+ *  - [Considerations Around Polyfills](https://babeljs.io/docs/en/learn#proxies)
+ *      - Note: the following application shouldn't be implemented within a browser context; therefore,
+ *          the lack of polyfill(s) shouldn't be heeded.
+ *
+ * @see {@link https://gist.github.com/Segmentational/b00f525426538835b67c300dd58efbeb|Snippet}
+ *
+ * @constructor
+ * @typedef {[] | {total: Number, valid: Boolean}}
+ * @return {[] | {
+ *     total: Number,
+ *     valid: Boolean
+ * }}
+ *
+ */
+
+const Members = () => {
+    const $ = [];
+    $.prototype = Object.create({
+        total: -1,
+        valid: null
+    });
+
+    return $;
+};
+
+const Request = async () => {
+    const Structure = Members();
 
     const API = new Octokit({
         auth: Authentication.Token
     });
 
-    const Members = await API.request("GET /orgs/{org}/members", {
+    const Data = await API.request("/orgs/{org}/members", {
+        method: "GET",
         org: Authentication.Organization
-    });
+    }).then(($) => $["data"]);
 
-    Members.data.forEach((User, _) => {
-        Data.Members.push({
-            User
-        });
-    });
+    Data?.forEach((User, _) => { Structure.push(User); });
 
-    Data.Total = Data.Members.length;
+    Structure.total = Structure.length;
+    (Structure.total !== -1) ? Structure.valid = true
+        : Structure.valid = false;
 
-    (Data.Total !== 0) ? Data.Valid = true
-        : Data.Valid = false;
-
-    return Data;
+    return {
+        Members: Structure,
+        Total: Structure.total,
+        Valid: Structure.valid
+    };
 };
 
-export const Data = await Users();
+export const Data = await Request();
 
-export const Serial = JSON.stringify(await Users(), null, 4);
+export const Serial = JSON.stringify(Data, null, 4);
 
 export default Data;
