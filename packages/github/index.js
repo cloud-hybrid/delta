@@ -1,7 +1,12 @@
-import Process from "process";
+const Main = async () => await import("./src/index.js").then((Data) => {
+    const Buffer = process.stdout;
+    const Output = JSON.stringify(Data.Module, null, 4);
 
-import Data from "./src/index.js";
+    Buffer.write(Output + "\n");
 
-const Normalized = JSON.stringify(Data, null, 4);
+    return true;
+});
 
-Process.stdout.write(Normalized + "\n");
+await Main() && process.exit(0);
+
+process.exit(-1);
