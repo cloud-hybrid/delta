@@ -1,0 +1,15 @@
+{
+    "name": "@cloud-technology/subprocess-handler",
+    "version": "0.0.2",
+    "description": "Asynchronous Subprocess Spawner & Handler",
+    "main": "Start.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": "git+https://github.com/cloud-hybrid/subprocess-handler.git",
+    "author": "Jacob B. Sanders",
+    "license": "BSD-3-Clause",
+    "bin": {
+        "Spawn": "Start.js"
+    }
+}
