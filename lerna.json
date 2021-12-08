@@ -11,10 +11,7 @@
             "registry": "https://npm.pkg.github.com"
         },
         "bootstrap": {
-            "ignore": "",
-            "npmClientArgs": [
-                "--no-package-lock"
-            ]
+            "ignore": ""
         }
     },
     "packages": [
