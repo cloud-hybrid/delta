@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/secrets-management-service",
     "description": "...",
-    "version": "0.1.47",
+    "version": "0.1.74",
     "private": false,
     "repository": {
         "type": "git",
