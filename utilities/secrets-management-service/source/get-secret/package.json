@@ -2,7 +2,7 @@
     "name": "get-secret",
     "description": "...",
     "version": "0.1.4",
-    "private": true,
+    "private": false,
     "dependencies": {
         "@aws-sdk/client-secrets-manager": "^3.41.0",
         "@aws-sdk/client-dynamodb": "^3.41.0",
