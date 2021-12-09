@@ -110,10 +110,11 @@
     },
     "workspaces": {
         "packages": [
+            ".",
             "packages/*",
-            "."
+            "utilities/*"
         ],
-        "nohoist": []
+        "nohoist": [ ]
     },
     "pre-commit": [
         "info"
