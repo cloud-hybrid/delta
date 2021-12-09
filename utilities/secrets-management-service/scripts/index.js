@@ -10,7 +10,8 @@
 // │     └── package.json <-- ESM Compliant Package
 
 /***
- * @example $ node scripts/index.js --script Platform.js
+ * @example
+ * >>> node scripts/index.js --script Platform.js
  */
 
 import FS from "fs";
