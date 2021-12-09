@@ -1,5 +1,5 @@
 {
-    "name": "list-secrets",
+    "name": "@cloud-vault/list-secrets",
     "description": "...",
     "version": "0.1.4",
     "private": false,

@@ -1,5 +1,5 @@
 {
-    "name": "administration",
+    "name": "@cloud-vault/administration",
     "description": "...",
     "version": "0.1.4",
     "private": false,
