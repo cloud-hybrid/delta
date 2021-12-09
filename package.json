@@ -112,9 +112,9 @@
         "packages": [
             ".",
             "packages/*",
-            "utilities/*"
+            "utilities/**/*"
         ],
-        "nohoist": []
+        "nohoist": [ ]
     },
     "pre-commit": [
         "info"
