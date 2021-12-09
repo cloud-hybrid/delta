@@ -99,6 +99,7 @@
         "setup": "lerna run setup",
         "pretest": "eslint packages",
         "clean": "lerna clean --yes",
+        "node-lts": "source ~/.nvm/nvm.sh && nvm use --lts || true",
         "commit": "git commit --all --file - ",
         "push": "lerna version patch",
         "login": "npm adduser",
@@ -110,7 +111,7 @@
         "packages": [
             "packages/*"
         ],
-        "nohoist": []
+        "nohoist": [ ]
     },
     "dependencies": {
         "socket.io-client": "^4.4.0"
