@@ -68,8 +68,11 @@ import("./src/index.js").then(async ($) => {
     };
 
     HTTP.createServer(Application).listen(3080);
-    HTTPs.createServer(options, Application).listen(3443);
+    const Server = HTTPs.createServer(options, Application).listen(3443);
 
+    const Socket = await import("./src/library/socket.js");
+
+    Socket.Link(Server);
 }).finally(() => {
     console.debug("[Main] [Log]", "Starting API Server ...");
 });
