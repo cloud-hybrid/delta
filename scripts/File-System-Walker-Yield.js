@@ -39,13 +39,48 @@ export function * Walk(directory) {
     }
 }
 
-export const Container = (directory) => {
+function * files(path) {
+    if (!FS.lstatSync(path).isDirectory()) return null;
+
+    const files = FS.readdirSync(path, { withFileTypes: true });
+
+    for (const file of files) (!file.isDirectory()) ? yield Path.join(path, file.name) : null;
+}
+
+function * directories(path) {
+    if (!FS.lstatSync(path).isDirectory()) return null;
+
+    const files = FS.readdirSync(path, { withFileTypes: true });
+
+    for (const file of files) (file.isDirectory()) ? yield Path.join(path, file.name) : null;
+}
+
+export const Files = (path) => {
+    const $ = Object.create({
+        container: null
+    });
+
     const Data = [];
 
-    for (const $ of Walk(directory)) Data.push($);
+    for (const $ of files(path)) Data.push($);
 
-    return Data;
+    $.container = Data;
+
+    return $;
 };
 
-export default Container;
+export const Directories = (path) => {
+    const $ = Object.create({
+        container: null
+    });
 
+    const Data = [];
+
+    for (const $ of directories(path)) Data.push($);
+
+    $.container = Data;
+
+    return $;
+};
+
+export default Walk;
