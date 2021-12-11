@@ -39,10 +39,10 @@ export function * Walk(directory) {
     }
 }
 
-export const Container = () => {
+export const Container = (directory) => {
     const Data = [];
 
-    for (const $ of Walk(Process.cwd())) Data.push($);
+    for (const $ of Walk(directory)) Data.push($);
 
     return Data;
 };
