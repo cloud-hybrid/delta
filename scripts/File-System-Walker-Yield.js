@@ -39,6 +39,13 @@ export function * Walk(directory) {
     }
 }
 
-for (const $ of Walk(Process.cwd())) console.log($);
+export const Container = () => {
+    const Data = [];
 
-export default Walk;
+    for (const $ of Walk(Process.cwd())) Data.push($);
+
+    return Data;
+};
+
+export default Container;
+
