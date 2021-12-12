@@ -1,6 +1,6 @@
 {
   "name": "example-cli-prompt",
-  "version": "1.0.0",
+  "version": "0.1.76",
   "type": "module",
   "description": "...",
   "main": "index.js",
@@ -13,4 +13,3 @@
     "@cloud-technology/cli-prompt": "^0.0.3"
   }
 }
-

@@ -1,7 +1,7 @@
 {
     "name": "@cloud-vault/administration",
     "description": "...",
-    "version": "0.1.75",
+    "version": "0.1.76",
     "private": false,
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.41.0",
