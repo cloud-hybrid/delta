@@ -1,0 +1,15 @@
+{
+    "name": null,
+    "private": true,
+    "version": "0.0.0",
+    "description": null,
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "preinstall": "make install"
+    },
+    "repository": null,
+    "dependencies": null,
+    "devDependencies": {},
+    "workspaces": []
+}
