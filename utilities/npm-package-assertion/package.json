@@ -1,0 +1,10 @@
+{
+    "name": "@cloud-technology/npm-package-assertion",
+    "description": "NPM Runtime Assertion",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    }
+}

@@ -2,7 +2,6 @@
     "name": "@cloud-technology/schema-cli",
     "version": "0.1.71",
     "description": "CLI Prompt(s) for https://schemastore.org Resource Definitions",
-    "module": true,
     "type": "module",
     "scripts": {
         "test": "node library/unit-tests.js",
@@ -14,9 +13,12 @@
     },
     "dependencies": {
         "ajv": "^8.8.2",
-        "json-schema": "^0.4.0"
+        "@cloud-technology/package": "./../cloud-vault-package"
     },
     "devDependencies": {
         "@types/node": "^16.11.11"
+    },
+    "configuration": {
+
     }
 }

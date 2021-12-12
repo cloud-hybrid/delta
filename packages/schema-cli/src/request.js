@@ -5,7 +5,7 @@ import * as HTTPs from "https";
  * @param host {string}
  * @param port {number}
  * @param path {string}
- * @param method {string| "GET" | "POST" | "..."}
+ * @param method {string}
  *
  * @returns {{rejectUnauthorized: boolean, path, agent: boolean, method, port, requestCert: boolean, host}}
  *
@@ -28,7 +28,7 @@ export const Configuration = (host, path, method = "GET", port = 443) => {
 /***
  *
  * @param settings {Configuration}
- * @param headers {{}}
+ * @param headers {any}
  * @return {Promise<{Status: any, Message: any, Headers: any, Method: any, URL: any, Response: any}>}
  * @constructor
  */

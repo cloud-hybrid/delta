@@ -1,0 +1,10 @@
+{
+    "Organization": "Cloud-Vault",
+    "Environments": [
+        "Development",
+        "QA",
+        "Staging",
+        "UAT",
+        "Production"
+    ]
+}

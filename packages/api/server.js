@@ -2,6 +2,12 @@ import FS from "fs";
 import Path from "path";
 import Process from "process";
 
+import { Initializer as Error } from "./src/utilities/error.js";
+
+const t = Error("Message", "Generic");
+
+console.log(t.throw());
+
 import HTTP from "http";
 import HTTPs from "https";
 
