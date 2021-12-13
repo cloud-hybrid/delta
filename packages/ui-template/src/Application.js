@@ -61,7 +61,9 @@ const Application = () => {
 
         Token(Authorization).catch((e) => {
             console.warn("[Warning]", "Authentication (Application) Authorization Error");
-            throw new Error(JSON.stringify(e, null, 4));
+            console.warn(e);
+            throw e;
+            //            throw new Error(JSON.stringify(e, null, 4));
         });
     }, []);
 

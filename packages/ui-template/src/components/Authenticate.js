@@ -6,7 +6,6 @@ import { Navigate } from "react-router-dom";
 import { Validator } from "./../components/Loader";
 
 const Request = require("axios");
-const Adapter = require("axios-cache-adapter");
 const Forage = require("localforage");
 
 const NAME = "Nexus-UI";
@@ -25,23 +24,24 @@ export const Store = Forage.createInstance({
     driver: Forage.INDEXEDDB
 });
 
-const Cache = Adapter.setupCache({
-    debug: (process.env.NODE_ENV !== "production"),
-    // clearOnStale: true,
-    clearOnStale: false,
-    ignoreCache: false,
-    limit: false,
-    // clearOnError: true,
-    clearOnError: false,
-    readHeaders: true,
-    readOnError: true,
-    maxAge: 5 * 60 * 1000,
-    store: Store
-});
+// const Adapter = require("axios-cache-adapter");
+// const Cache = Adapter.setupCache({
+//     debug: (process.env.NODE_ENV !== "production"),
+//     // clearOnStale: true,
+//     clearOnStale: false,
+//     ignoreCache: false,
+//     limit: false,
+//     // clearOnError: true,
+//     clearOnError: false,
+//     readHeaders: true,
+//     readOnError: true,
+//     maxAge: 5 * 60 * 1000,
+//     store: Store
+// });
 
 export const API = Request.create({
-    adapter: Cache.adapter,
-    cache: Cache
+    //    adapter: Cache.adapter,
+    //    cache: Cache
 });
 
 /***
@@ -137,7 +137,7 @@ export const JWT = async () => {
     console.debug("[Debug] Indexing Session Storage" + ":", STORE);
     const Token = await Store.getItem(STORE);
     console.debug("[Debug] Session Token" + ":", Token);
-    
+
     return Token;
 };
 

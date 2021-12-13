@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { default as $, Enumeration } from "./button.js";
-import { Loading } from "carbon-components-react";
-
+//import { Loading } from "carbon-components-react";
+import { Loading } from "@carbon/react";
 import classnames from "classnames";
 
 import { default as settings } from "./../../settings/Configuration.js";

@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 
 import * as Styles from "./SCSS/Index.module.scss";
 
-import { default as Button } from "./../../components/Button";
+//import { default as Button } from "./../../components/Button";
+
+import { Button } from "@carbon/react";
 
 import {
     Application,
@@ -16,7 +18,7 @@ import {
     Row,
     Grid,
     Tab,
-    Tabs
+    Tabs, TabsSkeleton, TabContent, ContentSwitcher, Switch
 } from "@carbon/react";
 
 import { default as Selectable } from "./../../components/Tile-Mutli-Select";
@@ -98,109 +100,140 @@ const Component = () => (
                     <h1 className={ Styles["home-heading"] }>
                         Design &amp; Engineering
                     </h1>
-                </Column>
-            </Row>
-            <Row>
-                <Column className={ Styles["home-row-2"] }>
-                    <Tabs
-                        aria-label="Tab Navigation"
-                        className={ Styles.navigators }
-                    >
-                        <Tab label="Overview" className={ Styles.navigation }>
-                            <Grid fullWidth={ true }>
-                                <Column
-                                    md={ 4 }
-                                    lg={ 7 }
-                                    sm={ 4 }
-                                >
-                                    <h2 className={ Styles["home-subheading"] }>
-                                        Foster Innovation
-                                    </h2>
-                                    <p className={ Styles["home-paragraph"] }>
-                                        Nexus is a managed cloud service & provided software library that interface(s)
-                                        community-driven APIs and extends IBM’s open-source design system
-                                        to create an easy-to-use and engaging experience.
-                                    </p>
-                                    <Button>
-                                        Learn more
-                                    </Button>
-                                </Column>
-                                <Column
-                                    md={ 4 }
-                                    lg={ { span: 8, offset: 7 } }
-                                    sm={ 4 }
-                                >
-                                    <img
-                                        className={ Styles["home-primary-image"] }
-                                        src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }
-                                        alt="Carbon illustration"
-                                    />
-                                </Column>
-                            </Grid>
-                        </Tab>
-                        <Tab label="Design" className={ Styles.navigation }>
-                            <Grid fullWidth={ true }>
-                                <Column
-                                    md={ 4 }
-                                    lg={ 7 }
-                                    sm={ 4 }
-                                >
-                                    <h2 className={ Styles["home-subheading"] }>
-                                        Express Creativeness
-                                    </h2>
-                                    <p className={ Styles["home-paragraph"] }>
-                                        Catered for both the engineer or the artisan - users in need of a new platform will find Nexus a suitable replacement
-                                        for their business & engineering requirements.
-                                    </p>
-                                    <Button>Learn more</Button>
-                                </Column>
-                                <Column
-                                    md={ 4 }
-                                    lg={ { span: 8, offset: 7 } }
-                                    sm={ 4 }
-                                >
-                                    <img
-                                        className={ Styles["home-primary-image"] }
-                                        src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }
-                                        alt="Carbon illustration"
-                                    />
-                                </Column>
-                            </Grid>
-                        </Tab>
-                        <Tab label="Development" className={ Styles.navigation }>
-                            <Grid fullWidth={ true }>
-                                <Column
-                                    md={ 4 }
-                                    lg={ 7 }
-                                    sm={ 4 }
-                                >
-                                    <h2 className={ Styles["home-subheading"] }>
-                                        Standardize Automation
-                                    </h2>
-                                    <p className={ Styles["home-paragraph"] }>
-                                        With strong automation-first design principals & intuitive web UIs, eliminate repetitive
-                                        business procedures or engineering related technical debt through simple and easy-to-understand
-                                        workflows.
-                                    </p>
-                                    <Button>Learn more</Button>
-                                </Column>
-                                <Column
-                                    md={ 4 }
-                                    lg={ { span: 8, offset: 7 } }
-                                    sm={ 4 }
-                                >
-                                    <img
-                                        className={ Styles["home-primary-image"] }
-                                        src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }
-                                        alt="Carbon illustration"
-                                    />
-                                </Column>
-                            </Grid>
-                        </Tab>
-                    </Tabs>
+                    <Grid fullWidth={ true }>
+                        <Column
+                            md={ 4 }
+                            lg={ 7 }
+                            sm={ 4 }
+                        >
+                            <h2 className={ Styles["home-subheading"] }>
+                                Foster Innovation
+                            </h2>
+                            <p className={ Styles["home-paragraph"] }>
+                                Nexus is a managed cloud service & provided software library that interface(s)
+                                community-driven APIs and extends IBM’s open-source design system
+                                to create an easy-to-use and engaging experience.
+                            </p>
+                            <Button>
+                                Learn more
+                            </Button>
+                        </Column>
+                        <Column
+                            md={ 4 }
+                            lg={ { span: 8, offset: 7 } }
+                            sm={ 4 }
+                        >
+                            <img
+                                className={ Styles["home-primary-image"] }
+                                src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }
+                                alt="Carbon illustration"
+                            />
+                        </Column>
+                    </Grid>
                 </Column>
             </Row>
         </Row>
+        {/*<Row>*/ }
+        {/*<Column className={ Styles["home-row-2"] }>*/ }
+        {/*    <Tabs type={ "default" }*/ }
+        {/*        aria-label="Tab Navigation"*/ }
+        {/*        className={ Styles.navigators }*/ }
+        {/*    >*/ }
+        {/*        <Tab label="Overview" className={ Styles.navigation }>*/ }
+        {/*            <Grid fullWidth={ true }>*/ }
+        {/*                <Column*/ }
+        {/*                    md={ 4 }*/ }
+        {/*                    lg={ 7 }*/ }
+        {/*                    sm={ 4 }*/ }
+        {/*                >*/ }
+        {/*                    <h2 className={ Styles["home-subheading"] }>*/ }
+        {/*                        Foster Innovation*/ }
+        {/*                    </h2>*/ }
+        {/*                    <p className={ Styles["home-paragraph"] }>*/ }
+        {/*                        Nexus is a managed cloud service & provided software library that interface(s)*/ }
+        {/*                        community-driven APIs and extends IBM’s open-source design system*/ }
+        {/*                        to create an easy-to-use and engaging experience.*/ }
+        {/*                    </p>*/ }
+        {/*                    <Button>*/ }
+        {/*                        Learn more*/ }
+        {/*                    </Button>*/ }
+        {/*                </Column>*/ }
+        {/*                <Column*/ }
+        {/*                    md={ 4 }*/ }
+        {/*                    lg={ { span: 8, offset: 7 } }*/ }
+        {/*                    sm={ 4 }*/ }
+        {/*                >*/ }
+        {/*                    <img*/ }
+        {/*                        className={ Styles["home-primary-image"] }*/ }
+        {/*                        src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }*/ }
+        {/*                        alt="Carbon illustration"*/ }
+        {/*                    />*/ }
+        {/*                </Column>*/ }
+        {/*            </Grid>*/ }
+        {/*        </Tab>*/ }
+        {/*        <Tab label="Design" className={ Styles.navigation }>*/ }
+        {/*            <Grid fullWidth={ true }>*/ }
+        {/*                <Column*/ }
+        {/*                    md={ 4 }*/ }
+        {/*                    lg={ 7 }*/ }
+        {/*                    sm={ 4 }*/ }
+        {/*                >*/ }
+        {/*                    <h2 className={ Styles["home-subheading"] }>*/ }
+        {/*                        Express Creativeness*/ }
+        {/*                    </h2>*/ }
+        {/*                    <p className={ Styles["home-paragraph"] }>*/ }
+        {/*                        Catered for both the engineer or the artisan - users in need of a new platform will find Nexus a suitable replacement*/ }
+        {/*                        for their business & engineering requirements.*/ }
+        {/*                    </p>*/ }
+        {/*                    <Button>Learn more</Button>*/ }
+        {/*                </Column>*/ }
+        {/*                <Column*/ }
+        {/*                    md={ 4 }*/ }
+        {/*                    lg={ { span: 8, offset: 7 } }*/ }
+        {/*                    sm={ 4 }*/ }
+        {/*                >*/ }
+        {/*                    <img*/ }
+        {/*                        className={ Styles["home-primary-image"] }*/ }
+        {/*                        src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }*/ }
+        {/*                        alt="Carbon illustration"*/ }
+        {/*                    />*/ }
+        {/*                </Column>*/ }
+        {/*            </Grid>*/ }
+        {/*        </Tab>*/ }
+        {/*        <Tab label="Development" className={ Styles.navigation }>*/ }
+        {/*            <Grid fullWidth={ true }>*/ }
+        {/*                <Column*/ }
+        {/*                    md={ 4 }*/ }
+        {/*                    lg={ 7 }*/ }
+        {/*                    sm={ 4 }*/ }
+        {/*                >*/ }
+        {/*                    <h2 className={ Styles["home-subheading"] }>*/ }
+        {/*                        Standardize Automation*/ }
+        {/*                    </h2>*/ }
+        {/*                    <p className={ Styles["home-paragraph"] }>*/ }
+        {/*                        With strong automation-first design principals & intuitive web UIs, eliminate repetitive*/ }
+        {/*                        business procedures or engineering related technical debt through simple and easy-to-understand*/ }
+        {/*                        workflows.*/ }
+        {/*                    </p>*/ }
+        {/*                    <Button>Learn more</Button>*/ }
+        {/*                </Column>*/ }
+        {/*                <Column*/ }
+        {/*                    md={ 4 }*/ }
+        {/*                    lg={ { span: 8, offset: 7 } }*/ }
+        {/*                    sm={ 4 }*/ }
+        {/*                >*/ }
+        {/*                    <img*/ }
+        {/*                        className={ Styles["home-primary-image"] }*/ }
+        {/*                        src={ process.env.PUBLIC_URL + "/Isometric.jpeg" }*/ }
+        {/*                        alt="Carbon illustration"*/ }
+        {/*                    />*/ }
+        {/*                </Column>*/ }
+        {/*            </Grid>*/ }
+        {/*        </Tab>*/ }
+        {/*    </Tabs>*/ }
+        {/*</Column>*/ }
+        {/*</Row>*/ }
+        {/*// </Row>*/ }
         <Column lg={ 16 } md={ 8 } sm={ 4 } className={ Styles["home-row-3"] }>
             <Sectional heading="The Principles" className={ Styles["home-row-3"] }>
                 <Card

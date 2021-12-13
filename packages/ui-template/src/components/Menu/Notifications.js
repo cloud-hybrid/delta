@@ -1,6 +1,10 @@
+//import { NotificationsPanel } from "@carbon/ibm-products";
+//
+//import "@carbon/ibm-products/css/index-without-carbon.css";
+
 import { NotificationsPanel } from "@carbon/ibm-cloud-cognitive";
 
-import "@carbon/ibm-cloud-cognitive/css/index-without-carbon.min.css";
+import "@carbon/ibm-cloud-cognitive/css/index-without-carbon.css";
 
 import "./SCSS/Notification.scss";
 
@@ -78,7 +82,7 @@ const Component = ({ State }) => {
 
             onClickOutside={ () => {
                 console.debug("[Debug]", "Notifications", "Event: Click Outside");
-//                State[1](false);
+                //                State[1](false);
             } }
             onDismissAllNotifications={ () => {
                 console.debug("[Debug]", "Notifications", "Event: Dismiss All");

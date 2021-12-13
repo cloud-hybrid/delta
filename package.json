@@ -49,7 +49,6 @@
         "@types/react-router-dom": "^5.3.2",
         "@types/react-table": "^7.7.8",
         "@types/serve-static": "^1.13.10",
-        "@types/webpack-sources": "^3.2.0",
         "@typescript-eslint/eslint-plugin": "^5.4.0",
         "@typescript-eslint/parser": "^5.4.0",
         "axios": "^0.21.1",
@@ -65,7 +64,6 @@
         "compression": "^1.7.4",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.3",
-        "eslint-plugin-jest": "^25.2.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.27.0",
@@ -73,9 +71,9 @@
         "express": "^5.0.0-alpha.8",
         "focus-visible": "^5.2.0",
         "history": "^5.1.0",
-        "jest-styled-components": "^7.0.6",
         "json-server": "^0.17.0",
         "lerna": "^4.0.0",
+        "lerna-cli": "^5.0.1",
         "localforage": "^1.10.0",
         "lodash.throttle": "^4.1.1",
         "mongodb": "^4.2.0",
@@ -95,8 +93,9 @@
         "web-vitals": "^2.1.2"
     },
     "scripts": {
-        "bootstrap": "lerna bootstrap --hoist",
         "rm-locks": "find . -type f -name \"package-lock.json\" -delete",
+        "rm-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+        "rm-aws-sam": "find . -name '.aws-sam' -type d -prune -exec rm -rf '{}' +",
         "setup": "lerna run setup",
         "pretest": "eslint packages",
         "clean": "lerna clean --yes",
@@ -114,7 +113,7 @@
             "packages/*",
             "utilities/**/*"
         ],
-        "nohoist": []
+        "nohoist": [ ]
     },
     "pre-commit": [
         "info"
