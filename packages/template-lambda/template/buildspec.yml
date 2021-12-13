@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+    #    install:
+    #        commands:
+    #            - npm install --production
+    #    pre_build:
+    #        commands:
+    #            - npm install --production --workspace packages/example-1
+    #            - npm install --production --workspace packages/administration
+    #            - npm install --production --workspace packages/list-secrets
+    #            - npm install --production --workspace packages/get-secret
+    build:
+        commands:
+            - sam build --config-file configuration.toml
+#    deploy:
+#        commands:
+#            - npm install --production --workspace packages/example-1
+#            - npm install --production --workspace packages/administration
+#            - npm install --production --workspace packages/list-secrets
+#            - npm install --production --workspace packages/get-secret
+
+artifacts:
+    files:
+        - packaged-template.yml
+
+#artifacts:
+#    type: zip
+#    files:
+#        - template-export.yml

@@ -1,0 +1,15 @@
+node_modules
+.aws-sam
+.DS_Store
+
+*.local
+*.env.local
+*.env.*.local
+
+packaged.yaml
+
+!configuration.toml
+!buildspec.yml
+!template.yaml
+
+!configuration.json

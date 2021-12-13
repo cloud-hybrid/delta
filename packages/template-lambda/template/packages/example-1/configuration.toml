@@ -1,0 +1,38 @@
+version = 0.1
+
+[default]
+
+[default.build]
+[default.build.parameters]
+profile = "default"
+debug = true
+skip_pull_image = false
+no_beta_features = false
+use_container = true
+
+[default.package]
+[default.package.parameters]
+profile = "default"
+resolve_s3 = true
+region = "us-east-2"
+debug = true
+output_template_file = "packaged.yaml"
+
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "test-security-stack"
+debug = true
+resolve_s3 = true
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+region = "us-east-2"
+profile = "default"
+
+[default.delete]
+[default.delete.parameters]
+no_prompt = true
+resolve_s3 = true
+prompt = false
+stack_name = "test-stack-function"
+debug = true
+region = "us-east-2"
+profile = "default"

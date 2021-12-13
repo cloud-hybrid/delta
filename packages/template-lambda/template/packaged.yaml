@@ -1,0 +1,184 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: '...
+
+  '
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Logging:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName:
+        Fn::Sub: ${AWS::StackName}-Service-Level-Log-Group
+  Test:
+    DependsOn:
+    - Logging
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:
+        Fn::Join:
+        - '-'
+        - - Organization
+          - Environment
+          - Lambda
+          - Example-1
+          - Secret-Service
+      Description: '...'
+      Handler:
+        Fn::Join:
+        - /
+        - - src
+          - index.handler
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-722t6cej2kdy/6810b13db9f170d176ec65647f87279d
+      MemorySize: 128
+      Timeout: 30
+      Tags:
+        Log-Group:
+          Ref: Logging
+      Runtime: nodejs14.x
+      Environment:
+        Variables:
+          AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+      Events:
+        API:
+          Type: HttpApi
+          Properties:
+            Path: /api/example-1
+            Method: GET
+  Administration:
+    DependsOn:
+    - Logging
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:
+        Fn::Join:
+        - '-'
+        - - Organization
+          - Environment
+          - Lambda
+          - Administration
+          - Secret-Service
+      Description: '...'
+      Handler:
+        Fn::Join:
+        - /
+        - - src
+          - index.handler
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-722t6cej2kdy/e7ba76439679adbf8dd94805ec36ad57
+      MemorySize: 128
+      Timeout: 30
+      Tags:
+        Log-Group:
+          Ref: Logging
+      Runtime: nodejs14.x
+      Environment:
+        Variables:
+          AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetResourcePolicy
+          - secretsmanager:DescribeSecret
+          - secretsmanager:ListSecretVersionIds
+          - secretsmanager:ListSecrets
+          Resource: '*'
+      Events:
+        API:
+          Type: HttpApi
+          Properties:
+            Path: /api/administration
+            Method: GET
+  List:
+    DependsOn:
+    - Logging
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:
+        Fn::Join:
+        - '-'
+        - - Organization
+          - Environment
+          - Lambda
+          - List-Secrets
+          - Secret-Service
+      Description: '...'
+      Handler:
+        Fn::Join:
+        - /
+        - - src
+          - index.handler
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-722t6cej2kdy/293e2c0d0daf4a021c2c79d690df56af
+      MemorySize: 128
+      Timeout: 30
+      Tags:
+        Log-Group:
+          Ref: Logging
+      Runtime: nodejs14.x
+      Environment:
+        Variables:
+          AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetResourcePolicy
+          - secretsmanager:DescribeSecret
+          - secretsmanager:ListSecretVersionIds
+          - secretsmanager:ListSecrets
+          Resource: '*'
+      Events:
+        API:
+          Type: HttpApi
+          Properties:
+            Path: /api/list-secrets
+            Method: GET
+  Get:
+    DependsOn:
+    - Logging
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:
+        Fn::Join:
+        - '-'
+        - - Organization
+          - Environment
+          - Lambda
+          - Get-Secret
+          - Secret-Service
+      Description: '...'
+      Handler:
+        Fn::Join:
+        - /
+        - - src
+          - index.handler
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-722t6cej2kdy/72bed2cdf66572ed1bc50f24097bf281
+      MemorySize: 128
+      Timeout: 30
+      Tags:
+        Log-Group:
+          Ref: Logging
+      Runtime: nodejs14.x
+      Environment:
+        Variables:
+          AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetResourcePolicy
+          - secretsmanager:DescribeSecret
+          - secretsmanager:ListSecretVersionIds
+          - secretsmanager:ListSecrets
+          Resource: '*'
+      Events:
+        API:
+          Type: HttpApi
+          Properties:
+            Path: /api/get-secret
+            Method: GET

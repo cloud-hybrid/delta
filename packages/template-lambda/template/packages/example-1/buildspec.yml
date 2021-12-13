@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+    install:
+        commands:
+            - "rm -r -f node_modules"
+            - "rm -r -f .aws-sam"
+            - "sleep 5.0"
+            - "npm install --production"
+    pre_build:
+        commands:
+            - "rm -r -f node_modules"
+            - "rm -r -f .aws-sam"
+            - "sleep 5.0"
+    build:
+        commands:
+            - "sam validate --template .aws-sam/build/template.yaml"
+            - "npm install --quiet --no-audit --no-save --production --unsafe-perm"
+            - "sam package --template-file template.yaml --s3-resolve --output-template-file packaged-template.yml"
+
+    deploy:
+        commands:
+            - "echo \"Deploying ...\""
+
+artifacts:
+    files:
+        - packaged-template.yml
+
+cache:
+    paths: [ ]

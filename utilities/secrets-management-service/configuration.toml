@@ -17,5 +17,5 @@ capabilities = [
 # --> tags = ""
 
 [default.build.parameters]
-container_env_var_file = "env.json"
+container_env_var_file = "configuration.json"
 no_beta_features = false

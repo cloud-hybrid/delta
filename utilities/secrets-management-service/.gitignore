@@ -1,3 +1,13 @@
 node_modules
 .aws-sam
 .DS_Store
+
+*.local
+*.env.local
+*.env.*.local
+
+!configuration.toml
+!buildspec.yml
+!template.yaml
+
+!configuration.json

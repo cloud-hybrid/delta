@@ -64,7 +64,7 @@ async def getPages(Lock: asyncio.Semaphore):
 
     try:
         # request = urllib.request.Request(
-        #     "https://gitlab.mycapstone.com"
+        #     "https://gitlab.[organization-name].com"
         #         + "/api/v4/projects",
         #     headers = {
         #         "Authorization": "Bearer {0}".format(
@@ -75,7 +75,7 @@ async def getPages(Lock: asyncio.Semaphore):
 
         async with httpx.AsyncClient(http2 = True) as client:
             response: httpx.Client = await client.post(
-                "https://gitlab.mycapstone.com"
+                "https://gitlab.[organization-name].com"
                     + "/api/v4/projects",
                 headers = {
                     "Authorization": "Bearer {0}".format(
@@ -93,7 +93,7 @@ async def getPages(Lock: asyncio.Semaphore):
         # while page < Integer(response.headers["X-Total-Pages"]):
         #     page += 1
         #     request = urllib.request.Request(
-        #         "https://gitlab.mycapstone.com"
+        #         "https://gitlab.[organization-name].com"
         #             + "/api/v4/projects?"
         #         + "page={0}".format(page),
         #         headers = {
@@ -112,7 +112,7 @@ async def getPages(Lock: asyncio.Semaphore):
 
             async with httpx.AsyncClient(http2 = True) as client:
                 response: httpx.Client = await client.post(
-                    "https://gitlab.mycapstone.com"
+                    "https://gitlab.[organization-name].com"
                         + "/api/v4/projects?"
                     + "page={0}".format(page),
                     headers = {
@@ -163,7 +163,7 @@ async def getProjects():
 
     try:
         # request = urllib.request.Request(
-        #     "https://gitlab.mycapstone.com"
+        #     "https://gitlab.[organization-name].com"
         #         + "/api/v4/projects?private_token={0}".format("z3_p1ZmcHzpyoAACzRfG"),
         #     headers = {
         #         "PRIVATE-TOKEN": "{0}".format(
@@ -178,7 +178,7 @@ async def getProjects():
 
         Client = httpx.AsyncClient()
         req = await Client.get(
-            "https://gitlab.mycapstone.com"
+            "https://gitlab.[organization-name].com"
                 + "/api/v4/projects?private_token={0}".format("z3_p1ZmcHzpyoAACzRfG")
         )
 
@@ -207,7 +207,7 @@ async def getProjects():
         while page < Integer(response.headers["X-Total-Pages"]):
             page += 1
             request = urllib.request.Request(
-                "https://gitlab.mycapstone.com"
+                "https://gitlab.[organization-name].com"
                     + "/api/v4/projects?"
                 + "page={0}".format(page),
                 # headers = {
@@ -226,7 +226,7 @@ async def getProjects():
         #
         #     async with httpx.AsyncClient() as client:
         #         response: httpx.Client = await client.post(
-        #             "https://gitlab.mycapstone.com"
+        #             "https://gitlab.[organization-name].com"
         #                 + "/api/v4/projects?"
         #             + "page={0}".format(page),
         #             headers = {
@@ -361,7 +361,7 @@ class HTTP(Request):
         try:
             Client = httpx.AsyncClient()
             Request = await Client.get(
-                "https://gitlab.mycapstone.com"
+                "https://gitlab.[organization-name].com"
                     + "/api/v4/projects?private_token={0}".format(API.Git.Base.Lab.Default)
             )
 
@@ -372,7 +372,7 @@ class HTTP(Request):
 
             for Page in range(Current, Total):
                 Request = await Client.get(
-                    "https://gitlab.mycapstone.com"
+                    "https://gitlab.[organization-name].com"
                         + "/api/v4/projects?private_token={0}&page={1}".format(API.Git.Base.Lab.Default, Page)
                 )
 

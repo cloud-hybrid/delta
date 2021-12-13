@@ -1,0 +1,44 @@
+version = 0.1
+
+[default]
+
+[default.build]
+[default.build.parameters]
+profile = "default"
+region = "us-east-2"
+debug = true
+stack_name = "POC-Lambda-Service-Mono-Deployment-Stack"
+template = "template.yaml"
+resolve_s3 = true
+skip_pull_image = false
+no_beta_features = false
+use_container = true
+
+[default.package]
+[default.package.parameters]
+profile = "default"
+region = "us-east-2"
+debug = true
+stack_name = "POC-Lambda-Service-Mono-Deployment-Stack"
+template = "template.yaml"
+resolve_s3 = true
+output_template_file = "packaged.yaml"
+
+[default.deploy]
+[default.deploy.parameters]
+profile = "default"
+region = "us-east-2"
+debug = true
+stack_name = "POC-Lambda-Service-Mono-Deployment-Stack"
+template = "packaged.yaml"
+resolve_s3 = true
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+
+[default.delete]
+[default.delete.parameters]
+profile = "default"
+region = "us-east-2"
+debug = true
+stack_name = "POC-Lambda-Service-Mono-Deployment-Stack"
+template = "packaged.yaml"
+resolve_s3 = true
