@@ -1,6 +1,6 @@
 {
   "name": "example-cli-prompt",
-  "version": "0.1.76",
+  "version": "0.1.77",
   "type": "module",
   "description": "...",
   "main": "index.js",

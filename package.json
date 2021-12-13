@@ -4,7 +4,7 @@
     "type": "module",
     "license": "BSD-3-Clause",
     "readme": "README.md",
-    "version": "0.1.76",
+    "version": "0.1.77",
     "repository": "git+https://github.com/cloud-hybrid/delta.git",
     "devDependencies": {
         "@babel/cli": "^7.16.0",
@@ -113,7 +113,7 @@
             "packages/*",
             "utilities/**/*"
         ],
-        "nohoist": [ ]
+        "nohoist": []
     },
     "pre-commit": [
         "info"
