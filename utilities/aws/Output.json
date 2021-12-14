@@ -1,0 +1,52 @@
+{
+    "Command": {
+        "CommandId": "89c8f123-9f77-4c0d-ab1b-b780052fa261",
+        "DocumentName": "AWS-RunShellScript",
+        "DocumentVersion": "1",
+        "Comment": "",
+        "ExpiresAfter": "2021-12-14T14:39:15.707000-06:00",
+        "Parameters": {
+            "commands": [
+                "echo \"hello world\""
+            ],
+            "executionTimeout": [
+                "3600"
+            ],
+            "workingDirectory": [
+                ""
+            ]
+        },
+        "InstanceIds": [],
+        "Targets": [
+            {
+                "Key": "InstanceIds",
+                "Values": [
+                    "i-010253f2bda225c92"
+                ]
+            }
+        ],
+        "RequestedDateTime": "2021-12-14T13:29:15.707000-06:00",
+        "Status": "Pending",
+        "StatusDetails": "Pending",
+        "OutputS3Region": "us-east-2",
+        "OutputS3BucketName": "capstone-test-deployment",
+        "OutputS3KeyPrefix": "",
+        "MaxConcurrency": "50",
+        "MaxErrors": "0",
+        "TargetCount": 0,
+        "CompletedCount": 0,
+        "ErrorCount": 0,
+        "DeliveryTimedOutCount": 0,
+        "ServiceRole": "",
+        "NotificationConfig": {
+            "NotificationArn": "",
+            "NotificationEvents": [],
+            "NotificationType": ""
+        },
+        "CloudWatchOutputConfig": {
+            "CloudWatchLogGroupName": "",
+            "CloudWatchOutputEnabled": true
+        },
+        "TimeoutSeconds": 600
+    }
+}
