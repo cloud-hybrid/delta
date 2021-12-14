@@ -1,25 +1,54 @@
 {
     "compilerOptions": {
-        "allowJs": false,
+        "allowJs": true,
+        "alwaysStrict": true,
+        "charset": "utf8",
+        "experimentalDecorators": true,
+        "incremental": true,
+        "inlineSourceMap": true,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": false,
+        "outDir": "@Types",
+        "declaration": true,
+        "listEmittedFiles": true,
+        "emitDeclarationOnly": false,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "noImplicitThis": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "resolveJsonModule": true,
+        "declarationMap": true,
+        "strictFunctionTypes": false,
+        "useUnknownInCatchVariables": false,
+        "baseUrl": ".",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
+        "forceConsistentCasingInFileNames": false,
         "lib": [
             "dom",
-            "esnext"
+            "esnext",
+            "es2019"
         ],
         "module": "esnext",
         "moduleResolution": "node",
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
         "preserveConstEnums": true,
         "pretty": true,
         "removeComments": false,
-        "resolveJsonModule": true,
         "skipLibCheck": true,
-        "sourceMap": true,
         "jsx": "react",
-        "strict": true,
-        "target": "esnext"
-    }
+        "strict": false,
+        "target": "esnext",
+        "sourceRoot": ".",
+        "paths": {}
+    },
+    "include": [
+        "./cloud"
+    ],
+    "exclude": [
+        "*/**/node_modules",
+        "*/**/unit-testing",
+        "*/**/__tests__",
+        "*/**/@Types"
+    ]
 }

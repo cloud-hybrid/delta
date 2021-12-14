@@ -1,0 +1,9 @@
+.activity {
+  min-width: 110px;
+}
+.activity .paragraph {
+  display: inline-flex;
+  min-width: max-content;
+}
+
+/*# sourceMappingURL=Activity.module.css.map */

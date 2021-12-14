@@ -1,0 +1,14 @@
+.io-dashboard-control-primary-content {
+  transition-property: margin-left;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.2, 0.2, 0.38, 0.9);
+}
+.io-dashboard-control-primary-content .bx--side-nav ~ .bx--content {
+  padding-top: 3rem;
+}
+
+.bx--content.io-dashboard-control-primary-content {
+  padding-top: 3rem;
+}
+
+/*# sourceMappingURL=Content.css.map */

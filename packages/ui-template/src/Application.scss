@@ -50,36 +50,36 @@ th, tr, td {
 }
 
 // Menu Notification Border
-.exp--notifications-panel__container .exp--notifications-panel__notification:focus {
+.c4p--notifications-panel__container .c4p--notifications-panel__notification:focus {
     //box-shadow: inset 0 0 0 2px var(--cds-focus),inset 0 0 0 2px var(--cds-focus);
 }
 
-.exp--notifications-panel__container .exp--notifications-panel__notification-today:not(:first-of-type):before, .exp--notifications-panel__container .exp--notifications-panel__notification-yesterday:not(:first-of-type):before, .exp--notifications-panel__container .exp--notifications-panel__notification-previous:not(:first-of-type):before {
+.c4p--notifications-panel__container .c4p--notifications-panel__notification-today:not(:first-of-type):before, .c4p--notifications-panel__container .c4p--notifications-panel__notification-yesterday:not(:first-of-type):before, .c4p--notifications-panel__container .c4p--notifications-panel__notification-previous:not(:first-of-type):before {
     top: 0.295rem;
 }
 
-.exp--notifications-panel__settings-button {
+.c4p--notifications-panel__settings-button {
     .cds--btn__icon {
         margin-left: 0.0rem;
     }
 }
 
 // Menu Notifications Label
-.exp--notifications-panel__container {
-    .exp--notifications-panel__time-section-label {
+.c4p--notifications-panel__container {
+    .c4p--notifications-panel__time-section-label {
         z-index:  1;
         position: absolute;
         width:    100%;
         top:      6.5rem;
     }
 
-    .exp--notifications-panel__notification {
-        .exp--notifications-panel__notifications-link {
+    .c4p--notifications-panel__notification {
+        .c4p--notifications-panel__notifications-link {
             margin-top: 0.5rem;
         }
     }
 
-    .exp--notifications-panel__notification:first-of-type {
+    .c4p--notifications-panel__notification:first-of-type {
         margin-top: 1.75rem;
     }
 }

@@ -1,0 +1,8 @@
+{
+    "name": "@internal/utilities",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "directory": "node Git-Directory-Subprocess.js"
+    }
+}

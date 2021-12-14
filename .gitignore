@@ -112,3 +112,22 @@ dist
 .DS_Store
 
 .env.development
+
+*.d.ts
+*.js
+node_modules
+cdktf.out
+cdktf.log
+*terraform.*.tfstate*
+.gen
+.terraform
+tsconfig.tsbuildinfo
+!jest.config.js
+!setup.js
+
+
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*

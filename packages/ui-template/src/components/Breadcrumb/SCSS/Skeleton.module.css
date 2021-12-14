@@ -1,0 +1,11 @@
+.breadcrumb-skeleton {
+  display: inline-flex;
+  flex-wrap: initial;
+  width: max-content;
+  margin-left: 0rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/*# sourceMappingURL=Skeleton.module.css.map */

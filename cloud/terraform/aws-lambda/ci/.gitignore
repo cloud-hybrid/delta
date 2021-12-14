@@ -1,0 +1,10 @@
+!*.js
+!*.ts
+
+*.d.ts
+*.d.ts.map
+
+.DS_Store
+*.DS_Store
+
+package-lock.json

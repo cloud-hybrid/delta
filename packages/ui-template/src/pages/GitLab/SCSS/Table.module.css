@@ -1,0 +1,255 @@
+/* =============================================================================
+ --> Application Style Sheet (SCSS)
+*/
+/*========================================================================= */
+/* -------------------
+ --> Namespace Imports
+*/
+/*-----------------*/
+/* -------------------
+ --> Global Overwrites
+*/
+/*------------------ */
+/* -------------------------
+ --> Table User Agent Styles
+*/
+th, tr, td {
+  box-shadow: none !important;
+  vertical-align: middle !important;
+  outline: none !important;
+}
+
+.cds--content {
+  background: var(--cds-background);
+  margin-top: 3rem;
+  min-height: calc(100vh - 3rem);
+  padding: 0rem;
+}
+
+.cds--inline-loading {
+  height: 1.25rem;
+  min-height: 1.25rem;
+}
+
+.cds--content .cds--css-grid {
+  max-width: 100%;
+}
+@media (min-width: 42rem) {
+  .cds--content .cds--css-grid {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.c4p--notifications-panel__container .c4p--notifications-panel__notification-today:not(:first-of-type):before, .c4p--notifications-panel__container .c4p--notifications-panel__notification-yesterday:not(:first-of-type):before, .c4p--notifications-panel__container .c4p--notifications-panel__notification-previous:not(:first-of-type):before {
+  top: 0.295rem;
+}
+
+.c4p--notifications-panel__settings-button .cds--btn__icon {
+  margin-left: 0rem;
+}
+
+.c4p--notifications-panel__container .c4p--notifications-panel__time-section-label {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 6.5rem;
+}
+.c4p--notifications-panel__container .c4p--notifications-panel__notification .c4p--notifications-panel__notifications-link {
+  margin-top: 0.5rem;
+}
+.c4p--notifications-panel__container .c4p--notifications-panel__notification:first-of-type {
+  margin-top: 1.75rem;
+}
+
+tr.cds--parent-row.cds--data-table--selected:not(.cds--expandable-row):hover td {
+  border-top: 1px solid var(--cds-layer-selected-hover);
+  border-bottom: 1px solid var(--cds-layer-selected-hover);
+  background: var(--cds-layer-selected-hover);
+  box-shadow: 0 1px var(--cds-layer-selected-hover);
+}
+
+.cds--data-table th.cds--table-expand + .cds--table-column-checkbox,
+.cds--data-table td.cds--table-expand + .cds--table-column-checkbox {
+  min-width: 35px;
+}
+
+tr.cds--parent-row.cds--data-table--selected.cds--expandable-row + tr[data-child-row]:last-of-type td {
+  padding-bottom: unset;
+}
+
+.cds--snippet--single .cds--snippet-container:focus {
+  outline: 2px solid var(--cds-focus, #0F62FE);
+  outline-offset: -2px;
+  width: 100%;
+}
+
+.cds--data-table-container + .cds--pagination {
+  border-top: 1px solid var(--cds-border-subtle);
+}
+
+.cds--data-table thead {
+  background-color: var(--cds-layer-accent);
+}
+
+.cds--data-table-header {
+  border-bottom: 1px solid var(--cds-border-inverse) inset;
+}
+
+tr.cds--parent-row.cds--data-table--selected:not(.cds--expandable-row):hover td {
+  border-top: 1px solid var(--cds-layer-active);
+  border-bottom: 1px solid var(--cds-layer-active);
+  background: var(--cds-layer-active);
+  box-shadow: 0 1px var(--cds-layer-active);
+}
+
+tr.cds--parent-row.cds--data-table--selected:first-of-type td {
+  border-bottom: 1px solid var(--cds-layer-active) !important;
+  border-top: 1px solid var(--cds-layer-active) !important;
+}
+
+tr.cds--parent-row:not(.cds--expandable-row) + tr[data-child-row] {
+  opacity: 0;
+}
+
+tr.cds--parent-row {
+  will-change: background !important;
+}
+
+tr.cds--child-row {
+  will-change: height !important;
+}
+
+tr[data-parent-row] {
+  will-change: background !important;
+}
+
+tr[data-child-row] {
+  will-change: height !important;
+}
+
+/* ------------------
+ --> Media Queries
+*/
+/*----------------- */
+@media (max-width: 42rem) {
+  .cds--content .cds--css-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+@media (min-width: 42rem) and (min-width: 42rem) {
+  .cds--content .cds--css-grid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+@media (min-width: 99rem) {
+  .cds--inline-notification {
+    max-width: 100%;
+  }
+}
+/* -------------------
+ --> Functional Mixins
+*/
+/*-----------------*/
+/* -------------------
+ --> Utility Selectors
+*/
+/*-----------------*/
+.no-select {
+  /*** Supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.unselectable {
+  /*** Supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.no-highlight {
+  /*** Supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.select-all {
+  /*** Supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: all;
+  /* Safari */
+  -khtml-user-select: all;
+  /* Konqueror HTML */
+  -moz-user-select: all;
+  /* Old versions of Firefox */
+  -ms-user-select: all;
+  /* Internet Explorer/Edge */
+  user-select: all;
+}
+
+.enable-select-all {
+  /*** Supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: all;
+  /* Safari */
+  -khtml-user-select: all;
+  /* Konqueror HTML */
+  -moz-user-select: all;
+  /* Old versions of Firefox */
+  -ms-user-select: all;
+  /* Internet Explorer/Edge */
+  user-select: all;
+}
+
+/*
+    @Task -- Theme
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme=dark] {
+            --color-example-1: red;
+            --color-example-2: red;
+            --color-example-3: red;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        [data-color-mode=auto][data-dark-theme=dark] {
+            --color-example-1: red;
+            --color-example-2: red;
+            --color-example-3: red;
+        }
+    }
+*/
+.repo-page-gitlab-data-table-container {
+  position: relative;
+}
+
+.data-element {
+  border: none;
+  color: green;
+}
+
+/*# sourceMappingURL=Table.module.css.map */

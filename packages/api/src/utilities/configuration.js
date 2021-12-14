@@ -191,10 +191,6 @@ export const Reject = (request, response, body = null, headers, status, error) =
         Type: "Application/JSON"
     };
 
-    /***
-     * @type {{"Keep-Alive": boolean, Status: (*|Number|number), Type: string, Message: (*|String|string), Request: {Headers, URL: {Origin: *, Normalized, Base: *}}, Body: (Object|string)}}
-     */
-
     const Response = {
         ... Configuration,
         Request: Request,

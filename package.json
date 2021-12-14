@@ -29,12 +29,15 @@
         "@carbon/elements": "^10.47.0",
         "@carbon/feature-flags": "^0.6.0",
         "@carbon/grid": "^10.39.0",
-        "@carbon/ibm-cloud-cognitive": "^0.99.0",
+        "@carbon/ibm-cloud-cognitive": "^1.2.2",
         "@carbon/ibm-security": "^2.10.0",
         "@carbon/icons-react": "^10.43.0",
-        "@carbon/react": "^0.9.0",
+        "@carbon/react": "^0.11.0",
+        "@cdktf/provider-aws": "^3.0.1",
+        "@cdktf/provider-project": "^0.2.25",
         "@octokit/openapi-types": "^11.2.0",
         "@octokit/types": "^6.34.0",
+        "@types/aws-lambda": "^8.10.87",
         "@types/body-parser": "^1.19.2",
         "@types/carbon-components": "^10.27.1",
         "@types/carbon-components-react": "^7.46.1",
@@ -43,6 +46,7 @@
         "@types/express-serve-static-core": "^4.17.25",
         "@types/jsonwebtoken": "^8.5.6",
         "@types/node": "^16.11.7",
+        "@types/node-fetch": "^3.0.3",
         "@types/qs": "^6.9.7",
         "@types/react": "^17.0.35",
         "@types/react-router": "^5.1.17",
@@ -50,9 +54,10 @@
         "@types/react-table": "^7.7.8",
         "@types/serve-static": "^1.13.10",
         "@typescript-eslint/eslint-plugin": "^5.4.0",
-        "@typescript-eslint/parser": "^5.4.0",
+        "@typescript-eslint/parser": "^5.7.0",
         "axios": "^0.21.1",
         "axios-cache-adapter": "^2.7.3",
+        "babel-cli": "^6.26.0",
         "babel-plugin-inline-import": "^3.0.0",
         "babel-plugin-react-remove-properties": "^0.3.0",
         "babel-plugin-react-svg": "^3.0.3",
@@ -61,13 +66,20 @@
         "babel-plugin-transform-class-properties": "^6.24.1",
         "carbon-components": "^10.48.0",
         "carbon-components-react": "^7.48.1",
+        "cdktf": "^0.8.1",
         "compression": "^1.7.4",
+        "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-jsonc": "^2.0.0",
         "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-no-secrets": "^0.8.9",
+        "eslint-plugin-no-unsanitized": "^4.0.1",
+        "eslint-plugin-pii": "^1.0.2",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.27.0",
         "eslint-plugin-react-hooks": "^4.3.0",
+        "eslint-plugin-xss": "^0.1.11",
         "express": "^5.0.0-alpha.8",
         "focus-visible": "^5.2.0",
         "history": "^5.1.0",
@@ -88,16 +100,20 @@
         "sass": "1.38.2",
         "socket.io-client": "^4.4.0",
         "source-map-explorer": "^2.5.2",
-        "ts-loader": "^9.2.6",
+        "standard-version": "^9.3.2",
+        "tslint": "^6.1.3",
         "typescript": "^4.4.4",
         "web-vitals": "^2.1.2"
     },
     "scripts": {
-        "rm-locks": "find . -type f -name \"package-lock.json\" -delete",
+        "rm-locks": "find . -type f -name \"package-lock.json\" -prune -exec rm -rf '{}' +",
         "rm-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
         "rm-aws-sam": "find . -name '.aws-sam' -type d -prune -exec rm -rf '{}' +",
         "setup": "lerna run setup",
+        "sass": "sass --trace --verbose --watch packages/ui-template/src --load-path node_modules --load-path packages/ui-template/node_modules",
         "pretest": "eslint packages",
+        "watch": "tsc --pretty --watch",
+        "boot": "lerna bootstrap -- --strict --hoist --force-local",
         "clean": "lerna clean --yes",
         "node-lts": "source ~/.nvm/nvm.sh && nvm use --lts || true",
         "commit": "git commit --all --file - ",
@@ -113,9 +129,115 @@
             "packages/*",
             "utilities/**/*"
         ],
-        "nohoist": []
+        "nohoist": [ ]
     },
     "pre-commit": [
         "info"
-    ]
+    ],
+    "eslintConfig": {
+        "extends": [ ],
+        "ignorePatterns": [
+            "node_modules",
+            "**/node_modules",
+            "**/node_modules/**",
+            "archive",
+            "**/archive",
+            "@Types",
+            "**/@Types",
+            "*.d.ts",
+            "**/*.d.ts",
+            "**/vendor/*.js",
+            "package-lock.json",
+            "**/package-lock.json"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "*.json",
+                    "*.json5",
+                    "*.jsonc"
+                ],
+                "parser": "jsonc-eslint-parser"
+            }
+        ],
+        "parserOptions": {
+            "ecmaVersion": "latest",
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "arrowFunctions": true,
+                "binaryLiterals": true,
+                "blockBindings": true,
+                "classes": true,
+                "defaultParams": true,
+                "destructuring": true,
+                "experimentalObjectRestSpread": true,
+                "forOf": true,
+                "generators": true,
+                "globalReturn": true,
+                "impliedStrict": true,
+                "jsx": true,
+                "modules": true,
+                "objectLiteralComputedProperties": true,
+                "objectLiteralDuplicateProperties": true,
+                "objectLiteralShorthandMethods": true,
+                "objectLiteralShorthandProperties": true,
+                "octalLiterals": true,
+                "regexUFlag": true,
+                "regexYFlag": true,
+                "restParams": true,
+                "spread": true,
+                "superInFunctions": true,
+                "templateStrings": true,
+                "unicodeCodePointEscapes": true
+            }
+        },
+        "plugins": [
+            "no-secrets",
+            "no-unsanitized",
+            "pii",
+            "xss"
+        ],
+        "root": true,
+        "rules": {
+            "require-await": "off",
+            "pii/no-email": "error",
+            "pii/no-dob": "error",
+            "pii/no-ip": "error",
+            "pii/no-phone-number": "error",
+            "no-secrets/no-secrets": [
+                "error",
+                {
+                    "ignoreCase": false
+                }
+            ],
+            "no-unsanitized/method": [
+                "error",
+                {
+                    "disableDefault": true,
+                    "escape": {
+                        "taggedTemplates": [
+                            "safeHTML"
+                        ]
+                    }
+                },
+                {
+                    "html": {
+                        "properties": [
+                            0
+                        ]
+                    }
+                }
+            ],
+            "template-curly-spacing": "off",
+            "indent": [
+                "error",
+                4,
+                {
+                    "ignoredNodes": [
+                        "TemplateLiteral"
+                    ]
+                }
+            ]
+        }
+    }
 }

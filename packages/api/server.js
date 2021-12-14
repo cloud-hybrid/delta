@@ -21,64 +21,72 @@ await import("./.ci/settings.js").finally(() => {
 });
 
 console.debug("[Main] [Debug] Loading Environment Variable(s) ...");
-await import("./src/library/Environment.js").then((Module) => {
-    console.debug("[Main] [Debug]", "Imported Packaged Configuration Loader");
+await import("./src/library/Environment.js")
+    .then((Module) => {
+        console.debug("[Main] [Debug]", "Imported Packaged Configuration Loader");
 
-    Module.Inject();
-}).finally(() => {
-    console.log("[Main] [Log] Injected Runtime Process");
-});
+        Module.Inject();
+    })
+    .finally(() => {
+        console.log("[Main] [Log] Injected Runtime Process");
+    });
 
 console.debug("[Main] [Debug] Importing API Server ...");
-import("./src/index.js").then(async ($) => {
-    console.debug("[Main] [Debug] Package has been Imported");
+import("./src/index.js")
+    .then(async ($) => {
+        console.debug("[Main] [Debug] Package has been Imported");
 
-    await import("./src/middleware/index.js").then(
-        async ($) => await $.initialize()
-    );
+        await import("./src/middleware/index.js").then(
+            async ($) => await $.initialize()
+        );
 
-    /***
-     *
-     * @type {Router}
-     *
-     */
+        /***
+         *
+         * @type {Router}
+         *
+         */
 
-    const Controller = await import("./src/controllers/index.js").then(($) => $.Router);
+        const Controller = await import("./src/controllers/index.js").then(
+            ($) => $.Router
+        );
 
-    Application.use("/v1", Controller);
+        Application.use("/v1", Controller);
 
-    /***
-     *
-     * @type {{PFX: Buffer, Key: Buffer, Certificate: Buffer}}
-     *
-     */
+        /***
+         *
+         * @type {{PFX: Buffer, Key: Buffer, Certificate: Buffer}}
+         *
+         */
 
-    const Content = {
-        Key: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["Key"])),
-        PFX: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["PFX"])),
-        Certificate: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["Certificate"]))
-    };
+        const Content = {
+            Key: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["Key"])),
+            PFX: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["PFX"])),
+            Certificate: FS.readFileSync(
+                Path.join(CWD, Process.env["TLS"]["Certificate"])
+            )
+        };
 
-    /***
-     *
-     * @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}}
-     *
-     */
+        /***
+         *
+         * @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}}
+         *
+         */
 
-    const options = {
-        passphrase: Process.env["TLS"]["Passphrase"],
+        const options = {
+            passphrase: Process.env["TLS"]["Passphrase"],
 
-        key: Content.Key,
-        pfx: Content.PFX,
-        cert: Content.Certificate
-    };
+            key: Content.Key,
+            pfx: Content.PFX,
+            cert: Content.Certificate
+        };
 
-    HTTP.createServer(Application).listen(3080);
-    const Server = HTTPs.createServer(options, Application).listen(3443);
+        HTTP.createServer(Application).listen(3080);
+        const Server = HTTPs.createServer(options, Application).listen(3443);
 
-    const Socket = await import("./src/library/socket.js");
+        const Socket = await import("./src/library/socket.js");
 
-    Socket.Link(Server);
-}).finally(() => {
-    console.debug("[Main] [Log]", "Starting API Server ...");
-});
+        Socket.Link(Server);
+    })
+    .finally(() => {
+        console.debug("[Main] [Log]", "Starting API Server ...");
+    });

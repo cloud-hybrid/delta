@@ -1,0 +1,18 @@
+.io-api-key-modal .bx--modal-container--sm .bx--modal-header {
+  margin-bottom: unset;
+}
+.io-api-key-modal .bx--modal-content {
+  padding-top: 0.15rem;
+  margin-bottom: unset;
+}
+.io-api-key-modal .bx--modal-content .io-api-modal-resource-access-selection {
+  margin-bottom: 3rem;
+}
+.io-api-key-modal .bx--modal-content .io-api-key-modal-scopes-section legend.bx--label {
+  margin-bottom: 0.725rem;
+}
+.io-api-key-modal .bx--modal-close {
+  display: none;
+}
+
+/*# sourceMappingURL=Index.css.map */

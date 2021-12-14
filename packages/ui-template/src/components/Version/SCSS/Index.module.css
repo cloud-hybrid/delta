@@ -1,0 +1,21 @@
+.version {
+  height: 100%;
+}
+.version .cds--modal-container {
+  overflow-y: scroll;
+}
+
+.title {
+  color: var(--cds-text-on-color);
+  margin-top: 1rem;
+}
+
+.legal {
+  color: var(--cds-text-on-color);
+}
+
+.copyright {
+  color: var(--cds-text-on-color);
+}
+
+/*# sourceMappingURL=Index.module.css.map */

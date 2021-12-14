@@ -1,0 +1,24 @@
+footer.ui-footer {
+  background-color: black;
+  border-top: solid 1px var(--cds-border-subtle);
+}
+footer.ui-footer .cds--col-span-4 {
+  padding: 0;
+  display: grid;
+  width: 100vw;
+  max-width: 100vw;
+}
+footer.ui-footer .cds--col-span-4 .cds--col {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer.ui-footer .cds--col-span-4 .cds--col .column-container .unordered-list .unordered-list-item {
+  position: initial;
+}
+
+/*# sourceMappingURL=Index.module.css.map */

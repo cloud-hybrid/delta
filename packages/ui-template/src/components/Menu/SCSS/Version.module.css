@@ -1,0 +1,13 @@
+.version {
+  height: 100%;
+}
+.version .cds--modal-container {
+  overflow-y: scroll;
+}
+
+.title {
+  color: var(--cds-text-on-color);
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=Version.module.css.map */

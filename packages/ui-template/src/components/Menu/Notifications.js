@@ -4,9 +4,7 @@
 
 import { NotificationsPanel } from "@carbon/ibm-cloud-cognitive";
 
-import "@carbon/ibm-cloud-cognitive/css/index-without-carbon.css";
-
-import "./SCSS/Notification.scss";
+import "./SCSS/Notifications-Panel.scss";
 
 const Component = ({ State }) => {
     return (

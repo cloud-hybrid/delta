@@ -1,0 +1,21 @@
+{
+    "name": "@internal",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "directory": "node Git-Directory-Subprocess.js"
+    },
+    "devDependencies": {
+        "eslint": "latest",
+        "eslint-plugin-jsonc": "^2.0.0",
+        "eslint-plugin-no-secrets": "^0.8.9",
+        "eslint-plugin-no-unsanitized": "^4.0.1",
+        "eslint-plugin-pii": "^1.0.2",
+        "eslint-plugin-prettier": "latest",
+        "eslint-plugin-xss": "^0.1.11",
+        "prettier": "latest"
+    },
+    "dependencies": {
+        "eslint-plugin-editorconfig": "^3.2.0"
+    }
+}

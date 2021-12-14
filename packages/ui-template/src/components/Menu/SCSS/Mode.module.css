@@ -1,0 +1,27 @@
+.tag span {
+  text-align: center;
+  width: max-content;
+}
+
+@media (min-width: 66rem) {
+  .tag {
+    margin-left: 1rem;
+  }
+}
+@media (max-width: 65.98rem) {
+  .tag:first-of-type {
+    border-left: 1px solid var(--cds-border-subtle);
+  }
+}
+@media (max-width: 65.98rem) {
+  .tag {
+    padding-left: 1.75rem;
+  }
+}
+@media (max-width: 42rem) {
+  .tag {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=Mode.module.css.map */

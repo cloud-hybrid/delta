@@ -1,0 +1,54 @@
+.blog-side-panel {
+  display: flex;
+}
+
+.blog-side-panel-filter {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: inline-flex;
+  outline: 2px solid white;
+}
+.blog-side-panel-filter .cds--accordion__heading {
+  background-color: black;
+}
+.blog-side-panel-filter .cds--accordion__item--active {
+  overflow: scroll;
+}
+.blog-side-panel-filter .cds--accordion__item--active .cds--accordion__content {
+  padding-bottom: 1rem;
+}
+.blog-side-panel-filter .security--filter-panel {
+  background-color: black;
+}
+.blog-side-panel-filter .security--filter-panel__category-list {
+  background-color: black;
+}
+.blog-side-panel-filter .security--filter-category {
+  background-color: black;
+}
+.blog-side-panel-filter .security--filter-category__title {
+  margin: 0.75rem;
+}
+.blog-side-panel-filter .security--filter-panel__title {
+  padding: 0.5rem;
+}
+.blog-side-panel-filter .security--filter-search__results {
+  padding: 1rem;
+}
+.blog-side-panel-filter h1 {
+  font-size: 1.125rem;
+}
+.blog-side-panel-filter h2 {
+  font-size: 1rem;
+}
+.blog-side-panel-filter h3 {
+  font-size: 1rem;
+}
+.blog-side-panel-filter .security--filter-search__subcategory ul {
+  padding-left: 1.5rem;
+}
+.blog-side-panel-filter .security--filter-search__subcategory ul:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+/*# sourceMappingURL=Filter.css.map */

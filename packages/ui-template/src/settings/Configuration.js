@@ -1,8 +1,12 @@
 import { settings } from "carbon-components";
 
+// import { pkg as Cognitive } from "@carbon/ibm-cloud-cognitive";
+
 import * as Features from "@carbon/feature-flags";
 
 settings.prefix = "cds";
+
+//Cognitive.prefix = "cds";
 
 Features.merge({
     "enable-css-custom-properties": true,
