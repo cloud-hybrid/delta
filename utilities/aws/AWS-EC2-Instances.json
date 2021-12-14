@@ -9604,88 +9604,6 @@
         },
         {
             "AmiLaunchIndex": 0,
-            "ImageId": "ami-0117d177e96a8481c",
-            "InstanceId": "i-0470cfb25b43ab7ef",
-            "InstanceType": "m5.large",
-            "KeyName": "runner-94pe9zs-runner-1639503673-44783683",
-            "LaunchTime": "2021-12-14T17:41:16.000Z",
-            "Monitoring": {
-                "State": "disabled"
-            },
-            "Placement": {
-                "AvailabilityZone": "us-east-2a",
-                "GroupName": "",
-                "Tenancy": "default"
-            },
-            "PrivateDnsName": "",
-            "ProductCodes": [],
-            "PublicDnsName": "",
-            "State": {
-                "Code": 48,
-                "Name": "terminated"
-            },
-            "StateTransitionReason": "User initiated (2021-12-14 18:35:44 GMT)",
-            "Architecture": "x86_64",
-            "BlockDeviceMappings": [],
-            "ClientToken": "c68dceffb732a1fab62b776966fc5763b46316f7a21110d80d2ae104d292",
-            "EbsOptimized": true,
-            "EnaSupport": true,
-            "Hypervisor": "xen",
-            "InstanceLifecycle": "spot",
-            "NetworkInterfaces": [],
-            "RootDeviceName": "/dev/sda1",
-            "RootDeviceType": "ebs",
-            "SecurityGroups": [],
-            "SpotInstanceRequestId": "sir-9cgpav9q",
-            "StateReason": {
-                "Code": "Client.UserInitiatedShutdown",
-                "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
-            },
-            "Tags": [
-                {
-                    "Key": "tf-aws-gitlab-runner:instancelifecycle",
-                    "Value": "spot:yes"
-                },
-                {
-                    "Key": "Environment",
-                    "Value": "runners-default"
-                },
-                {
-                    "Key": "Name",
-                    "Value": "runners-default"
-                },
-                {
-                    "Key": "tf-aws-gitlab-runner:example",
-                    "Value": "runner-default"
-                }
-            ],
-            "VirtualizationType": "hvm",
-            "CpuOptions": {
-                "CoreCount": 1,
-                "ThreadsPerCore": 2
-            },
-            "CapacityReservationSpecification": {
-                "CapacityReservationPreference": "open"
-            },
-            "HibernationOptions": {
-                "Configured": false
-            },
-            "MetadataOptions": {
-                "State": "pending",
-                "HttpTokens": "optional",
-                "HttpPutResponseHopLimit": 1,
-                "HttpEndpoint": "enabled",
-                "HttpProtocolIpv6": "disabled"
-            },
-            "EnclaveOptions": {
-                "Enabled": false
-            },
-            "PlatformDetails": "Linux/UNIX",
-            "UsageOperation": "RunInstances",
-            "UsageOperationUpdateTime": "2021-12-14T17:41:16.000Z"
-        },
-        {
-            "AmiLaunchIndex": 0,
             "ImageId": "ami-00dfe2c7ce89a450b",
             "InstanceId": "i-075731484f98a5d50",
             "InstanceType": "t3.medium",
@@ -11011,5 +10929,5 @@
             }
         }
     ],
-    "Total": 75
+    "Total": 74
 }
