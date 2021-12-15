@@ -1,8 +1,0 @@
-name: "Deploy React code to GitHub Pages"
-description: "GitHub Pages"
-
-runs:
-    using: "composite"
-    steps:
-        -   run: npm run ui-template.build
-            shell: bash
