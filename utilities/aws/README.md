@@ -1,42 +1,16 @@
-# `@cloud-technology/cli-prompt` #
+# `@cloud-vault/aws-utilities` #
 
 ## Overview ##
 
-`cli-prompt` is a zero dependency, node.js ESM-compliant *commandline prompt*.
+`aws-utilities` is a suite of AWS-related utilities, built with node.js.
+
+- **Note**: The package is 100% ESM Module Compliant.
 
 As an ESM module, when running via a compatible (16+) `node.js` runtime, package(s)
-benefit from running `await` via the global namespace for blocking cli-prompt
-callables.
+benefit from running `await` via the global namespace.
 
 ## Setup ##
 
 ```bash
-npm install --save @cloud-technology/cli-prompt
-```
-
-### Development ###
-
-*If installing only for development or POC-related purposes*
-
-```bash
-npm install --save-dev @cloud-technology/cli-prompt
-```
-
-## Usage ##
-
-***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
-
-- Please see the [`standalone` example](https://github.com/cloud-hybrid/cli-prompt/tree/Development/examples/standalone)
-  for more details on usage.
-
-`index.js`
-
-```javascript
-import Prompt from "@cloud-technology/cli-prompt";
-
-const Query = await Prompt("First Name");
-
-console.debug(Query);
-
-process.exit(0);
+npm install .
 ```

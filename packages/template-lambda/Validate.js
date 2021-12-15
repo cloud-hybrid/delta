@@ -7,7 +7,7 @@ import { Compiler } from "./src/Schema/library/compiler.js";
 /***
  * Compatability Replacement for `URI` (Commonjs)
  *
- * @type {string}
+ * @type {function(): string}
  *
  * @constructor
  *

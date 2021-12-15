@@ -108,4 +108,7 @@ dist
 *.tgz
 
 SSH-Key
-
+SSH-Configuration
+SSH-Utility.config
+Command-Output.json
+AWS-EC2-Instances.json

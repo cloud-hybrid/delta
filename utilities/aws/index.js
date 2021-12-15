@@ -1,76 +1,50 @@
 /***
  * @name        EC2 Utility
  * @package     @cloud-technology
- * @summary     ESM-based CLI Prompt
+ * @summary     ESM AWS Utilities
  *
  * @author      Jacob B. Sanders
  * @license     BSD 3-Clause License
  * @copyright   Cloud-Technology LLC. & Affiliates
  */
 
-import * as FS from "fs";
+import * as Path from "path";
+import * as Module from "module";
 
-const Client = (await import("@aws-sdk/client-ec2")).EC2;
+/***
+ * Compatability Replacement for `__dirname` (Commonjs)
+ *
+ * @type {function(): string}
+ *
+ * @constructor
+ *
+ * @example
+ * >>> const URI = () => Path.normalize(import.meta.url).replace("file" + ":", "");
+ *
+ */
 
-const Service = new Client({region: "us-east-2"});
+const URI = () => Path.normalize(import.meta.url).replace("file" + ":", "");
+const Directory = () => Path.dirname(URI());
 
-const Schema = (Properties) => {
-    const Tags = Properties.Tags?.filter(($) => !(String($.Key).includes("aws")));
+const CWD = Directory();
 
-    return {
-        "Name": Properties?.Name,
-        "Description": Properties?.Description,
-        "Creation-Date": Properties?.CreatedDate,
-        "Modification-Date": Properties?.LastChangedDate,
-        "Access-Date": Properties?.LastAccessedDate,
-        "Tags": Tags || Properties?.Tags
-    };
-};
+/***
+ * Compatability Replacement for `require` (Commonjs)
+ *
+ * @type {NodeRequire}
+ *
+ * @constructor
+ *
+ * @example
+ * >>> const Import = Module.createImport(URI());
+ * >>> const Package = Import("package.json");
+ *
+ */
 
-const Function = (async () => {
-    const Service = new Client();
+const Import = Module.createRequire(URI());
 
-    const AMI = {
-        IDs: [],
-        Total: -1
-    };
+const Configuration = Import(Path.join(CWD, "configuration", "Settings.json"));
 
-    const Container = {
-        Instances: [],
-        Total: -1
-    };
+export { Configuration, CWD };
 
-    let $ = await Service.describeInstances({Filters: null, NextToken: null});
-    $.Reservations.forEach((Data) => {
-        Data.Instances.forEach((VPS) => {
-            AMI.IDs.push(VPS.ImageId);
-            Container.Instances.push(VPS);
-        });
-    });
-
-    while ( $.NextToken ) {
-        $.Reservations.forEach((Data) => {
-            Data.Instances.forEach((VPS) => {
-                AMI.IDs.push(VPS.ImageId);
-                Container.Instances.push(VPS);
-            });
-        });
-
-        const Token = $?.NextToken;
-        if ( Token === undefined ) break;
-
-        $ = await Service.describeInstances({
-            NextToken: Token
-        });
-    }
-
-    AMI.Total = AMI.IDs.length;
-    Container.Total = Container.Instances.length;
-
-    const Data = JSON.stringify(Container, null, 4);
-
-    FS.writeFileSync("AWS-EC2-Instances.json", Data);
-    console.log("AMIs" + ":", JSON.stringify(AMI, null, 4));
-
-    console.log("Total Instances" + ":", Container.length);
-})();
+export default { Configuration, CWD };

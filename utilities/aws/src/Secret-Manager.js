@@ -1,4 +1,18 @@
+/***
+ * @name        Secrets-Manager Utility
+ * @package     @cloud-technology
+ * @summary     ESM Secrets-Manager Extension
+ *
+ * @author      Jacob B. Sanders
+ * @license     BSD 3-Clause License
+ * @copyright   Cloud-Technology LLC. & Affiliates
+ */
+
 import * as FS from "fs";
+
+import { Configuration } from "./../index.js";
+
+const Organization = Configuration["Organization"];
 
 const Client = await import("@aws-sdk/client-secrets-manager");
 
@@ -6,7 +20,7 @@ const Service = new Client.SecretsManager({
     region: "us-east-2"
 });
 
-const Name = "Capstone/Global/Development/EC2/Instance/SSH/Private-Key";
+const Name = [Organization, "/Global/Development/EC2/Instance/SSH/Private-Key"].join();
 
 const Secret = await Service.getSecretValue({SecretId: Name});
 
