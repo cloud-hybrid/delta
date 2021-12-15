@@ -112,6 +112,7 @@
         "rm-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
         "rm-aws-sam": "find . -name '.aws-sam' -type d -prune -exec rm -rf '{}' +",
         "ui-template": "npm run setup && npm run start --workspace packages/ui-template",
+        "ui-template.build": "npm run setup && npm run build --workspace packages/ui-template",
         "sass": "sass --trace --verbose --watch packages/ui-template/src --load-path node_modules --load-path packages/ui-template/node_modules",
         "pretest": "eslint packages",
         "watch": "tsc --pretty --watch",
