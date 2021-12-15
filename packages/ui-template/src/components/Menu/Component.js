@@ -174,43 +174,53 @@ const Component = ({ Authorizer }) => {
                                 {/*    <strong>Dashboard</strong>*/ }
                                 {/*</HeaderMenuItem>*/ }
                                 <HeaderMenuItem element={ Link } to={ "/development/github" } isCurrentPage={ Active("development/github") }
-                                                onClick={ () => navigation("/development/github") }>
+                                    onClick={ () => navigation("/development/github") }
+                                >
                                     <strong>GitHub</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/pipelines" } isCurrentPage={ Active("development/pipelines") }
-                                                onClick={ () => navigation("/development/pipelines") }>
+                                    onClick={ () => navigation("/development/pipelines") }
+                                >
                                     <strong>Pipelines</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/template" } isCurrentPage={ Active("development/template") }
-                                                onClick={ () => navigation("/development/template") }>
+                                    onClick={ () => navigation("/development/template") }
+                                >
                                     <strong>Template</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/awaitable" } isCurrentPage={ Active("development/awaitable") }
-                                                onClick={ () => navigation("/development/awaitable") }>
+                                    onClick={ () => navigation("/development/awaitable") }
+                                >
                                     <strong>Awaitable</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/snippet" } isCurrentPage={ Active("development/snippet") }
-                                                onClick={ () => navigation("/development/snippet") }>
+                                    onClick={ () => navigation("/development/snippet") }
+                                >
                                     <strong>Code-Snippet</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/tiles" } isCurrentPage={ Active("development/tiles") }
-                                                onClick={ () => navigation("/development/tiles") }>
+                                    onClick={ () => navigation("/development/tiles") }
+                                >
                                     <strong>Tiles</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/list" } isCurrentPage={ Active("development/list") }
-                                                onClick={ () => navigation("/development/list") }>
+                                    onClick={ () => navigation("/development/list") }
+                                >
                                     <strong>Selectable-List</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/link-list" } isCurrentPage={ Active("development/link-ist") }
-                                                onClick={ () => navigation("/development/link-list") }>
+                                    onClick={ () => navigation("/development/link-list") }
+                                >
                                     <strong>Link-List</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/table" } isCurrentPage={ Active("development/table") }
-                                                onClick={ () => navigation("/development/table") }>
+                                    onClick={ () => navigation("/development/table") }
+                                >
                                     <strong>Test-Table</strong>
                                 </HeaderMenuItem>
                                 <HeaderMenuItem element={ Link } to={ "/development/card" } isCurrentPage={ Active("development/card") }
-                                                onClick={ () => navigation("/development/card") }>
+                                    onClick={ () => navigation("/development/card") }
+                                >
                                     <strong>Card</strong>
                                 </HeaderMenuItem>
                             </HeaderMenu>
@@ -315,10 +325,11 @@ const Component = ({ Authorizer }) => {
                                 <></>
                             )
                         }
-                        <HeaderGlobalBar>
+                        <HeaderGlobalBar className={ "global-actions-primary-menu" }>
                             <HeaderGlobalAction
                                 id={ "global-menu-notifications" }
                                 aria-label="Notifications"
+                                isActive={ Notifies[0] }
                                 tooltipAlignment="start"
                                 children={ (
                                     <Notification/>
@@ -336,11 +347,15 @@ const Component = ({ Authorizer }) => {
                             <HeaderGlobalAction
                                 id={ "global-menu-profile" }
                                 aria-label="User Avatar"
+                                isActive={ Profile[0] }
+                                tooltipAlignment={ "center" }
                                 children={ (
                                     <UserAvatar/>
                                 ) }
                                 onClick={
                                     (event) => {
+                                        event.preventDefault();
+
                                         Notifies[1](false);
                                         Opener[1](false);
                                         Profile[1](!Profile[0]);
@@ -355,7 +370,6 @@ const Component = ({ Authorizer }) => {
                                 children={ (
                                     <Switch/>
                                 ) }
-                                tooltipPosition={ "left" }
                                 tooltipAlignment={ "end" }
                                 onClick={
                                     (event) => {

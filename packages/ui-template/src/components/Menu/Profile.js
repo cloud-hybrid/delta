@@ -28,7 +28,8 @@ const Component = ({ State }) => {
                     (event) => {
                         setProfileEditIcon(false);
                     }
-                }>
+                }
+                >
                     {
                         (profileEditIcon) ? (<Edit className={ [ "io-profile-popover-icon", "io-profile-popover-icon-edit" ].join(" ") }/>)
                             : (<User className={ [ "io-profile-popover-icon", "io-profile-popover-icon" ].join(" ") }/>)

@@ -22,6 +22,8 @@
 .home {
     #{&}-heading {
         @include type-style("productive-heading-07");
+
+        margin-left: -2.5px;
     }
 
     #{&}-subheading {
@@ -98,12 +100,12 @@
     }
 
     #{&}-row-3 {
-        background: black;
-        margin-left: -1.5rem;
+        background:   black;
+        margin-left:  -1.5rem;
         margin-right: -1.5rem;
 
-        padding:  $spacing-09 $spacing-06;
-        position: relative;
+        padding:      $spacing-09 $spacing-06;
+        position:     relative;
     }
 
     #{&}-info-section-heading {

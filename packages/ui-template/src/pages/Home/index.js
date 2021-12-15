@@ -1,3 +1,5 @@
+import "./SCSS/index.scss";
+
 import * as Styles from "./SCSS/Index.module.scss";
 
 import {

@@ -111,11 +111,11 @@
         "rm-locks": "find . -type f -name \"package-lock.json\" -prune -exec rm -rf '{}' +",
         "rm-node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
         "rm-aws-sam": "find . -name '.aws-sam' -type d -prune -exec rm -rf '{}' +",
-        "setup": "lerna run setup",
+        "ui-template": "npm run setup && npm run start --workspace packages/ui-template",
         "sass": "sass --trace --verbose --watch packages/ui-template/src --load-path node_modules --load-path packages/ui-template/node_modules",
         "pretest": "eslint packages",
         "watch": "tsc --pretty --watch",
-        "boot": "lerna bootstrap -- --strict --hoist --force-local",
+        "setup": "lerna bootstrap -- --strict --hoist --force-local",
         "clean": "lerna clean --yes",
         "node-lts": "source ~/.nvm/nvm.sh && nvm use --lts || true",
         "commit": "git commit --all --file - ",
@@ -131,6 +131,6 @@
             "packages/*",
             "utilities/**/*"
         ],
-        "nohoist": []
+        "nohoist": [ ]
     }
 }

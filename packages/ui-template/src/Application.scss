@@ -84,6 +84,12 @@ th, tr, td {
     }
 }
 
+.c4p--notifications-panel__container .c4p--notifications-panel__notification .c4p--notifications-panel__notification-content .c4p--notifications-panel__notification-read-more-button, .c4p--notifications-panel__container .c4p--notifications-panel__notification .c4p--notifications-panel__notification-content .c4p--notifications-panel__notification-read-less-button {
+    padding:    0.25rem;
+    margin-top: 0.25rem;
+    min-width:  unset;
+}
+
 // Data Table Borders
 tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expandable-row):hover td {
     border-top:    1px solid var(--cds-layer-selected-hover);

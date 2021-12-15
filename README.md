@@ -31,3 +31,54 @@ or
 ```bash
 npm outdated
 ```
+
+## Considerations around Hoisting ##
+
+Lighter, non-compiled projects see installation and hoist-related benefits from mono-repository configuration(s); however, compiled projects that may extend or implement `create-react-app`, `webpack`, `babel`, and other alike packages, it's
+difficult to keep a consistent and pure packgage list.
+
+For such mono-repositories, where hoisting may be a problem, consider the following setup:
+
+`lerna.json`
+
+```json
+{
+    "version": "0.0.0",
+    "npmClient": "npm",
+    "useWorkspaces": false,
+    "command": {
+        "publish": {
+            "ignoreChanges": [
+                "ignored-file"
+            ],
+            "message": "[Chore] (Release): Publish",
+            "registry": "https://npm.pkg.github.com"
+        },
+        "bootstrap": {
+            "npmClientArgs": [
+                "--no-package-lock"
+            ]
+        }
+    },
+    "packages": [
+        "packages/*",
+        "documentation/*",
+        "utilities/*"
+    ]
+}
+```
+
+For `package.json`:
+
+```json
+{
+    "...": "...",
+    "scripts": {
+        "react": "npm run setup && npm run start --workspace packages/react-app",
+        "commit": "git commit --all --file - ",
+        "push": "lerna version patch"
+    }
+}
+```
+
+Such will avoid lifting `node_modules` associated with `packages/react-app` out from its source directory and into the repository's root.
