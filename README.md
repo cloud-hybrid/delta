@@ -32,7 +32,7 @@ or
 npm outdated
 ```
 
-## Considerations around Hoisting ##
+## Hoisting Considerations ##
 
 Lighter, non-compiled projects see installation and hoist-related benefits from mono-repository configuration(s); however, compiled projects that may extend or implement `create-react-app`, `webpack`, `babel`, and other alike packages, it's
 difficult to keep a consistent and pure packgage list.
