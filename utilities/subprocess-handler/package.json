@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/subprocess-handler",
-    "version": "0.1.82",
+    "version": "0.1.84",
     "description": "Asynchronous Subprocess Spawner & Handler",
     "main": "Start.js",
     "scripts": {
@@ -11,8 +11,5 @@
     "license": "BSD-3-Clause",
     "bin": {
         "Spawn": "Start.js"
-    },
-    "dependencies": {
-
     }
 }

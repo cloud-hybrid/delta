@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/github",
-    "version": "0.1.82",
+    "version": "0.1.84",
     "description": "...",
     "main": "index.js",
     "type": "module",
@@ -10,7 +10,6 @@
     "dependencies": {
         "@cloud-technology/cli-prompt": "latest",
         "@octokit/core": "latest"
-
     },
     "license": "BSD-3-Clause"
 }

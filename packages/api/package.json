@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/api",
     "private": false,
-    "version": "0.1.82",
+    "version": "0.1.84",
     "description": "...",
     "main": "server.js",
     "type": "module",
@@ -36,7 +36,6 @@
         "octokit": "^1.7.0",
         "redis": "^4.0.0",
         "socket.io": "^4.4.0"
-
     },
     "devDependencies": {
         "@octokit/openapi-types": "^11.2.0",

@@ -5,13 +5,12 @@
     "description": "ESM Package",
     "homepage": "https://github.com/cloud-hybrid",
     "private": false,
-    "version": "0.1.82",
+    "version": "0.1.84",
     "type": "module",
-    "scripts": { },
+    "scripts": {},
     "dependencies": {
         "@aws-sdk/client-ec2": "^3.44.0",
         "@aws-sdk/client-secrets-manager": "^3.43.0",
         "aws-sdk": "latest"
-
     }
 }

@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/cli-prompt",
     "private": false,
-    "version": "0.1.82",
+    "version": "0.1.84",
     "main": "index.js",
     "repository": {
         "type": "git",
@@ -24,8 +24,5 @@
     "license": "BSD-3-Clause",
     "author": "Jacob B. Sanders",
     "description": "ESM CLI-Prompt Package",
-    "homepage": "https://github.com/cloud-hybrid/cli-prompt",
-    "dependencies": {
-
-    }
+    "homepage": "https://github.com/cloud-hybrid/cli-prompt"
 }

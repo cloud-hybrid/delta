@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/npm-outdated",
-    "version": "0.1.82",
+    "version": "0.1.84",
     "type": "module",
     "description": "Asynchronous Subprocess Spawner & Handler",
     "main": "Start.js",
@@ -11,8 +11,5 @@
     "license": "BSD-3-Clause",
     "bin": {
         "npm-check-outdated": "Start.js"
-    },
-    "dependencies": {
-
     }
 }

@@ -1,8 +1,5 @@
 {
     "name": "@cloud-technology/platform",
-    "version": "0.1.82",
-    "type": "module",
-    "dependencies": {
-
-    }
+    "version": "0.1.84",
+    "type": "module"
 }
