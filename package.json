@@ -125,7 +125,7 @@
     "workspaces": {
         "packages": [
             "packages/*",
-            "utilities/**/*"
+            "utilities/*"
         ],
         "nohoist": [ ]
     }
