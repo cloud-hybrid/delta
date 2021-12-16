@@ -11,6 +11,7 @@
     "dependencies": {
         "@aws-sdk/client-ec2": "^3.44.0",
         "@aws-sdk/client-secrets-manager": "^3.43.0",
-        "aws-sdk": "latest"
+        "aws-sdk": "latest",
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
     }
 }

@@ -10,7 +10,8 @@
     },
     "dependencies": {
         "@aws-sdk/client-secrets-manager": "^3.41.0",
-        "@aws-sdk/node-http-handler": "^3.40.0"
+        "@aws-sdk/node-http-handler": "^3.40.0",
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
     },
     "workspaces": {
         "packages": [

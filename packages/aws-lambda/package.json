@@ -7,9 +7,15 @@
     "private": true,
     "scripts": {
         "get": "cdktf get",
-        "start": "tsc --pretty",
-        "build": "tsc",
-        "synth": "cdktf synth",
+        "start": "tsc --pretty --watch",
+        "initialize": "cdktf init",
+        "deploy": "cdktf deploy",
+        "destroy": "cdktf destroy",
+        "build": "tsc --pretty",
+        "completion": "cdktf completion",
+        "setup": "npm install --save-dev",
+        "list": "cdktf list",
+        "synth": "npm run build && cdktf synth",
         "compile": "tsc --pretty",
         "watch": "tsc -w",
         "test": "jest",
@@ -20,9 +26,6 @@
     "engines": {
         "node": ">=16.10",
         "npm": ">=7"
-    },
-    "peerDependencies": {
-        "cdktf-aws-secure": "^2.0.1"
     },
     "devDependencies": {
         "@aws-cdk/aws-s3": "^1.135.0",
@@ -35,13 +38,11 @@
         "cdktf-cli": "^0.8.1",
         "jest": "^27.4.5",
         "ts-jest": "^27.1.1",
+        "aws-lambda": "^1.0.7",
+        "@cdktf/provider-aws": "^3.0.1",
+        "cdktf": "^0.8.3",
+        "constructs": "^10.0.12",
         "ts-node": "^10.4.0",
         "typescript": "^4.5.4"
-    },
-    "dependencies": {
-        "@cdktf/provider-aws": "^3.0.1",
-        "@cdktf/provider-random": "^0.0.5",
-        "cdktf": "^0.8.1",
-        "constructs": "^10.0.12"
     }
 }

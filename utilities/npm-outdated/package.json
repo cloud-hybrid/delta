@@ -11,5 +11,8 @@
     "license": "BSD-3-Clause",
     "bin": {
         "npm-check-outdated": "Start.js"
+    },
+    "dependencies": {
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
     }
 }

@@ -45,7 +45,8 @@
         "react-router-dom": "^6.0.2",
         "react-scripts": "^4.0.3",
         "react-table": "^7.7.0",
-        "socket.io-client": "^4.4.0"
+        "socket.io-client": "^4.4.0",
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
     },
     "devDependencies": {
         "@babel/cli": "^7.16.0",

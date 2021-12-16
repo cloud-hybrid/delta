@@ -47,8 +47,7 @@ const Directory = (): Promise<{
          */
 
         const Lexicon: readonly [string, readonly string[]] = [
-            "git",
-            ["rev-parse", "--show-toplevel"],
+            "git", ["rev-parse", "--show-toplevel"],
         ];
 
         const Subprocess = Spawn(Lexicon[0], Lexicon[1]);
@@ -66,7 +65,7 @@ const Directory = (): Promise<{
             }
 
             /*** Shift <-- Left to Release Empty Byte for String[0] */
-            $.Data = Buffer.toString("UTF-8", Allocation - 1);
+            $.Data = Buffer.toString("UTF-8", Allocation - 1).trim();
         });
 
         Error.on("data", async (_) => {
@@ -75,7 +74,7 @@ const Directory = (): Promise<{
             /*** Allocate an Array Buffer of (n + 1) Bytes */
             const Buffer = await _;
             new Array(Buffer[Symbol.iterator]).forEach(
-                (_) => ( Allocation += 1 ),
+                (_) => (Allocation += 1),
             );
 
             /*** Shift <-- Left to Release Empty Byte for String[0] */
@@ -99,4 +98,6 @@ const Directory = (): Promise<{
         });
     });
 
-console.log(await Directory());
+export { Directory };
+
+export default Directory;

@@ -1,3 +1,3 @@
-declare const _exports: import('ts-jest/dist/types').InitialOptionsTsJest;
+declare const _exports: any;
 export = _exports;
 //# sourceMappingURL=jest.config.d.ts.map

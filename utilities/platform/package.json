@@ -1,5 +1,8 @@
 {
     "name": "@cloud-technology/platform",
     "version": "0.1.77",
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+    }
 }

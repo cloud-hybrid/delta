@@ -29,9 +29,9 @@ import Process from "process";
  */
 
 export function * Walk(directory) {
-    const files = FS.readdirSync(directory, { withFileTypes: true });
-    for (const file of files) {
-        if (file.isDirectory()) {
+    const files = FS.readdirSync(directory, {withFileTypes: true});
+    for ( const file of files ) {
+        if ( file.isDirectory() ) {
             yield * Walk(Path.join(directory, file.name));
         } else {
             yield Path.join(directory, file.name);
@@ -40,19 +40,23 @@ export function * Walk(directory) {
 }
 
 function * files(path) {
-    if (!FS.lstatSync(path).isDirectory()) return null;
+    if ( !FS.lstatSync(path).isDirectory() ) return null;
 
-    const files = FS.readdirSync(path, { withFileTypes: true });
+    const files = FS.readdirSync(path, {withFileTypes: true});
 
-    for (const file of files) (!file.isDirectory()) ? yield Path.join(path, file.name) : null;
+    for ( const file of files ) {
+        (!file.isDirectory()) ? yield Path.join(path, file.name) : null;
+    }
 }
 
 function * directories(path) {
-    if (!FS.lstatSync(path).isDirectory()) return null;
+    if ( !FS.lstatSync(path).isDirectory() ) return null;
 
-    const files = FS.readdirSync(path, { withFileTypes: true });
+    const files = FS.readdirSync(path, {withFileTypes: true});
 
-    for (const file of files) (file.isDirectory()) ? yield Path.join(path, file.name) : null;
+    for ( const file of files ) {
+        (file.isDirectory()) ? yield Path.join(path, file.name) : null;
+    }
 }
 
 export const Files = (path) => {
@@ -62,7 +66,9 @@ export const Files = (path) => {
 
     const Data = [];
 
-    for (const $ of files(path)) Data.push($);
+    for ( const $ of files(path) ) {
+        Data.push($);
+    }
 
     $.container = Data;
 
@@ -76,7 +82,9 @@ export const Directories = (path) => {
 
     const Data = [];
 
-    for (const $ of directories(path)) Data.push($);
+    for ( const $ of directories(path) ) {
+        Data.push($);
+    }
 
     $.container = Data;
 

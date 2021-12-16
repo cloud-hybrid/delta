@@ -11,5 +11,8 @@
     "license": "BSD-3-Clause",
     "bin": {
         "Spawn": "Start.js"
+    },
+    "dependencies": {
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
     }
 }

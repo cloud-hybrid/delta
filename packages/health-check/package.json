@@ -22,5 +22,8 @@
     ],
     "maintainers": [
         "Jacob B. Sanders"
-    ]
+    ],
+    "dependencies": {
+        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+    }
 }
