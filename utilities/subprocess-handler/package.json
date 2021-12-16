@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/subprocess-handler",
-    "version": "0.1.77",
+    "version": "0.1.82",
     "description": "Asynchronous Subprocess Spawner & Handler",
     "main": "Start.js",
     "scripts": {
