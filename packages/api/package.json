@@ -35,8 +35,8 @@
         "mongoose": "^6.0.13",
         "octokit": "^1.7.0",
         "redis": "^4.0.0",
-        "socket.io": "^4.4.0",
-        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+        "socket.io": "^4.4.0"
+
     },
     "devDependencies": {
         "@octokit/openapi-types": "^11.2.0",

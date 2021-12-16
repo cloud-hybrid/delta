@@ -7,11 +7,11 @@
     "private": false,
     "version": "0.1.82",
     "type": "module",
-    "scripts": {},
+    "scripts": { },
     "dependencies": {
         "@aws-sdk/client-ec2": "^3.44.0",
         "@aws-sdk/client-secrets-manager": "^3.43.0",
-        "aws-sdk": "latest",
-        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+        "aws-sdk": "latest"
+
     }
 }

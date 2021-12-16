@@ -26,6 +26,6 @@
     "description": "ESM CLI-Prompt Package",
     "homepage": "https://github.com/cloud-hybrid/cli-prompt",
     "dependencies": {
-        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+
     }
 }

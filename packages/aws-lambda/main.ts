@@ -146,7 +146,7 @@ class Stack extends TerraformStack {
 
         // Create Lambda function
         const lambda = new AWS.lambdafunction.LambdaFunction(this, "AWS-Lambda-Function", {
-            functionName: "AWS-CDK-Lambda-Function",
+            functionName: "AWS-CDK-Lambda-Function" + name,
             s3Bucket: bucket.bucket,
             s3Key: lambdaArchive.key,
             handler: config.handler,
@@ -156,7 +156,7 @@ class Stack extends TerraformStack {
 
         // Create and configure API gateway
         const API = new AWS.apigatewayv2.Apigatewayv2Api(this, "AWS-API-Gateway-Version-2", {
-            name: name,
+            name: "test-gateway",
             protocolType: "HTTP",
             target: lambda.arn,
         });

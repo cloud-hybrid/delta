@@ -8,6 +8,6 @@
         "start": "node index.js"
     },
     "dependencies": {
-        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+
     }
 }

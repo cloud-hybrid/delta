@@ -9,8 +9,8 @@
     },
     "dependencies": {
         "@cloud-technology/cli-prompt": "latest",
-        "@octokit/core": "latest",
-        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+        "@octokit/core": "latest"
+
     },
     "license": "BSD-3-Clause"
 }

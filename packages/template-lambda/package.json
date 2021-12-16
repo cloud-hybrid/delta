@@ -9,8 +9,8 @@
         "test": "node src/index.js"
     },
     "dependencies": {
-        "ajv": "^8.8.2",
-        "undefined": "/Users/io/Next/Cloud-Hybrid/delta/cloud/terraform/aws-lambda"
+        "ajv": "^8.8.2"
+
     },
     "devDependencies": {
         "@types/node": "^16.11.11",
