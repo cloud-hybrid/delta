@@ -1,17 +1,16 @@
-# `@cloud-technology/cli-prompt` #
+# `@cloud-vault/cli-prompt` - ESM CLI Prompt #
 
 ## Overview ##
 
 `cli-prompt` is a zero dependency, node.js ESM-compliant *commandline prompt*.
 
 As an ESM module, when running via a compatible (16+) `node.js` runtime, package(s)
-benefit from running `await` via the global namespace for blocking cli-prompt
-callables.
+benefit from running `await` via the global namespace for blocking cli-prompt callables.
 
 ## Setup ##
 
 ```bash
-npm install --save @cloud-technology/cli-prompt
+npm install --save "@cloud-vault/cli-prompt"
 ```
 
 ### Development ###
@@ -19,24 +18,26 @@ npm install --save @cloud-technology/cli-prompt
 *If installing only for development or POC-related purposes*
 
 ```bash
-npm install --save-dev @cloud-technology/cli-prompt
+npm install --save-dev "@cloud-vault/cli-prompt"
 ```
 
 ## Usage ##
 
-***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
-
-- Please see the [`standalone` example](https://github.com/cloud-hybrid/cli-prompt/tree/Development/examples/standalone)
-  for more details on usage.
-
 `index.js`
 
 ```javascript
-import Prompt from "@cloud-technology/cli-prompt";
+import Prompt from "@cloud-vault/cli-prompt";
 
-const Query = await Prompt("First Name");
+const Query = await Prompt("First Name" + ":");
 
+// $ "Jacob"
 console.debug(Query);
+
+// >>> "Jacob"
 
 process.exit(0);
 ```
+
+***Note*** - Ensure to have `"type": "module"` configured in `package.json`.
+
+- Please see the [example](./examples) package for more details on usage.
