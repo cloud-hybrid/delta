@@ -16,7 +16,7 @@
         "noImplicitThis": false,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
-        "resolveJsonModule": false,
+        "resolveJsonModule": true,
         "declarationMap": false,
         "strictFunctionTypes": false,
         "useUnknownInCatchVariables": false,

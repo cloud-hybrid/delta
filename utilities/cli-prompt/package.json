@@ -1,28 +1,15 @@
 {
-    "name": "@cloud-technology/cli-prompt",
+    "name": "@cloud-vault/cli-prompt",
     "private": false,
     "version": "0.1.84",
+    "description": "ESM CLI-Prompt Package",
+    "license": "BSD-3-Clause",
     "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "...",
-        "directory": ""
-    },
+    "type": "module",
     "scripts": {
         "start": "node index.js",
         "package": "npm pack",
         "upload": "npm publish --access public",
         "example": "node examples/CLI-Form.js"
-    },
-    "engines": {
-        "node": "^16.x"
-    },
-    "exports": [
-        "./index.js"
-    ],
-    "type": "module",
-    "license": "BSD-3-Clause",
-    "author": "Jacob B. Sanders",
-    "description": "ESM CLI-Prompt Package",
-    "homepage": "https://github.com/cloud-hybrid/cli-prompt"
+    }
 }

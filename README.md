@@ -12,6 +12,12 @@
 npm run start --workspace packages/api
 ```
 
+## Publishing to NPM Registry ##
+
+```bash
+npm publish --access "public" --workspace utilities/cli-prompt
+```
+
 ## Updating NPM Dependencies ##
 
 In order to update all dependencies across all module(s) or package(s):

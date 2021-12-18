@@ -1,6 +1,6 @@
 /***
  * @name        cli-prompt
- * @package     @cloud-technology
+ * @package     @cloud-vault
  * @summary     ESM-based CLI Prompt
  *
  * @author      Jacob B. Sanders
@@ -8,21 +8,21 @@
  * @copyright   Cloud-Technology LLC. & Affiliates
  */
 
-import * as Utility from "util";
-import * as Input from "readline";
-import * as Process from "process";
+import Utility from "util";
+import Input from "readline";
+import Process from "process";
 
 /***
  *
  * @param query
  *
- * @returns {Promise<unknown>}
+ * @returns {Promise<String>}
  *
  * @constructor
  *
  */
 
-export const Prompt = (query) => {
+const Prompt = (query) => {
     return new Promise(async (resolve, reject) => {
         let $;
 
@@ -35,10 +35,13 @@ export const Prompt = (query) => {
 
         try {
             $ = await prompt(query);
-        } catch (_) { reject(_) } finally { Interface.close() }
+        } catch ( _ ) { reject(_); }
+        finally { Interface.close(); }
 
         resolve($);
     });
-}
+};
+
+export { Prompt };
 
 export default Prompt;

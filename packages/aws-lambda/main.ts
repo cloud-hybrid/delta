@@ -7,27 +7,32 @@
  * @copyright   Cloud-Technology LLC. & Affiliates
  */
 
+import { ApiGatewayV2 } from "aws-sdk";
 import { IamRole } from "aws-sdk/clients/ssm.js";
 import FS from "fs";
 import Path from "path";
 import Module from "module";
 import Process from "process";
 
+import { default as Gateway } from "./packages/API-Gateway.js";
+
 import AWS from "@cdktf/provider-aws";
 
 import { Construct } from "constructs";
+
+import * as Globals from "./Settings.json";
 
 import {
     App,
     TerraformStack,
     TerraformAsset,
     AssetType,
-    TerraformOutput,
+    TerraformOutput, ITerraformDependable, TerraformResourceLifecycle, TerraformProvider, IResolvable,
 } from "cdktf";
 
 import { LambdaFunction } from "@cdktf/provider-aws/lib/lambdafunction";
 import { LambdaPermission } from "@cdktf/provider-aws/lib/lambdafunction";
-import { Apigatewayv2Api } from "@cdktf/provider-aws/lib/apigatewayv2";
+import { Apigatewayv2Api } from "@cdktf/provider-aws/lib/apigatewayv2/apigatewayv2-api.js";
 import { IamRolePolicyAttachment } from "@cdktf/provider-aws/lib/iam";
 import { S3Bucket, S3BucketObject } from "@cdktf/provider-aws/lib/s3";
 
@@ -76,8 +81,7 @@ interface LambdaFunctionConfig {
     path: string,
     handler: string,
     runtime: string,
-    stageName: string,
-    version: string,
+    version: string
 }
 
 const lambdaRolePolicy = {
@@ -86,117 +90,168 @@ const lambdaRolePolicy = {
         {
             "Action": "sts:AssumeRole",
             "Principal": {
-                "Service": "lambda.amazon.aws.com",
+                "Service": "lambda.amazonaws.com",
             },
             "Effect": "Allow",
             "Sid": "",
         },
     ],
 };
+//
+//const Endpoint = (integration: string = "lambda") => {
+//    /// https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+//    /// https://github.com/awsdocs/amazon-api-gateway-developer-guide/tree/main/cloudformation-templates
+//
+//    class Configuration implements Apigatewayv2IntegrationConfig {
+//        public readonly apiId: string;
+//        public readonly connectionId: string;
+//        public readonly connectionType: string;
+//        public readonly contentHandlingStrategy: string;
+//        public readonly count: number | IResolvable;
+//        public readonly credentialsArn: string;
+//        public readonly dependsOn: ITerraformDependable[];
+//        public readonly description: string;
+//        public readonly integrationMethod: string;
+//        public readonly integrationSubtype: string;
+//        public readonly integrationType: string;
+//        public readonly integrationUri: string;
+//        public readonly lifecycle: TerraformResourceLifecycle;
+//        public readonly passthroughBehavior: string;
+//        public readonly payloadFormatVersion: string;
+//        public readonly provider: TerraformProvider;
+//        public readonly requestParameters: { [p: string]: string } | IResolvable;
+//        public readonly requestTemplates: { [p: string]: string } | IResolvable;
+//        public readonly responseParameters: Apigatewayv2IntegrationResponseParameters[];
+//        public readonly templateSelectionExpression: string;
+//        public readonly timeoutMilliseconds: number;
+//        public readonly tlsConfig: Apigatewayv2IntegrationTlsConfig;
+//
+//        constructor(api: Gateway, lambda: LambdaFunction, description: string, dependencies: ITerraformDependable[]) {
+//            this.dependsOn = dependencies;
+//            this.apiId = api.gateway.id;
+//            this.description = description;
+//            this.integrationUri = lambda.this.integrationType = "HTTP_PROXY";
+//            this.integrationMethod = "ANY";
+//            this.payloadFormatVersion = "2.0";
+//            this.requestParameters = {
+//                "append:header.X-CDK-Test-Request-Header": "TRUE",
+//            };
+//            this.requestParameters = JSON.parse(JSON.stringify({
+//                "200": {
+//                    "ResponseParameters": [
+//                        {
+//                            "Destination": "append:header.X-CDK-Test-Response-Header",
+//                            "Source": "TRUE",
+//                        },
+//                    ],
+//                },
+//            }));
+//        }
+//    }
+//
+//    configuration.integrationType = "AWS_PROXY";
+//
+//    const $ = {
+//        filename: configuration.,
+//        function: null,
+//        role: null,
+//        handler: "index.handler",
+//        runtime: Globals.Runtime,
+//    };
+//
+//
+//};
+
+//class Endpoint extends Apigatewayv2Integration {
+//    constructor(scope: Construct, name: string, configuration: Apigatewayv2IntegrationConfig) {
+//        super(scope, name, configuration);
+//    }
+//}
 
 class Stack extends TerraformStack {
-    private readonly Attributes: {
-        bucket: S3Bucket;
-        lambda: LambdaFunction;
-        role: IamRole;
-        Output: TerraformOutput;
-        Permissions: {
-            Policy: IamRolePolicyAttachment;
-            Invocation: LambdaPermission
-        };
-        lambdaArchive: S3BucketObject;
-        API: Apigatewayv2Api;
-        asset: TerraformAsset
-    };
-
-    constructor(scope: Construct, name: string, config: LambdaFunctionConfig) {
+    constructor(scope: Construct, name: string, lambdas: { Name: string; Directory: string; Version: any; }[]) {
         super(scope, name);
 
         Provider(this);
 
-        // Create Lambda executable
-        const asset = new TerraformAsset(this, "AWS-Lambda-Function-Asset", {
-            path: Path.resolve(CWD, config.path),
-            type: AssetType.ARCHIVE, // if left empty it infers directory and file
-        });
+        const Lambdas = lambdas.map((Lambda) => {
+            const role = new AWS.iam.IamRole(this, ["API-Role", Lambda.Name].join("-"), {
+                name: ["Test-CDK-Role", Lambda.Name].join("-"),
+                assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
+            });
 
-        // Create unique S3 bucket that hosts Lambda executable
-        const bucket = new AWS.s3.S3Bucket(this, "AWS-S3-Resource", {
-            bucketPrefix: `learn-cdktf-${ name }`,
-        });
+            // Create Lambda executable
+            const asset = new TerraformAsset(this, ["AWS-Lambda-Function-Asset", Lambda.Name].join("-"), {
+                path: Path.resolve(CWD, Lambda.Directory),
+                type: AssetType.ARCHIVE, // if left empty it infers directory and file
+            });
 
-        // Upload Lambda zip file to newly created S3 bucket
-        const lambdaArchive = new AWS.s3.S3BucketObject(this, "AWS-Lambda-Function-Archive-File", {
-            bucket: bucket.bucket,
-            key: `${ config.version }/${ asset.fileName }`,
-            source: asset.path, // returns a posix path
-        });
+            // Create unique S3 bucket that hosts Lambda executable
+            const bucket = new AWS.s3.S3Bucket(this, ["AWS-S3-Resource", Lambda.Name].join("-"), {
+                bucketPrefix: ["Test-Prefix", Lambda.Name].join("-").toLowerCase(),
+            });
 
-        // Create Lambda role
-        const role = new AWS.iam.IamRole(this, "AWS-Lambda-IAM-Execution-Role-Permissions", {
-            name: "Test-CDK-Role",
-            assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
-        });
+            // Upload Lambda zip file to newly created S3 bucket
+            const lambdaArchive = new AWS.s3.S3BucketObject(this, ["AWS-Lambda-Function-Archive-File", Lambda.Name].join("-"), {
+                bucket: bucket.bucket,
+                key: [Lambda.Version, asset.fileName].join("/"),
+                source: asset.path, // returns a posix path
+            });
 
-        // Add execution role for lambda to write to CloudWatch logs
-//        new AWS.iam.IamRolePolicyAttachment(this, "AWS-Lambda-IAM-Managed-Policy-Service-Role", {
-//            policyArn: "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-//            role: role.name,
-//        });
+            // Create Lambda function
+            const lambda = new AWS.lambdafunction.LambdaFunction(this, ["AWS-Lambda-Function", Lambda.Name].join("-"), {
+                functionName: ["AWS-CDK-Lambda-Function", Lambda.Name].join("-"),
+                s3Bucket: bucket.bucket,
+                s3Key: lambdaArchive.key,
+                handler: "index.handler",
+                runtime: "nodejs14.x",
+                role: role.arn,
+            });
 
-        // Create Lambda function
-        const lambda = new AWS.lambdafunction.LambdaFunction(this, "AWS-Lambda-Function", {
-            functionName: "AWS-CDK-Lambda-Function" + name,
-            s3Bucket: bucket.bucket,
-            s3Key: lambdaArchive.key,
-            handler: config.handler,
-            runtime: config.runtime,
-            role: role.arn,
-        });
+            const gateway = new Apigatewayv2Api(this, ["API-Gateway", Lambda.Name].join("-"), {
+                name: ["API-Gateway-CDK-Test", Lambda.Name].join("-"),
+                description: "...",
+                protocolType: "HTTP",
+                target: lambda.arn,
+                /// target: "http://test-td-cdk-api-gateway-target.execute-api.us-east-2.amazonaws.com/api",
+                /// target: "http://test-td-cdk-api-gateway-target.execute-api.us-east-2.amazonaws.com/api",
+            });
 
-        // Create and configure API gateway
-        const API = new AWS.apigatewayv2.Apigatewayv2Api(this, "AWS-API-Gateway-Version-2", {
-            name: "test-gateway",
-            protocolType: "HTTP",
-            target: lambda.arn,
-        });
-
-        const Permissions = {
-            Invocation: new AWS.lambdafunction.LambdaPermission(this, "AWS-API-Gateway-Lambda-Function-Invocation-Permission", {
+            new AWS.lambdafunction.LambdaPermission(this, ["AWS-API-Gateway-Lambda-Function-Invocation-Permission", Lambda.Name].join("-"), {
+//                statementIdPrefix: ["Allow", lambda.functionName, "Invokation-ID"].join("-"),
                 functionName: lambda.functionName,
                 action: "lambda:InvokeFunction",
-                principal: "apigateway.amazonAWS.com",
-                sourceArn: API.executionArn + "/*/*",
-            }),
+                principal: "apigateway.amazonaws.com",
+                /// The /*/*/* part allows invocation from any stage, method and resource path
+                /// arn:aws:execute-api:region:account-id:api-id/stage-name/HTTP-VERB/resource-path-specifier
+                /// region is the AWS region (such as us-east-1 or * for all AWS regions) that corresponds to the deployed API for the method.
+                //  account-id is the 12-digit AWS account Id of the REST API owner.
+                //  api-id is the identifier API Gateway has assigned to the API for the method.
+                //  stage-name is the name of the stage associated with the method.
+                //  HTTP-VERB is the HTTP verb for the method. It can be one of the following: GET, POST, PUT, DELETE, PATCH.
+                //  resource-path-specifier is the path to the desired method.
+                //  Some example resource expressions include:
+                //
+                //  - arn:aws:execute-api:*:*:* for any resource path in any stage, for any API in any AWS region.
+                //  - arn:aws:execute-api:us-east-1:*:* for any resource path in any stage, for any API in the AWS region of us-east-1.
+                //  - arn:aws:execute-api:us-east-1:*:api-id/* for any resource path in any stage, for the API with the identifier of api-id in the AWS
+                // region of us-east-1.
+                //  - arn:aws:execute-api:us-east-1:*:api-id/test/* for resource path in the stage of test, for the API with the identifier of api-id in
+                // the AWS region of us-east-1.
+                /// https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+                sourceArn: [gateway.executionArn + "*", "*"].join("/"),
+            });
 
-            Policy: new AWS.iam.IamRolePolicyAttachment(this, "AWS-Lambda-IAM-Managed-Policy-Service-Role", {
+            new AWS.iam.IamRolePolicyAttachment(this, ["AWS-Lambda-IAM-Managed-Policy-Service-Role", Lambda.Name].join("-"), {
                 policyArn: "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
                 role: role.name,
-            }),
-        };
+            });
 
-        const Output = new TerraformOutput(this, "TF-Output-API-Gateway-URL", {
-            value: {
-                API,
-                Permissions,
-            },
+            new TerraformOutput(this, ["AWS-API-Gateway-Invoke-Endpoint", Lambda.Name].join("-"), {
+                value: gateway.apiEndpoint,
+            });
         });
-
-        this.Attributes = {
-            asset,
-            bucket,
-            lambdaArchive,
-            role: role.name,
-            lambda,
-            API,
-            Permissions,
-            Output,
-        };
     }
-
-    attributes = () => {
-        return this.Attributes;
-    };
 }
 
 const Application = new App({
@@ -210,21 +265,22 @@ const Packages = FS.readdirSync(Path.join(CWD, "packages"), {
     encoding: "utf-8",
 });
 
+const Lambdas: [any] | { Name: string; Directory: string; Version: any; }[] = [];
 Packages.forEach((Lambda) => {
-    const Directory = Path.join(CWD, "packages", Lambda.name);
-    const Version = Import(Path.join(Directory, "package.json")).version;
+    if (Lambda.isDirectory()) {
+        const Name = Lambda.name;
 
-    console.log(Version);
+        const Directory = Path.join(CWD, "packages", Name);
+        const Version = Import(Path.join(Directory, "package.json")).version;
 
-    const $ = new Stack(Application, Lambda.name, {
-        path: Directory,
-        handler: "index.handler",
-        runtime: "nodejs14.x",
-        stageName: "hello-world",
-        version: Version,
-    });
-
-    console.log($.attributes());
+        Lambdas.push({
+            Name,
+            Directory,
+            Version,
+        });
+    }
 });
+
+const Instance = new Stack(Application, "Test-Stack-CDK", Lambdas);
 
 Application.synth();

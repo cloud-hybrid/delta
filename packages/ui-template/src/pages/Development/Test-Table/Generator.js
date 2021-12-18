@@ -20,7 +20,9 @@ const range = (length) => {
 
     let i = 0;
 
-    for (i; i < length; i++) $.push(i);
+    for ( i; i < length; i++ ) {
+        $.push(i);
+    }
 
     return $;
 };
@@ -32,7 +34,8 @@ function UUID() { // Public Domain / MIT
     let source = new Date().getTime(); // Timestamp
     let delta = ((typeof performance !== "undefined") && performance.now && (performance.now() * 1000)) || 0;
 
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function ($) {
+    return String((new Array(8)).join(":") + (new Array(4).join(":") + "4" + (new Array(3).join(":") + "*" + (new Array(8)).join(":"))).replace(/[:*]/g), ($) => {
+        /// return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function ($) {
         var random = Math.random() * 16; // Random number between 0 and 16
 
         if ( source > 0 ) {
@@ -135,7 +138,7 @@ const Marital = {
             Marital.SINGLE,
             Marital.MARRIED,
             Marital.OTHER
-        ][Index(2)]
+        ][Index(2)];
     }
 };
 
@@ -167,9 +170,9 @@ export const Person = (
             First = typeof String, Last = typeof String
         },
         Age = typeof String,
-        Height= typeof String,
+        Height = typeof String,
 
-        UUID= typeof String,
+        UUID = typeof String,
         Marital = Marital.NULL,
         index = 0
     }
@@ -178,8 +181,6 @@ export const Person = (
         Name: { First, Last }, Age, Height, UUID, Marital, index
     };
 };
-
-
 
 /***
  *
