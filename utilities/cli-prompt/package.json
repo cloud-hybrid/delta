@@ -1,7 +1,7 @@
 {
     "name": "@cloud-vault/cli-prompt",
     "private": false,
-    "version": "0.1.84",
+    "version": "0.1.85",
     "description": "ESM CLI-Prompt Package",
     "license": "BSD-3-Clause",
     "main": "index.js",
