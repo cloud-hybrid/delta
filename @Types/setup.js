@@ -1,3 +1,0 @@
-import CDK from 'cdktf';
-CDK.Testing.setupJest();
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2V0dXAuanMiLCJzb3VyY2VSb290IjoiLi8iLCJzb3VyY2VzIjpbInNldHVwLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sR0FBRyxNQUFNLE9BQU8sQ0FBQztBQUV4QixHQUFHLENBQUMsT0FBTyxDQUFDLFNBQVMsRUFBRSxDQUFDIn0=
