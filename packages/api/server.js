@@ -4,10 +4,6 @@ import Process from "process";
 
 import { Initializer as Error } from "./src/utilities/error.js";
 
-const t = Error("Message", "Generic");
-
-console.log(t.throw());
-
 import HTTP from "http";
 import HTTPs from "https";
 
@@ -40,24 +36,14 @@ import("./src/index.js")
             async ($) => await $.initialize()
         );
 
-        /***
-         *
-         * @type {Router}
-         *
-         */
-
+        /*** @type {Router} */
         const Controller = await import("./src/controllers/index.js").then(
             ($) => $.Router
         );
 
         Application.use("/v1", Controller);
 
-        /***
-         *
-         * @type {{PFX: Buffer, Key: Buffer, Certificate: Buffer}}
-         *
-         */
-
+        /*** @type {{PFX: Buffer, Key: Buffer, Certificate: Buffer}} */
         const Content = {
             Key: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["Key"])),
             PFX: FS.readFileSync(Path.join(CWD, Process.env["TLS"]["PFX"])),
@@ -66,12 +52,7 @@ import("./src/index.js")
             )
         };
 
-        /***
-         *
-         * @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}}
-         *
-         */
-
+        /*** @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}} */
         const options = {
             passphrase: Process.env["TLS"]["Passphrase"],
 
@@ -86,7 +67,6 @@ import("./src/index.js")
         const Socket = await import("./src/library/socket.js");
 
         Socket.Link(Server);
-    })
-    .finally(() => {
+    }).finally(() => {
         console.debug("[Main] [Log]", "Starting API Server ...");
     });
