@@ -17,12 +17,7 @@
         "url": "https://github.com/cloud-hybrid/delta.git",
         "directory": "packages/api"
     },
-    "bundledDependencies": [
-        "jsdoc"
-    ],
     "dependencies": {
-        "@socket.io/cluster-adapter": "^0.1.0",
-        "@socket.io/sticky": "^1.0.1",
         "axios": "^0.24.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
@@ -35,7 +30,7 @@
         "mongoose": "^6.0.13",
         "octokit": "^1.7.0",
         "redis": "^4.0.0",
-        "socket.io": "^4.4.0"
+        "ws": "^8.4.0"
     },
     "devDependencies": {
         "@octokit/openapi-types": "^11.2.0",

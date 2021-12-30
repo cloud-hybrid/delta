@@ -3,7 +3,7 @@ import { Checkmark20 } from "@carbon/icons-react";
 import { oneOf, string } from "prop-types";
 import React, { Component } from "react";
 
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import Icon from "../Icon";
 import { Loading } from "@carbon/react";
@@ -15,7 +15,7 @@ const STATUS = [ "complete", "error", "info", "success", "unknown", "warning" ];
 /**
  * Status icon component.
  */
-export default class StatusIcon extends Component {
+class Status extends Component {
     static propTypes = {
         /** @type {string} Class name. */
         className: string,
@@ -59,38 +59,38 @@ export default class StatusIcon extends Component {
 
         let statusIcon;
 
-        switch ( status ) {
-        case STATUS[0]:
-            statusIcon = (
-                <Icon
-                    aria-label={
-                        iconDescription && iconDescription.length ? iconDescription : null
-                    }
-                    renderIcon={ Checkmark20 }
-                />
-            );
-            break;
+        switch (status) {
+            case STATUS[0]:
+                statusIcon = (
+                    <Icon
+                        aria-label={
+                            iconDescription && iconDescription.length ? iconDescription : null
+                        }
+                        renderIcon={ Checkmark20 }
+                    />
+                );
+                break;
 
-        case undefined:
-            statusIcon = (
-                <Loading
-                    aria-label={
-                        iconDescription && iconDescription.length ? iconDescription : null
-                    }
-                    withOverlay={ false }
-                />
-            );
-            break;
+            case undefined:
+                statusIcon = (
+                    <Loading
+                        aria-label={
+                            iconDescription && iconDescription.length ? iconDescription : null
+                        }
+                        withOverlay={ false }
+                    />
+                );
+                break;
 
-        default:
-            statusIcon = (
-                <span
-                    aria-label={
-                        iconDescription && iconDescription.length ? iconDescription : null
-                    }
-                    className={ Styles.success }
-                />
-            );
+            default:
+                statusIcon = (
+                    <span
+                        aria-label={
+                            iconDescription && iconDescription.length ? iconDescription : null
+                        }
+                        className={ Styles.success }
+                    />
+                );
         }
 
         return (
@@ -110,4 +110,6 @@ export default class StatusIcon extends Component {
     }
 }
 
-export { SIZE, STATUS };
+export { SIZE, STATUS, Status };
+
+export default Status;

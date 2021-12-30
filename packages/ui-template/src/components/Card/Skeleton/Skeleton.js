@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import * as Styles from "./../SCSS/Skeleton.module.scss";
+import Styles from "./../SCSS/Skeleton.module.scss";
 
 import Card from "../Card";
 

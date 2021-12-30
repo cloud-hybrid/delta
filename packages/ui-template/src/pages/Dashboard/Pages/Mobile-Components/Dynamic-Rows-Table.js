@@ -38,7 +38,7 @@ const Editor = () => {
     );
 };
 
-const Cryptography = require("crypto");
+//const Cryptography = require("crypto");
 
 const Headers = [
     {
@@ -115,7 +115,7 @@ const Component = ({ state }) => {
         });
     };
 
-    const UID = () => Cryptography.randomBytes(256 / 8).toString("hex");
+    // const UID = () => Cryptography.randomBytes(256 / 8).toString("hex");
 
     const Compose = (array, element) => {
         const index = array.length;
@@ -178,7 +178,8 @@ const Component = ({ state }) => {
         Button.className = "io-ghost";
         Button.textContent = Name;
         Button.onclick = () => Redirection(Redirect);
-        Button.id = [ "Button", "ID", String(ID), UID() ].join("-");
+        // Button.id = [ "Button", "ID", String(ID), UID() ].join("-");
+        Button.id = [ "Button", "ID", String(ID) ].join("-");
         Button.dataset.row = String(ID);
 
         const Mapping = new Map();
@@ -265,18 +266,18 @@ const Component = ({ state }) => {
                         headers={ Headers }
                         isSortable={ true }
                         render={ ({
-                                      rows,
-                                      headers,
-                                      onInputChange,
-                                      selectedRows,
-                                      getExpandHeaderProps,
-                                      getRowProps,
-                                      getSelectionProps,
-                                      getToolbarProps,
-                                      getBatchActionProps,
-                                      getTableContainerProps,
-                                      getTableProps
-                                  }) => (
+                            rows,
+                            headers,
+                            onInputChange,
+                            selectedRows,
+                            getExpandHeaderProps,
+                            getRowProps,
+                            getSelectionProps,
+                            getToolbarProps,
+                            getBatchActionProps,
+                            getTableContainerProps,
+                            getTableProps
+                        }) => (
                             <TableContainer
                                 className={ "io-data-table" }
                                 title="Button Template Editor"
@@ -329,7 +330,7 @@ const Component = ({ state }) => {
                                                 colSpan={ 1 }
                                             />
                                             <TableSelectAll { ... getSelectionProps() }
-                                                            disabled={ (rows.length === 0 || !rows) }
+                                                disabled={ (rows.length === 0 || !rows) }
                                             />
                                             <TableHeader colSpan={ 1 }>
                                                 { Headers[0].header }
@@ -382,7 +383,7 @@ const Component = ({ state }) => {
                                                                         kind={ "secondary" }
                                                                         hasIconOnly={ true }
                                                                         onClick={ () => {
-                                                                            if ( rows !== null ) {
+                                                                            if (rows !== null) {
                                                                                 console.debug("Editor Open", "Field Pre-Population :=", true);
                                                                             } else {
                                                                                 console.debug("Editor Open", "Field Pre-Population", false);

@@ -30,6 +30,8 @@
         @include type-style("productive-heading-03");
 
         font-weight: 600;
+
+        margin-top:  $spacing-05;
     }
 
     #{&}-primary-image {

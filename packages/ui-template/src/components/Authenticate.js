@@ -6,43 +6,32 @@ import { Navigate } from "react-router-dom";
 import { Validator } from "./../components/Loader";
 
 const Request = require("axios");
-const Forage = require("localforage");
+
+import Forage from "localforage";
 
 const NAME = "Nexus-UI";
 const DESCRIPTION = "Nexus Dashboard Login State";
-export const STORE = "JWT";
+const STORE = "JWT";
 
 const URL = process.env.REACT_APP_API_ENDPOINT;
 const Deserialize = URL + "/v1/authorization";
 
-export const Cancellation = Request.CancelToken;
+const Cancellation = Request.CancelToken;
 
-export const Store = Forage.createInstance({
+const Store = Forage.createInstance({
     name: NAME,
     storeName: STORE,
-    description: DESCRIPTION,
-    driver: Forage.INDEXEDDB
+    description: DESCRIPTION
 });
 
-// const Adapter = require("axios-cache-adapter");
-// const Cache = Adapter.setupCache({
-//     debug: (process.env.NODE_ENV !== "production"),
-//     // clearOnStale: true,
-//     clearOnStale: false,
-//     ignoreCache: false,
-//     limit: false,
-//     // clearOnError: true,
-//     clearOnError: false,
-//     readHeaders: true,
-//     readOnError: true,
-//     maxAge: 5 * 60 * 1000,
-//     store: Store
-// });
+//export const Store = Forage.createInstance({
+//    name: NAME,
+//    storeName: STORE,
+//    description: DESCRIPTION,
+//    driver: Forage.INDEXEDDB || Forage.defineDriver(Local) || Forage.LOCALSTORAGE
+//});
 
-export const API = Request.create({
-    //    adapter: Cache.adapter,
-    //    cache: Cache
-});
+const API = Request.create({});
 
 /***
  *
@@ -53,7 +42,7 @@ export const API = Request.create({
  *
  * @constructor
  */
-export const Validate = async (Token, Handler = Cancellation.source()) => {
+const Validate = async (Token, Handler = Cancellation.source()) => {
     const Validation = {
         Data: null, // { JWT: String, Type: String ... }
         Loading: true,
@@ -83,7 +72,7 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
 
             await Store.setItem(STORE, (Validation.Data["Token"]["JWT"]), (e, value) => {
                 (e) && console.error("[Fatal Error] Unknown Exception", e);
-                if ( value === null || value === undefined ) {
+                if (value === null || value === undefined) {
                     const error = new Error("Unknown, Fatal Error" + JSON.stringify(e, null, 4));
                     error.name = "Fatal-Unknown-Error";
                     throw error;
@@ -98,7 +87,7 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
             console.debug("[Debug]", "Clearing Session Storage ...");
 
             return Store.clear((e) => {
-                if ( e ) console.error("[Fatal Error] Unknown Exception", e);
+                if (e) console.error("[Fatal Error] Unknown Exception", e);
                 console.debug("[Debug]", "Removed Stale JWT Token(s) from Storage");
             });
         });
@@ -106,25 +95,23 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
         await $;
 
         console.debug("[Debug]", "Awaitable Complete", "Session Storage Awaitable(s) ?:= Complete");
-    } catch ( e ) {
+    } catch (e) {
         console.error("[Fatal Error (2)]", "@Unknown, Uncaught Error", e);
 
         Handler.cancel("Invalid JWT Token or Response");
-    }
-
-    finally {
+    } finally {
         Validation.Loading = false;
     }
 
     return Validation;
 };
 
-export const Token = async (Handler) => {
+const Token = async (Handler) => {
     console.debug("[Debug]", "Retrieving JWT Token from Storage ...");
     const Schema = await Store.getItem(STORE);
     console.debug("[Debug]", "JWT", Schema);
 
-    if ( Schema !== null ) {
+    if (Schema !== null) {
         const $ = await Validate(Schema, Handler);
 
         return $.Status;
@@ -133,7 +120,7 @@ export const Token = async (Handler) => {
     }
 };
 
-export const JWT = async () => {
+const JWT = async () => {
     console.debug("[Debug] Indexing Session Storage" + ":", STORE);
     const Token = await Store.getItem(STORE);
     console.debug("[Debug] Session Token" + ":", Token);
@@ -155,16 +142,16 @@ export const JWT = async () => {
  *
  */
 
-export const Authorizer = ({ Page, Session, description }) => {
-    if ( Page === null ) {
+const Authorizer = ({ Page, Session, description }) => {
+    if (Page === null) {
         throw Error("Page Cannot be Null");
     }
 
-    if ( Session === null ) {
+    if (Session === null) {
         throw Error("Authorization Session Cannot be Null");
     }
 
-    if ( description === null ) {
+    if (description === null) {
         throw Error("Page Loader's Description Cannot be Null");
     }
 
@@ -203,3 +190,15 @@ Authorizer.propTypes = {
      */
     description: PropTypes.string
 };
+
+export {
+    Cancellation,
+    Store,
+    STORE,
+    Validate,
+    Token,
+    JWT,
+    Authorizer
+};
+
+export default Authorizer;

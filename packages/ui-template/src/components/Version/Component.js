@@ -28,7 +28,7 @@ const Component = ({ version, state }) => {
     //    window.onerror = Ignore;
 
     return (
-        <Modal State={ state } buttonText={ "Balls" }/>
+        <Modal State={ state } buttonText={ "..." }/>
     );
 
     //    return (

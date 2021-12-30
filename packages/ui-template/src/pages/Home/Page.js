@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 //import { default as Button } from "./../../components/Button";
 
@@ -16,9 +16,7 @@ import {
 import {
     Column,
     Row,
-    Grid,
-    Tab,
-    Tabs, TabsSkeleton, TabContent, ContentSwitcher, Switch
+    Grid
 } from "@carbon/react";
 
 import { default as Selectable } from "./../../components/Tile-Mutli-Select";

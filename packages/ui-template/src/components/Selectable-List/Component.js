@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import {
     StructuredListBody,
@@ -34,7 +34,7 @@ const Component = ({ rows }) => {
 
     const Generator = (rows) => {
         return Array.apply(null, Array(rows)).map((Row, r) => (
-            <StructuredListRow id={ Stringify.rowID(r) } key={ Stringify.rowKey(r) } className={ Styles.row }>
+            <StructuredListRow id={ Stringify.rowID(r) } key={ Stringify.rowKey(r) }>
                 {
                     Columns.map(
                         (Column, c) => {
@@ -83,7 +83,7 @@ const Component = ({ rows }) => {
                     }
                 </StructuredListRow>
             </StructuredListHead>
-            <StructuredListBody className={ Styles.body }>
+            <StructuredListBody>
                 {
                     Generator(rows)
                 }

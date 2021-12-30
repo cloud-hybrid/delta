@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 
 import React, { useEffect, useRef, useState } from "react";
 
-import * as Styles from "./SCSS/Index.module.scss";
-import * as Placeholder from "./SCSS/Skeleton.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import { default as Capitalize } from "./../../utilities/Capitalize";
 
@@ -46,7 +45,7 @@ const Deconstruct = (Title = null) => {
                 )
             } : {
                 "data-value": String(Element).charAt(0).toUpperCase()
-                              + String(Element).slice(1),
+                    + String(Element).slice(1),
                 href: [ "", Element.toLowerCase() ].join("/"),
                 value: -1,
                 key: [ "Breadcrumb-Item", String(Index) ].join("-"),

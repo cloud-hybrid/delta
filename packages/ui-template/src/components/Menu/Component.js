@@ -1,6 +1,6 @@
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
-import * as Panel from "./SCSS/Side-Panel.module.scss";
+import Panel from "./SCSS/Side-Panel.module.scss";
 
 import { Store, STORE } from "./../Authenticate";
 
@@ -410,7 +410,7 @@ const Component = ({ Authorizer }) => {
                                         console.debug("[Debug]", "Authorization Store Value (1)", Value);
 
                                         await Store.setItem(STORE, null, (e, value) => {
-                                            if ( e ) {
+                                            if (e) {
                                                 console.error("[Fatal JWT Nullification Error]", e);
                                             }
 
@@ -418,11 +418,10 @@ const Component = ({ Authorizer }) => {
                                         });
 
                                         Opener[1](false);
-                                    } catch ( e ) {
+                                    } catch (e) {
                                         console.error("[Fatal Unknown Authorized JWT := NULL Error]", e);
                                         throw new Error("JWT !:= NULL During an Authorized State");
-                                    }
-                                    finally {
+                                    } finally {
                                         Authorizer[1](false);
                                     }
                                 }

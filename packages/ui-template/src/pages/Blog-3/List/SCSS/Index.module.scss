@@ -1,4 +1,20 @@
 .body {
+    * {
+        border: 0px solid transparent;
+    }
+
+    *:hover {
+        border: 0px solid transparent;
+    }
+
+    & .row {
+        border: 0px solid transparent;
+
+        &:hover {
+            border: 0px solid transparent;
+        }
+    }
+
     & .row {
         .tag {
             margin: 0.25rem;
@@ -9,7 +25,7 @@
         //}
     }
 
-    & .row:hover {
-        background-color: var(--cds-background-hover) !important;
-    }
+    //& .row:hover {
+    //    background-color: var(--cds-background-hover) !important;
+    //}
 }

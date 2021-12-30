@@ -4,7 +4,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const Request = require("axios");
-const Adapter = require("axios-cache-adapter");
+//const Adapter = require("axios-cache-adapter");
 const Forage = require("localforage");
 
 const NAME = "Nexus-UI";
@@ -23,24 +23,21 @@ export const Store = Forage.createInstance({
     driver: Forage.INDEXEDDB
 });
 
-const Cache = Adapter.setupCache({
-    debug: (process.env.NODE_ENV !== "production"),
-    // clearOnStale: true,
-    clearOnStale: false,
-    ignoreCache: false,
-    limit: false,
-    // clearOnError: true,
-    clearOnError: false,
-    readHeaders: true,
-    readOnError: true,
-    maxAge: 5 * 60 * 1000,
-    store: Store
-});
+//const Cache = Request.create({
+//    debug: (process.env.NODE_ENV !== "production"),
+//    // clearOnStale: true,
+//    clearOnStale: false,
+//    ignoreCache: false,
+//    limit: false,
+//    // clearOnError: true,
+//    clearOnError: false,
+//    readHeaders: true,
+//    readOnError: true,
+//    maxAge: 5 * 60 * 1000,
+//    store: Store
+//});
 
-export const API = Request.create({
-    adapter: Cache.adapter,
-    cache: Cache
-});
+export const API = Request.create();
 
 /***
  *
@@ -81,7 +78,7 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
 
             await Store.setItem(STORE, (Validation.Data["Token"]["JWT"]), (e, value) => {
                 (e) && console.error("[Fatal Error] Unknown Exception", e);
-                if ( value === null || value === undefined ) {
+                if (value === null || value === undefined) {
                     const error = new Error("Unknown, Fatal Error" + JSON.stringify(e, null, 4));
                     error.name = "Fatal-Unknown-Error";
                     throw error;
@@ -96,7 +93,7 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
             console.debug("[Debug]", "Clearing Session Storage ...");
 
             return Store.clear((e) => {
-                if ( e ) console.error("[Fatal Error] Unknown Exception", e);
+                if (e) console.error("[Fatal Error] Unknown Exception", e);
                 console.debug("[Debug]", "Removed Stale JWT Token(s) from Storage");
             });
         });
@@ -104,13 +101,11 @@ export const Validate = async (Token, Handler = Cancellation.source()) => {
         await $;
 
         console.debug("[Debug]", "Awaitable Complete", "Session Storage Awaitable(s) ?:= Complete");
-    } catch ( e ) {
+    } catch (e) {
         console.error("[Fatal Error (2)]", "@Unknown, Uncaught Error", e);
 
         Handler.cancel("Invalid JWT Token or Response");
-    }
-
-    finally {
+    } finally {
         Validation.Loading = false;
     }
 
@@ -122,7 +117,7 @@ export const Token = async (Handler) => {
     const Schema = await Store.getItem(STORE);
     console.debug("[Debug]", "JWT", Schema);
 
-    if ( Schema !== null ) {
+    if (Schema !== null) {
         const $ = await Validate(Schema, Handler);
 
         return $.Status;
@@ -154,15 +149,15 @@ export const JWT = async () => {
  */
 
 export const Authorizer = ({ Page, Session, description }) => {
-    if ( Page === null ) {
+    if (Page === null) {
         throw Error("Page Cannot be Null");
     }
 
-    if ( Session === null ) {
+    if (Session === null) {
         throw Error("Authorization Session Cannot be Null");
     }
 
-    if ( description === null ) {
+    if (description === null) {
         throw Error("Page Loader's Description Cannot be Null");
     }
 

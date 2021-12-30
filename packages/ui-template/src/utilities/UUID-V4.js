@@ -1,12 +1,30 @@
-export function uuid() {
-    const randomValues = (c) =>
-        typeof crypto !== "undefined"
-            ? crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4))
-            : (Math.random() * 16) >> (c / 4);
+/***
+ * UUID-V4 Browser-Capable Generator
+ * ---------------------------------
+ *
+ * @return {string}
+ *
+ */
 
-    return ([ 1e7 ] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
-        (c ^ randomValues(c)).toString(16)
-    );
+function UUID() {
+    let source = new Date().getTime(); // Timestamp
+    let delta = ((typeof performance !== "undefined") && performance.now && (performance.now() * 1000)) || 0;
+
+    return String((new Array(8)).join(":") + (new Array(4).join(":") + "4" + (new Array(3).join(":") + "*" + (new Array(8)).join(":")))).replace(/[:*]/g, ($) => {
+        let random = Math.random() * 16; // Random number between 0 and 16
+
+        if (source > 0) {
+            random = (source + random) % 16 | 0;
+            source = Math.floor(source / 16);
+        } else {
+            random = (delta + random) % 16 | 0;
+            delta = Math.floor(delta / 16);
+        }
+
+        return ($ === ":" ? random : (random & 0x3 | 0x8)).toString(16);
+    });
 }
 
-export default uuid;
+export { UUID };
+
+export default UUID;

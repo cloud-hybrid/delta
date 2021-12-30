@@ -6,7 +6,7 @@ import "./SCSS/Filter.scss";
 
 const Component = () => {
     return (
-        <div className={"blog-side-panel-filter"}>
+        <div className={ "blog-side-panel-filter" }>
             <FilterPanel
                 filterData={ {
                     categories: {

@@ -1,3 +1,5 @@
+import "./SCSS/Version.scss";
+
 import PropTypes from "prop-types";
 
 import React, { useState } from "react";
@@ -6,12 +8,10 @@ import { Tag } from "@carbon/react";
 import { default as Version } from "./../Version/Component.js";
 import { default as Build } from "./../../Version.js";
 
-import "./SCSS/Version.scss";
-
-import * as Tagger from "./SCSS/Mode.module.scss";
+import Styles from "./SCSS/Mode.module.scss";
 
 const Component = (props) => {
-    const display = process.env.NODE_ENV !== "production";
+    const display = (process.env.NODE_ENV !== "production");
 
     const State = useState(false);
 
@@ -22,13 +22,16 @@ const Component = (props) => {
 
     return (display === true)
         ? (
-            <div className={ Tagger.tag }>
+            <div className={ Styles.tag }>
                 <span>
                     {
-                        (process.env.NODE_ENV === "development")
+                        (process.env.NODE_ENV === "development" || true)
                             ? (
                                 <Tag
-                                    type={ "blue" } title={ version } filter={ false } size={ "md" }
+                                    size={ "md" }
+                                    type={ "blue" }
+                                    title={ version }
+                                    filter={ false }
                                     children={ (
                                         <strong>{ version }</strong>
                                     ) }

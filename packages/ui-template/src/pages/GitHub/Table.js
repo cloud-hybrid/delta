@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as Styles from "./SCSS/Table.module.scss";
+import Styles from "./SCSS/Table.module.scss";
 
 import {
     DataTable,
@@ -33,14 +33,14 @@ const Tabular = ({ rows, headers }) => {
             rows={ rows }
             headers={ headers }
             render={ ({
-                          rows,
-                          headers,
-                          getHeaderProps,
-                          getRowProps,
-                          getTableProps,
-                          getExpandHeaderProps,
-                          getSelectionProps
-                      }) => (
+                rows,
+                headers,
+                getHeaderProps,
+                getRowProps,
+                getTableProps,
+                getExpandHeaderProps,
+                getSelectionProps
+            }) => (
                 <TableContainer
                     title="[Title]"
                     description="[Description]"

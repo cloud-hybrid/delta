@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import {
     Button,
@@ -25,7 +25,7 @@ import { useState, useCallback } from "react";
  */
 
 export const Selectable = ({ props }) => {
-    const [selected, setSelected] = useState(false);
+    const [ selected, setSelected ] = useState(false);
 
     return (
         <SelectableTile
@@ -36,7 +36,7 @@ export const Selectable = ({ props }) => {
             disabled={ props?.disabled }
             children={ props?.Children }
 
-            onClick={ () => setSelected( ! selected) }
+            onClick={ () => setSelected(!selected) }
         />
     );
 };
@@ -100,7 +100,7 @@ Selectable.defaultProps = {
  *
  */
 
-export const Selectables = ({ Children = [Properties()] }) => {
+export const Selectables = ({ Children = [ Properties() ] }) => {
     const Components = [];
 
     Children.forEach(
@@ -128,8 +128,8 @@ const Component = (props) => {
     const Prefix = "tile";
 
     const A = useState({
-        id: [Prefix, "1"].join("-"),
-        name: [Prefix, "selectable", "1"].join("-"),
+        id: [ Prefix, "1" ].join("-"),
+        name: [ Prefix, "selectable", "1" ].join("-"),
         selected: false,
         value: "",
         disabled: false,
@@ -137,8 +137,8 @@ const Component = (props) => {
     });
 
     const B = useState({
-        id: [Prefix, "2"].join("-"),
-        name: [Prefix, "selectable", "2"].join("-"),
+        id: [ Prefix, "2" ].join("-"),
+        name: [ Prefix, "selectable", "2" ].join("-"),
         selected: false,
         value: "",
         disabled: false,
@@ -146,8 +146,8 @@ const Component = (props) => {
     });
 
     const C = useState({
-        id: [Prefix, "3"].join("-"),
-        name: [Prefix, "selectable", "3"].join("-"),
+        id: [ Prefix, "3" ].join("-"),
+        name: [ Prefix, "selectable", "3" ].join("-"),
         selected: false,
         value: "",
         disabled: false,
@@ -155,22 +155,22 @@ const Component = (props) => {
     });
 
     return (
-        <div role="group" aria-label="selectable tiles" className={(width) ? Styles.full : null}>
+        <div role="group" aria-label="selectable tiles" className={ (width) ? Styles.full : null }>
             <SelectableTile
                 { ... A[0] }
-                onClick={() => A[1]({ ... A[0], ... A[0]["selected"] })}
+                onClick={ () => A[1]({ ... A[0], ... A[0]["selected"] }) }
             >
                 Option-1
             </SelectableTile>
             <SelectableTile
                 { ... B[0] }
-                onClick={() => B[1]({ ... B[0], ... B[0]["selected"] })}
+                onClick={ () => B[1]({ ... B[0], ... B[0]["selected"] }) }
             >
                 Option-2
             </SelectableTile>
             <SelectableTile
                 { ... C[0] }
-                onClick={() => C[1]({ ... C[0], ... C[0]["selected"] })}
+                onClick={ () => C[1]({ ... C[0], ... C[0]["selected"] }) }
             >
                 Option-3
             </SelectableTile>
@@ -185,9 +185,9 @@ export const Opener = ({ open, setOpen }) => {
     }) => {
         return (
             <>
-                { ! ModalContent || typeof document === "undefined"
-                  ? null
-                  : ReactDOM.createPortal(
+                { !ModalContent || typeof document === "undefined"
+                    ? null
+                    : ReactDOM.createPortal(
                         <ModalContent open={ open } setOpen={ setOpen }/>,
                         document.body
                     ) }
@@ -232,10 +232,10 @@ export const Opener = ({ open, setOpen }) => {
 
 Component.defaultProps = {
     width: "full"
-}
+};
 
 Component.propTypes = {
-    width: PropTypes.oneOf(["full", "normal", null])
-}
+    width: PropTypes.oneOf([ "full", "normal", null ])
+};
 
 export default Component;

@@ -21,7 +21,6 @@ const URL = process.env.REACT_APP_API_ENDPOINT;
  *
  */
 
-    /// const Authorizer = URL + "/API/Authentication/Guarantee";
 const Authorizer = URL + "/v1/authorization/login";
 
 /***
@@ -35,13 +34,15 @@ const Authorizer = URL + "/v1/authorization/login";
  *
  */
 
-export const Cancellation = () => Request.CancelToken.source();
+const Cancellation = () => Request.CancelToken.source();
 
-export const Store = Forage.createInstance({
+const Store = Forage.createInstance({
     name: NAME,
     storeName: STORE,
     description: DESCRIPTION
 });
+
+export const API = Request.create({});
 
 /***
  *
@@ -56,7 +57,7 @@ export const Store = Forage.createInstance({
  *
  */
 
-export const Authenticate = async (Payload, Handler) => {
+const Authenticate = async (Payload, Handler) => {
     const Return = {
         Data: null,
         Loading: true,
@@ -67,20 +68,18 @@ export const Authenticate = async (Payload, Handler) => {
         }
     };
 
-    (Debug)
-        ? console.log("[Trace] Submitting Authentication Payload", Payload)
-        : console.debug("[Trace] Submitting Authentication Payload ...");
+    (Debug) && console.debug("[Debug] Submitting Authentication Payload", Payload);
 
-    const $ = async () => await Request.post(Authorizer, {
+    const $ = async () => await API.post(Authorizer, {
         Grant: "Password",
         Username: Payload.Username,
         Password: Payload.Password
     }, {
         cancelToken: Handler.token
     }).then((Data) => {
-        console.debug("[Debug] Response Data", Data);
-        console.debug("[Debug] JWT Authorization Data", Data.data);
-        console.debug("[Debug] JWT Authorization Return Headers", Data.headers);
+        (Debug) && console.debug("[Debug] Response Data", Data);
+        (Debug) && console.debug("[Debug] JWT Authorization Data", Data.data);
+        (Debug) && console.debug("[Debug] JWT Authorization Return Headers", Data.headers);
 
         Return.Error = false;
         Return.Data = {
@@ -96,39 +95,43 @@ export const Authenticate = async (Payload, Handler) => {
         Return.Status.Message = Data.statusText;
 
         try {
-            console.trace("[Trace] Authentication Object", Return);
-            console.debug("[Debug]", "JWT Token (Pre-Storage Setter)", Return.Data.Payload["JWT"]);
+            (Debug) && console.debug("[Debug] Authentication Object", Return);
+            (Debug) && console.debug("[Debug]", "JWT Token (Pre-Storage Setter)", Return.Data.Payload["JWT"]);
 
-            return Store.setItem(STORE, Return.Data.Payload["JWT"], (e, value) => {
-                if ( e ) console.error("[Fatal Error] Unknown Exception", e);
-                (e)
+            return Store.setItem(STORE, Return.Data.Payload["JWT"], (error, value) => {
+                if (error) console.error("[Fatal Error] Unknown Exception", error);
+                (error)
                     ? Handler.cancel("Unknown Error Establishing JWT Token")
-                    : console.debug("[Debug]", "Established JWT Token in Storage", value);
+                    : (Debug) && console.debug("[Debug]", "Established JWT Token in Storage", value);
             });
-        } catch ( error ) {
-            console.debug("[Warning] Unsuccessfully Established JWT Token", error);
+        } catch (error) {
+            (Debug) && console.debug("[Warning] Unsuccessful JWT Token Create Event", error);
 
             Return.Error = error;
 
             Handler.cancel("Error Establishing JWT Token");
 
             return Store.clear((e) => {
-                if ( e ) {
-                    console.error("[Fatal Error] Unknown Exception", e);
+                if (e) {
+                    (Debug) && console.error("[Fatal Error] Unknown Exception", e);
                 }
-                console.debug("[Debug]", "Removed Stale JWT Token(s) from Storage");
+                (Debug) && console.debug("[Debug]", "Removed Stale JWT Token(s) from Storage");
             });
         }
     }).finally(() => Return.Loading = false);
 
-    console.debug("[Debug]", "Initializing Authorization Awaitable ...");
+    (Debug) && console.debug("[Debug]", "Initializing Authorization Awaitable ...");
 
     // @Task --> Try Catch
-    console.trace(Authorizer)
+    (Debug) && console.debug("[Debug] Authorizer" + ":", Authorizer);
 
     await $();
 
-    console.debug("[Debug]", "Awaitable Complete", "Session Storage Awaitable(s) ?:= Complete");
+    (Debug) && console.debug("[Debug]", "Awaitable Complete", "Session Storage Awaitable(s) ?:= Complete");
 
     return Return;
 };
+
+export { Authenticate, Cancellation, Authorizer, Store };
+
+export default Authenticate;

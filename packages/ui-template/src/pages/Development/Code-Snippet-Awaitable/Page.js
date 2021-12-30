@@ -9,7 +9,7 @@ import { Inline } from "./../../../components/Notifications/Authentication/Infor
 import axios from "axios";
 
 import "./SCSS/Snippet.scss";
-import * as Styles from "./SCSS/Snippet.module.scss";
+import Styles from "./SCSS/Snippet.module.scss";
 
 /***
  * @param duration {Number} Total Skeleton Simulated Loading Time (Seconds)
@@ -35,7 +35,7 @@ const Component = ({ duration }) => {
 
                 setError(false);
 
-            } catch ( error ) {
+            } catch (error) {
                 console.warn(error);
                 setError({
                     column: error?.column,
@@ -43,8 +43,7 @@ const Component = ({ duration }) => {
                     message: error?.message,
                     stack: error?.stack
                 });
-            }
-            finally {
+            } finally {
                 setLoading(false);
             }
         };
@@ -120,7 +119,7 @@ export const Requestable = ({ url, headers }) => {
                 setData($.data);
                 setError(false);
 
-            } catch ( error ) {
+            } catch (error) {
                 console.warn(error);
                 setError({
                     column: error?.column,
@@ -128,9 +127,7 @@ export const Requestable = ({ url, headers }) => {
                     message: error?.message,
                     stack: error?.stack
                 });
-            }
-
-            finally {
+            } finally {
                 setLoading(false);
             }
         };

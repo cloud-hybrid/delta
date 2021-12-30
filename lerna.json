@@ -17,8 +17,6 @@
         }
     },
     "packages": [
-        "packages/*",
-        "documentation/*",
-        "utilities/*"
+        "packages/*"
     ]
 }

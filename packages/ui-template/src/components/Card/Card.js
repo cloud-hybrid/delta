@@ -2,7 +2,7 @@ import { SkeletonPlaceholder } from "@carbon/react";
 
 import SkeletonText from "./../Skeleton-Text";
 
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import PropTypes, {
     array,

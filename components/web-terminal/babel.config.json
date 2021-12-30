@@ -1,0 +1,12 @@
+{
+    "presets": ["@babel/preset-env"],
+    "plugins": [
+        "@babel/cli",
+        "@babel/core",
+        "@babel/node",
+        "@babel/plugin-syntax-top-level-await",
+        "@babel/preset-env",
+        "@babel/preset-react",
+        "@babel/register"
+    ]
+}

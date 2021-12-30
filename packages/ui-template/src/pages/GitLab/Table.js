@@ -24,18 +24,18 @@ import {
     //    TableToolbarSearch
 } from "@carbon/react";
 
-import { Data_132 as DICO } from "@carbon/icons-react/lib/__generated__/bucket-7";
-import { ChartCombo32 as Metrics } from "@carbon/icons-react/lib/__generated__/bucket-3";
-import { CrossTab32 as CSV } from "@carbon/icons-react/lib/__generated__/bucket-6";
-import { Renew32 as Reload } from "@carbon/icons-react/lib/__generated__/bucket-20";
+import { Data } from "@carbon/icons-react/next";
+import { ChartCombo } from "@carbon/icons-react/next";
+import { CrossTab } from "@carbon/icons-react/next";
+import { Renew } from "@carbon/icons-react/next";
 
 import "./SCSS/Overflow.scss";
 
-import * as Light from "./SCSS/Light.module.scss";
-import * as Bold from "./SCSS/Bold.module.scss";
-import * as Activity from "./SCSS/Activity.module.scss";
-import * as Tag from "./SCSS/Tag.module.scss";
-import * as Code from "./SCSS/Code.module.scss";
+import Light from "./SCSS/Light.module.scss";
+import Bold from "./SCSS/Bold.module.scss";
+import Activity from "./SCSS/Activity.module.scss";
+import Tag from "./SCSS/Tag.module.scss";
+import Code from "./SCSS/Code.module.scss";
 
 import { Store, STORE } from "./Query";
 
@@ -44,7 +44,7 @@ import { default as Pagination } from "./Paginator";
 import { Tag as Visibility } from "carbon-components-react";
 
 //import { OverflowMenuVertical, Launch } from "@carbon/icons-react/next";
-//
+
 import { default as Modal } from "./Modal.js";
 
 const URL = ({ url, home }) => {
@@ -74,8 +74,8 @@ const URL = ({ url, home }) => {
 };
 
 function batchActionClick(event, rows = null) {
-    if ( event ) console.debug("Batch-Action-Click", event.target.id);
-    if ( event.target.getAttribute("dataset-target-row") !== null ) {
+    if (event) console.debug("Batch-Action-Click", event.target.id);
+    if (event.target.getAttribute("dataset-target-row") !== null) {
         console.log(JSON.parse(event.target.getAttribute("dataset-target-data")));
     }
 }
@@ -129,17 +129,17 @@ const Component = ({ Data, Headers, State }) => {
             useStaticWidth={ false }
             render={
                 ({
-                     rows,
-                     headers,
-                     getTableProps,
-                     getTableContainerProps,
-                     getSelectionProps,
-                     getExpandHeaderProps,
-                     getHeaderProps,
-                     getRowProps,
-                     getToolbarProps,
-                     getBatchActionProps
-                 }) => (
+                    rows,
+                    headers,
+                    getTableProps,
+                    getTableContainerProps,
+                    getSelectionProps,
+                    getExpandHeaderProps,
+                    getHeaderProps,
+                    getRowProps,
+                    getToolbarProps,
+                    getBatchActionProps
+                }) => (
                     <TableContainer title={ "Cloud-Technology" } description="Cloud-Technology's GitHub Repositories" { ... getTableContainerProps() }>
                         <TableToolbar { ... getToolbarProps() } className={ "io-table-toolbar" }>
                             <TableBatchActions { ... getBatchActionProps() }>
@@ -357,7 +357,8 @@ const Component = ({ Data, Headers, State }) => {
                                                             <div style={ {
                                                                 display: "flex",
                                                                 justifyContent: "space-between"
-                                                            } }>
+                                                            } }
+                                                            >
                                                                 <Modal.Environment id={ Row.UID }/>
                                                                 <Modal.Modify id={ Row.UID }/>
                                                                 <Modal.Trigger id={ Row.UID }/>
@@ -369,7 +370,8 @@ const Component = ({ Data, Headers, State }) => {
                                                         <p>
                                                             <strong>
                                                                 Description
-                                                            </strong> - { " " }
+                                                            </strong>
+                                                            - { " " }
                                                             {
                                                                 (Data[Index]?.description)
                                                                     ? Data[Index].description

@@ -1,12 +1,12 @@
 import React from "react";
 
-import { useTable, useExpanded, useAsyncDebounce } from "react-table";
+import { useTable, useExpanded, useSortBy } from "react-table";
 
 import { default as Generator } from "./Generator.js";
 
 import { default as Columns } from "./Columns.js";
 
-function SubRows({ row, rowProps, visibleColumns, data, loading }) {
+function SubRows({ row, rowProps, visibleColumns, data, loading, error }) {
     if ( loading ) {
         return (
             <tr>
@@ -18,43 +18,46 @@ function SubRows({ row, rowProps, visibleColumns, data, loading }) {
         );
     }
 
-    // error handling here :)
-
-    return (
+    return (error) ? (
+        <tr>
+            <td/>
+            <td colSpan={ visibleColumns.length - 1 }>
+                Error
+            </td>
+        </tr>
+    ) : (
         <>
             {
-                (
-                    row.isExpanded
+                (row.isExpanded)
                     ? (
-                            data.map((x, i) => {
-                                    return (
-                                        <tr
-                                            { ... rowProps }
-                                            key={ `${ rowProps.key }-expanded-${ i }` }
-                                        >
-                                            { row.cells.map((cell) => {
-                                                return (
-                                                    <td { ... cell.getCellProps() } >
-                                                        {
-                                                            cell.render(
-                                                                cell.column.SubCell
-                                                                    ? "SubCell"
-                                                                    : "Cell", {
-                                                                    value:
-                                                                        cell.column.accessor &&
-                                                                        cell.column.accessor(x, i),
-                                                                    row: { ... row, original: x }
-                                                                }
-                                                            )
+                        data.map((x, i) => {
+                            return (
+                                <tr
+                                    { ... rowProps }
+                                    key={ `${ rowProps.key }-expanded-${ i }` }
+                                >
+                                    { row.cells.map((cell) => {
+                                        return (
+                                            <td { ... cell.getCellProps() } >
+                                                {
+                                                    cell.render(
+                                                        cell.column.SubCell
+                                                            ? "SubCell"
+                                                            : "Cell", {
+                                                            value:
+                                                                cell.column.accessor &&
+                                                                cell.column.accessor(x, i),
+                                                            row: { ... row, original: x }
                                                         }
-                                                    </td>
-                                                );
-                                            }) }
-                                        </tr>
-                                    );
-                                })
-                    ) : null
-                )
+                                                    )
+                                                }
+                                            </td>
+                                        );
+                                    }) }
+                                </tr>
+                            );
+                        })
+                    ) : (null)
             }
         </>
     );
@@ -63,16 +66,31 @@ function SubRows({ row, rowProps, visibleColumns, data, loading }) {
 const SubRowAsync = ({ row, rowProps, visibleColumns }) => {
     const [ loading, setLoading ] = React.useState(true);
     const [ data, setData ] = React.useState([]);
+    const [ error, setError ] = React.useState(null);
 
     React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setData(Generator(3));
-            setLoading(false);
-        }, 1000);
+        let $ = true;
 
-        return () => {
-            clearTimeout(timer);
-        };
+        console.debug("[Debug] Simulating Asynchronous Request ...");
+        const State = new Promise((resolve) => {
+            console.debug("[Debug]      - Establishing Lock ...");
+            return setTimeout(async () => {
+                const Evaluation = await Generator(3);
+                resolve(Evaluation);
+            }, 5 * 1000);
+        });
+
+        console.debug("[Debug]      - Initialized Promise ...");
+        console.debug("[Debug]      - Waiting ...");
+
+        State.then((response) => {
+            ($) && setData(response);
+            ($) && setLoading(false);
+        }).catch((e) => {
+            ($) && setError(e);
+        });
+
+        return () => ($ = false) && clearTimeout(State);
     }, []);
 
     return (
@@ -82,14 +100,12 @@ const SubRowAsync = ({ row, rowProps, visibleColumns }) => {
             visibleColumns={ visibleColumns }
             data={ data }
             loading={ loading }
+            error={ error }
         />
     );
 };
 
-// A simple way to support a renderRowSubComponent is to make a render prop
-// This is NOT part of the React Table API, it's merely a rendering
-// option we are creating for ourselves in our table renderer
-function Table({ columns: userColumns, data: userData, renderer }) {
+function Table({ columns, data, renderer, ... properties }) {
     const {
         getTableProps,
         getTableBodyProps,
@@ -98,31 +114,45 @@ function Table({ columns: userColumns, data: userData, renderer }) {
         prepareRow,
         visibleColumns,
         state
-    } = useTable(
-        {
-            columns: userColumns,
-            data: userData
-        },
-        useExpanded // We can useExpanded to track the expanded state
-        // for sub components too!
-    );
+    } = useTable({
+        columns, data,
+        initialState: {
+            sortBy: []
+        }
+    }, useSortBy, useExpanded);
+
+    console.debug("[Debug] State" + ":", state);
+    console.debug("[Debug] Properties" + ":", properties);
 
     return (
-//        <>
-//      <pre>
-//        <code>{ JSON.stringify({ expanded: expanded }, null, 2) }</code>
-//      </pre>
-            <table { ... getTableProps() } className={["cds--data-table", "cds--data-table--normal", "cds--data-table--no-border"].join(" ")}>
-                <thead>
-                { headerGroups.map(headerGroup => (
+        <table { ... getTableProps() } className={ [ "cds--data-table", "cds--data-table--normal", "cds--data-table--no-border" ].join(" ") }>
+            <thead>
+                { headerGroups.map((headerGroup) => (
                     <tr { ... headerGroup.getHeaderGroupProps() }>
-                        { headerGroup.headers.map(column => (
-                            <th className={"cds--table-expand"} { ... column.getHeaderProps() }>{ column.render("Header") }</th>
+                        { headerGroup.headers.map((column) => (
+                            <th className={ "cds--table-expand" } { ... column.getHeaderProps() }>{
+                                (column.id !== "expander") && (
+                                    <button onClick={ (event) => {
+                                        console.log("[Debug] Click-Event (Event)" + ":", event);
+                                        console.log("[Debug] Click-Event (Column)" + ":", column);
+
+                                        const $ = (column.sortDescFirst === false)
+                                            ? undefined
+                                            : column.sortDescFirst === false;
+
+                                        column.toggleSortBy($);
+                                    } }
+                                    >
+                                        {
+                                            column.render("Header")
+                                        }
+                                    </button>
+                                ) }</th>
                         )) }
                     </tr>
                 )) }
-                </thead>
-                <tbody { ... getTableBodyProps() }>
+            </thead>
+            <tbody { ... getTableBodyProps() }>
                 { rows.map((row, i) => {
                     prepareRow(row);
                     const rowProps = row.getRowProps();
@@ -136,7 +166,6 @@ function Table({ columns: userColumns, data: userData, renderer }) {
                                     );
                                 }) }
                             </tr>
-                            {/* We could pass anything into this */ }
                             {
                                 row?.isExpanded && renderer(
                                     { row, rowProps, visibleColumns }
@@ -145,13 +174,10 @@ function Table({ columns: userColumns, data: userData, renderer }) {
                         </React.Fragment>
                     );
                 }) }
-                </tbody>
-            </table>
-//            <br/>
-//            <div>Showing the first 20 results of { rows.length } rows</div>
-//        </>
+            </tbody>
+        </table>
     );
-};
+}
 
 const Component = () => {
     const columns = React.useMemo(() => Columns(), []);

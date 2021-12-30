@@ -1,8 +1,12 @@
+import "./SCSS/index.scss";
+
 import PropTypes from "prop-types";
 
 import React from "react";
 
 import { Modal, ModalBody, ModalFooter, ModalHeader, ComposedModal } from "@carbon/react";
+
+const Version = process.env.REACT_APP_VERSION;
 
 export const Header = ({ State }) => {
     return (
@@ -59,7 +63,9 @@ Body.propTypes = {
 export const Footer = ({ ... Properties }) => {
     return (
         <ModalFooter { ... Properties }>
-
+            {
+                /// Version
+            }
         </ModalFooter>
     );
 };

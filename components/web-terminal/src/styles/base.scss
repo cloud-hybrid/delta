@@ -1,0 +1,40 @@
+@import "./plex/fonts";
+
+:root {
+    --sans-font: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+    --sans-serif-font: "IBM Plex Serif", serif;
+    --mono-font: "IBM Plex Mono", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+    --base-fontsize: 1.15rem;
+
+    --line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {}
+}
+
+html {
+    height: 100%;
+    font-family: var(--sans-font);
+}
+
+body {
+    font-size: var(--base-fontsize);
+    line-height: var(--line-height);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    max-width: 100vw;
+    padding: 0 0.5rem;
+    overflow-x: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+code, pre, pre span, kbd, samp {
+    font-size: 1.075rem;
+    font-family: var(--mono-font);
+}

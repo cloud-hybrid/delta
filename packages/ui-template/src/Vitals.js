@@ -1,26 +1,20 @@
-/***
- *
- * @param $
- * @return {*&{description: string}}
- * @constructor
- */
 const Logger = ($) => {
-    switch ( $.name ) {
-    case "FCP":
-        console.debug("First-Contentful-Paint", { ... $, ... { description: "First-Contentful-Paint" } });
-        return { ... $, ... { description: "First-Contentful-Paint" } };
-    case "CLS":
-        console.debug("Cumulative-Layout-Shift", { ... $, ... { description: "Cumulative-Layout-Shift" } });
-        return { ... $, ... { description: "Cumulative-Layout-Shift" } };
-    case "LCP":
-        console.debug("Largest-Contentful-Paint", { ... $, ... { description: "Largest-Contentful-Paint" } });
-        return { ... $, ... { description: "Largest-Contentful-Paint" } };
-    case "TTFB":
-        console.debug("Time-to-First-Byte", { ... $, ... { description: "Time-to-First-Byte" } });
-        return { ... $, ... { description: "Time-to-First-Byte" } };
-    case "FID":
-        console.debug("First-Input-Delay", { ... $, ... { description: "First-Input-Delay" } });
-        return { ... $, ... { description: "First-Input-Delay" } };
+    switch ($.name) {
+        case "FCP":
+            console.debug("First-Contentful-Paint", { ... $, ... { description: "First-Contentful-Paint" } });
+            return { ... $, ... { description: "First-Contentful-Paint" } };
+        case "CLS":
+            console.debug("Cumulative-Layout-Shift", { ... $, ... { description: "Cumulative-Layout-Shift" } });
+            return { ... $, ... { description: "Cumulative-Layout-Shift" } };
+        case "LCP":
+            console.debug("Largest-Contentful-Paint", { ... $, ... { description: "Largest-Contentful-Paint" } });
+            return { ... $, ... { description: "Largest-Contentful-Paint" } };
+        case "TTFB":
+            console.debug("Time-to-First-Byte", { ... $, ... { description: "Time-to-First-Byte" } });
+            return { ... $, ... { description: "Time-to-First-Byte" } };
+        case "FID":
+            console.debug("First-Input-Delay", { ... $, ... { description: "First-Input-Delay" } });
+            return { ... $, ... { description: "First-Input-Delay" } };
     }
 };
 

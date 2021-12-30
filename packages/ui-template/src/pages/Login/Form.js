@@ -1,6 +1,6 @@
 import "./SCSS/Field-Set.scss";
 
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import React, { useEffect, useState } from "react";
 
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import { default as Types } from "./../../components/Types";
 
-import * as API from "./Authentication";
+import { Authenticate, Cancellation } from "./Authentication";
 
 const Component = ({ Authorizer }) => {
     const navigate = useNavigate();
@@ -39,16 +39,16 @@ const Component = ({ Authorizer }) => {
                 console.trace("[Trace]", "Composed Event Path(s)", event.composedPath());
                 console.trace("[Trace]", "Event Time-Stamp", event.timeStamp);
             });
-            
+
             document.getElementById("username-field")?.addEventListener("keydown", (event) => {
-                if ( event.key === "Enter" ) {
+                if (event.key === "Enter") {
                     console.trace("[Trace]", "Username", "Return Key Event");
                     Submit.click();
                 }
             });
 
             document.getElementById("password-field")?.addEventListener("keydown", (event) => {
-                if ( event.key === "Enter" ) {
+                if (event.key === "Enter") {
                     console.trace("[Trace]", "Password", "Return Key Event");
                     Submit.click();
                 }
@@ -89,7 +89,7 @@ const Component = ({ Authorizer }) => {
         const Message = document.getElementsByClassName("cds--form__requirements").item(0);
 
         Message && ((Validation.Username || Validation.Username === null) || (Validation.Password || Validation.Password === null)) && Message.remove();
-    }
+    };
 
     const handleUsernameFieldChanges = (event) => {
         const Validation = {
@@ -120,7 +120,7 @@ const Component = ({ Authorizer }) => {
         const Message = document.getElementsByClassName("cds--form__requirements").item(0);
 
         Message && ((Validation.Username || Validation.Username === null) || (Validation.Password || Validation.Password === null)) && Message.remove();
-    }
+    };
 
     const Awaitable = () => {
         return (
@@ -146,33 +146,30 @@ const Component = ({ Authorizer }) => {
 
                         const Handler = async () => {
                             setAwaiting(true);
-
-                            const Transmission = API.Cancellation();
-
-                            const Response = await API.Authenticate(
+                            const Response = await Authenticate(
                                 {
                                     Username: Username?.value,
                                     Password: Password?.value
-                                }, Transmission
+                                }, Cancellation()
                             );
 
                             console.debug("[Debug] Validating Authentication Attempt ...", Response);
 
-                            if ( Response.Status.Code === -1 ) {
+                            if (Response.Status.Code === -1) {
                                 console.warn("@Task: Implement Race-Condition Notification");
                                 console.warn(Response);
 
                                 return true;
-                            } else if ( Response.Status.Code === 200 ) {
+                            } else if (Response.Status.Code === 200) {
                                 console.log("@Task: Implement Successful Notification");
 
                                 return true;
-                            } else if ( Response.Status.Code >= 300 && Response.Status.Code < 500 ) {
+                            } else if (Response.Status.Code >= 300 && Response.Status.Code < 500) {
                                 console.error("@Task: Implement Error Notification");
                                 console.warn(Response);
 
                                 return false;
-                            } else if ( Response.Status.Code >= 500 ) {
+                            } else if (Response.Status.Code >= 500) {
                                 console.warn("@Task: Implement Internal Server Error Notification");
                                 console.warn(Response);
 
@@ -189,16 +186,18 @@ const Component = ({ Authorizer }) => {
                             console.debug("[Debug]", "Validation Outcome", Response);
 
                             try {
-                                if ( Response === true ) {
+                                if (Response === true) {
                                     setAwaiting(false);
                                     Authorizer[1](true);
-                                    navigate(-1);
+                                    // navigate(-1);
+
+                                    navigate("...", { replace: true });
                                 } else {
                                     const e = JSON.stringify(Response, null, 4);
                                     console.error("[Error]", JSON.stringify({ Response, Error: e }, null, 4));
                                     throw new Error(JSON.stringify({ Response, Error: e }, null, 4));
                                 }
-                            } catch ( e ) {
+                            } catch (e) {
                                 console.warn("[Warning]", "Caught Exception", e);
                                 throw new Error(e);
                             }
@@ -244,12 +243,12 @@ const Component = ({ Authorizer }) => {
                         id={ "password-field" }
                         className={ Styles.field }
                         inline={ false }
-                        invalid={validPassword === false}
+                        invalid={ validPassword === false }
                         type={ Types.Input.password }
                         invalidText={
                             "Password must contain a minimum of 8 characters, "
                             + "at least one number, and include uppercase & lowercase"
-                            + " letters"
+                            + " letter(s)"
                         }
                         labelText={ "Password" }
                         autoComplete={ "false" }

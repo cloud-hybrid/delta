@@ -4,7 +4,7 @@ import { Book } from "@carbon/icons-react/next";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import { Tag } from "@carbon/react";
 
@@ -64,8 +64,9 @@ const Component = ({ rows, data }) => {
                             (Column, c) => {
                                 return (
                                     <StructuredListCell id={ Stringify.columnID(r, c) }
-                                                        key={ Stringify.columnKey(r, c) }
-                                                        className={ (c === 0) ? cx("primary-data-column") : cx("auxiliary-data-column") }>
+                                        key={ Stringify.columnKey(r, c) }
+                                        className={ (c === 0) ? cx("primary-data-column") : cx("auxiliary-data-column") }
+                                    >
                                         {
                                             (c === 0) ? (
                                                 <div>

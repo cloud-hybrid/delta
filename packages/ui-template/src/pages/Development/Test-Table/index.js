@@ -1,4 +1,4 @@
-import * as Styles from "./SCSS/Index.module.scss";
+import Styles from "./SCSS/Index.module.scss";
 
 import PropTypes from "prop-types";
 

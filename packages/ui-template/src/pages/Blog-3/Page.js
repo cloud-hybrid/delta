@@ -1,18 +1,12 @@
 import PropTypes from "prop-types";
 
-import React, { useState, useEffect } from "react";
-
-import { Book } from "@carbon/icons-react/next";
-
-import "./SCSS/Card.scss";
-
-import cx from "classnames";
-
-import { default as List } from "./List";
+import React from "react";
 
 export const Page = ({}) => {
     return (
-        <List rows={ 3 }/>
+        <div>
+            hello world
+        </div>
     );
 };
 

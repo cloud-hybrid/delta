@@ -1,5 +1,7 @@
-import { Data as Names } from "./First-Names";
-import { Data as Surnames } from "./Last-Names";
+import Names from "./First-Names";
+import Surnames from "./Last-Names";
+
+import { UUID } from "../../../utilities/UUID-V4.js";
 
 /***
  *
@@ -20,46 +22,12 @@ const range = (length) => {
 
     let i = 0;
 
-    for ( i; i < length; i++ ) {
+    for (i; i < length; i++) {
         $.push(i);
     }
 
     return $;
 };
-
-// const UID = () => crypto.randomBytes(256 / 8)
-//     .toString("UTF-8");
-
-function UUID() { // Public Domain / MIT
-    let source = new Date().getTime(); // Timestamp
-    let delta = ((typeof performance !== "undefined") && performance.now && (performance.now() * 1000)) || 0;
-
-    return String((new Array(8)).join(":") + (new Array(4).join(":") + "4" + (new Array(3).join(":") + "*" + (new Array(8)).join(":"))).replace(/[:*]/g), ($) => {
-        /// return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function ($) {
-        var random = Math.random() * 16; // Random number between 0 and 16
-
-        if ( source > 0 ) {
-            random = (source + random) % 16 | 0;
-            source = Math.floor(source / 16);
-        } else {
-            random = (delta + random) % 16 | 0;
-            delta = Math.floor(delta / 16);
-        }
-
-        return ($ === "x" ? random : (random & 0x3 | 0x8)).toString(16);
-    });
-}
-
-/***
- *
- * @param minimum
- * @param maximum
- *
- * @returns {string}
- *
- * @constructor
- *
- */
 
 const Age = (minimum, maximum) => {
     return Number(Math.random() * (maximum - minimum) + minimum).toFixed(0);
@@ -108,8 +76,8 @@ const Index = (maximum) => {
  */
 
 const Data = {
-    "First-Names": Names,
-    "Last-Names": Surnames
+    "First-Names": Names.Data,
+    "Last-Names": Surnames.Data
 };
 
 /***
@@ -205,13 +173,13 @@ export const Generator = (Total) => {
     const $ = [];
 
     let i = 0;
-    for ( i; i < Total; i++ ) {
+    for (i; i < Total; i++) {
         const Instance = Person({
             Name: {
                 First: Data["First-Names"][Index(Total)],
                 Last: Data["Last-Names"][Index(Total)]
             }, Age: Age(18, 99),
-            Height: Height(42, 96),
+            Height: Height(36, 100),
 
             UUID: UUID(),
 

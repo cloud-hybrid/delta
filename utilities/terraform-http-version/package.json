@@ -1,0 +1,11 @@
+{
+    "name": "@cloud-vault/terraform-http-version",
+    "version": "0.0.1",
+    "description": "Inteface w/Terraform HTTP Provider to get Version Information",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jacob B. Sanders"
+}
