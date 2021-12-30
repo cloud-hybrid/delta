@@ -13,11 +13,17 @@ const CWD = Process.cwd();
 /***  @type {Number} - Primary Server Listening Port, Configured in `package.json` */
 const Port = Process.env["npm_package_config_port"];
 
-import { Application } from "./src/index.js";
-
 console.debug("[Main] [Debug] Loading CI Setting(s) ...");
 await import("./.ci/settings.js").finally(() => {
     console.debug("[Main] [Log]", "Instantiated Package Metadata");
+});
+
+console.debug("[Main] [Debug] Importing Application API Initializer ...");
+
+/*** @type {Application} */
+const Application = await import("./src/index.js").then((Module) => {
+    console.debug("[Main] [Debug] Successfully Resolved Source(s)");
+    return Module.Server();
 });
 
 console.debug("[Main] [Debug] Loading Environment Variable(s) ...");
@@ -67,10 +73,6 @@ import("./src/index.js")
 
         /// HTTP.createServer(Application).listen(3080);
         const Server = HTTPs.createServer(options, Application).listen(Port);
-
-        /// const Socket = await import("./src/library/socket.js");
-
-        /// Socket.Link(Server);
     }).finally(() => {
     console.debug("[Main] [Debug]", "Starting API Server ...");
     console.log("[Main] [Log]", "Listening @" + " " + [ "https", "://", "localhost", ":", Port, "/v1" ].join(""));
