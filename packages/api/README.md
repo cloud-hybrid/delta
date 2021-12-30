@@ -1,5 +1,8 @@
 # `@cloud-technology/api` #
 
+- [ ] Establish a Refresh Schema
+    - [User Guide](https://www.bezkoder.com/jwt-refresh-token-node-js-mongodb/)
+
 ## Setup ##
 
 1. Create a `.env` File
@@ -25,10 +28,12 @@ npm start || node server.js
 
 #### 172 ####
 
-Mongo-related error often associated with either network-related external access permission(s), a closed port, or when the server is local to the API server and the `mongo` process isn't running.
+Mongo-related error often associated with either network-related external access permission(s), a closed port, or when
+the server is local to the API server and the `mongo` process isn't running.
 
 ## References ##
 
 - https://express-validator.github.io/docs/index.html
 - https://www.bezkoder.com/node-js-mongodb-auth-jwt/
 - https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
+- https://www.bezkoder.com/jwt-refresh-token-node-js-mongodb/
