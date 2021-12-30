@@ -2,7 +2,6 @@
     "compilerOptions": {
         "allowJs": true,
         "alwaysStrict": true,
-        "charset": "utf8",
         "experimentalDecorators": true,
         "incremental": true,
         "inlineSourceMap": true,
