@@ -1,4 +1,4 @@
-import { Call } from "./../../../utilities/request.js";
+import { Call } from "../../../utilities/request.js";
 
 /***
  *
@@ -102,7 +102,7 @@ export const Projects = async (page = 1, items = 20) => {
     }
 
     return { Data };
-}
+};
 
 /***
  *
@@ -138,7 +138,7 @@ export const Pages = async (page = 1, items = 20) => {
     }
 
     return { Data };
-}
+};
 
 /***
  *

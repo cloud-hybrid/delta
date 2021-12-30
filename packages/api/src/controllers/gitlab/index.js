@@ -1,4 +1,4 @@
-import * as Library from "./../../library/index.js";
+import Library from "./../../library/index.js";
 
 /// --> Utilities
 import { Normalize } from "./../../utilities/configuration.js";

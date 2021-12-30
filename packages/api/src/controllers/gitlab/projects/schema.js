@@ -3,10 +3,14 @@ import { Query } from "./api.js";
 import { default as flatten } from "./../../../utilities/flatten.js";
 
 /***
+ * Gitlab-CI Schema
+ * ----------------
+ *
  * @type {{Data: [{File: string, URL: string, Name: string}]}}
+ *
  */
 
-export const Official = {
+const Official = {
     Data: [
         {
             Name: "GitLab CI",
@@ -36,3 +40,5 @@ export default {
     Request: async () => await Request(),
     Data: async () => await Data()
 };
+
+export { Official, Request, Data };

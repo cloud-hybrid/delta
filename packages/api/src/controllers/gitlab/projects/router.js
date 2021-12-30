@@ -13,8 +13,6 @@ Controller.get("/", Authenticate, async (request, response) => {
     const Query = Normalize(request, response, $);
     const Response = Query.toJSON();
 
-    // console.debug("[Debug]", "Response", "(" + request.url + ")", Response);
-
     response.send(Response);
 });
 
