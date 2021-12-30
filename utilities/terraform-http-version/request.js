@@ -1,5 +1,5 @@
-import * as HTTPs from "https";
-import * as URI from "url";
+import HTTPs from "https";
+import URI from "url";
 
 /***
  * HTTPs Query Configuration Object
@@ -43,7 +43,7 @@ const Query = (configuration) => {
 
             response.on("data", (chunk) => {
                 const Allocation = String(Buffer.from(chunk));
-                if ( Allocation !== undefined ) {
+                if (Allocation !== undefined) {
                     ($ === undefined) ? $ = Allocation
                         : $ += Allocation;
                 }
