@@ -17,6 +17,9 @@
         "url": "https://github.com/cloud-hybrid/delta.git",
         "directory": "packages/api"
     },
+    "config": {
+        "port": 3443
+    },
     "dependencies": {
         "axios": "^0.24.0",
         "bcryptjs": "^2.4.3",

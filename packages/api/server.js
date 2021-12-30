@@ -2,12 +2,14 @@ import FS from "fs";
 import Path from "path";
 import Process from "process";
 
-import { Initializer as Error } from "./src/utilities/error.js";
-
-import HTTP from "http";
+/// import HTTP from "http";
 import HTTPs from "https";
 
+/// import { Initializer as Error } from "./src/utilities/error.js";
+
 const CWD = Process.cwd();
+
+const Port = Process.env["npm_package_config_port"];
 
 import { Application } from "./src/index.js";
 
@@ -61,12 +63,13 @@ import("./src/index.js")
             cert: Content.Certificate
         };
 
-        HTTP.createServer(Application).listen(3080);
-        const Server = HTTPs.createServer(options, Application).listen(3443);
+        /// HTTP.createServer(Application).listen(3080);
+        const Server = HTTPs.createServer(options, Application).listen(Port);
 
         /// const Socket = await import("./src/library/socket.js");
 
         /// Socket.Link(Server);
     }).finally(() => {
-    console.debug("[Main] [Log]", "Starting API Server ...");
+    console.debug("[Main] [Debug]", "Starting API Server ...");
+    console.log("[Main] [Log]", "Listening @" + " " + [ "https", "://", "localhost", ":", Port, "/v1" ].join(""));
 });
