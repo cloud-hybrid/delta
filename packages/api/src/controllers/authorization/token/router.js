@@ -6,11 +6,10 @@ import { Validate } from "./api.js";
 
 Controller.post("/", async (request, response) => {
     console.debug("[Authorization (Token)]", "[Debug]", "Request" + " " + "-", request.originalUrl);
-    /// console.log("[Authorization (Login)]", "[Debug]", "Request Body" + ":", request.body);
 
-    const Token = request.body["Token"] || request.body["token"] || null;
+    const Token = request.body["Token"] || request.body["token"] || request.header("X-Nexus-JWT-Access-Token") ?? null;
 
-    if ( Token === null ) {
+    if (Token === null) {
         response.statusCode = 401;
         response.shouldKeepAlive = false;
         response.statusMessage = "JWT Error";
@@ -30,7 +29,7 @@ Controller.post("/", async (request, response) => {
         const Query = Normalize(request, response, $);
         const Response = Query.toJSON();
 
-        if ( !$ || !$.Verification || $.Error ) {
+        if (!$ || !$.Verification || $.Error) {
             console.error("[Authorization (Token)]", "[Error]", $);
 
             response.statusCode = 401;
