@@ -9,6 +9,7 @@ import HTTPs from "https";
 
 const CWD = Process.cwd();
 
+/***  @type {Number} - Primary Server Listening Port, Configured in `package.json` */
 const Port = Process.env["npm_package_config_port"];
 
 import { Application } from "./src/index.js";
