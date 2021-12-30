@@ -24,7 +24,7 @@ export const Generator = (request, body = null, headers = null) => {
      */
 
     const Request = {
-        Headers: (headers === null) ? request.headers : {... request.headers, ... headers},
+        Headers: (headers === null) ? request.headers : { ... request.headers, ... headers },
         URL: {
             Base: request.baseUrl,
             Origin: request.originalUrl,
@@ -54,8 +54,8 @@ export const Generator = (request, body = null, headers = null) => {
     const Body = (
         body !== null
     )
-        ? {... body}
-        : {Status: "Online"};
+        ? { ... body }
+        : { Status: "Online" };
 
     /***
      *
@@ -69,7 +69,7 @@ export const Generator = (request, body = null, headers = null) => {
         Body: Body
     };
 
-    return {Request, Response, Configuration, Body, toJSON: () => JSON.stringify(Response, null, 4)};
+    return { Request, Response, Configuration, Body, toJSON: () => JSON.stringify(Response, null, 4) };
 };
 
 /***
@@ -91,7 +91,7 @@ export const Normalize = (request, response, body = null, headers = null) => {
      */
 
     const Request = {
-        Headers: (headers === null) ? request.headers : {... request.headers, ... headers},
+        Headers: (headers === null) ? request.headers : { ... request.headers, ... headers },
         URL: {
             Base: request.baseUrl,
             Origin: request.originalUrl,
@@ -121,8 +121,8 @@ export const Normalize = (request, response, body = null, headers = null) => {
     const Body = (
         body !== null
     )
-        ? {... body}
-        : {Status: "Online"};
+        ? { ... body }
+        : { Status: "Online" };
 
     /***
      *
@@ -144,7 +144,7 @@ export const Normalize = (request, response, body = null, headers = null) => {
 
     response.shouldKeepAlive = Configuration["Keep-Alive"];
 
-    return {Request, Response, Configuration, Body, toJSON: () => JSON.stringify(Response["Body"], null, 4)};
+    return { Request, Response, Configuration, Body, toJSON: () => JSON.stringify(Response["Body"], null, 4) };
 };
 
 /***
@@ -156,7 +156,7 @@ export const Normalize = (request, response, body = null, headers = null) => {
  * @param status {Number|null}
  * @param error {String|null}
  *
- * @returns {{Response: {"Keep-Alive": boolean, Status: number, Type: string, Message: string, Request: {Headers, URL: {Origin: *, Normalized, Base: *}}, Body: {Status: string}}, toJSON: (function(): string), Configuration: {"Keep-Alive": boolean, Status: number, Type: string, Message: string}, Request: {Headers, URL: {Origin: *, Normalized, Base: *}}, Body: {Status: string}}}
+ * @returns {{Response: {"Keep-Alive": boolean, Status: (*|Number|number), Type: string, Message: (*|String|string), Request: {Headers, URL: {Origin: *, Normalized, Base: *}}, Body: (Object|string)}, toJSON: (function(): string), Configuration: {"Keep-Alive": boolean, Status: (*|Number|number), Type: string, Message: (*|String|string)}, Request: {Headers, URL: {Origin: *, Normalized, Base: *}}, Body: (Object|string)}}
  *
  * @constructor
  *
@@ -199,7 +199,7 @@ export const Reject = (request, response, body = null, headers, status, error) =
 
     const Keys = Object.keys(headers);
 
-    for ( let header in Keys ) {
+    for (let header in Keys) {
         const $ = Keys[header];
         response.setHeader($, headers[$]);
     }
@@ -212,5 +212,5 @@ export const Reject = (request, response, body = null, headers, status, error) =
 
     response.shouldKeepAlive = Configuration["Keep-Alive"];
 
-    return {Request, Response, Configuration, Body, toJSON: () => JSON.stringify(Response["Body"], null, 4)};
+    return { Request, Response, Configuration, Body, toJSON: () => JSON.stringify(Response["Body"], null, 4) };
 };
