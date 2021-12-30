@@ -186,4 +186,3 @@ COPY configuration/*.crt    tls.crt
 COPY configuration/*.json   server.json
 
 CMD ["serve", "HTML", "--config", "server.json", "--ssl-cert", "tls.crt", "--ssl-key", "tls.key", "--listen", "tcp://0.0.0.0:8443", "--cors", "--no-clipboard", "--debug"]
-

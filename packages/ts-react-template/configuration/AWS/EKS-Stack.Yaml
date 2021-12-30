@@ -15,34 +15,34 @@ Description: |
 Metadata:
     AWS::CloudFormation::Interface:
         ParameterGroups:
-            - Label:
-                  default: "Intended Deployment, VPC-Isolated Alias"
-                  Parameters:
-                      - Environment
-            - Label:
-                  default: "Functional Purpose"
-                  Parameters:
-                      - Purpose
-            - Label:
-                  default: "EKS Cluster"
-                  Parameters:
-                      - Stack
-                      - Authoritarian
-                      - Version
-                      - Security
-            - Label:
-                  default: "Node Configuration"
-                  Parameters:
-                      - Capacity
-                      - Type
-                      - Parameter
-                      - Storage
-                      - SSH
-            - Label:
-                  default: "Network Configuration"
-                  Parameters:
-                      - VPC
-                      - Subnets
+            -   Label:
+                    default: "Intended Deployment, VPC-Isolated Alias"
+                    Parameters:
+                        - Environment
+            -   Label:
+                    default: "Functional Purpose"
+                    Parameters:
+                        - Purpose
+            -   Label:
+                    default: "EKS Cluster"
+                    Parameters:
+                        - Stack
+                        - Authoritarian
+                        - Version
+                        - Security
+            -   Label:
+                    default: "Node Configuration"
+                    Parameters:
+                        - Capacity
+                        - Type
+                        - Parameter
+                        - Storage
+                        - SSH
+            -   Label:
+                    default: "Network Configuration"
+                    Parameters:
+                        - VPC
+                        - Subnets
 
 Parameters:
     # @Task - Documentation
@@ -85,9 +85,9 @@ Parameters:
         Type: String
         Default: "Development"
         AllowedValues: [
-            "Development", "Certificate", "QA",     # --> VPC (1)
-            "Staging", "UAT", "Pre-Production",     # --> VPC (2)
-                        "Production"                # --> VPC (3)
+                "Development", "Certificate", "QA",     # --> VPC (1)
+                "Staging", "UAT", "Pre-Production",     # --> VPC (2)
+                "Production"                # --> VPC (3)
         ]
 
     Purpose:
@@ -137,17 +137,17 @@ Parameters:
         Default: "t3.small"
         ConstraintDescription: "Must Have a Valid EC2-Instance-Type - https://aws.amazon.com/ec2/instance-types"
         AllowedValues: [
-            "t2.small",    "t2.medium",     "t2.large",     "t2.xlarge",    "t2.2xlarge",    "t3.nano",     "t3.micro",         "t3.small",
-            "t3.medium",   "t3.large",      "t3.xlarge",    "t3.2xlarge",   "m3.medium",     "m3.large",    "m3.xlarge",        "m3.2xlarge",
-            "m4.large",    "m4.xlarge",     "m4.2xlarge",   "m4.4xlarge",   "m4.10xlarge",   "m5.large",    "m5.xlarge",        "m5.2xlarge",
-            "m5.4xlarge",  "m5.12xlarge",   "m5.24xlarge",  "c4.large",     "c4.xlarge",     "c4.2xlarge",  "c4.4xlarge",       "c4.8xlarge",
-            "c5.large",    "c5.xlarge",     "c5.2xlarge",   "c5.4xlarge",   "c5.9xlarge",    "c5.18xlarge", "i3.large",         "i3.xlarge",
-            "i3.2xlarge",  "i3.4xlarge",    "i3.8xlarge",   "i3.16xlarge",  "r3.xlarge",     "r3.2xlarge",  "r3.4xlarge",       "r3.8xlarge",
-            "r4.large",    "r4.xlarge",     "r4.2xlarge",   "r4.4xlarge",   "r4.8xlarge",    "r4.16xlarge", "x1.16xlarge",      "x1.32xlarge",
-            "p2.xlarge",   "p2.8xlarge",    "p2.16xlarge",  "p3.2xlarge",   "p3.8xlarge",    "p3.16xlarge", "p3dn.24xlarge",    "r5.large",
-            "r5.xlarge",   "r5.2xlarge",    "r5.4xlarge",   "r5.12xlarge",  "r5.24xlarge",   "r5d.large",   "r5d.xlarge",       "r5d.2xlarge",
-            "r5d.4xlarge", "r5d.12xlarge",  "r5d.24xlarge", "z1d.large",    "z1d.xlarge",    "z1d.2xlarge", "z1d.3xlarge",      "z1d.6xlarge",
-            "z1d.12xlarge"
+                "t2.small",    "t2.medium",     "t2.large",     "t2.xlarge",    "t2.2xlarge",    "t3.nano",     "t3.micro",         "t3.small",
+                "t3.medium",   "t3.large",      "t3.xlarge",    "t3.2xlarge",   "m3.medium",     "m3.large",    "m3.xlarge",        "m3.2xlarge",
+                "m4.large",    "m4.xlarge",     "m4.2xlarge",   "m4.4xlarge",   "m4.10xlarge",   "m5.large",    "m5.xlarge",        "m5.2xlarge",
+                "m5.4xlarge",  "m5.12xlarge",   "m5.24xlarge",  "c4.large",     "c4.xlarge",     "c4.2xlarge",  "c4.4xlarge",       "c4.8xlarge",
+                "c5.large",    "c5.xlarge",     "c5.2xlarge",   "c5.4xlarge",   "c5.9xlarge",    "c5.18xlarge", "i3.large",         "i3.xlarge",
+                "i3.2xlarge",  "i3.4xlarge",    "i3.8xlarge",   "i3.16xlarge",  "r3.xlarge",     "r3.2xlarge",  "r3.4xlarge",       "r3.8xlarge",
+                "r4.large",    "r4.xlarge",     "r4.2xlarge",   "r4.4xlarge",   "r4.8xlarge",    "r4.16xlarge", "x1.16xlarge",      "x1.32xlarge",
+                "p2.xlarge",   "p2.8xlarge",    "p2.16xlarge",  "p3.2xlarge",   "p3.8xlarge",    "p3.16xlarge", "p3dn.24xlarge",    "r5.large",
+                "r5.xlarge",   "r5.2xlarge",    "r5.4xlarge",   "r5.12xlarge",  "r5.24xlarge",   "r5d.large",   "r5d.xlarge",       "r5d.2xlarge",
+                "r5d.4xlarge", "r5d.12xlarge",  "r5d.24xlarge", "z1d.large",    "z1d.xlarge",    "z1d.2xlarge", "z1d.3xlarge",      "z1d.6xlarge",
+                "z1d.12xlarge"
         ]
     Capacity:
         Description: "Desired Capacity of Node Group Auto-Scaling"
@@ -177,28 +177,28 @@ Parameters:
     Subnets:
         Description: "VPC-Specific Subnet Listing"
         Type: List<AWS::EC2::Subnet::Id>
-        Default:  "subnet-35fe7679,subnet-61ba9b1b"
+        Default: "subnet-35fe7679,subnet-61ba9b1b"
 
 Resources:
     Logging:
         Type: AWS::Logs::LogGroup
         Properties:
-            LogGroupName: !Join [ "-", [ !Ref Service, "Log-Group" ] ]
+            LogGroupName: !Join [ "-", [ !Ref Stack, "Log-Group" ] ]
 
-#    DNSRecord:
-#        Type: AWS::Route53::RecordSet
-#        Properties:
-#            Type: "A"
-#            HostedZoneName: !Join [ "", [ !Ref HostedZoneName, "." ] ]
-#            Name: !Join [ "", [ !Ref Subdomain, ".", !Ref HostedZoneName, "." ] ]
-#            AliasTarget:
-#                HostedZoneId: !GetAtt LoadBalancer.CanonicalHostedZoneID
-#                DNSName: !GetAtt LoadBalancer.DNSName
-#
+    #    DNSRecord:
+    #        Type: AWS::Route53::RecordSet
+    #        Properties:
+    #            Type: "A"
+    #            HostedZoneName: !Join [ "", [ !Ref HostedZoneName, "." ] ]
+    #            Name: !Join [ "", [ !Ref Subdomain, ".", !Ref HostedZoneName, "." ] ]
+    #            AliasTarget:
+    #                HostedZoneId: !GetAtt LoadBalancer.CanonicalHostedZoneID
+    #                DNSName: !GetAtt LoadBalancer.DNSName
+    #
     Cluster:
         Type: AWS::EKS::Cluster
         Properties:
-            Name: !Sub "${Stack}"
+            Name: !Sub "${Stack}-EKS-Cluster"
             Version: !Sub "${Version}"
             RoleArn: !Sub "${Authoritarian}"
             ResourcesVpcConfig:
@@ -347,7 +347,6 @@ Resources:
             UserData:
                 Fn::Base64: !Sub |
                     #!/bin/bash
-
                     set -o xtrace
 
                     /etc/eks/bootstrap.sh "${Stack}"
@@ -373,4 +372,4 @@ Outputs:
         Description: "The Cluster's Signing + Authority Certificate"
         Value: !GetAtt Cluster.CertificateAuthorityData
         # ... Export:
-            # ... Name: !Sub "${AWS::StackName}-Certificate"
+        # ... Name: !Sub "${AWS::StackName}-Certificate"

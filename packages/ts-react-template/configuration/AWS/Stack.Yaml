@@ -116,7 +116,7 @@ Resources:
 
     Definition:
         Type: AWS::ECS::TaskDefinition
-        DependsOn: # --> Race-Condition
+        DependsOn:
             - Logging
         Properties:
             Family: !Join [ "-", [ !Ref Service, "Task-Definition" ] ]
@@ -214,7 +214,7 @@ Resources:
 
     Application:
         Type: AWS::ECS::Service
-        DependsOn: # --> Race-Condition
+        DependsOn:
             - ELB
             - TG
         Properties:

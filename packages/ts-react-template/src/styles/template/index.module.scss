@@ -4,7 +4,7 @@
     height: 100vh;
     text-align: center;
 
-    transition: all 0.75s;
+    transition: all 0.75s ease;
 
     .container {
         margin: auto;
@@ -27,9 +27,11 @@
     @keyframes type {
         from {
             box-shadow: inset -3px 0px 0px #888888;
+            // ... will-change: transition, box-shadow;
         }
         to {
             box-shadow: inset -3px 0px 0px transparent;
+            // ... will-change: transition, box-shadow;
         }
     }
 }
