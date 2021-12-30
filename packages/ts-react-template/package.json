@@ -1,6 +1,6 @@
 {
     "name": "ts-react-template",
-    "version": "0.1.93",
+    "version": "0.1.100",
     "dependencies": {
         "compression": "^1.7.4",
         "history": "^5.2.0",
