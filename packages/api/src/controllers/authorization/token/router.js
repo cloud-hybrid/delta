@@ -7,7 +7,7 @@ import { Validate } from "./api.js";
 Controller.post("/", async (request, response) => {
     console.debug("[Authorization (Token)]", "[Debug]", "Request" + " " + "-", request.originalUrl);
 
-    const Token = request.body["Token"] || request.body["token"] || request.header("X-Nexus-JWT-Access-Token") ?? null;
+    const Token = request.body["Token"] || request.body["token"] || request.header("X-Nexus-JWT-Access-Token") || null;
 
     if (Token === null) {
         response.statusCode = 401;
