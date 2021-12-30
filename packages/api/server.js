@@ -3,6 +3,7 @@ import Path from "path";
 import Process from "process";
 
 /// import HTTP from "http";
+
 import HTTPs from "https";
 
 /// import { Initializer as Error } from "./src/utilities/error.js";
@@ -39,7 +40,7 @@ import("./src/index.js")
             async ($) => await $.initialize()
         );
 
-        /*** @type {Router} */
+        /*** @type { Router } */
         const Controller = await import("./src/controllers/index.js").then(
             ($) => $.Router
         );
