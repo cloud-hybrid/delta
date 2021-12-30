@@ -1,4 +1,6 @@
-/*** Response Configuration Middleware
+/***
+ * Response Configuration Middleware
+ * ---------------------------------
  *
  * @module Configuration
  *
