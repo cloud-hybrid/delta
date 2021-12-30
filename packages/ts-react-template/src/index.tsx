@@ -13,5 +13,9 @@ ReactDOM.render(
 );
 
 import("./utilities/vitals").then(($) => {
-    $.Vitals();
+    $.Vitals().finally(
+        () => {
+            // ...
+        }
+    );
 });
