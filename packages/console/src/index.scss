@@ -1,0 +1,26 @@
+@use "styles";
+
+html {
+    height: 100%;
+    font-family: var(--global-sans-font);
+    box-sizing: border-box;
+
+    body {
+        min-height: calc(100vh - var(--global-navigation-menu-height));
+
+        font-size: var(--global-base-font-size);
+        line-height: var(--global-line-height);
+        word-break: break-word;
+
+        overflow-x: hidden;
+        overflow-wrap: break-word;
+
+        margin: auto;
+        padding: var(--global-page-padding);
+    }
+
+    code, pre, pre span, kbd, samp {
+        font-size: 1.075rem;
+        font-family: var(--global-mono-font);
+    }
+}
