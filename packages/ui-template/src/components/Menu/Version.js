@@ -11,7 +11,7 @@ import { default as Build } from "./../../Version.js";
 import Styles from "./SCSS/Mode.module.scss";
 
 const Component = (props) => {
-    const display = (process.env.NODE_ENV !== "production");
+    const display = (process.env["NODE_ENV"] !== "production");
 
     const State = useState(false);
 
@@ -25,7 +25,7 @@ const Component = (props) => {
             <div className={ Styles.tag }>
                 <span>
                     {
-                        (process.env.NODE_ENV === "development" || true)
+                        (process.env["NODE_ENV"] === "development" || true)
                             ? (
                                 <Tag
                                     size={ "md" }

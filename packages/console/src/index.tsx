@@ -1,13 +1,17 @@
 import "./index.scss";
 
 import React from "react";
-import ReactDOM from "react-dom";
+import DOM from "react-dom";
 
 import {Application} from "./application";
 
-ReactDOM.render(
+import {BrowserRouter as Router} from "react-router-dom";
+
+DOM.render(
     <React.StrictMode>
-        <Application/>
+        <Router>
+            <Application/>
+        </Router>
     </React.StrictMode>,
     document.getElementById("Application"),
 );

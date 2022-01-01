@@ -7,10 +7,12 @@
     right: 0;
     left: 0;
     display: flex;
-    height: 3rem;
     align-items: center;
-    border-bottom: 1px solid #393939;
     background-color: #161616;
 
+    user-select: none;
+
+    height: var(--global-navigation-menu-height);
+    border-bottom: 1px solid var(--global-cool-gray-80);
     padding-left: var(--global-page-padding);
 }

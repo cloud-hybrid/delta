@@ -2,11 +2,11 @@ import Styles from "./SCSS/Index.module.scss";
 
 import Panel from "./SCSS/Side-Panel.module.scss";
 
-import { Store, STORE } from "./../Authenticate";
+import { Store, STORE } from "../Authenticate";
 
 import React, { useState } from "react";
 
-import { default as Splitter } from "./Vertical-Splitter.js";
+import { default as Splitter } from "./Vertical-Splitter";
 
 import {
     Header,
