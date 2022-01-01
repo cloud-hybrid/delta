@@ -82,17 +82,6 @@ export const Page = () => {
     const Awaitable = () => (Loading[0]) ? (<Text input={"Loading ..."}/>) : null;
 
     const Trace = () => (Error[0] && !Loading[0]) ? (<Text input={"Error ..."}/>) : null;
-    // <div style={{display: "none"}}
-    //     /// kind={"error"}
-    //     /// lowContrast={true}
-    //     /// role={"alert"}
-    //     /// statusIconDescription={"Status-Icon"}
-    //     /// iconDescription={"Close Error Message"}
-    //     /// title={"Error"}
-    //     /// subtitle={error?.message}
-    //     /// hideCloseButton={true}
-    // />
-    // );
 
     const Content = () => (!Loading[0]) && (<Outlet/>);
 
