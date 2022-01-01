@@ -1,18 +1,24 @@
 import "./index.scss";
 
 import React from "react";
-import ReactDOM from "react-dom";
+import DOM from "react-dom";
 
-import {Template} from "./Template";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-ReactDOM.render(
+import {Application} from "./application";
+
+import {Debug} from "./utilities/debug";
+
+DOM.render(
     <React.StrictMode>
-        <Template/>
+        <Router>
+            <Application/>
+        </Router>
     </React.StrictMode>,
     document.getElementById("Application"),
 );
 
-import("./utilities/vitals").then(($) => {
+(Debug === true) && import("./utilities/vitals").then(($) => {
     $.Vitals().finally(
         () => {
             // ...

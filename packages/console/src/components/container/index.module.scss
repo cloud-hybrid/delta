@@ -1,0 +1,5 @@
+@use "../imports" as *;
+
+.component {
+    min-height: calc(100vh - var(--global-navigation-menu-height) - var(--global-footer-height));
+}

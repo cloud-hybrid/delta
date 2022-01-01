@@ -1,0 +1,19 @@
+@use "../imports" as *;
+
+.component {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #161616;
+
+    user-select: none;
+
+    height: var(--global-navigation-menu-height);
+    border-top: 1px solid var(--global-cool-gray-80);
+    padding-left: var(--global-page-padding);
+    padding-right: var(--global-page-padding);
+}

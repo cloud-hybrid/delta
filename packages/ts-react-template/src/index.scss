@@ -1,1 +1,31 @@
-@import "./styles/base";
+@use "styles";
+
+* { box-sizing: border-box }
+
+html {
+    min-height: 100%;
+    position: relative;
+    font-family: var(--global-sans-font);
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        word-break: break-word;
+        overflow-wrap: break-word;
+
+        font-size: var(--global-base-font-size);
+        line-height: var(--global-line-height);
+
+        main {
+            padding: var(--global-page-padding);
+            margin-top: var(--global-navigation-menu-height);
+            margin-bottom: var(--global-footer-height);
+
+            code, pre, pre span, kbd, samp {
+                font-size: 1.075rem;
+                font-family: var(--global-mono-font);
+            }
+        }
+    }
+}

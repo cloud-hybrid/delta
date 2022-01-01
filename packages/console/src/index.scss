@@ -1,26 +1,31 @@
 @use "styles";
 
+* { box-sizing: border-box }
+
 html {
-    height: 100%;
+    min-height: 100%;
+    position: relative;
     font-family: var(--global-sans-font);
-    box-sizing: border-box;
 
     body {
-        min-height: calc(100vh - var(--global-navigation-menu-height));
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        word-break: break-word;
+        overflow-wrap: break-word;
 
         font-size: var(--global-base-font-size);
         line-height: var(--global-line-height);
-        word-break: break-word;
 
-        overflow-x: hidden;
-        overflow-wrap: break-word;
+        main {
+            padding: var(--global-page-padding);
+            margin-top: var(--global-navigation-menu-height);
+            margin-bottom: var(--global-footer-height);
 
-        margin: auto;
-        padding: var(--global-page-padding);
-    }
-
-    code, pre, pre span, kbd, samp {
-        font-size: 1.075rem;
-        font-family: var(--global-mono-font);
+            code, pre, pre span, kbd, samp {
+                font-size: 1.075rem;
+                font-family: var(--global-mono-font);
+            }
+        }
     }
 }
