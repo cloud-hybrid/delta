@@ -1,6 +1,6 @@
 {
     "name": "console",
-    "version": "0.1.105",
+    "version": "0.1.106",
     "scripts": {
         "start": "exec scripts/start",
         "build": "exec scripts/build",
