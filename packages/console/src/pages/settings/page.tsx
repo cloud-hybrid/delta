@@ -31,7 +31,7 @@ Page.propTypes = {
 };
 
 Page.defaultProps = {
-    name: "Home"
+    name: "Settings"
 };
 
 export default Page;

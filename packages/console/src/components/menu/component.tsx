@@ -8,10 +8,13 @@ const Component = () => {
     return (
         <nav className={Styles.component}>
             <Link to={"/"}>
-                Test
+                Home
+            </Link>
+            <Link to={"/settings"}>
+                Settings
             </Link>
         </nav>
-    )
+    );
 };
 
 export default Component;

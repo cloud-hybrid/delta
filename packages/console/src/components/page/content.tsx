@@ -1,6 +1,13 @@
 import Properties from "prop-types";
 
-import {default as Template} from "../../components/page";
+import React, {lazy as Split} from "react";
+
+/*** Code Splitting Page Content + Data Fetching */
+type Template = typeof import("./component").default;
+type Import = React.LazyExoticComponent<Template>;
+
+/*** Split JSX Component */
+const Template: Import = Split(() => import("./component"));
 
 const Content = ({name, children}) => {
     return (
@@ -21,7 +28,7 @@ Content.propTypes = {
 };
 
 Content.defaultProps = {
-    name: "Home",
+    name: null,
     children: null
 };
 

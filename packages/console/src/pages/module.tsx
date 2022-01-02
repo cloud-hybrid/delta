@@ -1,7 +1,7 @@
 import Properties from "prop-types";
 
 import React, {useState, useEffect} from "react";
-import {Outlet} from "react-router-dom";
+import {Outlet, useLocation} from "react-router-dom";
 
 import {Text} from "../components/text";
 
@@ -35,6 +35,8 @@ const URL = process.env["REACT_APP_API_ENDPOINT"] + ["/v1/utility/awaitable?dura
  */
 
 export const Page = () => {
+    const Location = useLocation();
+
     const Data: Stateful = useState(false);
     const Error: Stateful = useState(null);
     const Loading: Loadable = useState(true);
@@ -77,15 +79,13 @@ export const Page = () => {
         $().finally(() => {
             console.debug("[Debug] (Page-Loading-Wrapper)", "All Wrapper Promise(s) have Settled.");
         });
-    }, []);
+    }, [Location]);
 
     const Awaitable = () => (Loading[0]) ? (<Text input={"Loading ..."}/>) : null;
-
     const Trace = () => (Error[0] && !Loading[0]) ? (<Text input={"Error ..."}/>) : null;
+    const Content = () => (!Loading[0]) && (<Outlet/>) || null;
 
-    const Content = () => (!Loading[0]) && (<Outlet/>);
-
-    return (
+    return (!Loading[0] && !Error[0] && Data[0]) ? (<Content/>) : (
         <>
             <Trace/>
             <Awaitable/>

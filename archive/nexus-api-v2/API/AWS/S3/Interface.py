@@ -85,12 +85,19 @@ class HTTP(Request):
 
         # User: Type = Request.Table(Account, Database.User.Schemas.Nexus.Information)
 
+        import pprint
+
+        pprint.pprint({"Bucket": Bucket, "Object": Object})
+
         Content = None
         Thrown = None
 
         try:
             Client = Wrapper.Client("S3").get("Service")
             Content = Client.get_object(Bucket = Bucket, Key = Object).get("Body").read()
+            pprint.pprint(dir(Wrapper))
+            print(Wrapper.Credentials.__dict__)
+#             pprint.pprint(Content)
         except Exception as Error:
             debug(Error)
 
@@ -98,6 +105,8 @@ class HTTP(Request):
         finally:
             # --> Counter := 0
             # Lock.release()
+
+            print(Bucket, Object)
 
             if Thrown is not None:
                 raise Thrown

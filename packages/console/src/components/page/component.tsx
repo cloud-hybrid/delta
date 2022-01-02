@@ -5,14 +5,13 @@ import Styles from "./index.module.scss";
 import {Properties, Strings} from "../imports";
 
 const Component = ({name, children}) => {
-
     return (
         <div id={Strings.normalize(name, "Page", "Wrapper")} className={Styles.component}>
             {
                 children
             }
         </div>
-    )
+    );
 };
 
 Component.propTypes = {
