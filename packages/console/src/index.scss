@@ -20,6 +20,8 @@ html {
         font-size: var(--global-base-font-size);
         line-height: var(--global-line-height);
 
+        color: var(--global-text-primary);
+
         main {
             padding: var(--global-page-padding);
             margin-top: var(--global-navigation-menu-height);

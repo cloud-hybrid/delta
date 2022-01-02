@@ -1,5 +1,20 @@
 {
     "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ESNext",
+            "ES2021",
+            "ES2019",
+            "ES2018"
+        ],
+        "baseUrl": ".",
+        "sourceRoot": ".",
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
         "allowJs": true,
         "alwaysStrict": true,
         "experimentalDecorators": true,
@@ -15,31 +30,16 @@
         "noImplicitThis": false,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
-        "resolveJsonModule": true,
         "declarationMap": false,
         "strictFunctionTypes": false,
         "useUnknownInCatchVariables": false,
-        "baseUrl": ".",
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "DOM",
-            "ESNext",
-            "ES2021",
-            "ES2019",
-            "ES2018"
-        ],
-        "module": "ESNext",
-        "moduleResolution": "Node",
         "preserveConstEnums": true,
         "pretty": true,
         "removeComments": false,
-        "skipLibCheck": true,
         "jsx": "react-jsxdev",
-        "strict": false,
-        "target": "ESNext",
-        "sourceRoot": "."
+        "strict": false
     },
     "exclude": [
         "*/**/node_modules",
