@@ -1,6 +1,4 @@
-# delta #
-
-> *Constructs are classes which define a “piece of system state”. Constructs can be composed together to form higher-level building blocks which represent more complex state. Constructs are often used to represent the desired state of cloud applications. For example, in the AWS CDK, which is used to define the desired state for AWS infrastructure using CloudFormation, the lowest-level construct represents a resource definition in a CloudFormation template. These resources are composed to represent higher-level logical units of a cloud application, etc.*
+# `cloud-technology/delta` [![lerna](https://img.shields.io/badge/Maintained%20via-Lerna-cc00ff.svg)](https://lerna.js.org/) #
 
 ## Overview ## 
 
@@ -40,8 +38,9 @@ npm outdated
 
 ## Hoisting Considerations ##
 
-Lighter, non-compiled projects see installation and hoist-related benefits from mono-repository configuration(s); however, compiled projects that may extend or implement `create-react-app`, `webpack`, `babel`, and other alike packages, it's
-difficult to keep a consistent and pure packgage list.
+Lighter, non-compiled projects see installation and hoist-related benefits from mono-repository configuration(s);
+however, compiled projects that may extend or implement `create-react-app`, `webpack`, `babel`, and other alike
+packages, it's difficult to keep a consistent and pure packgage list.
 
 For such mono-repositories, where hoisting may be a problem, consider the following setup:
 
@@ -87,4 +86,5 @@ For `package.json`:
 }
 ```
 
-Such will avoid lifting `node_modules` associated with `packages/react-app` out from its source directory and into the repository's root.
+Such will avoid lifting `node_modules` associated with `packages/react-app` out from its source directory and into the
+repository's root.
