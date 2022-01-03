@@ -5,7 +5,7 @@
     "license": "BSD-3-Clause",
     "readme": "README.md",
     "main": "index.js",
-    "version": "0.1.77",
+    "version": "0.0.0",
     "repository": "git+https://github.com/cloud-hybrid/delta.git",
     "devDependencies": {
         "lerna": "latest"
