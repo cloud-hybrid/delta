@@ -1,6 +1,7 @@
 $black: #000000 !default;
 $black-hover: #212121 !default;
 $black-100: #000000 !default;
+$black-layer: #161616 !default;
 
 $white: #FFFFFF !default;
 $white-0: #FFFFFF !default;
@@ -423,7 +424,7 @@ $colors: (
         ),
 ) !default;
 
-$background: #161616;
+$background: rgb(22, 22, 22);
 $background-inverse: #F4F4F4;
 $background-brand: #0F62FE;
 $background-active: #393939;
@@ -519,3 +520,5 @@ $highlight: #D0E2FF;
 $overlay: rgba(0, 0, 0, 0.65);
 $toggle-off: #8D8D8D;
 $shadow: rgba(0, 0, 0, 0.8);
+
+$toastify-color-dark: black;

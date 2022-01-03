@@ -1,12 +1,12 @@
 import Properties from "prop-types";
 
-import {Routes} from "react-router-dom";
+import { Routes } from "react-router-dom";
 
-import {Menu} from "./components/menu";
-import {Container} from "./components/container";
-import {Footer} from "./components/footer";
+import { Menu } from "./components/menu";
+import { Container } from "./components/container";
+import { Footer } from "./components/footer";
 
-const Shell = ({children}) => {
+const Shell = ( { children } ) => {
     return (
         <>
             <Menu/>
@@ -33,4 +33,4 @@ Shell.defaultProps = {
 
 export default Shell;
 
-export {Shell};
+export { Shell };

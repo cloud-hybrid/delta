@@ -4,9 +4,9 @@ import Styles from "./index.module.scss";
 
 import Properties from "prop-types";
 
-const Component = ({children}) => {
+const Component = ( { children } ) => {
     return (
-        <main className={Styles.component}>
+        <main className={ Styles.component }>
             {
                 children
             }
@@ -25,4 +25,4 @@ Component.defaultProps = {
 
 export default Component;
 
-export {Component};
+export { Component };

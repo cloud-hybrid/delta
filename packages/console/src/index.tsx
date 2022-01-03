@@ -3,11 +3,11 @@ import "./index.scss";
 import React from "react";
 import DOM from "react-dom";
 
-import {BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import {Application} from "./application";
+import { Application } from "./application";
 
-import {Debug} from "./utilities/debug";
+import { Debug } from "./utilities/debug";
 
 DOM.render(
     <React.StrictMode>
@@ -18,7 +18,7 @@ DOM.render(
     document.getElementById("Application")
 );
 
-(Debug === true) && import("./utilities/vitals").then(($) => {
+( Debug === true ) && import("./utilities/vitals").then(( $ ) => {
     $.Vitals().finally(
         () => {
             // ...

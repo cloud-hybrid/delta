@@ -37,6 +37,7 @@
     --global-black: #{$black};
     --global-black-100: #{$black-100};
     --global-black-hover: #{$black-hover};
+    --global-black-layer: #{$black-layer};
 
     --global-white: #{$white};
     --global-white-100: #{$white-0};
@@ -391,4 +392,6 @@
     --global-overlay: #{$overlay};
     --global-toggle-off: #{$toggle-off};
     --global-shadow: #{$shadow};
+
+    --toastify-color-dark: #{$toastify-color-dark};
 }

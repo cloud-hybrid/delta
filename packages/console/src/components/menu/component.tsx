@@ -1,22 +1,19 @@
 import "./index.scss";
 
-import Styles from "./index.module.scss";
-
-import {Link} from "react-router-dom";
+import { Navigator } from "./navigation";
+import { Global } from "./title";
+import { Item } from "./item";
 
 const Component = () => {
     return (
-        <nav className={Styles.component}>
-            <Link to={"/"}>
-                Home
-            </Link>
-            <Link to={"/settings"}>
-                Settings
-            </Link>
-        </nav>
+        <Navigator>
+            <Global prefix={ "Cloud" } title={ "Hybrid" }/>
+            <Item title={ "Settings" }/>
+            <Item title={ "Mobile-Preview" } overwrite={ "/mobile-preview" }/>
+        </Navigator>
     );
 };
 
 export default Component;
 
-export {Component};
+export { Component };

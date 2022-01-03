@@ -1,23 +1,25 @@
 import Properties from "prop-types";
 
-import React, {useState, useEffect} from "react";
-import {Outlet, useLocation} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
-import {Text} from "../components/text";
+import { Notification } from "../components/notification/index";
+
+import { Text } from "../components/text";
 
 /*** The Callable Instance of a Stateful Initializer */
-type Dispatch<Generic> = ($: Generic) => void;
+type Dispatch<Generic> = ( $: Generic ) => void;
 
 /*** The Running Callable Instance of the Stateful Initializer */
-type Mutation<State> = State | (($: State) => State);
+type Mutation<State> = State | ( ( $: State ) => State );
 
 type Binary = Mutation<boolean>;
 type Nilible = Mutation<object | null>;
 type Intrinsic = Mutation<object | false | null>;
 
-type Loadable = [Binary, Dispatch<Binary>];
-type Stateful = [Intrinsic, Dispatch<Intrinsic>];
-type Errorable = [Nilible, Dispatch<Nilible>];
+type Loadable = [ Binary, Dispatch<Binary> ];
+type Stateful = [ Intrinsic, Dispatch<Intrinsic> ];
+type Errorable = [ Nilible, Dispatch<Nilible> ];
 
 interface State {
     Loadable: Loadable;
@@ -25,7 +27,7 @@ interface State {
     Errorable: Errorable;
 }
 
-const URL = process.env["REACT_APP_API_ENDPOINT"] + ["/v1/utility/awaitable?duration", process.env["REACT_APP_SIMULATED_AWAIT_DURATION"]].join("=");
+const URL = process.env[ "REACT_APP_API_ENDPOINT" ] + [ "/v1/utility/awaitable?duration", process.env[ "REACT_APP_SIMULATED_AWAIT_DURATION" ] ].join("=");
 
 /**
  * Exportable Page Template Component (and Wrapper)
@@ -38,39 +40,45 @@ export const Page = () => {
     const Location = useLocation();
 
     const Data: Stateful = useState(false);
-    const Error: Stateful = useState(null);
+    const Throw: Stateful = useState(null);
     const Loading: Loadable = useState(true);
 
     useEffect(() => {
         console.debug("[Debug] (Page-Loading-Wrapper)", "Initializing Page + Data.");
 
         const $ = async () => {
-            Loading[1](true);
+            Loading[ 1 ](true);
 
             try {
-                const $ = await fetch(URL).then(($) => $.json());
+                const $ = await fetch(URL).then(( $ ) => $.json());
 
-                Data[1]($);
-                Error[1](false);
+                Data[ 1 ]($);
+                Throw[ 1 ](false);
             } catch (error) {
-                const $ = {
-                    column: error?.column,
-                    line: error?.line,
-                    message: error?.message,
-                    stack: error?.stack
-                };
+                const Expression = /((.*)+(:) + ?(.*))/gm;
 
-                console.error("[Error] Page-Loading-Wrapper", JSON.stringify($, null, 4));
+                const $ = new Error(error);
 
-                Data[1](null);
-                Error[1]({
-                    column: error?.column,
-                    line: error?.line,
-                    message: error?.message,
-                    stack: error?.stack
-                });
+                const Partials = Expression.exec($?.message);
+
+                const Message = Partials[ Partials.length - 1 ] || error;
+                const Type = Partials[ Partials.length - 3 ] || error;
+
+                if (Type === "TypeError") {
+                    Throw[ 1 ]({
+                        Type: "API-Error", Message: "API Server Unreachable"
+                    });
+                } else {
+                    Throw[ 1 ]({
+                        Type, Message
+                    });
+                }
+
+                console.warn(Message, Type);
+
+                Data[ 1 ](null);
             } finally {
-                Loading[1](false);
+                Loading[ 1 ](false);
             }
         };
 
@@ -79,19 +87,15 @@ export const Page = () => {
         $().finally(() => {
             console.debug("[Debug] (Page-Loading-Wrapper)", "All Wrapper Promise(s) have Settled.");
         });
-    }, [Location]);
+    }, [ Location ]);
 
-    const Awaitable = () => (Loading[0]) ? (<Text input={"Loading ..."}/>) : null;
-    const Trace = () => (Error[0] && !Loading[0]) ? (<Text input={"Error ..."}/>) : null;
-    const Content = () => (!Loading[0]) && (<Outlet/>) || null;
+    const Awaitable = () => ( Loading[ 0 ] ) ? ( <Text input={ "Loading ..." }/> ) : null;
+    const Trace = () => ( Throw[ 0 ] && !Loading[ 0 ] ) ? (
+        <Notification type={ "error" } content={ Throw[ 0 ][ "Message" ] } duration={ null } theme={ "dark" }/>
+    ) : null;
+    const Content = () => ( Loading[ 0 ] === false ) ? ( <Outlet/> ) : null;
 
-    return (!Loading[0] && !Error[0] && Data[0]) ? (<Content/>) : (
-        <>
-            <Trace/>
-            <Awaitable/>
-            <Content/>
-        </>
-    );
+    return ( Loading[ 0 ] ) && ( <Awaitable/> ) || ( ( Throw[ 0 ] ) ? ( <Trace/> ) : ( <Content/> ) );
 };
 
 Page.propTypes = {};

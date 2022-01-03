@@ -22,18 +22,12 @@
         "compile": "tsc --pretty --watch",
         "setup": "lerna bootstrap -- --strict --hoist --force-local",
         "clean": "lerna clean --yes",
-        "commit": "git commit --all --file - ",
         "push": "lerna version patch",
         "login": "npm adduser",
         "reinstall": "lerna bootstrap --force-local",
         "profile": "lerna run build --profile",
-        "info": "lerna info"
-    },
-    "workspaces": {
-        "packages": [
-            "packages/*"
-        ],
-        "nohoist": []
+        "info": "lerna info",
+        "bootstrap": "lerna bootstrap --hoist"
     },
     "eslintConfig": {
         "parser": "@typescript-eslint/parser",

@@ -4,9 +4,11 @@ import Properties from "prop-types";
 
 import Styles from "./index.module.scss";
 
-const Component = ({input}) => {
+const Component = ( { input, theme, center } ) => {
+    const Theme = ( theme === "light" ) ? Styles.light : Styles.dark;
+
     return (
-        <span className={Styles.component}>
+        <span className={ [ Styles.component, Theme, ( center ) && Styles.center || null ].join(" ") }>
             {
                 input
             }
@@ -16,13 +18,19 @@ const Component = ({input}) => {
 
 Component.propTypes = {
     /*** Component Display Text */
-    input: Properties.string.isRequired
+    input: Properties.string.isRequired,
+    /*** Component Display Text Color (Theme) */
+    theme: Properties.oneOf([ "dark", "light" ]),
+    /*** Component Display Text Alignment */
+    center: Properties.bool
 };
 
 Component.defaultProps = {
-    input: "..."
+    input: "...",
+    theme: "dark",
+    center: false
 };
 
 export default Component;
 
-export {Component};
+export { Component };

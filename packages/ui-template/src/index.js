@@ -22,7 +22,7 @@ export const useTheme = (theme = "g100") => {
     return Theme;
 };
 
-const Application = Import(() => import("./Application.js"));
+const Application = Import(() => new Promise((resolve) => resolve(import("./Application.js"))));
 const DOM = () => {
     const theme = useTheme();
 
@@ -35,18 +35,17 @@ const DOM = () => {
     });
 
     return (
-        <Theme theme={ theme.theme }>
-            <Content>
-                <Router>
-                    <Suspense
-                        fallback={ null }
-                        children={ (
+        <React.StrictMode>
+            <Theme theme={ theme.theme }>
+                <Content>
+                    <Router>
+                        <Suspense fallback={ null }>
                             <Application/>
-                        ) }
-                    />
-                </Router>
-            </Content>
-        </Theme>
+                        </Suspense>
+                    </Router>
+                </Content>
+            </Theme>
+        </React.StrictMode>
     );
 };
 

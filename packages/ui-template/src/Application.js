@@ -12,33 +12,6 @@ import { default as Spinner } from "./components/Loader";
 
 import { Authorizer, JWT, Validate } from "./components/Authenticate";
 
-const Login = Import(() => import("./pages/Login"));
-const GitHub = Import(() => import("./pages/GitHub"));
-const GitLab = Import(() => import("./pages/GitLab"));
-const ID = Import(() => import("./pages/GitLab/Project"));
-const Template = Import(() => import("./pages/Template"));
-const Pipelines = Import(() => import("./pages/Pipelines"));
-const Tiles = Import(() => import("./pages/Development/Tiles"));
-const Awaitable = Import(() => import("./pages/Development/Awaitable"));
-const List = Import(() => import("./pages/Development/Selectable-List"));
-const Linklist = Import(() => import("./pages/Development/Selectable-Link-List"));
-const Table = Import(() => import("./pages/Development/Test-Table"));
-const Snippet = Import(() => import("./pages/Development/Code-Snippet-Awaitable"));
-const Card = Import(() => import("./pages/Development/Card"));
-
-const Modal = Import(() => import("./pages/Modal"));
-
-const Error = Import(() => import("./pages/Error/Test.js"));
-
-const Blog = Import(() => import("./pages/Blog"));
-const Blog2 = Import(() => import("./pages/Blog-2"));
-const Blog3 = Import(() => import("./pages/Blog-3"));
-
-const Dashboard = {
-    Index: Import(() => import("./pages/Dashboard/Pages/Index")),
-    Mobile: Import(() => import("./pages/Dashboard/Pages/Mobile"))
-};
-
 import { default as Home } from "./pages/Home";
 
 import "./Application.scss";
@@ -66,6 +39,33 @@ const Application = () => {
             //            throw new Error(JSON.stringify(e, null, 4));
         });
     }, []);
+
+    const Login = Import(() => new Promise(async (resolve) => resolve(await import("./pages/Login"))));
+    const GitHub = Import(async () => import("./pages/GitHub"));
+    const GitLab = Import(async () => import("./pages/GitLab"));
+    const ID = Import(async () => import("./pages/GitLab/Project"));
+    const Template = Import(async () => import("./pages/Template"));
+    const Pipelines = Import(async () => import("./pages/Pipelines"));
+    const Tiles = Import(async () => import("./pages/Development/Tiles"));
+    const Awaitable = Import(async () => import("./pages/Development/Awaitable"));
+    const List = Import(async () => import("./pages/Development/Selectable-List"));
+    const Linklist = Import(async () => import("./pages/Development/Selectable-Link-List"));
+    const Table = Import(async () => import("./pages/Development/Test-Table"));
+    const Snippet = Import(async () => import("./pages/Development/Code-Snippet-Awaitable"));
+    const Card = Import(async () => import("./pages/Development/Card"));
+
+    const Modal = Import(() => import("./pages/Modal"));
+
+    const Error = Import(() => import("./pages/Error/Test.js"));
+
+    const Blog = Import(() => import("./pages/Blog"));
+    const Blog2 = Import(() => import("./pages/Blog-2"));
+    const Blog3 = Import(() => import("./pages/Blog-3"));
+
+    const Dashboard = {
+        Index: Import(() => import("./pages/Dashboard/Pages/Index")),
+        Mobile: Import(() => import("./pages/Dashboard/Pages/Mobile"))
+    };
 
     return (
         <React.StrictMode>

@@ -1,9 +1,8 @@
 import Properties from "prop-types";
 
-import React, {Suspense, lazy as Split} from "react";
+import React, { Suspense, lazy as Split } from "react";
 
-type Content = typeof import("./../../components/page/content").default;
-type Import = React.LazyExoticComponent<Content>;
+type Import = React.LazyExoticComponent<typeof import("./../../components/page/content").default>;
 
 /*** Code Splitting Page Content + Data Fetching */
 const Content: Import = Split(() => import("./../../components/page/content"));
@@ -13,10 +12,10 @@ const Content: Import = Split(() => import("./../../components/page/content"));
  *  and Asynchronous Data Fetching
  */
 
-const Page = ({name}) => {
+const Page = ( { name } ) => {
     return (
-        <Suspense fallback={"..."}>
-            <Content name={name}>
+        <Suspense fallback={ null }>
+            <Content name={ name }>
                 {
                     name
                 }
@@ -36,4 +35,4 @@ Page.defaultProps = {
 
 export default Page;
 
-export {Page};
+export { Page };
