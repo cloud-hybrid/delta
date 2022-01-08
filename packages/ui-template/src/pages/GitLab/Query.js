@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { JWT } from "./../../components/Authenticate.js";
 
-const Adapter = require("axios-cache-adapter");
+const Adapter = require("axios-cache-interceptor");
 const Forage = require("localforage");
 
 const NAME = "Nexus-UI";
@@ -22,7 +22,7 @@ export const Store = Forage.createInstance({
     driver: Forage.INDEXEDDB
 });
 
-const Cache = Adapter.setupCache({
+const Cache = Adapter({
     excludeFromCache: false, // --> Debugging
     debug: (
         process.env.NODE_ENV !== "production"

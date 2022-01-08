@@ -11,7 +11,7 @@ const Parsers = {
     "URL-Encoded": {
         Module: Library.Parser.urlencoded,
         Parameters: {
-            extended: false,
+            extended: true,
             parameterLimit: 1000
         }
     }, JSON: {

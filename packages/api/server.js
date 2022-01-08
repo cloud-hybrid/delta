@@ -10,9 +10,6 @@ import HTTPs from "https";
 
 const CWD = Process.cwd();
 
-/***  @type {Number} - Primary Server Listening Port, Configured in `package.json` */
-const Port = Process.env["npm_package_config_port"];
-
 console.debug("[Main] [Debug] Loading CI Setting(s) ...");
 await import("./.ci/settings.js").finally(() => {
     console.debug("[Main] [Log]", "Instantiated Package Metadata");
@@ -62,6 +59,9 @@ import("./src/index.js")
             )
         };
 
+//        curl -X GET "http://localhost:3443/v1/authorization/login?username=test&password=testpassword"
+//        ab -k -c 20 -n 250 "http://localhost:8080/auth?username=matt&password=password"
+
         /*** @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}} */
         const options = {
             passphrase: Process.env["TLS"]["Passphrase"],
@@ -71,9 +71,8 @@ import("./src/index.js")
             cert: Content.Certificate
         };
 
-        /// HTTP.createServer(Application).listen(3080);
-        const Server = HTTPs.createServer(options, Application).listen(Port);
+        HTTPs.createServer(options, Application).listen(Process.env["Port"] ?? 3443);
     }).finally(() => {
     console.debug("[Main] [Debug]", "Starting API Server ...");
-    console.log("[Main] [Log]", "Listening @" + " " + [ "https", "://", "localhost", ":", Port, "/v1" ].join(""));
+    console.log("[Main] [Log]", "Listening @" + " " + [ "https", "://", "localhost", ":", Process.env["Port"] ?? 3443, "/v1" ].join(""));
 });

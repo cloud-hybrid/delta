@@ -18,9 +18,10 @@ export const Middleware = (Schema) => {
     /***
      * @param password {String}
      * @param callback {Function}
+     * @param progress {Function}
      * @returns {Promise<Boolean, Error|null>}
      */
-    Schema.methods.validatePassword = function (password, callback) {
+    Schema.methods.validatePassword = function (password, callback, progress) {
         const $ = this;
 
         console.debug("[Validation]", "[Debug]", "Evaluating Comparator ...");
@@ -29,12 +30,13 @@ export const Middleware = (Schema) => {
             if ( error ) throw new Error(error);
 
             if ( success === false ) {
-                console.error("[Validation]", "[Error]", "Failed Password Validation Attempt");
                 callback(false, "Failed Password Validation Attempt");
             } else {
                 console.debug("[Validation]", "[Log]", "Password has been Successfully Validated");
                 callback(true, "Successful");
             }
+        }, function (percent) {
+            progress(percent);
         });
     };
 

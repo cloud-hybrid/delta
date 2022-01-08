@@ -14,16 +14,16 @@ $Prefix: "io" !default;
 
 @use "@carbon/styles/scss/config" with ($prefix: "cds");
 
-@use "@carbon/styles/scss/themes";
+@use "@carbon/styles/scss/themes" as *;
 @use "@carbon/styles/scss/theme" with (
-    $fallback: themes.$g100,
+    $fallback: $g100,
     $theme: (
         custom-token-01: #000000,
         popover-offset: 0.0rem
     )
 );
 
-@use "@carbon/styles";
+@use "@carbon/styles" as *;
 
 :root {
     @include theme.theme(theme.$theme);

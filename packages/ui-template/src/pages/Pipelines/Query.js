@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 
-const Request = require("axios");
-const Adapter = require("axios-cache-adapter");
-const Forage =  require("localforage");
+import Request from "axios";
+import Adapter from "axios-cache-interceptor";
+import Forage from "localforage";
+
+//const Request = require("axios");
+//const Adapter = require("axios-cache-interceptor");
+//const Forage =  require("localforage");
 
 const STORE = "Gitlab-Project-Pages";
 const NAME = "Nexus-UI";
@@ -19,7 +23,7 @@ const Store = Forage.createInstance({
     driver: Forage.INDEXEDDB
 });
 
-const Cache = Adapter.setupCache({
+const Cache = Adapter({
     excludeFromCache: true, // --> Debugging
     debug: (process.env.NODE_ENV !== "production"),
     clearOnStale: true,

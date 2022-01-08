@@ -22,6 +22,7 @@ import * as Library from "./../../library/index.js";
 /// --> Controller(s)
 import { default as Token } from "./token/index.js";
 import { default as Login } from "./login/index.js";
+import { default as Test } from "./synchronous-unit-testing/index.js";
 
 /// --> Base Controller
 const Controller = Library.Router();
@@ -30,5 +31,7 @@ const Controller = Library.Router();
 
 Controller.use("/", Token);
 Controller.use("/login", Login);
+Controller.use("/token", Token);
+Controller.use("/test", Test);
 
 export default Controller;

@@ -1,3 +1,4 @@
+import Module from "module";
 import * as Library from "./../library/index.js";
 
 const $ = process.env["Mongo"];

@@ -7,49 +7,59 @@
  * @typedef {import("./../../../library/index.js").Token} Signature
  */
 
+import * as UUID from "uuid";
+import Cryptography from "bcryptjs";
+
+import { default as User } from "./../../../database/model/user/index.js";
 import { Token } from "./../../../library/index.js";
 
 const Secret = await import("./../../../library/secret.js").then((Module) => Module.Secret);
 
 /***
+ * JWT Login Verification
+ * ----------------------
+ * @param username {string}
+ * @param password {string}
  *
- * @param User {Instance}
- * @param password
- *
- * @returns {Promise<null|boolean|{User: {Role: *, Email: *, Username: *, ID: *, Name: *}, JWT: Signature}>}
+ * @returns {Promise<{JWT: string, ID: string} | null>}
  *
  * @constructor
+ *
  */
 
-export const Generate = async (User, password) => {
+const Validate = async (username, password) => {
     /***
      * @type {Instance}
      */
 
-    /// Fatal Error - Catch @Controller Level
-    if ( !User ) throw new Error("NIL");
+    const Record = await User.findOne({Username: username}) ?? null;
+    const Verification = (Record) ? await Cryptography.compare(password, Record.Password) : false;
 
-    /// console.debug("[Login (API)]", "[Debug]", "User-Profile" + ":", User);
-    return new Promise((resolve, reject) => {
-        User.validatePassword(password, (match) => {
-            if ( !match ) {
-                const e = new Error("Incorrect Password Match");
-                e.name = "Password-Validation-Error";
-                reject(e);
-            } else {
-                const Signature = Token.sign({id: User.id}, Secret, {
-                    audience: "Audience",
-                    issuer: "Issuer",
-                    expiresIn: Math.floor(Date.now() / 1000) + (60 * 60)
-                });
+    if ( !Verification ) return null;
 
-                /// console.debug("[Authorization (API)]", "[Debug]", "JWT-Decoded" + ":", Token.decode(Signature, Secret));
+    /*** @type import("uuid").v4 */
+    const UID = UUID.v4();
 
-                resolve({
-                    ID: User.id,
-                    JWT: Signature
-                });
-            }
-        });
-    });
+    /*** Token Signature Options
+     * @type import("jsonwebtoken").SignOptions
+     */
+    const Fields = {
+        subject: "Nexus",
+        audience: "Audience",
+        issuer: "Cloud-Technology",
+        expiresIn: "1d",
+        algorithm: "HS256",
+        header: {
+            ID: Record.id
+        }
+    };
+
+    return {
+        ID: Record.id,
+        JWT: Token.sign({id: Record.id, uid: UID}, Secret, Fields)
+    };
 };
+
+export { Validate };
+
+export default Validate;

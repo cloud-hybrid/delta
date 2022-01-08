@@ -5,9 +5,20 @@ import { Normalize } from "./../../../utilities/configuration.js";
 import { Validate } from "./api.js";
 
 Controller.post("/", async (request, response) => {
-    console.debug("[Authorization (Token)]", "[Debug]", "Request" + " " + "-", request.originalUrl);
+    console.debug("[Authorization (Token)]", "[Debug]", "Request" + " " + "-", {
+        Origin: request.originalUrl,
+        Query: request.query,
+        Body: request.body,
+        Headers: request.headers
+    });
 
-    const Token = request.body["Token"] || request.body["token"] || request.header("X-Nexus-JWT-Access-Token") || null;
+    const Header = request.header("Authorization");
+
+    const Token = (Header) ? Header.split(" ").pop() : request.body["Token"] || request.body["token"] || request.header("X-Nexus-JWT-Access-Token") || request.query?.Token || request.query?.token ||
+        request.body["JWT"] || request.body["jwt"] || request.header("X-JWT-Token") || request.header("X-JWT") || request.query?.JWT || request.query?.jwt ||
+        null;
+
+
 
     if (Token === null) {
         response.statusCode = 401;

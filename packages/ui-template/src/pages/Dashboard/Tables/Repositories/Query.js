@@ -1,7 +1,7 @@
 import { useState, useEffect    } from "react";
 
 const Request = require("axios");
-const Adapter = require("axios-cache-adapter");
+const Adapter = require("axios-cache-interceptor");
 const Forage =  require("localforage");
 
 const STORE = "Gitlab-Project-Pages";
@@ -17,7 +17,7 @@ const Store = Forage.createInstance({
     driver: Forage.INDEXEDDB
 });
 
-const Cache = Adapter.setupCache({
+const Cache = Adapter({
     /// excludeFromCache: true, // --> Debugging
     debug: false,               // --> Debugging
     clearOnStale: true,
