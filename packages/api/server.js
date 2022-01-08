@@ -59,9 +59,6 @@ import("./src/index.js")
             )
         };
 
-//        curl -X GET "http://localhost:3443/v1/authorization/login?username=test&password=testpassword"
-//        ab -k -c 20 -n 250 "http://localhost:8080/auth?username=matt&password=password"
-
         /*** @type {{pfx: Buffer, passphrase: *, cert: Buffer, key: Buffer}} */
         const options = {
             passphrase: Process.env["TLS"]["Passphrase"],
