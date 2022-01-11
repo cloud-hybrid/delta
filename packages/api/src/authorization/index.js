@@ -3,10 +3,12 @@ import { Token } from "./../library/index.js";
 const Secret = await import("./../library/secret.js").then((Module) => Module.Secret);
 
 export const Authenticate = (request, response, callback) => {
-    const Header = request.headers.authorization;
+    const Header = request.headers.authorization ?? request.header("Authorization") ?? null;
 
     if ( Header ) {
-        const JWT = Header.split(" ")[1];
+        const JWT = (Header) ? Header.split(" ").pop() : request.body["Token"] || request.body["token"] || request.header("X-Nexus-JWT-Access-Token") || request.query?.Token || request.query?.token ||
+            request.body["JWT"] || request.body["jwt"] || request.header("X-JWT-Token") || request.header("X-JWT") || request.query?.JWT || request.query?.jwt ||
+            null;
 
         Token.verify(JWT, Secret, (error, user) => {
             if ( error ) {
@@ -26,7 +28,7 @@ export const Authenticate = (request, response, callback) => {
 
             response.statusMessage = "Verified";
 
-            console.log("[Authorization (Middleware)]", "[Error]", JSON.stringify(user, null, 4));
+            console.log("[Authorization (Middleware)]", JSON.stringify(user, null, 4));
 
             callback();
         });

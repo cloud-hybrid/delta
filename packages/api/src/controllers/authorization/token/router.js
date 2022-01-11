@@ -18,8 +18,6 @@ Controller.post("/", async (request, response) => {
         request.body["JWT"] || request.body["jwt"] || request.header("X-JWT-Token") || request.header("X-JWT") || request.query?.JWT || request.query?.jwt ||
         null;
 
-
-
     if (Token === null) {
         response.statusCode = 401;
         response.shouldKeepAlive = false;

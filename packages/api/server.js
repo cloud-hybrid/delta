@@ -68,6 +68,10 @@ import("./src/index.js")
             cert: Content.Certificate
         };
 
+        Application.jsonp = null;
+        Application.etag = null;
+        Application.views = null;
+
         HTTPs.createServer(options, Application).listen(Process.env["Port"] ?? 3443);
     }).finally(() => {
     console.debug("[Main] [Debug]", "Starting API Server ...");
