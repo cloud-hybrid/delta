@@ -1,6 +1,6 @@
 {
     "name": "ts-config-template",
-    "version": "0.1.110",
+    "version": "0.1.111",
     "scripts": {
         "start": "exec scripts/start",
         "build": "exec scripts/build",
