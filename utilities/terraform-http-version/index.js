@@ -1,9 +1,18 @@
 import { Configuration, Query } from "./request.js";
 
-const Settings = Configuration("https://checkpoint-api.hashicorp.com/v1/check/terraform");
+const Constructor = new Proxy(Object, Reflect.construct);
+const API = async () => {
+    const URL = "https://checkpoint-api.hashicorp.com/v1/check/terraform"
+    const Settings = Configuration(URL);
 
-const Request = await Query(Settings);
+    Settings.prototype = Constructor.prototype;
+    Settings.prototype.headers = {
+        "Authorization": "Bearer ..."
+    }
 
-const Data = await Request;
+    return await Query(Settings);
+};
 
-console.log(JSON.stringify(Data, null, 4));
+const Response = await API();
+
+console.debug("[Debug]", Response);

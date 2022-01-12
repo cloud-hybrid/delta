@@ -19,6 +19,7 @@ const Configuration = (url, method = "GET") => {
     const $ = new URI.URL(url);
 
     $.rejectUnauthorized = false;
+    $.method = method;
 
     return $;
 };
@@ -36,25 +37,32 @@ const Configuration = (url, method = "GET") => {
  */
 
 const Query = (configuration) => {
+    const Pool = Object.create(null);
+
+    /// Radix := 10 Initial Padding
+    Pool.data = 0o0000000000;
     return new Promise((resolve, reject) => {
-        // console.log(configuration);
         const Request = HTTPs.request(configuration, (response) => {
-            let $;
+            const Fill = parseInt(response.headers["content-length"], 10);
 
             response.on("data", (chunk) => {
-                const Allocation = String(Buffer.from(chunk));
-                if (Allocation !== undefined) {
-                    ($ === undefined) ? $ = Allocation
-                        : $ += Allocation;
-                }
+                const Allocation = String(Buffer.from(chunk, 10, Fill));
+
+                (Pool.data) ? Pool.data += Allocation : Pool.data = Allocation;
             });
 
             response.on("end", () => {
-                resolve(JSON.parse($));
+                const Allocator = Buffer.allocUnsafeSlow(Fill);
+                Allocator.write(Pool.data);
+                delete Pool.data;
+
+                resolve(JSON.parse(Allocator.toString()));
             });
         });
 
-        Request.on("error", (_) => reject(_));
+        Request.on("error", (_) => {
+            reject(_);
+        });
 
         Request.end();
     });

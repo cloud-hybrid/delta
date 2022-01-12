@@ -6,6 +6,7 @@ Application.set("env", process.env["Environment"]);
 
 Application.settings.etag = null;
 Application.settings.views = null;
+
 Application.settings["x-powered-by"] = null;
 Application.settings["trust proxy"] = null;
 
