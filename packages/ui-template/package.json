@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/ui-template",
-    "version": "0.1.109",
+    "version": "0.1.110",
     "private": false,
     "main": "./src/index.js",
     "repository": {

@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/github",
-    "version": "0.1.88",
+    "version": "0.1.110",
     "description": "...",
     "main": "index.js",
     "type": "module",
