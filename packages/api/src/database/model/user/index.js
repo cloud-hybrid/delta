@@ -28,7 +28,17 @@ import { Model as Role } from "./role.js";
 /***
  * Definition - Schema Instance that Defines a Model
  *
- * @type {ORM.Schema}
+ * @type {{
+ *      Email: {string},
+ *      Username: {string},
+ *      Password: {string},
+ *      Login: {Date},
+ *      Role: {string},
+ *      Name: {string},
+ *      "Creation-Date": {Data},
+ *      "Modification-Date": {Date},
+ *      validatePassword: {Function}
+ * }}
  */
 
 export const Schema = new ORM.Schema({
@@ -123,11 +133,13 @@ export const Model = ORM.model("User", Schema, "User", false);
 
 /* Initialization Unit-Tests ============================================== - */
 
+/*** @type {Schema} */
 const Record = new Model({Email: "administrator@internal.io", Username: "Administrator", Password: "Kn0wledge!"});
 
 const Initialize = (await Model.collection.stats()).count === 0;
 
 const empty = (await Model.collection.stats()).count === 0;
+
 (Global.initialize || Initialize) && await Record.save(async (error) => {
     if ( error && empty ) {
         const e = new Error("[Fatal] Validation Failure").stack.split("\n");

@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2146F689278E875E0049CB22 /* S3-Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21633684278D072F0002F74A /* S3-Utility.swift */; };
+		2146F68A278E875E0049CB22 /* S3-Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21633684278D072F0002F74A /* S3-Utility.swift */; };
+		2146F68C278E88720049CB22 /* Model-Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146F68B278E88720049CB22 /* Model-Data.swift */; };
+		2146F68D278E88720049CB22 /* Model-Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146F68B278E88720049CB22 /* Model-Data.swift */; };
 		2163369E278D07310002F74A /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163369D278D07310002F74A /* Tests_iOS.swift */; };
 		216336A0278D07310002F74A /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163369F278D07310002F74A /* Tests_iOSLaunchTests.swift */; };
 		216336AA278D07310002F74A /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216336A9278D07310002F74A /* Tests_macOS.swift */; };
 		216336AC278D07310002F74A /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216336AB278D07310002F74A /* Tests_macOSLaunchTests.swift */; };
 		216336AD278D07310002F74A /* S3_Utility.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21633682278D072F0002F74A /* S3_Utility.xcdatamodeld */; };
 		216336AE278D07310002F74A /* S3_Utility.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21633682278D072F0002F74A /* S3_Utility.xcdatamodeld */; };
-		216336AF278D07310002F74A /* S3-Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21633684278D072F0002F74A /* S3-Utility.swift */; };
-		216336B0278D07310002F74A /* S3-Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21633684278D072F0002F74A /* S3-Utility.swift */; };
 		216336B3278D07310002F74A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21633686278D072F0002F74A /* Persistence.swift */; };
 		216336B4278D07310002F74A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21633686278D072F0002F74A /* Persistence.swift */; };
 		216336B5278D07310002F74A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21633687278D07300002F74A /* Assets.xcassets */; };
@@ -43,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2146F68B278E88720049CB22 /* Model-Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model-Data.swift"; sourceTree = "<group>"; };
 		21633683278D072F0002F74A /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		21633684278D072F0002F74A /* S3-Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S3-Utility.swift"; sourceTree = "<group>"; };
 		21633686278D072F0002F74A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		2163367C278D072F0002F74A = {
 			isa = PBXGroup;
 			children = (
+				2146F68B278E88720049CB22 /* Model-Data.swift */,
 				216336CD278D14F00002F74A /* S3-Utility--macOS--Info.plist */,
 				216336CC278D14650002F74A /* S3-Utility--iOS--Info.plist */,
 				216336CB278D14590002F74A /* S3-Utility (iOS).entitlements */,
@@ -319,9 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				216336AF278D07310002F74A /* S3-Utility.swift in Sources */,
+				2146F68C278E88720049CB22 /* Model-Data.swift in Sources */,
 				216336B3278D07310002F74A /* Persistence.swift in Sources */,
 				216336AD278D07310002F74A /* S3_Utility.xcdatamodeld in Sources */,
+				2146F689278E875E0049CB22 /* S3-Utility.swift in Sources */,
 				216336CA278D0C330002F74A /* Content.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,9 +335,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				216336B0278D07310002F74A /* S3-Utility.swift in Sources */,
+				2146F68D278E88720049CB22 /* Model-Data.swift in Sources */,
 				216336B4278D07310002F74A /* Persistence.swift in Sources */,
 				216336AE278D07310002F74A /* S3_Utility.xcdatamodeld in Sources */,
+				2146F68A278E875E0049CB22 /* S3-Utility.swift in Sources */,
 				216336C9278D0C330002F74A /* Content.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

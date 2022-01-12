@@ -2,7 +2,7 @@ import React from "react";
 
 type Context = React.Context<{ Theme: string }>;
 
-const Theme = (theme = "dark") => {
+const Theme = ( theme = "dark" ) => {
     const $: Context = React.createContext({
         Theme: theme
     });
@@ -12,4 +12,4 @@ const Theme = (theme = "dark") => {
 
 export default Theme;
 
-export {Theme};
+export { Theme };

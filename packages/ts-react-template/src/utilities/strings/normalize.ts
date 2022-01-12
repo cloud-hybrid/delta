@@ -11,20 +11,20 @@
  *
  */
 
-function normalize(input: string, ...inputs: string[] | undefined | null): string {
-    const Input = (inputs) ? [input, [...inputs].join(" ")].join(" ") : input;
+function normalize( input: string, ...inputs: string[] | undefined | null ): string {
+    const Input = ( inputs ) ? [ input, [ ...inputs ].join(" ") ].join(" ") : input;
 
-    return Input.split(" ").map(($) => {
-        return $.toString()[0].toUpperCase() + $.toString().slice(1);
-    }).join("-").split("_").map(($) => {
-        return $.toString()[0].toUpperCase() + $.toString().slice(1);
-    }).join("-").split("-").map(($) => {
-        return $.toString()[0].toUpperCase() + $.toString().slice(1);
+    return Input.split(" ").map(( $ ) => {
+        return $.toString()[ 0 ].toUpperCase() + $.toString().slice(1);
+    }).join("-").split("_").map(( $ ) => {
+        return $.toString()[ 0 ].toUpperCase() + $.toString().slice(1);
+    }).join("-").split("-").map(( $ ) => {
+        return $.toString()[ 0 ].toUpperCase() + $.toString().slice(1);
     }).join("-");
 }
 
 const Normalize = normalize;
 
-export {normalize, Normalize};
+export { normalize, Normalize };
 
 export default normalize;

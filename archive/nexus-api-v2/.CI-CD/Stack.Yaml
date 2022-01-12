@@ -13,6 +13,7 @@ Description: |
         7. Security Groups for the Container and Load Balancer
         8. A DNS Record for Route 53
         9. An Auto-Scaling Policy
+
 Metadata:
     Validation:     |
         aws cloudformation validate-template --template-body "file://Stack.Yaml"
