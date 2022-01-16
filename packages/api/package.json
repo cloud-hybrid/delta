@@ -21,35 +21,10 @@
         "port": 3443
     },
     "dependencies": {
-        "@cloud-technology/aws-s3-api": "src/library/s3",
-        "axios": "^0.24.0",
-        "bcryptjs": "^2.4.3",
-        "body-parser": "^1.19.0",
-        "compression": "^1.7.4",
-        "cors": "^2.8.5",
-        "debug": "^4.3.2",
-        "express": "^5.0.0-alpha.8",
-        "jsonwebtoken": "^8.5.1",
-        "mongodb": "^4.1.4",
-        "mongoose": "^6.0.13",
-        "octokit": "^1.7.0",
-        "redis": "^4.0.0",
-        "uuid": "^8.3.2",
-        "ws": "^8.4.0"
+        "@cloud-technology/utilities": "./src/utilities",
+        "@cloud-technology/library": "./src/library"
     },
     "devDependencies": {
-        "@aws-sdk/types": "^3.46.0",
-        "@octokit/openapi-types": "^11.2.0",
-        "@octokit/types": "^6.34.0",
-        "@types/bcrypt": "^5.0.0",
-        "@types/bcryptjs": "^2.4.2",
-        "@types/body-parser": "^1.19.2",
-        "@types/compression": "^1.7.2",
-        "@types/cors": "^2.8.12",
-        "@types/fs-extra": "^9.0.13",
-        "@types/jsonwebtoken": "^8.5.6",
-        "@types/node": "^16.11.7",
-        "@types/uuid": "^8.3.4",
-        "tslib": "^2.3.1"
+        "@cloud-technology/types": "./@types"
     }
 }

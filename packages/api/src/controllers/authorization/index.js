@@ -17,7 +17,9 @@
  *
  */
 
-import * as Library from "./../../library/index.js";
+// import * as Library from "./../../library/index.js";
+
+import Library from "@cloud-technology/library";
 
 /// --> Controller(s)
 import { default as Token } from "./token/index.js";

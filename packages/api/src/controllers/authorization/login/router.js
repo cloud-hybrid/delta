@@ -97,7 +97,6 @@ Controller.post("/", async (request, response) => {
 
         Log(Response);
 
-        response.statusMessage = "Authorized";
         response.send(Response);
     }
 });

@@ -4,8 +4,6 @@
  *
  * @module Configuration
  *
- * @typedef {import("http").ServerResponse} ResponseType
- *
  */
 
 /***

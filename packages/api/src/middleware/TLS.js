@@ -14,4 +14,11 @@ const Content = {
     Certificate: FS.readdirSync(Files.Certificate)
 };
 
+export {
+    Files,
+    Content
+};
 
+export default {
+    Files, Content
+};

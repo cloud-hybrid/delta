@@ -1,15 +1,15 @@
-import * as Library from "./../library/index.js";
+import Library from "@cloud-technology/library";
 
 import { Generator } from "./../utilities/configuration.js";
 
 export const Controller = Library.Router();
 
 Controller.get("/", async (request, response) => {
-    const Package = process.env["Package"];
+    const Package = JSON.parse(process.env?.package ?? null);
 
     const $ = Generator(request, Package);
 
-    const Body = Package["version"];
+    const Body = Package?.version;
 
     /// HTTP(s) Response
     response.type($.Configuration.Type);

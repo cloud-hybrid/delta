@@ -32,6 +32,8 @@ const Validate = async (username, password) => {
      * @type {Instance}
      */
 
+    if ( !password || !username ) return null;
+
     const Record = await User.findOne({Username: username}) ?? null;
     const Verification = (Record) ? await Cryptography.compare(password, Record.Password) : false;
 

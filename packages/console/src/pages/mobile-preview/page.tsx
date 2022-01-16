@@ -1,17 +1,17 @@
 import Properties from "prop-types";
 
-import React, { Suspense, lazy as Split } from "react";
+import React, { Suspense, lazy as Import } from "react";
 
-type Import = React.LazyExoticComponent<typeof import("./../../components/page/content").default>;
+type Importable = React.LazyExoticComponent<typeof import("./../../components/page/content").default>;
 
-/*** Code Splitting Page Content + Data Fetching */
-const Content: Import = Split(() => import("./../../components/page/content"));
+/*** Code Importing Page Content + Data Fetching */
+const Content: Importable = Import(() => import("./../../components/page/content"));
 
-const Mobile = Split(() => import("./../../components/mobile-device"));
-const Text = Split(() => import("./../../components/text"));
+const Mobile = Import(() => import("./../../components/mobile-device"));
+const Text = Import(() => import("./../../components/text"));
 
 /**
- *  Page Exportable with Code-Split HTML Content
+ *  Page Exportable with Code-Import HTML Content
  *  and Asynchronous Data Fetching
  */
 
@@ -24,7 +24,7 @@ const Page = ( { name } ) => {
                 </Mobile>
             </Content>
         </Suspense>
-    )
+    );
 };
 
 Page.propTypes = {

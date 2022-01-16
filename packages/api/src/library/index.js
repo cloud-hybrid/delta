@@ -1,24 +1,24 @@
 import express from "express";
 
-export const API = express;
-export const Application = API();
-export const Router = API.Router;
+const API = express;
+const Application = API();
+const Router = API.Router;
 
 import compression from "compression";
 
-export const Compression = compression;
+const Compression = compression;
 
 import axios from "axios";
 
-export const Axios = axios;
+const Axios = axios;
 
 import octokit from "octokit";
 
-export const Octokit = octokit;
+const Octokit = octokit;
 
 import mongodb from "mongodb";
 
-export const Database = mongodb;
+const Database = mongodb;
 
 import mongoose from "mongoose";
 
@@ -26,7 +26,7 @@ import mongoose from "mongoose";
  * @type {import("mongoose")}
  * */
 
-export const ORM = mongoose;
+const ORM = mongoose;
 
 const cryptography = {};
 import bcrypt from "bcryptjs";
@@ -82,19 +82,39 @@ cryptography.encode = bcrypt.encodeBase64;
  * @extends {import("bcryptjs")}
  * @method encode {import("bcryptjs").encodeBase64}
  */
-export const Cryptography = cryptography;
+const Cryptography = cryptography;
 
 import cors from "cors";
 
-export const CORS = cors;
+const CORS = cors;
 
 import token from "jsonwebtoken";
 
-export const Token = token;
+const Token = token;
 
 import body from "body-parser";
 
-export const Parser = body;
+const Parser = body;
+
+import { Log, Handler } from "@cloud-technology/logging";
+
+const Logger = { Log, Handler };
+
+export {
+    API,
+    Application,
+    Router,
+    Compression,
+    Axios,
+    Octokit,
+    Database,
+    CORS,
+    ORM,
+    Token,
+    Cryptography,
+    Parser,
+    Logger
+};
 
 export default {
     API,
@@ -108,5 +128,6 @@ export default {
     ORM,
     Token,
     Cryptography,
-    Parser
+    Parser,
+    Logger
 };

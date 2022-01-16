@@ -6,7 +6,9 @@ export const initialize = async () => {
     const Promises = Promise.allSettled((
         [
             import("./Compression.js").then((Module) => Module.Compression(Application)),
+            import("./Logging.js").then((Module) => Module.Logging(Application)),
             import("./Headers.js").then((Module) => Module.Headers(Application)),
+            import("./IPv4.js").then((Module) => Module.IP()),
             import("./Body.js").then((Module) => Module.Body(Application)),
             import("./CORS.js").then((Module) => Module.CORS(Application)),
             /// import("./HTTPs.js").then((Module) => Module.HTTPs(Application)),

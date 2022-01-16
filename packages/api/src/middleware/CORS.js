@@ -5,7 +5,7 @@
  *
  */
 
-import Library from "./../library/index.js";
+import Library from "@cloud-technology/library";
 
 /*** Default CORS Options
  * @type {{credentials: boolean, origin: string, optionsSuccessStatus: number, preflightContinue: boolean}}

@@ -11,7 +11,7 @@ import HTTPs from "https";
 const CWD = Process.cwd();
 
 console.debug("[Main] [Debug] Loading CI Setting(s) ...");
-await import("./.ci/settings.js").finally(() => {
+await import("./configuration/settings.js").finally(() => {
     console.debug("[Main] [Log]", "Instantiated Package Metadata");
 });
 
@@ -75,5 +75,22 @@ import("./src/index.js")
         HTTPs.createServer(options, Application).listen(Process.env["Port"] ?? 3443);
     }).finally(() => {
     console.debug("[Main] [Debug]", "Starting API Server ...");
-    console.log("[Main] [Log]", "Listening @" + " " + [ "https", "://", "localhost", ":", Process.env["Port"] ?? 3443, "/v1" ].join(""));
+
+    console.log("[Main] [Log]", "Public Address @"+ " " + [
+        "https",
+        "://",
+        Process.env["ip"] ?? "0.0.0.0",
+        ":",
+        Process.env["Port"] ?? 3443,
+        "/v1"
+    ].join(""));
+    console.log("[Main] [Log]", "Listening @" + " " + [
+        "https",
+        "://",
+        "localhost",
+        ":",
+        Process.env["Port"] ?? 3443,
+        "/v1"
+    ].join(""));
+    console.log("[Main] [Log]", "VCS" + " " + JSON.parse(process.env?.package)?.repository?.url);
 });

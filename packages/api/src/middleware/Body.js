@@ -5,7 +5,7 @@
  *
  */
 
-import Library from "./../library/index.js";
+import Library from "@cloud-technology/library";
 
 const Parsers = {
     "URL-Encoded": {

@@ -10,7 +10,7 @@ export const Import = Module.createRequire(import.meta.url);
 
 export const Settings = Import("./settings.json");
 
-export default await import("./Validation.js").finally(() => {
+export default await import("./validation.js").finally(() => {
     return {
         Settings, Import
     };

@@ -1,4 +1,4 @@
-import * as Library from "./../../library/index.js";
+import Library from "@cloud-technology/library";
 
 import { default as flatten } from "../../utilities/flatten.js";
 

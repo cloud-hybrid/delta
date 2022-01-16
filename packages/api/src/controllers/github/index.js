@@ -1,4 +1,6 @@
-import * as Library from "./../../library/index.js";
+// import * as Library from "./../../library/index.js";
+
+import Library from "@cloud-technology/library";
 
 import { Generator } from "./../../utilities/configuration.js";
 
