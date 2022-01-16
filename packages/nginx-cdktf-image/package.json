@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/nginx-base-http-container-image",
     "private": false,
-    "version": "0.2.3",
+    "version": "0.1.112",
     "type": "module",
     "types": "declarations",
     "repository": "git+https://github.com/cloud-hybrid/factory.git",

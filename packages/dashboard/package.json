@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/dashboard",
-    "version": "0.1.111",
+    "version": "0.1.112",
     "private": false,
     "main": "./src/index.js",
     "repository": {

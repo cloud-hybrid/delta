@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/api",
     "private": false,
-    "version": "0.1.111",
+    "version": "0.1.112",
     "description": "...",
     "main": "server.js",
     "type": "module",
@@ -21,8 +21,8 @@
         "port": 3443
     },
     "dependencies": {
-        "@cloud-technology/utilities": "./src/utilities",
-        "@cloud-technology/library": "./src/library"
+        "@cloud-technology/library": "./src/library",
+        "@cloud-technology/utilities": "./src/utilities"
     },
     "devDependencies": {
         "@cloud-technology/types": "./@types"

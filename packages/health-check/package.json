@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/health-check",
-    "version": "0.1.110",
+    "version": "0.1.112",
     "description": "Standard Library, HTTPs Health API Endpoint",
     "main": "Index.js",
     "scripts": {
