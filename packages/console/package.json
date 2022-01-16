@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/console",
-    "version": "0.1.112",
+    "version": "0.1.113",
     "scripts": {
         "start": "exec scripts/start",
         "build": "exec scripts/build",
