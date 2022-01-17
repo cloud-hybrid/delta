@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ESNext",
+            "ES2021",
+            "ES2019",
+            "ES2018"
+        ],
+        "baseUrl": ".",
+        "sourceRoot": ".",
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowJs": true,
+        "alwaysStrict": true,
+        "experimentalDecorators": true,
+        "incremental": true,
+        "inlineSourceMap": false,
+        "noEmitOnError": false,
+        "noFallthroughCasesInSwitch": false,
+        "declaration": true,
+        "listEmittedFiles": true,
+        "emitDeclarationOnly": true,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "noImplicitThis": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "declarationMap": false,
+        "strictFunctionTypes": false,
+        "useUnknownInCatchVariables": false,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "preserveConstEnums": true,
+        "pretty": true,
+        "removeComments": false,
+        "jsx": "react-jsxdev",
+        "strict": false
+    },
+    "exclude": [
+        "*/**/node_modules",
+        "*/**/unit-testing",
+        "*/**/__tests__"
+    ]
+}
