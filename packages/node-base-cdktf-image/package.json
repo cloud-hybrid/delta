@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/node-base-cdktf-image",
     "private": false,
-    "version": "0.1.114",
+    "version": "0.1.115",
     "type": "module",
     "types": "declarations",
     "repository": "git+https://github.com/cloud-hybrid/factory.git",
