@@ -1,5 +1,10 @@
 # `cloud-technology/delta` [![lerna](https://img.shields.io/badge/Maintained%20via-Lerna-cc00ff.svg)](https://lerna.js.org/) #
 
+## Task Board ##
+
+- [ ] Read [Nest's Design Pattern](https://github.com/nestjs/nest)
+  - [Implement OOP for Exceptions](https://github.com/nestjs/nest/tree/master/packages/common/exceptions)
+
 ## Overview ## 
 
 [...] (*Under Development*)

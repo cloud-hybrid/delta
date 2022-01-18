@@ -63,5 +63,9 @@
             "distribution",
             "node_modules"
         ]
+    },
+    "dependencies": {
+        "chalk": "^5.0.0",
+        "yaml": "^1.10.2"
     }
 }
