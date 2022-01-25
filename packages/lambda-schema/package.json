@@ -1,0 +1,90 @@
+{
+    "name": "@cloud-technology/lambda-schema",
+    "private": false,
+    "version": "0.0.1",
+    "type": "module",
+    "main": "unit-testing/index.js",
+    "description": "Base Parameter Type-Interface via Node.js",
+    "types": "declarations/index.d.ts",
+    "repository": {
+        "type": "git",
+        "directory": ".",
+        "url": "https://github.com/cloud-hybrid/parameter.git"
+    },
+    "license": "BSD-2-Clause",
+    "author": "Jacob B. Sanders",
+    "scripts": {
+        "start": "tsc --watch",
+        "test": "node unit-testing",
+        "compile": "tsc && node unit-testing",
+        "clean": "rm -rf node_modules declarations distribution coverage .idea .vscode .eclipse package-lock.json",
+        "upload": "npm publish --access public",
+        "reinstall": "npm update && npm install --global --force",
+        "prepublishOnly": "npm run clean && npm install --silent && tsc && npm run test",
+        "documentation": "doctoc README.md --github"
+    },
+    "dependencies": {
+        "@cdktf/provider-archive": "^0.2.150",
+        "@cdktf/provider-aws": "^4.0.17",
+        "ajv": "^8.9.0",
+        "ajv-formats": "^2.1.1",
+        "cdktf": "^0.8.6",
+        "constructs": "^10.0.44",
+        "jsonschema": "^1.4.0"
+    },
+    "devDependencies": {
+        "@jest/globals": "latest",
+        "@types/jest": "latest",
+        "@types/node": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/experimental-utils": "latest",
+        "@typescript-eslint/parser": "latest",
+        "@typescript-eslint/scope-manager": "latest",
+        "@typescript-eslint/type-utils": "latest",
+        "@typescript-eslint/typescript-estree": "latest",
+        "eslint": "latest",
+        "jest": "latest",
+        "ts-jest": "latest",
+        "ts-node": "latest",
+        "tslib": "latest",
+        "typescript": "latest",
+        "typescript-eslint-language-service": "latest"
+    },
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/eslint-recommended",
+            "plugin:@typescript-eslint/recommended"
+        ],
+        "rules": {
+            "no-case-declarations": 0,
+            "@typescript-eslint/no-explicit-any": 0,
+            "@typescript-eslint/explicit-function-return-type": 0,
+            "@typescript-eslint/no-use-before-define": 0,
+            "@typescript-eslint/no-empty-interface": 0,
+            "@typescript-eslint/explicit-module-boundary-types": 0,
+            "@typescript-eslint/no-empty-function": 0,
+            "@typescript-eslint/no-unused-vars": 0,
+            "@typescript-eslint/no-inferrable-types": 0,
+            "@typescript-eslint/ban-types": 0,
+            "@typescript-eslint/ban-ts-comment": 0,
+            "no-sequences": "error"
+        },
+        "ignorePatterns": [
+            "coverage",
+            "declarations",
+            "distribution",
+            "node_modules"
+        ]
+    },
+    "exports": {
+        ".": "./distribution/index.js"
+    },
+    "bin": {
+        "parameter": "unit-testing/index.js"
+    }
+}
