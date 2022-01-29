@@ -83,12 +83,3 @@ dist
 .idea
 .vscode
 .eclipse
-
-secret.js
-
-*.js
-**/*.js
-**/*.d.ts
-
-!./source
-!./src/controllers
