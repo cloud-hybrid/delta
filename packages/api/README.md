@@ -1,5 +1,3 @@
-# `@cloud-technology/api` #
-
 - [ ] Establish a Refresh Schema
     - [User Guide & Reference(s)](https://www.bezkoder.com/jwt-refresh-token-node-js-mongodb/)
 
@@ -20,9 +18,9 @@ npm start || node server.js
 
 ## Error Code(s) ##
 
-|    Exit Code    |  Description  |         Signal         |
-|   :---------:   | :-----------: |        :------:        |
-|     **172**     | [Error](#172) |     `ECONNREFUSED`     |
+| Exit Code |  Description  |     Signal     |
+|:---------:|:-------------:|:--------------:|
+|  **172**  | [Error](#172) | `ECONNREFUSED` |
 
 ### Signal & Error Map ###
 
