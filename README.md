@@ -3,7 +3,7 @@
 ## Task Board ##
 
 - [ ] Read [Nest's Design Pattern](https://github.com/nestjs/nest)
-  - [Implement OOP for Exceptions](https://github.com/nestjs/nest/tree/master/packages/common/exceptions)
+    - [Implement OOP for Exceptions](https://github.com/nestjs/nest/tree/master/packages/common/exceptions)
 
 ## Overview ## 
 
