@@ -5,10 +5,7 @@
 ```javascript
 /***
  * @author      Jacob B. Sanders
- * @package     @cloud-technology
- * @summary     Module Exports Template
- *
- * @license     BSD 1-Clause License
+ * @license     BSD 2-Clause License
  * @copyright   Cloud-Technology LLC. & Affiliates
  */
 
