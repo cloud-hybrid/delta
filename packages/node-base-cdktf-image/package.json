@@ -27,9 +27,9 @@
     },
     "engineStrict": true,
     "dependencies": {
-        "@cdktf/provider-docker": "^0.5.151",
-        "cdktf": "^0.8.6",
-        "constructs": "^10.0.34"
+        "@cdktf/provider-docker": "^0.6.3",
+        "cdktf": "^0.9",
+        "constructs": "^10.0.48"
     },
     "devDependencies": {
         "@jest/globals": "latest",

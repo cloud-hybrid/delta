@@ -1,0 +1,36 @@
+{
+    "name": "@cloud-technology/gitlab",
+    "private": false,
+    "version": "0.1.112",
+    "description": "...",
+    "type": "module",
+    "scripts": {
+        "start": "node --es-module-specifier-resolution node .",
+        "package": "npm pack",
+        "compile": "tsc --watch",
+        "setup": "npm install --save-dev",
+        "upload": "npm publish --access public",
+        "listening": "lsof -nP -iTCP -sTCP:LISTEN | grep 3443 | awk '{ print $2 }' | head -1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cloud-hybrid/delta.git",
+        "directory": "packages/file-finder"
+    },
+    "dependencies": {
+        "@aws-sdk/client-secrets-manager": "^3.49.0",
+        "@aws-sdk/credential-providers": "^3.49.0",
+        "@cloud-technology/secrets-manager-client": "./src/aws"
+    },
+    "devDependencies": {
+        "@aws-sdk/types": "^3.49.0",
+        "@tsconfig/node16": "^1.0.2",
+        "@types/inquirer": "^8.2.0",
+        "@types/node": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/utils": "latest",
+        "@typescript-eslint/parser": "latest",
+        "eslint": "latest",
+        "typescript": "latest"
+    }
+}

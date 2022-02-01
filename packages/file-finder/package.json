@@ -1,0 +1,35 @@
+{
+    "name": "@cloud-technology/file-finder",
+    "private": false,
+    "version": "0.1.112",
+    "description": "...",
+    "type": "module",
+    "scripts": {
+        "start": "node --es-module-specifier-resolution node .",
+        "package": "npm pack",
+        "compile": "tsc --watch",
+        "setup": "npm install --save-dev",
+        "upload": "npm publish --access public",
+        "listening": "lsof -nP -iTCP -sTCP:LISTEN | grep 3443 | awk '{ print $2 }' | head -1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cloud-hybrid/delta.git",
+        "directory": "packages/file-finder"
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "@types/uuid": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/experimental-utils": "latest",
+        "@typescript-eslint/parser": "latest",
+        "@typescript-eslint/scope-manager": "latest",
+        "@typescript-eslint/type-utils": "latest",
+        "@typescript-eslint/typescript-estree": "latest",
+        "eslint": "latest",
+        "ts-node": "latest",
+        "tslib": "latest",
+        "typescript": "latest",
+        "typescript-eslint-language-service": "latest"
+    }
+}
