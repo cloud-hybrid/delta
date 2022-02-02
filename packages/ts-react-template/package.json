@@ -1,6 +1,6 @@
 {
     "name": "@cloud-technology/ts-config-template",
-    "version": "0.1.115",
+    "version": "0.1.116",
     "scripts": {
         "start": "exec scripts/start",
         "build": "exec scripts/build",

@@ -1,7 +1,7 @@
 {
     "name": "@cloud-technology/json-prompt",
     "private": false,
-    "version": "0.1.112",
+    "version": "0.1.116",
     "description": "...",
     "type": "module",
     "scripts": {
@@ -23,18 +23,18 @@
     "dependencies": {
         "@cloud/environment": "./library/environment",
         "@cloud/http-statuses": "./library/status-codes",
-        "@cloud/logging": "./library/logging",
         "@cloud/library": "./library",
+        "@cloud/logging": "./library/logging",
         "@cloud/s3": "./library/s3"
     },
     "devDependencies": {
-        "@types/compression": "^1.7.2",
-        "@types/uuid": "^8.3.4",
         "@aws-sdk/types": "^3.47.1",
         "@types/bcrypt": "^5.0.0",
         "@types/body-parser": "^1.19.2",
+        "@types/compression": "^1.7.2",
         "@types/cors": "^2.8.12",
         "@types/express": "^4.17.13",
-        "@types/node": "^17.0.13"
+        "@types/node": "^17.0.13",
+        "@types/uuid": "^8.3.4"
     }
 }
