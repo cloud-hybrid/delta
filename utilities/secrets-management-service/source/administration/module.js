@@ -15,6 +15,8 @@ const Response = (body, status = 200, headers = {}) => {
 
                 // If Cookies or Basic Authentication, Set := true
                 "Access-Control-Allow-Credentials": false,
+
+                // If Credentials, Set Value Explicitly
                 "Access-Control-Allow-Origin": "*"
 
             }, ... headers

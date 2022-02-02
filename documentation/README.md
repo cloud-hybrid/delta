@@ -115,3 +115,9 @@ them in code, e.g.
 ```javascript
 require("@organization/package");
 ```
+
+git://github.com/user/project.git#commit-ish
+git+ssh://user@hostname:project.git#commit-ish
+git+ssh://user@hostname/project.git#commit-ish
+git+http://user@hostname/project/blah.git#commit-ish
+git+https://user@hostname/project/blah.git#commit-ish
