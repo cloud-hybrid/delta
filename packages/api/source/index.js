@@ -1,6 +1,6 @@
-import Library from "@cloud-technology/library";
+import { Application as App } from "@cloud/library";
 
-export const Application = Library.API();
+export const Application = App();
 
 Application.set("env", process.env["Environment"]);
 

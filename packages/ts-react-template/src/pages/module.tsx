@@ -95,7 +95,9 @@ export const Page = () => {
     ) : null;
     const Content = () => ( Loading[ 0 ] === false ) ? ( <Outlet/> ) : null;
 
-    return ( Loading[ 0 ] ) && ( <Awaitable/> ) || ( ( Throw[ 0 ] ) ? ( <Trace/> ) : ( <Content/> ) );
+    return <Content/>
+
+    // return ( Loading[ 0 ] ) && ( <Awaitable/> ) || ( ( Throw[ 0 ] ) ? ( <Trace/> ) : ( <Content/> ) );
 };
 
 Page.propTypes = {};
