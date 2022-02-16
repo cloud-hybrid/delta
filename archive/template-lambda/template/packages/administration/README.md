@@ -1,4 +1,4 @@
-# Secrets Management Servce #
+# Secrets Management Service #
 
 ## Deployment ##
 

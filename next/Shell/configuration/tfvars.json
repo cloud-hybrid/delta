@@ -1,0 +1,14 @@
+{
+  "application": "Pebble-Go",
+  "certificate": null,
+  "cloud": "AWS",
+  "creator": "Jacob Sanders",
+  "environment": null,
+  "hosted-zone-fqdn": "pebblego.com",
+  "hosted-zone-id": "Z3HAEUAWJJTLQB",
+  "organization": "Capstone",
+  "profile": "default",
+  "region": "us-east-2",
+  "service": "Shell-UI",
+  "subdomain": "shell"
+}

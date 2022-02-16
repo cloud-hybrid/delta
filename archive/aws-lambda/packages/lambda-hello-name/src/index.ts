@@ -1,13 +1,11 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
-export const handler = async (
-    event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResult> => {
+export const handler = async ( event: APIGatewayProxyEvent ): Promise<APIGatewayProxyResult> => {
     const queries = event.queryStringParameters;
-    let name = 'there';
+    let name = "there";
 
-    if (queries !== null && queries !== undefined) {
-        if (queries["name"]) {
+    if ( queries !== null && queries !== undefined ) {
+        if ( queries["name"] ) {
             name = queries["name"];
         }
     }
@@ -15,8 +13,8 @@ export const handler = async (
     return {
         statusCode: 200,
         headers: {
-            'Content-Type': 'text/html; charset=utf-8',
+            "Content-Type": "text/html; charset=utf-8"
         },
-        body: `<p>Hello ${name}!</p>`,
-    }
-}
+        body: `<p>Hello ${ name }!</p>`
+    };
+};

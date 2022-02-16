@@ -1,4 +1,4 @@
-import { API } from "@cloud/library";
+import { API } from "library";
 const Application = API();
 
 function Server (): typeof Application {

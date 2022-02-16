@@ -1,0 +1,23 @@
+{
+    "name": "@cloud-vault/document-db",
+    "description": "...",
+    "version": "0.1.76",
+    "private": false,
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.41.0",
+        "@aws-sdk/client-secrets-manager": "^3.41.0",
+        "@aws-sdk/node-http-handler": "^3.40.0",
+        "mongodb": "^4.3.1"
+    },
+    "scripts": {
+        "build": "sam build",
+        "start": "sam local start-api",
+        "deploy": "sam deploy --debug",
+        "delete": "npm run destroy"
+    },
+    "devDependencies": {
+        "@aws-sdk/types": "latest",
+        "@types/node": "latest",
+        "@types/aws-lambda": "latest"
+    }
+}

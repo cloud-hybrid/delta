@@ -7,4 +7,7 @@
 *.info
 *.tfstate
 
+.swc
+.gen
+
 build

@@ -1,22 +1,6 @@
-const { Service, Response } = require("./../module.js");
+const { Service, Response, Schema } = require("./module.js");
 
 const Debug = (process.env.NODE_ENV !== "production");
-
-const Schema = (Properties) => {
-    const $ = Properties?.ARN;
-    const Tags = Properties.Tags?.filter(($) => !(String($.Key).includes("aws")));
-
-    return {
-        "Name": Properties?.Name,
-        "Description": Properties?.Description,
-        "Creation-Date": Properties?.CreatedDate,
-        "Modification-Date": Properties?.LastChangedDate,
-        "Access-Date": Properties?.LastAccessedDate,
-        "Tags": Tags || Properties?.Tags,
-
-        "ID": $
-    };
-}
 
 const Empty = () => {
     return Response(JSON.stringify({

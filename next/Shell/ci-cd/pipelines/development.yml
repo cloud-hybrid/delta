@@ -1,0 +1,224 @@
+Validate (Development):
+    image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+    stage: Source
+    environment: Development
+    variables:
+        ORG: "Capstone"
+        ENV: "${CI_ENVIRONMENT_NAME}"
+        CRT: "arn:aws:acm:us-east-1:700423713782:certificate/ef54476d-60a1-43d5-881e-ed47bec88646"
+        ZNE: "pebblego.com"
+    script:
+        - export TF_ADDRESS="${TF_URI}/${CI_ENVIRONMENT_NAME}"
+        -   |
+            cat << EOF > .tfvars
+            organization        = "${ORG}"
+            environment         = "${ENV}"
+            certificate         = "${CRT}"
+            hosted-zone-fqdn    = "${ZNE}"
+            EOF
+        - cat .tfvars
+        - export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID_DEVELOPMENT}"
+        - export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY_DEVELOPMENT}"
+        - gitlab-terraform init || true 
+        - gitlab-terraform validate || true
+        - gitlab-terraform refresh -var-file ".tfvars" || true
+    allow_failure: True
+    artifacts:
+        paths: [ ".tfvars" ]
+
+Plan (Development):
+    image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+    stage: Build
+    environment: Development
+    needs:
+        -   job: Validate (Development)
+            artifacts: True
+    script:
+        - export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID_DEVELOPMENT}"
+        - export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY_DEVELOPMENT}"
+        - export TF_ADDRESS="${TF_URI}/${CI_ENVIRONMENT_NAME}"
+        - gitlab-terraform plan --var-file ".tfvars"
+        - gitlab-terraform plan-json
+    allow_failure: True
+    artifacts:
+        paths: [ "${PLAN}", ".tfvars" ]
+        reports: { terraform: "${PLAN_JSON}" }
+
+Development:
+    stage: Deployment
+    image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+    environment: Development
+    needs:
+        -   job: Validate (Development)
+            artifacts: True
+        -   job: Plan (Development)
+            artifacts: True
+    script:
+        - export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID_DEVELOPMENT}"
+        - export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY_DEVELOPMENT}"
+
+        - export TF_ADDRESS="${TF_URI}/${CI_ENVIRONMENT_NAME}"
+
+        - gitlab-terraform apply
+
+        - gitlab-terraform output --json | jq -r "." > Output.json
+        - gitlab-terraform output --json | jq -r ".fqdn.value" > FQDN.UTF-8
+
+        - gitlab-terraform output --json | jq -r ".cdn.value.id" > CDN-ID.UTF-8
+        - gitlab-terraform output --json | jq -r ".cdn.value.hosted_zone_id" > CDN-Hosted-Zone-ID.UTF-8
+        - gitlab-terraform output --json | jq -r ".cdn.value.fqdn" > CDN-FQDN.UTF-8
+
+        - gitlab-terraform output --json | jq -r ".zone.value.id" > Hosted-Zone-ID.UTF-8
+        - gitlab-terraform output --json | jq -r ".zone.value.fqdn" > Hosted-Zone.UTF-8
+    artifacts:
+        paths:
+            - FQDN.UTF-8
+            - CDN-ID.UTF-8
+            - CDN-Hosted-Zone-ID.UTF-8
+            - CDN-FQDN.UTF-8
+            - Hosted-Zone-ID.UTF-8
+            - Hosted-Zone.UTF-8
+
+Build (Development):
+    image: registry.mycapstone.com/iron-works/node-js-alpine/development/lts
+    stage: Build
+    environment: Development
+    needs:
+        -   job: Repository
+            artifacts: True
+        -   job: Artifacts 
+            artifacts: True
+
+    script:
+        -   |
+            mv configuration/.env.development .env          \
+                || mv configuration/development.env .env    \
+                || mv configuration/.env.qa .env            \
+                || mv configuration/qa.env .env
+        - unzip -o Artifacts.zip && cd Artifacts
+        - cp ../.env . && cat .env
+        - npm install --production --omit-dev
+        - npm run build
+    artifacts:
+        paths:
+            - Artifacts/build
+
+Host-Record (Development):
+    image: registry.mycapstone.com/iron-works/node-js-alpine/production/lts
+    stage: DNS
+    environment: Development
+    script:
+        -   |
+            cat << EOF > Provision.json
+            {
+                "Comment": "Automated Hosted Zone Record",
+                "Changes": [
+                    {
+                        "Action": "CREATE",
+                        "ResourceRecordSet": {
+                            "Name": "$(cat FQDN.UTF-8)",
+                            "Type": "A",
+                            "AliasTarget": {
+                                "HostedZoneId": "$(cat CDN-Hosted-Zone-ID.UTF-8)",
+                                "DNSName": "$(cat CDN-FQDN.UTF-8)",
+                                "EvaluateTargetHealth": true
+                            }
+                        }
+                    },
+                    {
+                        "Action": "CREATE",
+                        "ResourceRecordSet": {
+                            "Name": "$(cat FQDN.UTF-8)",
+                            "Type": "AAAA",
+                            "AliasTarget": {
+                                "HostedZoneId": "$(cat CDN-Hosted-Zone-ID.UTF-8)",
+                                "DNSName": "$(cat CDN-FQDN.UTF-8)",
+                                "EvaluateTargetHealth": true
+                            }
+                        }
+                    }
+                ]
+            }
+            EOF
+        -   |
+            cat << EOF > Update.json
+            {
+                "Comment": "Automated Hosted Zone Record",
+                "Changes": [
+                    {
+                        "Action": "UPSERT",
+                        "ResourceRecordSet": {
+                            "Name": "$(cat FQDN.UTF-8)",
+                            "Type": "A",
+                            "AliasTarget": {
+                                "HostedZoneId": "$(cat CDN-Hosted-Zone-ID.UTF-8)",
+                                "DNSName": "$(cat CDN-FQDN.UTF-8)",
+                                "EvaluateTargetHealth": true
+                            }
+                        }
+                    },
+                    {
+                        "Action": "UPSERT",
+                        "ResourceRecordSet": {
+                            "Name": "$(cat FQDN.UTF-8)",
+                            "Type": "AAAA",
+                            "AliasTarget": {
+                                "HostedZoneId": "$(cat CDN-Hosted-Zone-ID.UTF-8)",
+                                "DNSName": "$(cat CDN-FQDN.UTF-8)",
+                                "EvaluateTargetHealth": true
+                            }
+                        }
+                    }
+                ]
+            }
+            EOF
+        -   |
+            aws route53 change-resource-record-sets --hosted-zone-id $(cat Hosted-Zone-ID.UTF-8) --change-batch file://Provision.json || true | 2>/dev/null
+            aws route53 change-resource-record-sets --hosted-zone-id $(cat Hosted-Zone-ID.UTF-8) --change-batch file://Update.json || true | 2>/dev/null
+    artifacts:
+        paths:
+            - "*.json"
+    needs:
+        -   job: Validate (Development)
+            artifacts: True
+        -   job: Plan (Development)
+            artifacts: True
+        -   job: Development
+            artifacts: True
+
+Upload (Development):
+    image: registry.mycapstone.com/iron-works/node-js-alpine/development/lts
+    stage: Distribution
+    environment: Development
+    script:
+        - export TARGET="$(cat FQDN.UTF-8)"
+        - aws s3 sync ./Artifacts/build s3://${TARGET}
+        - aws s3 sync ./Artifacts/build s3://failover.${TARGET}
+    needs:
+        -   job: Validate (Development)
+            artifacts: True
+        -   job: Plan (Development)
+            artifacts: True
+        -   job: Development
+            artifacts: True
+        -   job: Build (Development)
+            artifacts: True
+
+Invalidate (Development):
+    stage: CDN
+    environment: Development
+    image: registry.mycapstone.com/iron-works/node-js-alpine/development/lts
+    script:
+        - export TARGET="$(cat CDN-ID.UTF-8)"
+        - aws cloudfront create-invalidation --distribution-id "${TARGET}" --paths "/*"
+    needs:
+        -   job: Validate (Development)
+            artifacts: True
+        -   job: Plan (Development)
+            artifacts: True
+        -   job: Development
+            artifacts: True
+        -   job: Build (Development)
+            artifacts: True
+        -   job: Upload (Development)
+            artifacts: True

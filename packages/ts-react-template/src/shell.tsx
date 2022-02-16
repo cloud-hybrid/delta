@@ -1,35 +1,29 @@
 import Properties from "prop-types";
 
-import { Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Page }   from "./pages";
 
-import { Menu } from "./components/menu";
+import { Menu }      from "./components/menu";
 import { Container } from "./components/container";
-import { Footer } from "./components/footer";
+import { Footer }    from "./components/footer";
 
-const Shell = ( { children } ) => {
+const Shell = () => {
     return (
         <>
             <Menu/>
             <Container>
-                <Routes>
-                    {
-                        children
-                    }
-                </Routes>
+                <Page>
+                    <Outlet/>
+                </Page>
             </Container>
             <Footer/>
         </>
     );
 };
 
-Shell.propTypes = {
-    /*** Children JSX Components */
-    children: Properties.node.isRequired
-};
+Shell.propTypes = {};
 
-Shell.defaultProps = {
-    children: null
-};
+Shell.defaultProps = {};
 
 export default Shell;
 

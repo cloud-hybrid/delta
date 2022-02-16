@@ -10,9 +10,9 @@
     "devDependencies": {
         "@types/node": "latest",
         "@typescript-eslint/eslint-plugin": "latest",
+        "chalk": "latest",
         "eslint": "latest",
         "lerna": "latest",
-        "chalk": "latest",
         "yaml": "latest"
     },
     "scripts": {
@@ -65,5 +65,8 @@
             "distribution",
             "node_modules"
         ]
+    },
+    "dependencies": {
+        "construct": "^1.0.0"
     }
 }

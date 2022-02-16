@@ -81,6 +81,13 @@ class Pipeline implements Interface {
         return new Pipeline( JSON.parse( $.response ) );
     }
 
+    /***
+     * Get Pipeline Status
+     * ---
+     *
+     * @param {Get} settings
+     * @returns {Promise<Pipeline>}
+     */
     static async get(settings: Get) {
         const method = settings.method;
         const hostname = settings.hostname;

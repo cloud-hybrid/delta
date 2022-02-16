@@ -14,6 +14,6 @@ await import("./local.js");
 await import("./generate.js");
 await import("./build.js");
 
-await import("./../compilation/src/index.js");
+await import("./../src/index.js");
 
 Execute("cdktf deploy --auto-approve");

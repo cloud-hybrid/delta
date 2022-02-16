@@ -15,10 +15,21 @@ export default {};
 await import("./local.js");
 await import("./generate.js");
 
-Process.chdir(Path.join(Package, "front-end"));
+Process.chdir(Path.join(Package, "front-end-2"));
 
-Subprocess.execSync("npm install --no-audit --no-funding", { stdio: "inherit" });
-Subprocess.execSync("npm run build", { stdio: "inherit" });
+Subprocess.spawnSync("npm install --no-audit --no-funding", {
+    env: process.env,
+    shell: process.env["SHELL"] ?? null,
+    encoding: "utf-8",
+    stdio: "inherit"
+});
+
+Subprocess.spawnSync("npm run build", {
+    env: process.env,
+    shell: process.env["SHELL"] ?? null,
+    encoding: "utf-8",
+    stdio: "inherit"
+});
 
 Process.chdir(Package);
 

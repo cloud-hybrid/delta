@@ -22,8 +22,6 @@
         "declarationMap": false,
         "strictFunctionTypes": true,
         "baseUrl": ".",
-        // "outDir": "compilation",
-        // "declarationDir": "declarations",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "exactOptionalPropertyTypes": true,

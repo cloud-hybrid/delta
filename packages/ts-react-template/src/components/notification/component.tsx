@@ -1,6 +1,6 @@
 import "./index.scss";
 
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 
 import Styles from "./index.module.scss";
 
@@ -8,7 +8,7 @@ import Properties from "prop-types";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { toast, ToastContainer, Zoom } from "react-toastify";
+// import { toast, ToastContainer, Zoom } from "react-toastify";
 
 const Portal = ( { children, className = "notification-portal", element = "div" } ) => {
     const Parent = document.getElementById("Application");
@@ -32,20 +32,20 @@ const Component = ( { type, content, theme, duration } ) => {
     const ID = React.useRef(null);
 
     React.useEffect(() => {
-        toast(content, {
-            type: type,
-            theme: theme,
-            autoClose: ( duration <= 0 || duration === null ) ? false : duration
-        });
+        // toast(content, {
+        //     type: type,
+        //     theme: theme,
+        //     autoClose: ( duration <= 0 || duration === null ) ? false : duration
+        // });
 
-        const dismiss = () => toast.dismiss(ID.current);
+        // const dismiss = () => toast.dismiss(ID.current);
 
-        return () => toast.dismiss();
+        // return () => toast.dismiss();
     }, [ ID ]);
 
     return (
         <Portal>
-            <ToastContainer transition={ Zoom } draggable={ false } autoClose={ duration } pauseOnFocusLoss={ false }/>
+            {/* <ToastContainer transition={ Zoom } draggable={ false } autoClose={ duration } pauseOnFocusLoss={ false }/> */}
         </Portal>
     )
 };

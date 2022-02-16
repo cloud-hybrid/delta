@@ -12,7 +12,8 @@
         "deploy": "node ci/deploy.js",
         "destroy": "node ci/destroy.js",
         "synth": "cdktf synth",
-        "compile": "tsc --pretty",
+        "compile": "tsc --pretty --watch",
+        "next": "ts-node -r ts-node/register ./src/logging",
         "watch": "tsc -w",
         "test": "jest",
         "upload": "npm publish --access public",
@@ -29,13 +30,18 @@
     "dependencies": {
         "@cdktf/provider-docker": "^0.6",
         "cdktf": "^0.9",
-        "constructs": "^10.0.48"
+        "cdktf-cli": "latest",
+        "constructs": "^10.0.48",
+        "winston": "^3.5.1"
     },
     "devDependencies": {
         "@jest/globals": "latest",
+        "@swc/core": "^1.2.138",
+        "@swc/helpers": "^0.3.2",
         "@types/jest": "latest",
         "@types/json-schema": "latest",
-        "@types/node": "latest",
+        "@types/node": "^17.0.17",
+        "@types/source-map-support": "^0.5.4",
         "@types/uuid": "latest",
         "@typescript-eslint/eslint-plugin": "latest",
         "@typescript-eslint/experimental-utils": "latest",
@@ -45,13 +51,22 @@
         "@typescript-eslint/typescript-estree": "latest",
         "eslint": "latest",
         "jest": "latest",
+        "regenerator-runtime": "^0.13.9",
         "ts-jest": "latest",
-        "ts-node": "latest",
-        "tslib": "latest",
+        "ts-node": "^10.5.0",
+        "tslib": "^2.3.1",
         "typescript": "latest",
         "typescript-eslint-language-service": "latest"
     },
     "bin": {
         "node-react-cdktf-image": "ci/synthesize.js"
+    },
+    "workspaces": {
+        "packages": [
+            "."
+        ],
+        "nohoist": [
+            "**"
+        ]
     }
 }

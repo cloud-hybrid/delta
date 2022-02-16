@@ -1,7 +1,7 @@
 "use static";
 
 const Application = (async () => {
-    console.info("[Log] [HTML-Document]", "Establishing IO-Application Callable.");
+    console.info("[Log] (HTML-Document)", "Establishing IO-Application Callable.");
 
     async function $() {
         class IO extends HTMLElement {
@@ -19,11 +19,11 @@ const Application = (async () => {
         window.customElements.define(IO.name, IO, { extends: "div" });
     }
 
-    console.info("[Log] [HTML-Document]", "Callable was Initialized. Instantiating Tag Definition.");
+    console.info("[Log] (HTML-Document)", "Callable was Initialized. Instantiating Tag Definition.");
 
     await $();
 
-    console.info("[Log] [HTML-Document]", "Successfully Established IO-Application HTML Element.");
+    console.info("[Log] (HTML-Document)", "Successfully Established IO-Application HTML Element.");
 })();
 
 export default await Application;

@@ -1,17 +1,4 @@
-const { Service, Response } = require("./../module.js");
-
-const Schema = (Properties) => {
-    return {
-        "AWS-ID": Properties?.ARN,
-        "Name": Properties?.Name,
-        "Description": Properties?.Description,
-        "Key-ID": Properties?.KmsKeyId,
-        "Creation-Date": Properties?.CreatedDate,
-        "Modification-Date": Properties?.LastChangedDate,
-        "Access-Date": Properties?.LastAccessedDate,
-        "Tags": Properties?.Tags
-    };
-}
+const { Service, Response, Schema } = require("./module.js");
 
 console.log("Loading Function ...");
 exports.handler = async (event, context) => {

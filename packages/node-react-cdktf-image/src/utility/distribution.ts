@@ -1,8 +1,8 @@
-import FS from "fs";
-import Path from "path";
+import FS      from "fs";
+import OS      from "os";
+import Path    from "path";
+import Process from "process";
 import Utility from "util";
-
-const Delete = Utility.promisify( FS.rm );
 
 /***
  * Inspired from ci-cd packaging limitations, `Walker` is a simple
@@ -14,18 +14,17 @@ const Delete = Utility.promisify( FS.rm );
 
 class Walker {
     /***
-     * Asynchronous, promise-based wrapper around `import("fs").rm` utility
-     * function.
+     * Asynchronous, promise-based wrapper around `import("fs").rm` utility function.
      *
      * @internal
      * @private
      *
      */
 
-    private static Remove: (path: FS.PathLike, options?: (FS.RmOptions | undefined)) => Promise<void> = Utility.promisify( FS.rm );
+    private static Remove: ( path: FS.PathLike, options?: ( FS.RmOptions | undefined ) ) => Promise<void> = Utility.promisify( FS.rm );
 
     /*** Target-level directories to avoid copying into distribution */
-    ignore: string[] = [""];
+    ignore: string[] = [ "" ];
 
     /*** Debug parameter used during the various class-instance namespace'd callables */
     debug: boolean = false;
@@ -36,6 +35,8 @@ class Walker {
     files: string[];
 
     compilations: string[];
+
+    directory: any;
 
     /***
      *
@@ -48,7 +49,7 @@ class Walker {
      *
      */
 
-    constructor(target: string, undesired: string[] = [""], debug: boolean = false) {
+    constructor( target: string, undesired: string[] = [ "" ], debug: boolean = false ) {
         this.ignore = undesired;
         this.target = target;
         this.debug = debug;
@@ -71,7 +72,7 @@ class Walker {
      *
      */
 
-    static async remove(path: (string), retries: number, force: boolean, recursive: boolean) {
+    static async remove( path: ( string ), retries: number, force: boolean, recursive: boolean ) {
         const $ = async () => await Walker.Remove( path, { recursive, force, maxRetries: retries } );
 
         await $();
@@ -80,8 +81,68 @@ class Walker {
     }
 
     /***
+     * Asynchronously, Recursively, Validate & Establish a Directory
+     * ---
+     *
+     * Upon success, the return datatype is of type [string, string, string],
+     * where:
+     *  - type[0] = (valid) ? File System URI := string : Error := boolean
+     *  - type[1] = Full System Path := string
+     *  - type[2] = Relative System Path from `Process.cwd()` := string
+     *
+     * @param {string} path
+     *
+     * @returns {Promise<(Promise<string | boolean> | string)[]>}
+     *
+     */
+
+    static async directory( path: string ): Promise<( Promise<string | boolean> | string )[]> {
+        /***
+         * The right-most parameter is considered {`to`}. Other parameters are considered an array of {`from`}.
+         * Starting from leftmost {`from`} parameter, resolves {`to`} to an absolute path.
+         * If {`to`} isn't already absolute, {`from`} arguments are prepended in right to left order, until
+         * an absolute path is found. If after using all {`from`} paths still no absolute path is found,
+         * the current working directory is used as well. The resulting path is normalized, and trailing
+         * slashes are removed unless the path gets resolved to the root directory.
+         *
+         * @type {string}
+         *
+         */
+
+        const system: string = Path.resolve( path );
+
+        /*** @type {Promise<string | boolean>} */
+        const awaitable = new Promise<string | boolean>( ( resolve, reject ) => {
+            FS.mkdir( system, { recursive: true, mode: 0o775 }, ( error ) => {
+                if ( error && error.code === "EEXIST" ) {
+                    console.warn( "[Warning]", error );
+                    resolve( system );
+                } else if ( error ) {
+                    console.warn( "[Warning]", error );
+                    reject( false );
+                } else {
+                    console.warn( "[Warning]", error );
+                    resolve( system );
+                }
+            } );
+        } );
+
+        /*** @type {(Promise<string | boolean> | string)[]} */
+        return ( typeof ( await awaitable ) === "string" ) ? [
+            [
+                [ "file", ":", "//" ].join( "" ), system ].join( "" ),
+                system,
+                Path.relative(Process.cwd(), system)
+        ] : [
+            awaitable,
+            system,
+            Path.relative(Process.cwd(), system)
+        ];
+    }
+
+    /***
      * Recursive Copy Function
-     * -----------------------
+     *
      * *Note* - the following function is recursive, and will perform *actual, real copies*; symbolic
      * links are resolved to their raw pointer location(s).
      *
@@ -95,38 +156,37 @@ class Walker {
      *
      */
 
-    copy(source: string, target: string) {
-        FS.mkdirSync( target, { recursive: true } );
+    copy( source: string, target: string ) {
+        const directory = FS.mkdirSync( target, { recursive: true } );
 
-        FS.readdirSync( source ).forEach( (element) => {
-            (this.debug) && console.debug( "\n" + "[Debug] Element Attribute(s)" + ":", element, "\n" );
+        console.log( directory );
+        process.exit( 0 );
+
+        FS.readdirSync( source ).forEach( ( element ) => {
+            ( this.debug ) && console.debug( "\n" + "[Debug] Element Attribute(s)" + ":", element, "\n" );
 
             const Directory = FS.lstatSync( Path.join( source, element ), { throwIfNoEntry: true } ).isDirectory();
             const Socket = FS.lstatSync( Path.join( source, element ), { throwIfNoEntry: true } ).isSocket();
             const File = FS.lstatSync( Path.join( source, element ), { throwIfNoEntry: true } ).isFile();
 
             const Partials = Path.parse( source );
-            (this.debug) && console.debug( "[Debug] Target Partials" + ":", Partials, "\n" );
+            ( this.debug ) && console.debug( "[Debug] Target Partials" + ":", Partials, "\n" );
 
             const Name = Partials.dir.split( "/" ).pop();
-            (this.debug) && console.debug( "[Debug] Target Name" + ":", Name );
+            ( this.debug ) && console.debug( "[Debug] Target Name" + ":", Name );
 
-            if ( !Directory && !Socket && !(this.ignore && this.ignore.indexOf(element) > -1)) {
+            if ( !Directory && !Socket && !( this.ignore && this.ignore.indexOf( element ) > -1 ) ) {
                 try {
-                    FS.copyFileSync( Path.join( source, element ),
-                        Path.join( target, element ),
-                        FS.constants.COPYFILE_FICLONE
-                    );
+                    FS.copyFileSync( Path.join( source, element ), Path.join( target, element ), FS.constants.COPYFILE_FICLONE );
 
                     /// Only append distribution file(s) upon successful copy
                     this.files.push( String( Path.join( target, element ) ) );
-
 
                 } catch ( error ) {
                     // ...
                 }
             } else {
-                if ( !Socket && Directory && !(this.ignore && this.ignore.indexOf(element) > -1)) {
+                if ( !Socket && Directory && !( this.ignore && this.ignore.indexOf( element ) > -1 ) ) {
                     this.copy( Path.join( source, element ), Path.join( target, element ) );
                 }
             }
@@ -135,7 +195,7 @@ class Walker {
 
     /***
      * Shallow Copy
-     * ------------
+     *
      * Specifying a target directory to copy into, `shallow` will parse the
      * source folder, gather the file(s) found, and copy them to the target.
      *
@@ -148,31 +208,31 @@ class Walker {
      *
      */
 
-    static shallow(source: string, target: string) {
-        FS.readdirSync( source ).forEach( (element) => {
+    static shallow( source: string, target: string ) {
+        FS.readdirSync( source ).forEach( ( element ) => {
             const Target = Path.join( source, element );
             const File = FS.lstatSync( Target, { throwIfNoEntry: true } ).isFile();
             const Descriptor = Path.parse( Target );
 
-            (File) && FS.copyFileSync( Path.format( Descriptor ), Path.join( target, Descriptor.base ) );
+            ( File ) && FS.copyFileSync( Path.format( Descriptor ), Path.join( target, Descriptor.base ) );
         } );
     }
 
-    accumulate(target: string) {
+    accumulate( target: string ) {
         FS.mkdirSync( target, { recursive: true } );
 
-        FS.readdirSync( target ).forEach( (element) => {
-            (this.debug) && console.debug( "\n" + "[Debug] Element Attribute(s)" + ":", element, "\n" );
+        FS.readdirSync( target ).forEach( ( element ) => {
+            ( this.debug ) && console.debug( "\n" + "[Debug] Element Attribute(s)" + ":", element, "\n" );
 
             const Directory = FS.lstatSync( Path.join( target, element ), { throwIfNoEntry: true } ).isDirectory();
             const Socket = FS.lstatSync( Path.join( target, element ), { throwIfNoEntry: true } ).isSocket();
             const File = FS.lstatSync( Path.join( target, element ), { throwIfNoEntry: true } ).isFile();
 
             const Partials = Path.parse( target );
-            (this.debug) && console.debug( "[Debug] Target Partials" + ":", Partials, "\n" );
+            ( this.debug ) && console.debug( "[Debug] Target Partials" + ":", Partials, "\n" );
 
             const Name = Partials.dir.split( "/" ).pop();
-            (this.debug) && console.debug( "[Debug] Target Name" + ":", Name );
+            ( this.debug ) && console.debug( "[Debug] Target Name" + ":", Name );
 
             if ( !Directory && !Socket && !this.ignore.includes( element ) ) {
                 try {
@@ -182,7 +242,7 @@ class Walker {
                 }
             } else {
                 if ( !Socket && Directory && !this.ignore.includes( element ) ) {
-                    this.accumulate( Path.join( target, element ));
+                    this.accumulate( Path.join( target, element ) );
                 }
             }
         } );

@@ -1,3 +1,4 @@
+import Subprocess from "child_process";
 import OS from "os";
 import FS from "fs";
 import Path from "path";
@@ -8,6 +9,7 @@ import Cryptography from "crypto";
 import { Construct } from "constructs";
 import { App, TerraformStack, TerraformOutput, TerraformOutputConfig } from "cdktf";
 import { Container, ContainerUpload, Image, DockerProvider } from "@cdktf/provider-docker";
+import Distribution from "./utility/distribution";
 
 import { Walker } from "./utility/index.js";
 
@@ -25,10 +27,10 @@ interface Data {
 
     compilation: String | FS.PathOrFileDescriptor;
     package: String | FS.PathOrFileDescriptor;
-    source: String | FS.PathOrFileDescriptor;
+    build: String | FS.PathOrFileDescriptor;
     target: String | FS.PathOrFileDescriptor;
 
-    walker: Walker;
+    walker?: Walker | null;
 }
 
 class Stack extends TerraformStack implements Data {
@@ -43,10 +45,10 @@ class Stack extends TerraformStack implements Data {
 
     compilation: String | FS.PathOrFileDescriptor;
     package: String | FS.PathOrFileDescriptor;
-    source: String | FS.PathOrFileDescriptor;
+    build: String | FS.PathOrFileDescriptor;
     target: String | FS.PathOrFileDescriptor;
 
-    walker: Walker;
+    walker?: Walker | null;
 
     static application: string = Path.join( Path.sep, "application" );
 
@@ -66,17 +68,17 @@ class Stack extends TerraformStack implements Data {
         this.cwd = Path.dirname( import.meta.url.replace( "file" + ":" + "//", "" ) );
 
         this.compilation = Path.dirname( String( this.cwd ) );
-        this.package = Path.dirname( String( this.compilation ) );
-        this.source = Path.join( String( this.package ), "front-end", "build" );
-        this.target = Path.join( String( this.package ), "compilation", "front-end" );
+        this.package = String( this.compilation );
+        this.target = Path.join( Path.dirname( String( this.package ) ), "front-end-2" );
+        this.build = Path.join( String( this.package ), "front-end-2", "build" );
 
-        this.walker = this.distribution();
+        this.walker = this.distribution() || null;
         this.uploads = this.files();
 
         this.container = new Container( this, "node-react-container", {
             image: this.image.latest,
             name: "node-react-container",
-            logDriver: (OS.platform() !== "darwin") ? "awslogs" : "json-file",
+            logDriver: (OS.platform() !== "darwin") ? "awslogs" : "local",
             logOpts: (OS.platform() !== "darwin") ? {
                 "awslogs-region": "us-east-2",
                 "awslogs-create-group": "true",
@@ -96,12 +98,26 @@ class Stack extends TerraformStack implements Data {
         } );
     }
 
+    /*** Do not pass user-input into shell-related commands */
+    compile() {
+        Process.chdir( String( this.target ) );
+
+        const $ = [
+            Subprocess.spawnSync( "npm install --quiet --no-funding", { stdio: "inherit", shell: true } ),
+            Subprocess.spawnSync( "npm run build", { stdio: "inherit", shell: true } )
+        ];
+
+        return $;
+    }
+
     distribution() {
-        Process.chdir( Path.dirname( String( this.source ) ) );
+        this.compile();
+
+        Process.chdir( Path.dirname( String( this.target ) ) );
 
         const descriptor = new Walker( String( this.target ), [], false );
 
-        descriptor.copy( String( this.source ), String( this.target ) );
+        descriptor.copy( String( this.build ), String( this.target ) );
 
         Process.chdir( String( this.pwd ) );
 
@@ -121,6 +137,7 @@ class Stack extends TerraformStack implements Data {
      */
 
     files() {
+        // @ts-ignore
         const uploads: ContainerUpload[] = this.walker.compilations.map( ($) => {
             const hash = Cryptography.createHash( "sha1" );
             const relative = Path.join( String( this.target ) );
@@ -146,15 +163,19 @@ class Stack extends TerraformStack implements Data {
     }
 }
 
-const Application = new App( {
-    skipValidation: false,
-    stackTraces: true
-} );
+console.log(await Walker.directory("./test-directory"));
 
-const Instance = new Stack( Application, "Node-React-Container-Instance" );
+//const Application = new App( {
+//    skipValidation: false,
+//    stackTraces: true
+//} );
+//
+//const Instance = new Stack( Application, "Node-React-Container-Instance" );
+//
+//Application.synth();
+//
+//export { TF, Application, Stack, Instance };
+//
+//export default Instance;
 
-Application.synth();
-
-export { TF, Application, Stack, Instance };
-
-export default Instance;
+export default {};

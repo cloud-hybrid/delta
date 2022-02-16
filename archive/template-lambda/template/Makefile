@@ -1,14 +1,19 @@
-SHELL          	:= $(shell command -v bash)
+#!/usr/bin/env make
 
 UNAME 			= $(shell uname)
 
+SHELL          	:= $(shell command -v bash)
+CWD 			:= $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 Directory 		= $(shell git rev-parse --show-toplevel)
 
+Remote   		= $(shell git remote | xargs echo)
 Branch 	  		= $(shell git rev-parse --abbrev-ref HEAD)
-Branches  		= $(shell git for-each-ref --format='%(refname:short)' refs/heads/ | xargs echo)
-Remotes   		= $(shell git remote | xargs echo )
+Branches  		= $(shell git for-each-ref --format="%(refname:short)" refs/heads/ | xargs printf)
 
-Dirty 			= $(shell git diff --shortstat 2> /dev/null | tail -n1 )
+Remotes   		= $(shell git remote -v | xargs echo)
+
+Dirty 			= $(shell git diff --shortstat 2>/dev/null | tail -n1)
 
 Version  		= $(shell [ -f VERSION ] && head VERSION || echo "0.0.0")
 
@@ -28,17 +33,19 @@ Patch-Build-Upgrade 	= $(Major).$(Minor).$(shell expr $(Patch) + 1)-Build-$(Buil
 
 Node = $(shell command -v node)
 
-Install = install --production --no-audit --no-fund
+Install = install --no-audit --no-fund
 
 Wipe = rm -r -f node_modules
 
-Packages = example-1 administration get-secret list-secrets
-Folders = $(foreach _, $(Packages), $(Directory)/packages/template-lambda/template/packages/$_)
+Packages = $(sort $(dir $(wildcard ./packages/*/)))
+Folders = $(foreach _, $(Packages), $_)
 
-clean:
-	$(foreach Target, $(Folders), ( cd $(Target) && $(Wipe) || sudo $(Wipe) || true ) ; )
+.PHONY: informational
 
-install: clean
+#remove:
+#	$(foreach Target, $(Folders), ( cd $(Target) && $(Wipe) || true ) ; )
+
+install:
 	$(foreach Target, $(Folders), ( cd $(Target) && npm $(Install) ) ; )
 
 build: install
@@ -56,3 +63,38 @@ delete:
 overwrite:
 	@sam package --config-file configuration.toml
 	@sam deploy --config-file configuration.toml
+
+informational:
+	@echo "UNAME    := $(UNAME)"
+	@echo "SHELL    := $(SHELL)"
+	@echo "CWD      := $(CWD)"
+	@echo ""
+	@echo "Directory := $(Directory)"
+	@echo ""
+	@echo "Remote 		:= $(Remote)"
+	@echo "Branch 		:= $(Branch)"
+	@echo "Branches 	:= $(Branches)"
+	@echo ""
+	@echo "Remotes := $(Remotes)"
+	@echo ""
+	@echo "Dirty := $(Dirty)"
+	@echo ""
+	@echo "Version := $(Version)"
+	@echo ""
+	@echo "Build := $(Build)"
+	@echo ""
+	@echo "Major := $(Major)"
+	@echo "Minor := $(Minor)"
+	@echo "Patch := $(Patch)"
+	@echo ""
+	@echo "Major-Upgrade := $(Major-Upgrade)"
+	@echo "Minor-Upgrade := $(Minor-Upgrade)"
+	@echo "Patch-Upgrade := $(Patch-Upgrade)"
+	@echo ""
+	@echo "Major-Build-Upgrade := $(Major-Build-Upgrade)"
+	@echo "Minor-Build-Upgrade := $(Minor-Build-Upgrade)"
+	@echo "Patch-Build-Upgrade := $(Patch-Build-Upgrade)"
+	@echo ""
+	@echo "Node := $(Node)"
+	@echo ""
+	@echo "Deployment-Packages := $(sort $(dir $(wildcard ./packages/*/)))"

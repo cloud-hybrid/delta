@@ -15,7 +15,6 @@ class Distributable {
     target: string | FS.PathLike;
 
     /***
-     *
      * @param {string[]} undesired - Target-level directories to avoid copying into distribution
      *
      * @param target {string} - Target Directory for Distribution
@@ -58,7 +57,7 @@ class Distributable {
 
     /***
      * Recursive Copy Function
-     * -----------------------
+     *
      * *Note* - the following function is recursive, and will perform *actual, real copies*; symbolic
      * links are resolved to their raw pointer location(s).
      *
@@ -105,8 +104,6 @@ class Distributable {
     }
 
     /***
-     * Shallow Copy
-     * ------------
      * Shallow Copy
      *
      * @param source {string}

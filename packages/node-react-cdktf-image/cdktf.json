@@ -1,6 +1,6 @@
 {
     "language": "typescript",
-    "app": "npx --ignore-existing --quiet ts-node@latest compilation/src/index.js",
+    "app": "node --experimental-vm-modules --es-module-specifier-resolution node .",
     "terraformProviders": [
         "kreuzwerker/docker@~>2"
     ],

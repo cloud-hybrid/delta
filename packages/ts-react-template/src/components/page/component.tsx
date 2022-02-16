@@ -23,7 +23,9 @@ Component.propTypes = {
 };
 
 Component.defaultProps = {
+    /*** Page Title */
     name: null,
+    /*** Children JSX Components */
     children: null
 };
 
