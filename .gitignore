@@ -132,3 +132,5 @@ tsconfig.tsbuildinfo
 *.tfstate.*
 
 .swc
+**/wal/**
+*.wal
