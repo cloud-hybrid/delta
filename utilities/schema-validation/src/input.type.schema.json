@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "#/definitions/Input",
+    "definitions": {
+        "Input": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "Comment": {
+                    "type": "string"
+                },
+                "Title": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Source": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "References": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 1,
+                            "maxItems": 1
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "Definitions": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            },
+                            "minItems": 1,
+                            "maxItems": 1
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "Documentation": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Deprecated": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 1,
+                            "maxItems": 1
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "Resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "minItems": 1,
+                    "maxItems": 1
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "@capstone-cloud/buncee-security-monitoring",
+    "version": "0.2.17",
+    "type": "module",
+    "private": true,
+    "description": "GitLab CI-CD Pipeline + Terraform Wrapper",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "upgrade": "node src/upgrade.js",
+        "destroy": "node src/destroy.js",
+        "deploy": "npm run start"
+    }
+}

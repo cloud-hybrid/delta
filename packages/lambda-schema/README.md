@@ -11,6 +11,8 @@ Combined with frameworks that support `json-schema +7` validation, applications 
 greater type-hinting, input or data validations, and even IDE integrations that make for a much more
 consistent, friendly, and safe development workflow.
 
+## Example ##
+
 Far greater, however, the potential for automation, auto-code-generative tools can begin to take form.
 
 Here's an in-depth example:

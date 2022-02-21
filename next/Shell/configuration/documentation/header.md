@@ -1,1 +1,0 @@
-[`shell`](https://gitlab.mycapstone.com/Pebble-Go/Front-End/Shell.git) - *Terraform*

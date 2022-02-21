@@ -1,0 +1,44 @@
+{
+    "$id": "Configuration",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Schema Definition for Schema-CLI Provider(s)",
+    "required": [
+        "Organization",
+        "Environments"
+    ],
+    "type": "object",
+    "properties": {
+        "Organization": {
+            "title": "Organization",
+            "description": "Business or Provider Name",
+            "type": "string"
+        },
+        "Environments": {
+            "$ref": "#/$defs/Array.unique",
+            "title": "Environments",
+            "description": "Target Environment Common-Name(s)",
+            "examples": [
+                [
+                    "Development",
+                    "QA",
+                    "Staging",
+                    "UAT",
+                    "Production"
+                ]
+            ]
+        }
+    },
+    "$defs": {
+        "format": {
+            "type": "string"
+        },
+        "Array.unique": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

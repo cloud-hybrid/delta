@@ -1,0 +1,5 @@
+version=0.0
+
+[default.build.parameters]
+container_env_var_file = "env.json"
+no_beta_features = false

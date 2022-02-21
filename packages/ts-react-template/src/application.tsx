@@ -8,13 +8,12 @@ import Mobile   from "./pages/mobile-preview";
 
 const Application = () => {
     return (
-
         <Routes>
-        <Route path={ "*" } element={ <Shell/> }>
-            <Route element={ ( <Home/> ) } index/>
-            <Route element={ ( <Settings/> ) } path={ "settings" }/>
-            <Route element={ ( <Mobile/> ) } path={ "mobile-preview" }/>
-        </Route>
+            <Route path={ "*" } element={ <Shell/> }>
+                <Route element={ ( <Home/> ) } index/>
+                <Route element={ ( <Settings/> ) } path={ "settings" }/>
+                <Route element={ ( <Mobile/> ) } path={ "mobile-preview" }/>
+            </Route>
         </Routes>
 
     );

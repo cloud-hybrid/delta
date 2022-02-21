@@ -2,7 +2,7 @@
  * Lambda Function Tracing Configuration
  * ---
  *
- * Whether to to sample and trace a subset of incoming requests with AWS X-Ray.
+ * Whether to sample and trace a subset of incoming requests with AWS X-Ray.
  *
  * Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the
  * request from an upstream service if it contains a tracing header with "`sampled = 1"`.

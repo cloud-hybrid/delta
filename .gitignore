@@ -130,3 +130,5 @@ tsconfig.tsbuildinfo
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
+.swc

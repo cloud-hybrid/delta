@@ -5,12 +5,31 @@
     "description": "...",
     "type": "module",
     "scripts": {
-        "start": "node src/index.js"
+        "start": "node src/index.js",
+        "compile": "tsc --watch",
+        "test-resources": "node --no-warnings --es-module-specifier-resolution node .",
+        "try": "node --no-warnings --loader ts-node/esm -r tsconfig-paths/register --es-module-specifier-resolution node esm-generator.ts"
     },
     "dependencies": {
-        "ajv": "^8.8.2"
+        "ajv": "^8.10.0",
+        "ts-node": "^10.5.0"
     },
     "devDependencies": {
-        "@types/node": "^16.11.11"
+        "@jest/globals": "latest",
+        "@swc/core": "^1.2.143",
+        "@types/bcrypt": "^5.0.0",
+        "@types/jest": "latest",
+        "@types/node": "^16.11.11",
+        "@types/uuid": "^8.3.4",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/experimental-utils": "latest",
+        "@typescript-eslint/parser": "latest",
+        "@typescript-eslint/scope-manager": "latest",
+        "@typescript-eslint/type-utils": "latest",
+        "@typescript-eslint/typescript-estree": "latest",
+        "@typescript-eslint/utils": "latest",
+        "ajv-cli": "^5.0.0",
+        "ts-json-schema-generator": "^0.98.0",
+        "tsconfig-paths": "^3.12.0"
     }
 }

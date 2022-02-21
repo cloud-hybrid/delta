@@ -1,14 +1,12 @@
 import AJV from "ajv";
-
 const Compiler = new AJV({
-    allErrors: false,
-    verbose: false,
-    strict: false,
+    allErrors: true,
+    verbose: true,
+    strict: true,
     allowUnionTypes: true,
     allowMatchingProperties: true,
-    validateFormats: false
+    validateFormats: true
 });
-
 export { Compiler };
-
 export default Compiler;
+//# sourceMappingURL=compiler.js.map

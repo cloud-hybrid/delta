@@ -1,0 +1,45 @@
+.Image: &Terraform-Image "registry.gitlab.com/gitlab-org/terraform-images/stable:latest"
+
+.Warning: &Terraform-Warning
+    - echo "Current Target Environment - ${CI_ENVIRONMENT_NAME}"
+    - echo "Ensure to Configure \"AWS_ACCESS_KEY_ID\" in CI-CD Variable(s)"
+    - echo "Ensure to Configure \"AWS_SECRET_ACCESS_KEY\" in CI-CD Variable(s)"
+
+.Configuration: &Terraform-Configuration
+    - *Terraform-Warning
+    - export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
+    - export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
+    - export TF_ADDRESS="${TF_URI}/${CI_ENVIRONMENT_NAME}"
+
+.Variables: &Terraform-Variables
+    image: *Terraform-Image
+    script:
+        -   |
+            cat << EOF > .tfvars
+            pipeline            = "${ID}"
+            organization        = "${ORG}"
+            environment         = "${ENV}"
+            EOF
+
+.Validation:
+    image: *Terraform-Image
+    script:
+        - *Terraform-Configuration
+        - gitlab-terraform init
+        - gitlab-terraform validate
+        - gitlab-terraform refresh --var-file ".tfvars"
+
+.Plan:
+    image: *Terraform-Image
+    script:
+        - *Terraform-Configuration
+        - gitlab-terraform plan --var-file ".tfvars"
+        - gitlab-terraform plan-json
+
+.Apply:
+    image: *Terraform-Image
+    when: manual
+    script:
+        - *Terraform-Configuration
+        - gitlab-terraform apply
+        - gitlab-terraform output --json | jq -r "." > Output.json

@@ -1,0 +1,1 @@
+ssh-keygen -C "ec2-instance" -P "" -N "" -f "${PWD}/.ci/Instance"

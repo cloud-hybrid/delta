@@ -1,0 +1,23 @@
+{
+    "name": "backend-poc-design",
+    "version": "1.0.0",
+    "description": "",
+    "type": "commonjs",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node -r ./configuration src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cloud-hybrid/backend-poc-design.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cloud-hybrid/backend-poc-design/issues"
+    },
+    "homepage": "https://github.com/cloud-hybrid/backend-poc-design#readme",
+    "dependencies": {
+        "dotenv": "^11.0.0"
+    }
+}

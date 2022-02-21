@@ -15,20 +15,16 @@ type Dispatch<Generic> = ( $: Generic ) => void;
 type Mutation<State> = State | ( ( $: State ) => State );
 
 type Binary = Mutation<boolean>;
-type Nilible = Mutation<object | null>;
 type Intrinsic = Mutation<object | false | null>;
+type Nullable = Mutation<Intrinsic>;
 
 type Loadable = [ Binary, Dispatch<Binary> ];
 type Stateful = [ Intrinsic, Dispatch<Intrinsic> ];
-type Errorable = [ Nilible, Dispatch<Nilible> ];
+type Throwable = [ Nullable, Dispatch<Nullable> ];
 
-interface State {
-    Loadable: Loadable;
-    Stateful: Stateful;
-    Errorable: Errorable;
-}
+const Health = process.env["REACT_APP_API_ENDPOINT"] + "/utility/health";
 
-const URL = process.env[ "REACT_APP_API_ENDPOINT" ] + [ "/utility/awaitable?duration", process.env[ "REACT_APP_SIMULATED_AWAIT_DURATION" ] ].join("=");
+const URL = process.env["REACT_APP_API_ENDPOINT"] + [ "/utility/awaitable?duration", process.env["REACT_APP_SIMULATED_AWAIT_DURATION"] ].join( "=" );
 
 /**
  * Exportable Page Template Component (and Wrapper)
@@ -37,72 +33,88 @@ const URL = process.env[ "REACT_APP_API_ENDPOINT" ] + [ "/utility/awaitable?dura
  * @constructor
  */
 
-export const Page = ( { children }) => {
+export const Page = () => {
     const Location = useLocation();
 
-    const Data: Stateful = useState(false);
-    const Throw: Stateful = useState(null);
-    const Loading: Loadable = useState(true);
+    const Data: Stateful = useState( null );
+    const Throw: Throwable = useState( false );
+    const Loading: Loadable = useState( true );
 
-    useEffect(() => {
-        console.debug("[Debug] (Page-Loading-Wrapper)", "Initializing Page + Data.");
+    const $ = useState( true );
 
+    ( async () => {
+        await fetch( Health ).catch( ( _ ) => {
+            console.warn( "[Warning] (Health-Check)", "Failure Resolving" + " " + Health );
+        } ).then( async ( _ ) => {
+            ( $[0] ) && Loading[1]( true );
+        } ).finally( async () => {
+            $[1]( false );
+        } );
+
+        /// Handler => Initial Application Load
+
+    } )();
+
+    const Awaitable = () => ( Loading[0] ) ? ( <Text input={ "Loading ..." }/> ) : null;
+    const Content = () => ( !Loading[0] && !Throw[0]) ? ( <Outlet/> ) : null;
+    const Trace = () => ( Throw[0] && !Loading[0] ) ? (
+        <Notification type={ "error" } content={ Throw[0]["Message"] } duration={ null } theme={ "dark" }/>
+    ) : null;
+
+    useEffect( () => {
+        console.debug( "[Debug] (Page-Loading-Wrapper)", "Initializing Page + Data." );
         const $ = async () => {
-            Loading[ 1 ](true);
-
             try {
-                const $ = await fetch(URL).then(( $ ) => $.json());
+                const $ = await fetch( URL ).then( async ( $ ) => {
+                    return await $.json();
+                } );
 
-                Data[ 1 ]($);
-                Throw[ 1 ](false);
-            } catch (error) {
+                Data[1]( $ );
+
+                /// ?? Verification ||
+
+                Throw[1]( false );
+            } catch ( error ) {
                 const Expression = /((.*)+(:) + ?(.*))/gm;
 
-                const $ = new Error(error);
+                const $ = new Error( error );
 
-                const Partials = Expression.exec($?.message);
+                const Partials = Expression.exec( $?.message );
 
-                const Message = Partials[ Partials.length - 1 ] || error;
-                const Type = Partials[ Partials.length - 3 ] || error;
+                const Message = Partials[Partials.length - 1] || error;
+                const Type = Partials[Partials.length - 3] || error;
 
-                if (Type === "TypeError") {
-                    Throw[ 1 ]({
+                if ( Type === "TypeError" ) {
+                    Throw[1]( {
                         Type: "API-Error", Message: "API Server Unreachable"
-                    });
+                    } );
                 } else {
-                    Throw[ 1 ]({
+                    Throw[1]( {
                         Type, Message
-                    });
+                    } );
                 }
 
-                console.warn("[Warning] (Page-API-Waiter)", Type === "TypeError" ? "API-Connection-Error" : error);
+                console.warn( "[Warning] (Page-API-Waiter)", Type === "TypeError" ? "API-Connection-Error" : error );
 
-                Data[ 1 ](null);
-            } finally {
-                Loading[ 1 ](false);
+                Data[1]( null );
+            }
+            finally {
+                Loading[1]( false );
             }
         };
 
-        console.debug("[Debug] (Page-Loading-Wrapper)", "Successfully Initialized Callable(s).");
+        console.debug( "[Debug] (Page-Loading-Wrapper)", "Successfully Initialized Callable(s)." );
 
-        $().finally(() => {
-            console.debug("[Debug] (Page-Loading-Wrapper)", "All Wrapper Promise(s) have Settled.");
-        });
-    }, [ Location ]);
+        $().finally( () => {
+            console.debug( "[Debug] (Page-Loading-Wrapper)", "All Wrapper Promise(s) have Settled." );
+        } );
+    }, [ Location ] );
 
-    const Awaitable = () => ( Loading[ 0 ] ) ? ( <Text input={ "Loading ..." }/> ) : null;
-    const Content = () => ( Loading[ 0 ] ) ? null : (<Outlet/>);
-    const Trace = () => ( Throw[ 0 ] && !Loading[ 0 ] ) ? (
-        <Notification type={ "error" } content={ Throw[ 0 ][ "Message" ] } duration={ null } theme={ "dark" }/>
-    ) : null;
-
-    return ( Loading[ 0 ] ) && ( <Awaitable/> ) || ( ( Throw[ 0 ] ) ? ( <Trace/> ) : ( <Content/> ) );
+    return ( Loading[0] ) && ( <Awaitable/> ) || ( ( Throw[0] ) ? ( <Trace/> ) : ( <Content/> ) );
 };
 
 Page.propTypes = {};
 
-Page.defaultProps = {
-    children: null
-};
+Page.defaultProps = {};
 
 export default Page;

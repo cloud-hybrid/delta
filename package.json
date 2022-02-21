@@ -8,12 +8,7 @@
     "version": "0.0.0",
     "repository": "git+https://github.com/cloud-hybrid/delta.git",
     "devDependencies": {
-        "@types/node": "latest",
-        "@typescript-eslint/eslint-plugin": "latest",
-        "chalk": "latest",
-        "eslint": "latest",
-        "lerna": "latest",
-        "yaml": "latest"
+        "lerna": "latest"
     },
     "scripts": {
         "rm-locks": "find . -type f -name \"package-lock.json\" -prune -exec rm -rf '{}' +",
@@ -65,8 +60,5 @@
             "distribution",
             "node_modules"
         ]
-    },
-    "dependencies": {
-        "construct": "^1.0.0"
     }
 }

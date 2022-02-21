@@ -1,0 +1,1 @@
+ssh-keygen -t ed25519 -C "gitlab" -P "" -N "" -f "${PWD}/.ci/ED25519-Git-Key"

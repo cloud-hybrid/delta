@@ -1,4 +1,5 @@
 /** @type {import("ts-jest/dist/types").InitialOptionsTsJest} */
+
 const Jest = {
 
     // All imported modules in your tests should be mocked automatically
